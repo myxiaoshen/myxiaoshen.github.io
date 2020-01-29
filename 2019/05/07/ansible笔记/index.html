@@ -17,7 +17,7 @@
 <meta property="og:description" content="VM测试环境桥接没网kali:检查目录 /etc/network/interfaces检查dns  /etc/resolv.conf12345678# The loopback network interfaceauto loiface lo inet loopback # The primary network interface# 这里通过ifocnfig判断网卡类型选择auto eth0 i">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/16027/201905/16027-20190531171524865-552757814.png">
-<meta property="og:updated_time" content="2019-09-10T01:37:39.039Z">
+<meta property="og:updated_time" content="2020-01-27T03:21:37.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ansible入门笔记">
 <meta name="twitter:description" content="VM测试环境桥接没网kali:检查目录 /etc/network/interfaces检查dns  /etc/resolv.conf12345678# The loopback network interfaceauto loiface lo inet loopback # The primary network interface# 这里通过ifocnfig判断网卡类型选择auto eth0 i">
@@ -185,7 +185,7 @@ var _hmt = _hmt || [];
 <p><img src="https://img2018.cnblogs.com/blog/16027/201905/16027-20190531171524865-552757814.png" alt=""><br>重置网卡</p>
 <h5 id="1-测试环境"><a href="#1-测试环境" class="headerlink" title="1. 测试环境"></a>1. 测试环境</h5><p>ansible: Kali Linux 2.0 192.168.3.10  pip安装的ansible<br>webnode： CentOS 7.5 192.168.3.12</p>
 <p>从ansible管理端上生成ssh私钥<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure></p>
-<p>把公钥同步到webnode主机上实现登录管理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i ~/.ssh/id_rsa  192.168.3.12</span><br></pre></td></tr></table></figure></p>
+<p>把公钥同步到webnode主机上实现登录管理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i ~/.ssh/id_rsa  192.168.3.12或 sudo ssh-copy-id root@192.168.3.12</span><br></pre></td></tr></table></figure></p>
 <p>ansible默认配置目录，目录下的hosts代表主机清单，[]代表组下面跟webnode。目录下没有请mkdir、touch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/ansible</span><br></pre></td></tr></table></figure></p>
 <h5 id="2-常用参数格式"><a href="#2-常用参数格式" class="headerlink" title="2. 常用参数格式"></a>2. 常用参数格式</h5><p>ansible<br>-m MOD_NAME      #模块名   如:ping<br>-a MOD_ARGS      #模块执行的参数<br>-f FORKS         #生成几个子进行程执行<br>-C               #(不执行，模拟跑)<br>-u Username      #某主机的用户名<br>-c  CONNection   #连接方式（default smart）<br>示列:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ansible all -m yum -a &quot;name=ansible state=installed&quot; </span><br><span class="line"></span><br><span class="line">ansible all -m shell -a &quot;ps |grep ansible&quot;</span><br></pre></td></tr></table></figure></p>
 <p>ansible-doc 获取帮助信息</p>
@@ -462,10 +462,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
@@ -474,15 +470,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">

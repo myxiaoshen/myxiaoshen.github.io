@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>sqlmap tamer脚本 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。apostrophemask.py适用数据库：ALL作用：将引号替换为utf-8，用于过滤单引号使用脚本前：tamper(“1 AND ‘1’=’1”)使用脚本后：1 AND %EF%BC%871%EF%BC%87=%EF%BC%871">
+  <meta name="description" content="现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。插件推荐（xwaf）：是一个python写的waf自动绕过工具,上一个版本是bypass_waf,xwaf相比bypass_waf更智能,可无人干预,自动暴破wafhttps://github.com/3xp10it/xwaf https://g">
 <meta name="keywords" content="web技术,工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqlmap tamer脚本">
 <meta property="og:url" content="http://yoursite.com/2018/11/08/sqlmap-tamer脚本/index.html">
 <meta property="og:site_name" content="戏如烟云b16">
-<meta property="og:description" content="现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。apostrophemask.py适用数据库：ALL作用：将引号替换为utf-8，用于过滤单引号使用脚本前：tamper(“1 AND ‘1’=’1”)使用脚本后：1 AND %EF%BC%871%EF%BC%87=%EF%BC%871">
+<meta property="og:description" content="现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。插件推荐（xwaf）：是一个python写的waf自动绕过工具,上一个版本是bypass_waf,xwaf相比bypass_waf更智能,可无人干预,自动暴破wafhttps://github.com/3xp10it/xwaf https://g">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-01-18T14:16:18.763Z">
+<meta property="og:updated_time" content="2020-01-29T04:23:55.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlmap tamer脚本">
-<meta name="twitter:description" content="现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。apostrophemask.py适用数据库：ALL作用：将引号替换为utf-8，用于过滤单引号使用脚本前：tamper(“1 AND ‘1’=’1”)使用脚本后：1 AND %EF%BC%871%EF%BC%87=%EF%BC%871">
+<meta name="twitter:description" content="现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。插件推荐（xwaf）：是一个python写的waf自动绕过工具,上一个版本是bypass_waf,xwaf相比bypass_waf更智能,可无人干预,自动暴破wafhttps://github.com/3xp10it/xwaf https://g">
   
     <link rel="alternative" href="/atom.xml" title="戏如烟云b16" type="application/atom+xml">
   
@@ -175,7 +175,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。"><a href="#现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。" class="headerlink" title="现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。"></a>现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。</h5><p>apostrophemask.py<br>适用数据库：ALL<br>作用：将引号替换为utf-8，用于过滤单引号<br>使用脚本前：tamper(“1 AND ‘1’=’1”)<br>使用脚本后：1 AND %EF%BC%871%EF%BC%87=%EF%BC%871<br> <a id="more"></a><br>base64encode.py<br>适用数据库：ALL<br>作用：替换为base64编码<br>使用脚本前：tamper(“1’ AND SLEEP(5)#”)<br>使用脚本后：MScgQU5EIFNMRUVQKDUpIw==</p>
+        <h5 id="现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。"><a href="#现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。" class="headerlink" title="现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。"></a>现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。</h5><h5 id="插件推荐（xwaf）：是一个python写的waf自动绕过工具-上一个版本是bypass-waf-xwaf相比bypass-waf更智能-可无人干预-自动暴破waf"><a href="#插件推荐（xwaf）：是一个python写的waf自动绕过工具-上一个版本是bypass-waf-xwaf相比bypass-waf更智能-可无人干预-自动暴破waf" class="headerlink" title="插件推荐（xwaf）：是一个python写的waf自动绕过工具,上一个版本是bypass_waf,xwaf相比bypass_waf更智能,可无人干预,自动暴破waf"></a>插件推荐（xwaf）：是一个python写的waf自动绕过工具,上一个版本是bypass_waf,xwaf相比bypass_waf更智能,可无人干预,自动暴破waf</h5><p><a href="https://github.com/3xp10it/xwaf" target="_blank" rel="noopener">https://github.com/3xp10it/xwaf</a></p>
+<p><a href="https://github.com/Ekultek/WhatWaf" target="_blank" rel="noopener">https://github.com/Ekultek/WhatWaf</a></p>
+<p>apostrophemask.py<br>适用数据库：ALL<br>作用：将引号替换为utf-8，用于过滤单引号<br>使用脚本前：tamper(“1 AND ‘1’=’1”)<br>使用脚本后：1 AND %EF%BC%871%EF%BC%87=%EF%BC%871<br> <a id="more"></a><br>base64encode.py<br>适用数据库：ALL<br>作用：替换为base64编码<br>使用脚本前：tamper(“1’ AND SLEEP(5)#”)<br>使用脚本后：MScgQU5EIFNMRUVQKDUpIw==</p>
 <p>multiplespaces.py<br>适用数据库：ALL<br>作用：围绕sql关键字添加多个空格<br>使用脚本前：tamper(‘1 UNION SELECT foobar’)<br>使用脚本后：1 UNION SELECT foobar</p>
 <p>space2plus.py<br>适用数据库：ALL<br>作用：用加号替换空格<br>使用脚本前：tamper(‘SELECT id FROM users’)<br>使用脚本后：SELECT+id+FROM+users</p>
 <p>nonrecursivereplacement.py<br>适用数据库：ALL<br>作用：作为双重查询语句，用双重语句替代预定义的sql关键字（适用于非常弱的自定义过滤器，例如将select替换为空）<br>使用脚本前：tamper(‘1 UNION SELECT 2–’)<br>使用脚本后：1 UNIOUNIONN SELESELECTCT 2–</p>
@@ -332,7 +334,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。"><span class="toc-number">1.</span> <span class="toc-text">现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。"><span class="toc-number">1.</span> <span class="toc-text">现在实用的脚本都是自己编写的尝试去网上搜wafbypass，绕waf学习大佬经验充实自己的规则库，慢慢积累让自己更强，以下对sqlmap常用脚本进行介绍。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#插件推荐（xwaf）：是一个python写的waf自动绕过工具-上一个版本是bypass-waf-xwaf相比bypass-waf更智能-可无人干预-自动暴破waf"><span class="toc-number">2.</span> <span class="toc-text">插件推荐（xwaf）：是一个python写的waf自动绕过工具,上一个版本是bypass_waf,xwaf相比bypass_waf更智能,可无人干预,自动暴破waf</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -465,10 +467,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
@@ -477,15 +475,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
