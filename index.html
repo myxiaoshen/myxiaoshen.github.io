@@ -417,6 +417,16 @@ var _hmt = _hmt || [];
 <li>双物理机安装，2头使用lan口链接，ikuai做主路由lede二级路由</li>
 </ol>
 <h4 id="局域网的搭建"><a href="#局域网的搭建" class="headerlink" title="局域网的搭建"></a>局域网的搭建</h4><p>路由器+交换机的配置路由器提供内网和外网的链接和VLAN（虚拟局域网）的划分，以及各种防火墙和路由功能的配置。而交换机一头连到路由器上，作为一个子网，另一头链接子网中的各台终端。划分几个子网，则从路由连出几台交换机即可。笔者构了一个导图大致布局如下：<br><img src="https://i.niupic.com/images/2019/09/16/_252.png" alt=""></p>
+<h4 id="常用dos命令"><a href="#常用dos命令" class="headerlink" title="常用dos命令"></a>常用dos命令</h4><pre><code>nslookup  （查询服务器的dns响应）
+tracert  （检查路由情况一般10个以内为正常，10-15为较慢，30以上算作无法访问）
+netstat -anoq | findstr pid（配合任务管理器分析本地软件流量动向带管道符可以筛选）
+takeown /f 文件夹名称 /r （打开权限）
+msconfig（查看系统配置）
+systeminfo （查看系统信息）
+netsh winsock reset （重置网卡）
+sfc/scannow （修复系统）
+taskkill /F /IM PID /T (强制关闭进程树)
+</code></pre>
         
           <a class="article-more-a" href="/2019/09/10/网管笔记/#more">阅读全文 >></a>
         
@@ -1012,7 +1022,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1020,7 +1030,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1036,11 +1046,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1049,10 +1063,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">

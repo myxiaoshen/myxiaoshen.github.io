@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181028004554212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE5NzUzNjM=,size_27,color_FFFFFF,t_70">
 <meta property="og:image" content="https://github.com/huoji120/Antivirus_R3_bypass_demo/raw/master/images/0day%E6%B5%8B%E8%AF%95-%E7%81%AB%E7%BB%92.gif">
 <meta property="og:image" content="https://i.niupic.com/images/2020/01/09/6gm0.jpg">
-<meta property="og:updated_time" content="2020-02-07T13:10:25.249Z">
+<meta property="og:updated_time" content="2020-02-20T04:57:54.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="渗透技巧汇总笔记">
 <meta name="twitter:description" content="前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，">
@@ -200,10 +200,16 @@ var _hmt = _hmt || [];
 <h5 id="免杀远控整理（来自Tide团队"><a href="#免杀远控整理（来自Tide团队" class="headerlink" title="免杀远控整理（来自Tide团队)"></a>免杀远控整理（来自Tide团队)</h5><p><img src="https://i.niupic.com/images/2020/01/09/6gm0.jpg" alt=""><br>项目地址:<a href="https://github.com/QChiLan/BypassAntiVirus" target="_blank" rel="noopener">https://github.com/QChiLan/BypassAntiVirus</a></p>
 <h5 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h5><p>Exploit批量扫描：Windows-Exploit-Suggester<br>漏洞模块：<a href="https://github.com/SecWiki/windows-kernel-exploits" target="_blank" rel="noopener">https://github.com/SecWiki/windows-kernel-exploits</a><br>BITS免杀提权：<a href="https://github.com/ohpe/juicy-potato" target="_blank" rel="noopener">https://github.com/ohpe/juicy-potato</a></p>
 <h5 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h5><p>搜寻配置文件中的明文密码、sudo滥用<br>Exploit批量扫描：linux-exploit-suggester、linux-exploit-suggester-2<br>漏洞模块：<a href="https://github.com/SecWiki/linux-kernel-exploits" target="_blank" rel="noopener">https://github.com/SecWiki/linux-kernel-exploits</a></p>
-<h4 id="日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"><a href="#日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）" class="headerlink" title="日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"></a>日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）</h4><p>windows（这里我们介绍一个工具 clearlog.exe）<br>遇见不能删除的先停止相关服务：net stop “task scheduler”<br>系统日志推荐使用工具： clearlog.exe</p>
+<h4 id="日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"><a href="#日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）" class="headerlink" title="日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"></a>日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）</h4><p>windows<br>遇见不能删除的先停止相关服务：net stop “task scheduler”<br>系统日志推荐使用工具： clearlog.exe</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">防火墙日志路径：%systemroot%\system32\logfiles\</span><br><span class="line">IIS日志路径：%systemroot%\system32\logfles\</span><br><span class="line">windows系统日志：%systemroot%\system32\config\</span><br><span class="line">Scheduler服务日志：%systemroot%\schedlgu.txt</span><br></pre></td></tr></table></figure>
-<p>linux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">history -c</span><br><span class="line">rm -f -r /var/log/*</span><br><span class="line">rm .bash_history</span><br><span class="line">rm recently_used</span><br></pre></td></tr></table></figure></p>
-<p>网络服务器路径<br>winodws<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apche： C:\Program Files\Apache Software Foundation\Apache2.2\htdocs&quot;</span><br><span class="line">tomact:C\Program Files\tomcat\log</span><br><span class="line">nignx: C\Program Files\nginx-1.14.2\logs\</span><br></pre></td></tr></table></figure></p>
+<p>linux（检索根目录以及上级目录是否存在备份）</p>
+<p>1.清空当前用户历史命令并删除相关文件：<br>history -c </p>
+<p>echo “”&gt; /root/.bash_history</p>
+<p>echo “”&gt; /var/run/utmp</p>
+<p>2.清除部分日志：echo “”&gt; /var/log/secure；全删除如不能删除使用echo依次覆盖：rm -f -r /var/log/*；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/var/log/boot.log：录了系统在引导过程中发生的事件，就是Linux系统开机自检过程显示的信息</span><br><span class="line"></span><br><span class="line">/var/log/lastlog ：记录最后一次用户成功登陆的时间、登陆IP等信息</span><br><span class="line"></span><br><span class="line">/var/log/messages ：记录Linux操作系统常见的系统和服务错误信息</span><br><span class="line"></span><br><span class="line">/var/log/secure ：Linux系统安全日志，记录用户和工作组变坏情况、用户登陆认证情况</span><br><span class="line"></span><br><span class="line">/var/log/btmp ：记录Linux登陆失败的用户、时间以及远程IP地址</span><br><span class="line"></span><br><span class="line">/var/log/syslog：只记录警告信息，常常是系统出问题的信息，使用lastlog查看</span><br><span class="line"></span><br><span class="line">/var/log/wtmp：该日志文件永久记录每个用户登录、注销及系统的启动、停机的事件，使用last命令查看</span><br><span class="line"></span><br><span class="line">/var/log/maillog 与邮件相关的日志信息</span><br><span class="line"></span><br><span class="line">/var/log/cron 与定时任务相关的日志信息</span><br><span class="line"></span><br><span class="line">/var/log/spooler 与UUCP和news设备相关的日志信息</span><br><span class="line"></span><br><span class="line">/var/log/auth.log 系统授权信息，包括用户登录和使用的权限机制等 (debian)</span><br><span class="line"></span><br><span class="line">/var/run/utmp：该日志文件记录有关当前登录的每个用户的信息。如 who、w、users、finger等就需要访问这个文件</span><br></pre></td></tr></table></figure></p>
+<p>3.更新test.txt的时间和test2.txt时间戳相同：touch -r test.txt test2.txt;设定时间戳：touch -t 201605171210.20 test.txt</p>
+<h5 id="web容器路径"><a href="#web容器路径" class="headerlink" title="web容器路径"></a>web容器路径</h5><p>数据库通过查询配置文件定位日志（如mysql的配置文件文件my.inf，tomcat的配置文件tomcat-user.xml）</p>
+<p>winodws<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apche： C:\Program Files\Apache Software Foundation\Apache2.2\htdocs&quot;</span><br><span class="line">tomact:C\Program Files\tomcat\log</span><br><span class="line">nignx: C\Program Files\nginx-1.14.2\logs\</span><br></pre></td></tr></table></figure></p>
 <p>linux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tomcat：/usr/local/tomcat/logs/</span><br><span class="line">apche： /usr/local/apache/logs/access_log</span><br><span class="line">nignx:/var/log/httpd/error_log  rm -f -r /var/log/*</span><br></pre></td></tr></table></figure></p>
 
       
@@ -330,7 +336,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#zero"><span class="toc-number">1.1.</span> <span class="toc-text">zero</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一-时刻关注返回的数据包"><span class="toc-number">1.2.</span> <span class="toc-text">一.时刻关注返回的数据包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二-fuzz的艺术"><span class="toc-number">1.3.</span> <span class="toc-text">二.fuzz的艺术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三-AVbypass"><span class="toc-number">1.4.</span> <span class="toc-text">三.AVbypass</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四-提权与权限维持"><span class="toc-number">1.5.</span> <span class="toc-text">四.提权与权限维持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#老牌工具Cobaltstrike-Profiles"><span class="toc-number">1.6.</span> <span class="toc-text">老牌工具Cobaltstrike+Profiles</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#免杀远控整理（来自Tide团队"><span class="toc-number">1.6.1.</span> <span class="toc-text">免杀远控整理（来自Tide团队)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#windows"><span class="toc-number">1.6.2.</span> <span class="toc-text">windows</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#linux"><span class="toc-number">1.6.3.</span> <span class="toc-text">linux</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"><span class="toc-number">1.7.</span> <span class="toc-text">日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#zero"><span class="toc-number">1.1.</span> <span class="toc-text">zero</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一-时刻关注返回的数据包"><span class="toc-number">1.2.</span> <span class="toc-text">一.时刻关注返回的数据包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二-fuzz的艺术"><span class="toc-number">1.3.</span> <span class="toc-text">二.fuzz的艺术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三-AVbypass"><span class="toc-number">1.4.</span> <span class="toc-text">三.AVbypass</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四-提权与权限维持"><span class="toc-number">1.5.</span> <span class="toc-text">四.提权与权限维持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#老牌工具Cobaltstrike-Profiles"><span class="toc-number">1.6.</span> <span class="toc-text">老牌工具Cobaltstrike+Profiles</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#免杀远控整理（来自Tide团队"><span class="toc-number">1.6.1.</span> <span class="toc-text">免杀远控整理（来自Tide团队)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#windows"><span class="toc-number">1.6.2.</span> <span class="toc-text">windows</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#linux"><span class="toc-number">1.6.3.</span> <span class="toc-text">linux</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"><span class="toc-number">1.7.</span> <span class="toc-text">日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#web容器路径"><span class="toc-number">1.7.1.</span> <span class="toc-text">web容器路径</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -463,7 +469,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,7 +477,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,11 +493,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,10 +510,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
