@@ -33,6 +33,7 @@
 <meta property="og:image" content="https://img-blog.csdn.net/20180112103844461">
 <meta property="og:image" content="https://img.cactifans.com/wp-content/uploads/2012/06/13-1024x701.png">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558862509837&di=507b69c9f737e5336105acbfe08e8310&imgtype=0&src=http%3A%2F%2Fwww.tongda2000.com%2Foa%2FMYOA2015%2Ffree%2Fstyle%2Fimages%2Fslide%2FT-OS%2F2.jpg">
+<meta property="og:image" content="https://www.imf8.cn/zb_users/upload/2019/12/remoteimage2_20191230025242_47382.png">
 <meta property="og:image" content="http://help.yunsuo.com.cn/assets/installPC05.png">
 <meta property="og:image" content="https://www.youdict.com/images/words/snort1.jpg">
 <meta property="og:image" content="https://i.niupic.com/images/2019/10/14/_1381.png">
@@ -40,7 +41,7 @@
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201908/29/015703q2hihauuuhaazazh.jpg">
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201910/10/154905emwv9dx6v9nwvway.jpg">
 <meta property="og:image" content="http://www.downxia.com/uploadfiles/2019/0621/20190621095618672.jpg">
-<meta property="og:updated_time" content="2020-02-09T03:05:05.109Z">
+<meta property="og:updated_time" content="2020-02-22T07:07:34.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="企业的网管笔记">
 <meta name="twitter:description" content="实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基">
@@ -304,17 +305,12 @@ taskkill /F /IM PID /T (强制关闭进程树)
 <p>打印机共享详见：<a href="https://www.cnblogs.com/h2zZhou/p/5494988.html" target="_blank" rel="noopener">https://www.cnblogs.com/h2zZhou/p/5494988.html</a></p>
 <p>8.cacti<br>这是一款使用PHP语言开的发性能与流量检测软件，检测对象可以是Linux、Windows服务器，也可以是路由交换机等网络设备，主要基于SNMP(simple、Network、Management、Protocol，简单网络管理协议)来搜集CPU占用、内存使用、运行进程、网卡流量等数据—–可使用CactiFans V1.0全自动ios文件安装<br><img src="https://img-blog.csdn.net/20180112103844461" alt=""><br><img src="https://img.cactifans.com/wp-content/uploads/2012/06/13-1024x701.png" alt=""></p>
 <p>9.通达oa—OA系统搭建<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1558862509837&amp;di=507b69c9f737e5336105acbfe08e8310&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.tongda2000.com%2Foa%2FMYOA2015%2Ffree%2Fstyle%2Fimages%2Fslide%2FT-OS%2F2.jpg" alt=""><br>破解地址：<a href="https://www.52pojie.cn/thread-793033-1-1.html" target="_blank" rel="noopener">https://www.52pojie.cn/thread-793033-1-1.html</a></p>
-<h4 id="网络安全建设（介绍推荐的）"><a href="#网络安全建设（介绍推荐的）" class="headerlink" title="网络安全建设（介绍推荐的）"></a>网络安全建设（介绍推荐的）</h4><ol>
-<li><p>防火墙 （应用网络层 用于过滤IP和协议类型）</p>
-<p>防火墙产品有部分路由器自带规则，如爱快、360等，也可以单独进行购买如深信服、天融信、绿盟</p>
-</li>
-<li><p>WAF （Web应用 用于过滤web层的注入与恶意请求拦截）</p>
-</li>
-</ol>
+<p>10.AdGuard Home-搭建无广告和跟踪的公共DNS<br>主要还是针对与dns的保护，如果不打算使用VPN的DNS服务器，请确保配置您的网络使用安全的DNS服务，该服务为您提供DNS -over- HTTPS或DNS -over- TLS。连接是加密的，ISP就不会看到请求。根据您使用的是DoH还是DoT, ISP可能仍然能够看到您正在发出的DNS请求，但是内容将被加密且不可读通过AdGuard搭建并进行证书申请加密DNS就可以确保这个问题。一个安全的DNS对于某些企业来说很有必要。<br><img src="https://www.imf8.cn/zb_users/upload/2019/12/remoteimage2_20191230025242_47382.png" alt=""></p>
+<h4 id="网络安全建设（介绍推荐的）"><a href="#网络安全建设（介绍推荐的）" class="headerlink" title="网络安全建设（介绍推荐的）"></a>网络安全建设（介绍推荐的）</h4><p>1.防火墙 （应用网络层 用于过滤IP和协议类型）</p>
+<p>  防火墙产品有部分路由器自带规则，如爱快、360等，也可以单独进行购买如深信服、天融信、绿盟</p>
+<p>2.WAF （Web应用 用于过滤web层的注入与恶意请求拦截）</p>
 <p>云锁(服务器端安装过后，pc端与手机实时查看动态)<br>免费版本和安全狗对比个人感觉云锁强，支持windows/linux服务器跨平台实时、批量、远程安全管理。“业务资产管理 - 风险识别 - 安全防御 - 威胁感知 - 攻击事件回溯”的一体化安全防御体系。<br><img src="http://help.yunsuo.com.cn/assets/installPC05.png" alt=""></p>
-<ol>
-<li>IDS与IPS</li>
-</ol>
+<p>3.IDS与IPS</p>
 <p>windows用：Snort<br><img src="https://www.youdict.com/images/words/snort1.jpg" alt=""><br>Snort的主要优势：<br>可扩展性：Snort可以在任何网络环境中部署。</p>
 <p>灵活性和可用性：Snort可以在各种操作系统上运行，包括Linux，Windows和Mac OS X。</p>
 <p>实时性：Snort可以提供实时网络流量事件信息。</p>
@@ -326,14 +322,12 @@ taskkill /F /IM PID /T (强制关闭进程树)
 <p>多线程：多线程架构允许引擎利用当今系统的多核和多处理器架构（Snort自3.0以后也支持多线程）。</p>
 <p>支持IP信誉：通过在其引擎中加入声誉和签名，Suricata可以标记来自已知不良来源的流量。</p>
 <p>自动协议检测：预处理器自动识别网络流中使用的协议，并应用适当的规则，而不管数字端口如何。自动协议检测还可以防止用户错误和错误，这些错误和错误实际上更常见。</p>
-<ol>
-<li>内网安全管理平台</li>
-</ol>
+<p>4.内网安全管理平台</p>
 <p>semf（系统官网推荐centos7建设）<br>企业内网安全管理平台，包含资产管理，漏洞管理，账号管理，知识库管、安全扫描自动化功能模块，可用于企业内部的安全管理。 本平台旨在帮助安全人员少，业务线繁杂，周期巡检困难，自动化程度低的甲方，更好的实现企业内部的安全管理。可以通过官方API对接热门扫描器如wvs、nussus。<br><img src="https://camo.githubusercontent.com/0c10358cd4d5b3c681fbb1b376c2ba847a627bba/68747470733a2f2f67697465652e636f6d2f75706c6f6164732f696d616765732f323031382f303532372f3131343032315f65663539316361335f313339303337382e706e67" alt=""></p>
 <h4 id="公司杂项"><a href="#公司杂项" class="headerlink" title="公司杂项"></a>公司杂项</h4><p>万兴神剪手<br>因为公司原因有时候一些杂事网管免不了背锅（心中暗自嘀咕），对于一个做视频只有小学生功底的我来说是硬伤，但这款软件就很强大了提供了很多素材与表情包包括场景素材。可谓是初学者的福音，而且网上还有破解包喔还带额外大量材质。<br><img src="https://attach.52pojie.cn/forum/201908/29/015703q2hihauuuhaazazh.jpg" alt=""><br>转自吾爱：</p>
 <p>1.下载神剪手软件+汉化包：链接: <a href="https://pan.baidu.com/s/134j0a6RHZ6xBbj0_a00ylA" target="_blank" rel="noopener">https://pan.baidu.com/s/134j0a6RHZ6xBbj0_a00ylA</a>  提取码: din1（带汉化文件，根据文件夹内提示下载完成后记得汉化，并进行相应基础特效包安装）。</p>
 <p>2.下载增量特效包（来自易pj）：<br>百度网盘：<a href="https://pan.baidu.com/s/1svRn6g5aJaV0PX15L-kx4w" target="_blank" rel="noopener">https://pan.baidu.com/s/1svRn6g5aJaV0PX15L-kx4w</a> 提取码: nf56<br>百度网盘：<a href="https://pan.baidu.com/s/1hBQ1bHBUo45loQiEJxLRfg" target="_blank" rel="noopener">https://pan.baidu.com/s/1hBQ1bHBUo45loQiEJxLRfg</a> 提取码: 8dyc</p>
-<p>15.photoshop 插件</p>
+<p>3.photoshop 插件</p>
 <ol>
 <li>雅点证照大师 证件照片<br><img src="https://attach.52pojie.cn/forum/201910/10/154905emwv9dx6v9nwvway.jpg" alt=""></li>
 <li>DR5 磨皮插件 人物修饰<br><img src="http://www.downxia.com/uploadfiles/2019/0621/20190621095618672.jpg" alt=""></li>
@@ -596,6 +590,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
@@ -608,11 +606,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,7 +614,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
