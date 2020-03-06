@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201908/29/015703q2hihauuuhaazazh.jpg">
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201910/10/154905emwv9dx6v9nwvway.jpg">
 <meta property="og:image" content="http://www.downxia.com/uploadfiles/2019/0621/20190621095618672.jpg">
-<meta property="og:updated_time" content="2020-02-22T07:07:34.166Z">
+<meta property="og:updated_time" content="2020-03-06T13:48:21.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="企业的网管笔记">
 <meta name="twitter:description" content="实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基">
@@ -209,6 +209,9 @@ var _hmt = _hmt || [];
 <li>双物理机安装，2头使用lan口链接，ikuai做主路由lede二级路由</li>
 </ol>
 <h4 id="局域网的搭建"><a href="#局域网的搭建" class="headerlink" title="局域网的搭建"></a>局域网的搭建</h4><p>路由器+交换机的配置路由器提供内网和外网的链接和VLAN（虚拟局域网）的划分，以及各种防火墙和路由功能的配置。而交换机一头连到路由器上，作为一个子网，另一头链接子网中的各台终端。划分几个子网，则从路由连出几台交换机即可。笔者构了一个导图大致布局如下：<br><img src="https://i.niupic.com/images/2019/09/16/_252.png" alt=""></p>
+<h4 id="员工终端管控"><a href="#员工终端管控" class="headerlink" title="员工终端管控"></a>员工终端管控</h4><p>个人不喜欢微软自带的域管理，它虽然可以和微软系统自带的功能进行无缝对接但是现在很多软件都可以替代域控而且管理功能都比域更加的全面比如说：IP-guard<br>（当之无愧的第一老牌），iMonitor（貌似这玩意有最近的pj版），威眼（UI漂亮适合新手上手的界面）。<br>单纯的巡检，病毒，软件，启动项管理推荐使用360企业版，或者火绒企业版。</p>
+<h4 id="业务机器的管理"><a href="#业务机器的管理" class="headerlink" title="业务机器的管理"></a>业务机器的管理</h4><p>以下提供2种方案分别解决了少量业务与大量业务的后期管理。<br>一、集群化管理方案（大量产品业务）：VMware vCenter 或者Kubernetes（后者难度较高没有基础建议用前者）</p>
+<p>二、传统分类网络管理（少量业务或物联网设备管理）：再软路由上绑定arp地址并备注。注：宽带叠加需要对端口进行wan分流和对应的wan口映射才能外部访问。</p>
 <h4 id="常用dos命令"><a href="#常用dos命令" class="headerlink" title="常用dos命令"></a>常用dos命令</h4><pre><code>nslookup  （查询服务器的dns响应）
 tracert  （检查路由情况一般10个以内为正常，10-15为较慢，30以上算作无法访问）
 netstat -anoq | findstr pid（配合任务管理器分析本地软件流量动向带管道符可以筛选）
@@ -257,7 +260,9 @@ taskkill /F /IM PID /T (强制关闭进程树)
 <li>U盘–MLC+3.0</li>
 <li>超5类网线与6类网线</li>
 <li>尼龙扎带+清洁套装</li>
-<li>信号检测仪–K18<h4 id="windows服务器维护"><a href="#windows服务器维护" class="headerlink" title="windows服务器维护"></a>windows服务器维护</h4></li>
+<li>信号检测仪–K18</li>
+</ol>
+<h4 id="windows服务器维护"><a href="#windows服务器维护" class="headerlink" title="windows服务器维护"></a>windows服务器维护</h4><ol>
 <li>iis内存优化处理：每天凌晨4点重启（at 04:00 /every:M,T,W,Th,F,S,Su cmd /c shutdown -r -t 60）</li>
 <li>数据库本地备份与云备份：    IPerrius Backup（包含了ftp，定时备份等实用功能，满足日常备份需求）</li>
 </ol>
@@ -457,7 +462,7 @@ taskkill /F /IM PID /T (强制关闭进程树)
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#路由器的软拓展（主路由分发dhcp）"><span class="toc-number">1.</span> <span class="toc-text">路由器的软拓展（主路由分发dhcp）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#局域网的搭建"><span class="toc-number">2.</span> <span class="toc-text">局域网的搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常用dos命令"><span class="toc-number">3.</span> <span class="toc-text">常用dos命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电脑重装与维护"><span class="toc-number">4.</span> <span class="toc-text">电脑重装与维护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引导修复与活动分区激活"><span class="toc-number">5.</span> <span class="toc-text">引导修复与活动分区激活</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优化系统"><span class="toc-number">6.</span> <span class="toc-text">优化系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#驱动管理与常用硬件工具"><span class="toc-number">7.</span> <span class="toc-text">驱动管理与常用硬件工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#windows服务器维护"><span class="toc-number">8.</span> <span class="toc-text">windows服务器维护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电脑硬件维修方法"><span class="toc-number">9.</span> <span class="toc-text">电脑硬件维修方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#暴风激活"><span class="toc-number">10.</span> <span class="toc-text">暴风激活</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#外置usb音响设备设置"><span class="toc-number">11.</span> <span class="toc-text">外置usb音响设备设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网刻批量重装系统GHO"><span class="toc-number">12.</span> <span class="toc-text">网刻批量重装系统GHO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#企业vpn建设-虚拟网卡支持"><span class="toc-number">13.</span> <span class="toc-text">企业vpn建设(虚拟网卡支持)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双机热备"><span class="toc-number">14.</span> <span class="toc-text">双机热备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#局域网故障"><span class="toc-number">15.</span> <span class="toc-text">局域网故障</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#资源站搭建"><span class="toc-number">16.</span> <span class="toc-text">资源站搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#U盘与内存卡修复"><span class="toc-number">17.</span> <span class="toc-text">U盘与内存卡修复</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络层与应用层的拓展"><span class="toc-number">18.</span> <span class="toc-text">网络层与应用层的拓展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络安全建设（介绍推荐的）"><span class="toc-number">19.</span> <span class="toc-text">网络安全建设（介绍推荐的）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#公司杂项"><span class="toc-number">20.</span> <span class="toc-text">公司杂项</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#路由器的软拓展（主路由分发dhcp）"><span class="toc-number">1.</span> <span class="toc-text">路由器的软拓展（主路由分发dhcp）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#局域网的搭建"><span class="toc-number">2.</span> <span class="toc-text">局域网的搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#员工终端管控"><span class="toc-number">3.</span> <span class="toc-text">员工终端管控</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#业务机器的管理"><span class="toc-number">4.</span> <span class="toc-text">业务机器的管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常用dos命令"><span class="toc-number">5.</span> <span class="toc-text">常用dos命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电脑重装与维护"><span class="toc-number">6.</span> <span class="toc-text">电脑重装与维护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引导修复与活动分区激活"><span class="toc-number">7.</span> <span class="toc-text">引导修复与活动分区激活</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优化系统"><span class="toc-number">8.</span> <span class="toc-text">优化系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#驱动管理与常用硬件工具"><span class="toc-number">9.</span> <span class="toc-text">驱动管理与常用硬件工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#windows服务器维护"><span class="toc-number">10.</span> <span class="toc-text">windows服务器维护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电脑硬件维修方法"><span class="toc-number">11.</span> <span class="toc-text">电脑硬件维修方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#暴风激活"><span class="toc-number">12.</span> <span class="toc-text">暴风激活</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#外置usb音响设备设置"><span class="toc-number">13.</span> <span class="toc-text">外置usb音响设备设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网刻批量重装系统GHO"><span class="toc-number">14.</span> <span class="toc-text">网刻批量重装系统GHO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#企业vpn建设-虚拟网卡支持"><span class="toc-number">15.</span> <span class="toc-text">企业vpn建设(虚拟网卡支持)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双机热备"><span class="toc-number">16.</span> <span class="toc-text">双机热备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#局域网故障"><span class="toc-number">17.</span> <span class="toc-text">局域网故障</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#资源站搭建"><span class="toc-number">18.</span> <span class="toc-text">资源站搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#U盘与内存卡修复"><span class="toc-number">19.</span> <span class="toc-text">U盘与内存卡修复</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络层与应用层的拓展"><span class="toc-number">20.</span> <span class="toc-text">网络层与应用层的拓展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络安全建设（介绍推荐的）"><span class="toc-number">21.</span> <span class="toc-text">网络安全建设（介绍推荐的）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#公司杂项"><span class="toc-number">22.</span> <span class="toc-text">公司杂项</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -606,19 +611,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">

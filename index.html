@@ -483,6 +483,9 @@ var _hmt = _hmt || [];
 <li>双物理机安装，2头使用lan口链接，ikuai做主路由lede二级路由</li>
 </ol>
 <h4 id="局域网的搭建"><a href="#局域网的搭建" class="headerlink" title="局域网的搭建"></a>局域网的搭建</h4><p>路由器+交换机的配置路由器提供内网和外网的链接和VLAN（虚拟局域网）的划分，以及各种防火墙和路由功能的配置。而交换机一头连到路由器上，作为一个子网，另一头链接子网中的各台终端。划分几个子网，则从路由连出几台交换机即可。笔者构了一个导图大致布局如下：<br><img src="https://i.niupic.com/images/2019/09/16/_252.png" alt=""></p>
+<h4 id="员工终端管控"><a href="#员工终端管控" class="headerlink" title="员工终端管控"></a>员工终端管控</h4><p>个人不喜欢微软自带的域管理，它虽然可以和微软系统自带的功能进行无缝对接但是现在很多软件都可以替代域控而且管理功能都比域更加的全面比如说：IP-guard<br>（当之无愧的第一老牌），iMonitor（貌似这玩意有最近的pj版），威眼（UI漂亮适合新手上手的界面）。<br>单纯的巡检，病毒，软件，启动项管理推荐使用360企业版，或者火绒企业版。</p>
+<h4 id="业务机器的管理"><a href="#业务机器的管理" class="headerlink" title="业务机器的管理"></a>业务机器的管理</h4><p>以下提供2种方案分别解决了少量业务与大量业务的后期管理。<br>一、集群化管理方案（大量产品业务）：VMware vCenter 或者Kubernetes（后者难度较高没有基础建议用前者）</p>
+<p>二、传统分类网络管理（少量业务或物联网设备管理）：再软路由上绑定arp地址并备注。注：宽带叠加需要对端口进行wan分流和对应的wan口映射才能外部访问。</p>
 <h4 id="常用dos命令"><a href="#常用dos命令" class="headerlink" title="常用dos命令"></a>常用dos命令</h4><pre><code>nslookup  （查询服务器的dns响应）
 tracert  （检查路由情况一般10个以内为正常，10-15为较慢，30以上算作无法访问）
 netstat -anoq | findstr pid（配合任务管理器分析本地软件流量动向带管道符可以筛选）
@@ -1038,19 +1041,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
