@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/11/08/网络抓包工具-wireshark-入门教程/5.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/08/网络抓包工具-wireshark-入门教程/3.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/08/网络抓包工具-wireshark-入门教程/4.png">
-<meta property="og:updated_time" content="2019-01-24T09:18:45.567Z">
+<meta property="og:updated_time" content="2020-03-12T07:50:04.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络抓包工具 wireshark  ">
 <meta name="twitter:description" content="Wireshark 窗口介绍WireShark 主要分为这几个界面  Display Filter(显示过滤器)，  用于过滤">
@@ -194,7 +194,8 @@ var _hmt = _hmt || [];
 <p><img src="https://img-blog.csdn.net/20140822202956027?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3Vpd2VpdGp1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
 <p>过滤器有两种:</p>
 <p>  一种是显示过滤器，就是主界面上那个，用来在捕获的记录中找到所需要的记录</p>
-<p>  一种是捕获过滤器，用来过滤捕获的封包，以免捕获太多的记录。 在Capture -&gt; Capture Filters 中设置<br>  <img src="/2018/11/08/网络抓包工具-wireshark-入门教程/2.png" alt=""><br>  <img src="/2018/11/08/网络抓包工具-wireshark-入门教程/5.png" alt=""> 这些是常用的选项可以快速的建立筛选条件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">1. 协议过滤</span><br><span class="line"></span><br><span class="line">比如TCP，只显示TCP协议。</span><br><span class="line"></span><br><span class="line">2. IP 过滤</span><br><span class="line"></span><br><span class="line">比如 ip.src ==192.168.1.102 显示源地址为192.168.1.102，</span><br><span class="line"></span><br><span class="line">ip.dst==192.168.1.102, 目标地址为192.168.1.102</span><br><span class="line"></span><br><span class="line">3. 端口过滤</span><br><span class="line"></span><br><span class="line">tcp.port ==80,  端口为80的</span><br><span class="line"></span><br><span class="line">tcp.srcport == 80,  只显示TCP协议的愿端口为80的。</span><br><span class="line"></span><br><span class="line">4. Http模式过滤</span><br><span class="line"></span><br><span class="line">http.request.method==&quot;GET&quot;,   只显示HTTP GET方法的。</span><br><span class="line"></span><br><span class="line">5. 逻辑运算符为 AND/ OR</span><br><span class="line"></span><br><span class="line">常用的过滤表达式</span><br></pre></td></tr></table></figure></p>
+<p>  一种是捕获过滤器，用来过滤捕获的封包，以免捕获太多的记录。 在Capture -&gt; Capture Filters 中设置<br>  <img src="/2018/11/08/网络抓包工具-wireshark-入门教程/2.png" alt=""><br>  <img src="/2018/11/08/网络抓包工具-wireshark-入门教程/5.png" alt=""> 这些是常用的选项可以快速的建立筛选条件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">1. 协议过滤</span><br><span class="line"></span><br><span class="line">比如TCP，只显示TCP协议。</span><br><span class="line"></span><br><span class="line">2. IP 过滤</span><br><span class="line"></span><br><span class="line">比如 ip.src ==192.168.1.102 显示源地址为192.168.1.102，</span><br><span class="line"></span><br><span class="line">ip.dst==192.168.1.102, 目标地址为192.168.1.102</span><br><span class="line"></span><br><span class="line">3. 端口过滤</span><br><span class="line"></span><br><span class="line">tcp.port ==80,  端口为80的</span><br><span class="line"></span><br><span class="line">tcp.srcport == 80,  只显示TCP协议的愿端口为80的。</span><br><span class="line"></span><br><span class="line">4. Http模式过滤</span><br><span class="line"></span><br><span class="line">http.request.method==&quot;GET&quot;,   只显示HTTP GET方法的。</span><br><span class="line"></span><br><span class="line">http.request 	(显示所有HTTP请求数据包)</span><br><span class="line"></span><br><span class="line">http.response  (显示所有HTTP响应数据包))</span><br><span class="line"></span><br><span class="line">5. 逻辑运算符为 AND/ OR</span><br><span class="line"></span><br><span class="line">常用的过滤表达式</span><br></pre></td></tr></table></figure></p>
+<p>http请求方法;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.OPTION：HTTP客户端可使用该方法让web服务器告知其所支持的功能</span><br><span class="line">2.GET：HTTP客户端可使用该方法请求web服务器发送某个资源</span><br><span class="line">3.HEAD：与GET方法类似。HTTP客户端可在不获取实际资源的情况下，让web服务器发送资源的概况信息</span><br><span class="line">4.POST：HTTP客户端可利用该方法向web服务器传送数据</span><br><span class="line">5.DELETE：借助于该方法，HTTP客户端可请求web服务器删除由URL指定的资源</span><br><span class="line">6.PUT：HTTP客户端利用该方法向web服务器写入数据。一般要通过用户名和密码认证</span><br><span class="line">7.TRACE：当HTTP客户端发起HTTP请求时，HTTP请求报文可能会穿越防火墙。代理服务器或网关等设备，这些设备</span><br><span class="line">	可能会修改原始的HTTP请求数据包中的内容，借助TRACE方法，HTTP客户端就能让web服务器弹回一条</span><br><span class="line">	TRACE响应报文，其中会携带后者实际收到的HTTP请求报文。HTTP客户端可借此了解原始HTTP请求报文是否被损坏或修改过</span><br><span class="line">8.CONNECT：用来连接代理设备</span><br></pre></td></tr></table></figure></p>
 <h3 id="封包列表-Packet-List-Pane"><a href="#封包列表-Packet-List-Pane" class="headerlink" title="封包列表(Packet List Pane)"></a>封包列表(Packet List Pane)</h3><p>封包列表的面板中显示，编号，时间戳，源地址，目标地址，协议，长度，以及封包信息。 你可以看到不同的协议用了不同的颜色显示。<br><img src="/2018/11/08/网络抓包工具-wireshark-入门教程/3.png" alt=""></p>
 <h3 id="对应的OSI七层模型与封包详细信息"><a href="#对应的OSI七层模型与封包详细信息" class="headerlink" title="对应的OSI七层模型与封包详细信息"></a>对应的OSI七层模型与封包详细信息</h3><p><img src="/2018/11/08/网络抓包工具-wireshark-入门教程/4.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">这个面板是我们最重要的，用来查看协议中的每一个字段。</span><br><span class="line"></span><br><span class="line">各行信息分别为</span><br><span class="line"></span><br><span class="line">Frame:   物理层的数据帧概况</span><br><span class="line"></span><br><span class="line">Ethernet II: 数据链路层以太网帧头部信息</span><br><span class="line"></span><br><span class="line">Internet Protocol Version 4: 互联网层IP包头部信息</span><br><span class="line"></span><br><span class="line">Transmission Control Protocol:  传输层T的数据段头部信息，此处是TCP</span><br><span class="line"></span><br><span class="line">Hypertext Transfer Protocol:  应用层的信息，此处是HTTP协议</span><br></pre></td></tr></table></figure></p>
 
@@ -455,7 +456,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,19 +476,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,10 +497,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">实用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">

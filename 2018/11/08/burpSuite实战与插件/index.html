@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>BurpSuite实战与插件 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="主要功能Burp Suite 是用于攻击web 应用程序的集成平台，包含了许多工具。针对软件可以使用fidder修改返回数据包要相对简单些。">
+  <meta name="description" content="主要功能Burp Suite 是用于攻击web 应用程序的集成平台，包含了许多工具。针对软件可以使用fidder修改返回数据包要相对简单些。注：Burps适合web测试，软件类建议通过proxifier设置全局代理通过fd的代理进行抓包（活用自动返回响应与返回数据重放可以过某些软件限制）">
 <meta name="keywords" content="web技术,工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BurpSuite实战与插件">
 <meta property="og:url" content="http://yoursite.com/2018/11/08/burpSuite实战与插件/index.html">
 <meta property="og:site_name" content="戏如烟云b16">
-<meta property="og:description" content="主要功能Burp Suite 是用于攻击web 应用程序的集成平台，包含了许多工具。针对软件可以使用fidder修改返回数据包要相对简单些。">
+<meta property="og:description" content="主要功能Burp Suite 是用于攻击web 应用程序的集成平台，包含了许多工具。针对软件可以使用fidder修改返回数据包要相对简单些。注：Burps适合web测试，软件类建议通过proxifier设置全局代理通过fd的代理进行抓包（活用自动返回响应与返回数据重放可以过某些软件限制）">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://yoursite.com/2018/11/08/burpSuite实战与插件/2.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/08/burpSuite实战与插件/1.png">
@@ -25,10 +25,10 @@
 <meta property="og:image" content="https://vulkey.oss-cn-hangzhou.aliyuncs.com/2019-06-27/15596409209407.jpg">
 <meta property="og:image" content="https://i.niupic.com/images/2020/01/06/6eiY.jpg">
 <meta property="og:image" content="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3110800220,4072195193&fm=173&app=49&f=JPEG?w=640&h=358&s=E40A5D3A0F3B44090675A4DA0000C0B3">
-<meta property="og:updated_time" content="2020-02-07T12:28:29.041Z">
+<meta property="og:updated_time" content="2020-03-12T07:11:41.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BurpSuite实战与插件">
-<meta name="twitter:description" content="主要功能Burp Suite 是用于攻击web 应用程序的集成平台，包含了许多工具。针对软件可以使用fidder修改返回数据包要相对简单些。">
+<meta name="twitter:description" content="主要功能Burp Suite 是用于攻击web 应用程序的集成平台，包含了许多工具。针对软件可以使用fidder修改返回数据包要相对简单些。注：Burps适合web测试，软件类建议通过proxifier设置全局代理通过fd的代理进行抓包（活用自动返回响应与返回数据重放可以过某些软件限制）">
 <meta name="twitter:image" content="http://yoursite.com/2018/11/08/burpSuite实战与插件/2.png">
   
     <link rel="alternative" href="/atom.xml" title="戏如烟云b16" type="application/atom+xml">
@@ -185,7 +185,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><p>Burp Suite 是用于攻击web 应用程序的集成平台，包含了许多工具。针对软件可以使用fidder修改返回数据包要相对简单些。<br><a id="more"></a><br><img src="/2018/11/08/burpSuite实战与插件/2.png" alt=""><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">proxy – Burp Suite设置代理，抓取数据包。</span><br><span class="line">Spider – Burp Suite的蜘蛛功能是用来抓取Web应用程序的链接和内容等。</span><br><span class="line">Scanner – 是用来扫描Web应用程序漏洞的，可以发现常见的web安全漏洞，但会存在误报的可能。</span><br><span class="line">Intruder – 可进行Web应用程序模糊测试,进行暴力猜解等。</span><br><span class="line">Repeater – 对数据包进行重放，可分析服务器返回情况，判断修改参数的影响。</span><br><span class="line">Sequencer – 用来检查Web应用程序提供的会话令牌的随机性.并执行各种测试。</span><br><span class="line">Decoder – 对数据进行加解密操作，包含url、html、base64等等。</span><br><span class="line">Comparer – 此功能用来执行任意的两个请求,响应或任何其它形式的数据之间的比较。</span><br><span class="line">extender – 加载Burp Suite的扩展，使用你自己的或第三方代码来扩展Burp Suite的功能。</span><br><span class="line">options – 设置burp，字体，编码等等</span><br><span class="line">alerts – 是用来存放报错信息的，用来解决错误</span><br></pre></td></tr></table></figure></p>
+        <h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><p>Burp Suite 是用于攻击web 应用程序的集成平台，包含了许多工具。针对软件可以使用fidder修改返回数据包要相对简单些。<br>注：Burps适合web测试，软件类建议通过proxifier设置全局代理通过fd的代理进行抓包（活用自动返回响应与返回数据重放可以过某些软件限制）<br><a id="more"></a><br><img src="/2018/11/08/burpSuite实战与插件/2.png" alt=""><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">proxy – Burp Suite设置代理，抓取数据包。</span><br><span class="line">Spider – Burp Suite的蜘蛛功能是用来抓取Web应用程序的链接和内容等。</span><br><span class="line">Scanner – 是用来扫描Web应用程序漏洞的，可以发现常见的web安全漏洞，但会存在误报的可能。</span><br><span class="line">Intruder – 可进行Web应用程序模糊测试,进行暴力猜解等。</span><br><span class="line">Repeater – 对数据包进行重放，可分析服务器返回情况，判断修改参数的影响。</span><br><span class="line">Sequencer – 用来检查Web应用程序提供的会话令牌的随机性.并执行各种测试。</span><br><span class="line">Decoder – 对数据进行加解密操作，包含url、html、base64等等。</span><br><span class="line">Comparer – 此功能用来执行任意的两个请求,响应或任何其它形式的数据之间的比较。</span><br><span class="line">extender – 加载Burp Suite的扩展，使用你自己的或第三方代码来扩展Burp Suite的功能。</span><br><span class="line">options – 设置burp，字体，编码等等</span><br><span class="line">alerts – 是用来存放报错信息的，用来解决错误</span><br></pre></td></tr></table></figure></p>
 <p><img src="/2018/11/08/burpSuite实战与插件/1.png" alt=""></p>
 <p>下载地址: <a href="https://pan.baidu.com/s/1n3Kkgcf-iJjl-kc2jgE3_A" target="_blank" rel="noopener">BurpSuite实战</a><br> 提取码: 83ra<br>自己有时间可以给自己的Burpsuite安装实用的插件让它变成万能的武器库！可以看看大佬推荐的插件感觉很多的非常的实用：<br><a href="">https://www.cnblogs.com/shengulong/p/6830749.html</a></p>
 <p><code class="hljs css"><span class="hljs-selector-tag">HackBar</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">LFI</span> <span class="hljs-selector-tag">scanner</span> <span class="hljs-selector-tag">checks</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">LoggerPlusPlus</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">WooyunSearch-1</span><span class="hljs-selector-class">.0-SNAPSHOT-jar-with-dependencies</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">burp-vulners-scanner-1</span><span class="hljs-selector-class">.2</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">bypasswaf</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">chunked-coding-converter</span><span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.2</span><span class="hljs-selector-class">.1</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">domain_hunter-v1</span><span class="hljs-selector-class">.4</span><span class="hljs-selector-class">.jar</span>    <span class="hljs-selector-tag">update</span> <span class="hljs-selector-tag">domain_hunter-v1</span><span class="hljs-selector-class">.3</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">http-request-smuggler-all</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">httpsmuggler</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">knife-1</span><span class="hljs-selector-class">.6</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">passive-scan-client-0</span><span class="hljs-selector-class">.1-jar-with-dependencies</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">reCAPTCHA-v0</span><span class="hljs-selector-class">.9</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">sqlmap</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">sqlmap4burp</span>++<span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.2</span><span class="hljs-selector-class">.jar</span><br><span class="hljs-selector-tag">jsEncrypter-0</span><span class="hljs-selector-class">.3</span><span class="hljs-selector-class">.jar</span></code></p>
@@ -194,6 +194,7 @@ var _hmt = _hmt || [];
 <h4 id="HackBar多功能插件"><a href="#HackBar多功能插件" class="headerlink" title="HackBar多功能插件:"></a>HackBar多功能插件:</h4><p>HackBar是一个Burpsuite插件，支持SQL注入、XSS、WEB SHELL、反弹SHELL等功能。<br><img src="https://www.uedbox.com/wp-content/uploads/2019/07/HackBar.gif" alt=""><br><a href="https://github.com/d3vilbug/HackBar/" target="_blank" rel="noopener">https://github.com/d3vilbug/HackBar/</a></p>
 <h4 id="sqlmap4burp-注入神器调用插件："><a href="#sqlmap4burp-注入神器调用插件：" class="headerlink" title="sqlmap4burp++注入神器调用插件："></a>sqlmap4burp++注入神器调用插件：</h4><p><img src="https://www.uedbox.com/wp-content/uploads/2019/09/sqlmap4burpui.png" alt=""><br> <a href="https://github.com/c0ny1/sqlmap4burp-plus-plus" target="_blank" rel="noopener">https://github.com/c0ny1/sqlmap4burp-plus-plus</a></p>
 <h4 id="伪造IP地址插件（避免被ban和针对WAF的策略绕过。）："><a href="#伪造IP地址插件（避免被ban和针对WAF的策略绕过。）：" class="headerlink" title="伪造IP地址插件（避免被ban和针对WAF的策略绕过。）："></a>伪造IP地址插件（避免被ban和针对WAF的策略绕过。）：</h4><p><img src="https://github.com/TheKingOfDuck/BurpFakeIP/raw/master/images/15597193222287.png" alt=""><br><a href="https://github.com/TheKingOfDuck/burpFakeIP" target="_blank" rel="noopener">https://github.com/TheKingOfDuck/burpFakeIP</a></p>
+<p>同类型插件随机用户代理：<br><a href="https://github.com/m4ll0k/BurpSuite-Random_UserAgent" target="_blank" rel="noopener">https://github.com/m4ll0k/BurpSuite-Random_UserAgent</a></p>
 <h4 id="快速探测越权Authz"><a href="#快速探测越权Authz" class="headerlink" title="快速探测越权Authz"></a>快速探测越权Authz</h4><p><img src="https://vulkey.oss-cn-hangzhou.aliyuncs.com/2019-06-27/15596409209407.jpg" alt=""><br>Github地址：<a href="https://github.com/portswigger/authz" target="_blank" rel="noopener">https://github.com/portswigger/authz</a></p>
 <h4 id="笔者的插件包如下不做过多介绍有需要百度"><a href="#笔者的插件包如下不做过多介绍有需要百度" class="headerlink" title="笔者的插件包如下不做过多介绍有需要百度"></a>笔者的插件包如下不做过多介绍有需要百度</h4><p><img src="https://i.niupic.com/images/2020/01/06/6eiY.jpg" alt=""></p>
 <h4 id="BurpSuite2-0bate带汉化包与破解文件"><a href="#BurpSuite2-0bate带汉化包与破解文件" class="headerlink" title="BurpSuite2.0bate带汉化包与破解文件"></a>BurpSuite2.0bate带汉化包与破解文件</h4><p><img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3110800220,4072195193&amp;fm=173&amp;app=49&amp;f=JPEG?w=640&amp;h=358&amp;s=E40A5D3A0F3B44090675A4DA0000C0B3" alt=""></p>
@@ -463,7 +464,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,19 +484,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -496,10 +505,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">实用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
