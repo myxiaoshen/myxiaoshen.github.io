@@ -319,8 +319,11 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>安卓逆向软件:xpFdex2、dumpDex，开发者助手，mt，</p>
-<p>关键跳：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1.常见if跳转  </span><br><span class="line">   ne 改为 eq </span><br><span class="line">   nez 改为 eqz</span><br><span class="line">   gtz 改为 gez</span><br><span class="line">补充跳转内行  if-eq;if-ne;if-lt;if-ge;if-gt;</span><br><span class="line">以及if-eqz;if-nez;if-ltz;if-gez;if-gtz;if-lez</span><br><span class="line">move-result v1的下面添加以下代码</span><br><span class="line">     const v1 0xffffff </span><br><span class="line">     const v2 0xffffff</span><br><span class="line"> 强跳 goto</span><br><span class="line"> android.permission.SEND_SMS短信删除</span><br><span class="line">进制查找修改 const/16 v4 0x多少</span><br><span class="line">进制强行跳转 const/16  v0  0x3e9</span><br></pre></td></tr></table></figure></p>
+        <p>安卓逆向软件:xpFdex2、dumpDex，开发者助手，mt,np,安卓修改大师</p>
+<h5 id="关键跳："><a href="#关键跳：" class="headerlink" title="关键跳："></a>关键跳：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1.常见if跳转  </span><br><span class="line">   ne 改为 eq </span><br><span class="line">   nez 改为 eqz</span><br><span class="line">   gtz 改为 gez</span><br><span class="line">补充跳转内行  if-eq;if-ne;if-lt;if-ge;if-gt;</span><br><span class="line">以及if-eqz;if-nez;if-ltz;if-gez;if-gtz;if-lez</span><br><span class="line">move-result v1的下面添加以下代码</span><br><span class="line">     const v1 0xffffff </span><br><span class="line">     const v2 0xffffff</span><br><span class="line"> 强跳 goto</span><br><span class="line"> android.permission.SEND_SMS短信删除</span><br><span class="line">进制查找修改 const/16 v4 0x多少</span><br><span class="line">进制强行跳转 const/16  v0  0x3e9</span><br></pre></td></tr></table></figure>
+<h5 id="Smali基本语法"><a href="#Smali基本语法" class="headerlink" title="Smali基本语法"></a>Smali基本语法</h5><table><thead><tr><th>指令</th><th>功能</th></tr></thead><tbody><tr><td>.field private isFlag:z</td><td>定义变量</td></tr><tr><td>.method</td><td>方法</td></tr><tr><td>.parameter</td><td>方法参数</td></tr><tr><td>.prologue</td><td>方法开始</td></tr><tr><td>.line 12</td><td>此方法位于12行</td></tr><tr><td>invoke-super</td><td>调用父类方法</td></tr><tr><td>const/high16 v0,0x7fo3</td><td>把0x7fo3赋值给v0</td></tr><tr><td>invoke-direct</td><td>调用函数</td></tr><tr><td>return-void</td><td>函数返回void</td></tr><tr><td>.end method</td><td>函数结束</td></tr><tr><td>new-instance</td><td>创建实例</td></tr><tr><td>input-object</td><td>对象赋值</td></tr><tr><td>iget-object</td><td>调用对象</td></tr><tr><td>Invoke-static</td><td>调用静态函数</td></tr></tbody></table> 
+
+<h5 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h5><p><table><thead><tr><th>符号</th><th>类型</th></tr></thead><tbody><tr><td>B</td><td>byte</td></tr><tr><td>C</td><td>char</td></tr><tr><td>D</td><td>double</td></tr><tr><td>F</td><td>float</td></tr><tr><td>I</td><td>int</td></tr><tr><td>J</td><td>long</td></tr><tr><td>S</td><td>short</td></tr><tr><td>V</td><td>void</td></tr><tr><td>Z</td><td>boolean</td></tr><tr><td>[XXX</td><td>Array</td></tr><tr><td>Lxxx/yyy</td><td>Object</td></tr></tbody></table><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">条件跳转分支：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;if-eq vA, vB, :cond_**&quot;   如果vA等于vB则跳转到:cond_**</span><br><span class="line">&quot;if-ne vA, vB, :cond_**&quot;   如果vA不等于vB则跳转到:cond_**</span><br><span class="line">&quot;if-lt vA, vB, :cond_**&quot;    如果vA小于vB则跳转到:cond_**</span><br><span class="line">&quot;if-ge vA, vB, :cond_**&quot;   如果vA大于等于vB则跳转到:cond_**</span><br><span class="line">&quot;if-gt vA, vB, :cond_**&quot;   如果vA大于vB则跳转到:cond_**</span><br><span class="line">&quot;if-le vA, vB, :cond_**&quot;    如果vA小于等于vB则跳转到:cond_**</span><br><span class="line">&quot;if-eqz vA, :cond_**&quot;   如果vA等于(是)0则跳转到:cond_**</span><br><span class="line">&quot;if-nez vA, :cond_**&quot;   如果vA不等于(不是)0则跳转到:cond_**</span><br><span class="line">&quot;if-ltz vA, :cond_**&quot;    如果vA小于0则跳转到:cond_**</span><br><span class="line">&quot;if-gez vA, :cond_**&quot;   如果vA大于等于0则跳转到:cond_**</span><br><span class="line">&quot;if-gtz vA, :cond_**&quot;   如果vA大于0则跳转到:cond_**</span><br><span class="line">&quot;if-lez vA, :cond_**&quot;    如果vA小于等于0则跳转到:cond_**</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1:SMS（去除短信权限）</span><br><span class="line">2:setstatusCode（直接跳转到购买成功）</span><br><span class="line">3:支付、支付成功 短信、失败、成功、购买（关键字）</span><br><span class="line">4:const/16  v0  0x3e9(跳转代码！空格是俩个英文空格！）</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2018/12/11/向分析/#more">阅读全文 >></a>
@@ -1023,6 +1026,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -1031,19 +1042,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1059,15 +1066,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
