@@ -155,6 +155,86 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ackrf笔记本" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/04/ackrf笔记本/">hackrf笔记本</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/04/ackrf笔记本/" class="archive-article-date">
+  	<time datetime="2019-01-04T08:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="hackrf介绍"><a href="#hackrf介绍" class="headerlink" title="hackrf介绍"></a>hackrf介绍</h3><p>HackRF是一个在github上开源的硬件工程，由美国国防部高级研究（DRAPA）赞助开发。因为他是一个开源项目，在中国有许多厂商现在也在生产和销售HackRF，因为它可以满足大部分无限电爱好者的需求，我作为一个无线电刚接触没多久的新手，hackrf的性价比在同系列产品中一定是佼佼者。</p>
+<p><img src="http://www.2cto.com/uploadfile/Collfiles/20170715/20170715095119470.jpg" alt=""><br><img src="http://qiniu.s1nh.org/Blog_HackRF_01.jpeg-QNthin" alt=""></p>
+<p>目前无线电设备出名的的三款设备分别是USRP, BladeRF和HackRF ，下图为这三款设备的详细参数对比。详细见下图，HackRF的频率覆盖范围广，价格也比较便宜，美中不足的是仅为半双工(要不可以做一个雷达)，局限与USB2.0接口。<br><img src="http://www.2cto.com/uploadfile/Collfiles/20170715/20170715095126474.png" alt=""></p>
+<h3 id="RFCrack工具-依赖yard-stick-one"><a href="#RFCrack工具-依赖yard-stick-one" class="headerlink" title="RFCrack工具(依赖yard stick one)"></a>RFCrack工具(依赖yard stick one)</h3><p>这是一个无线电攻击工具它是为测试RF通信而开发的。它可以在低于4GHz频率的任何物理设备之间进行通信。物联网设备汽车，警报系统等..达到简化信号测试的目的。<br>先安装依赖（建议python2.7环境使用）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py   # 下载安装脚本</span><br><span class="line">sudo python get-pip.py    # 运行安装脚本</span><br><span class="line">#RFCrack tested on OSX, should also work fine on Linux distros</span><br><span class="line">#Install Pip:</span><br><span class="line">easy install pip</span><br><span class="line"></span><br><span class="line">#Install BitString</span><br><span class="line">sudo pip install bitstring</span><br><span class="line"></span><br><span class="line">#Install RFCat</span><br><span class="line">git clone https://github.com/atlas0fd00m/rfcat.git</span><br><span class="line">cd rfcat/</span><br><span class="line">sudo python setup.py install</span><br><span class="line">cd ../</span><br><span class="line"></span><br><span class="line">#Install PyUSB:</span><br><span class="line">git clone https://github.com/walac/pyusb.git</span><br><span class="line">cd pyusb/</span><br><span class="line">sudo python setup.py install</span><br><span class="line"></span><br><span class="line">#Install LibUSB</span><br><span class="line">pip install libusb</span><br><span class="line"></span><br><span class="line">#Install Matolib:</span><br><span class="line">sudo easy_install matplotlib</span><br><span class="line"></span><br><span class="line">#Install Numpy:</span><br><span class="line">pip install numpy</span><br><span class="line"></span><br><span class="line">#python3 install future</span><br><span class="line">sudo pip2.7 install future</span><br><span class="line"></span><br><span class="line">#Plug in your device and run the following to verify it works:</span><br><span class="line">rfcat -r</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#That should be all you need</span><br></pre></td></tr></table></figure></p>
+<h3 id="0-01-环境安装"><a href="#0-01-环境安装" class="headerlink" title="0*01 环境安装"></a>0*01 环境安装</h3><p>1、首先，需要确保已经安装了所有必需的软件，可以使用发行版包管理器来安装大多数需要的软件以及相应的依赖文件。下面，我们先从hackRF所依赖的工具和库文件开始，在Debian或Ubuntu发行版上，可以通过下面指令安装它们我用的是hackrf与kali linux：<br></p>
+        
+          <a class="article-more-a" href="/2019/01/04/ackrf笔记本/#more">阅读全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">无线电</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-GoogleHack—谷歌语法获取信息" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -768,82 +848,6 @@ var _hmt = _hmt || [];
         <h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><p>Burp Suite 是用于攻击web 应用程序的集成平台，包含了许多工具。针对软件可以使用fidder修改返回数据包要相对简单些。<br>注：Burps适合web测试，软件类建议通过proxifier设置全局代理通过fd的代理进行抓包（活用自动返回响应与返回数据重放可以过某些软件限制）<br></p>
         
           <a class="article-more-a" href="/2018/11/08/burpSuite实战与插件/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-burpSuite插件" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/08/burpSuite插件/">BurpSuite插件与汉化包</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/08/burpSuite插件/" class="archive-article-date">
-  	<time datetime="2018-11-08T15:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><p>Burp Suite 是用于攻击web 应用程序的集成平台，包含了许多工具。<br></p>
-        
-          <a class="article-more-a" href="/2018/11/08/burpSuite插件/#more">阅读全文 >></a>
         
       
 

