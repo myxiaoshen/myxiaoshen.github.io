@@ -17,9 +17,10 @@
 <meta property="og:description" content="前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181028004554212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE5NzUzNjM=,size_27,color_FFFFFF,t_70">
+<meta property="og:image" content="https://i.niupic.com/images/2020/09/09/8Esy.png">
 <meta property="og:image" content="https://github.com/huoji120/Antivirus_R3_bypass_demo/raw/master/images/0day%E6%B5%8B%E8%AF%95-%E7%81%AB%E7%BB%92.gif">
 <meta property="og:image" content="https://i.niupic.com/images/2020/01/09/6gm0.jpg">
-<meta property="og:updated_time" content="2020-08-09T09:37:52.286Z">
+<meta property="og:updated_time" content="2020-09-09T09:21:15.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="渗透技巧汇总笔记">
 <meta name="twitter:description" content="前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，">
@@ -182,6 +183,7 @@ var _hmt = _hmt || [];
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： <a href="https://myxiaoshen.github.io/2019/01/18/%E5%A4%A7%E6%95%B0%E6%8D%AE%E4%B8%8B%E4%BF%9D%E6%8A%A4%E8%87%AA%E5%B7%B1%E7%9A%84%E9%9A%90%E7%A7%81/" target="_blank" rel="noopener">点此跳转</a></p>
 <p>当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，心里一定要有点b数！小提示：在使用proxychains的时候，程序或者终端选项尽量不要设置任何协议的代理,否则可能会打乱这个代理回路出现网络错误。</p>
 <p><img src="https://img-blog.csdnimg.cn/20181028004554212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE5NzUzNjM=,size_27,color_FFFFFF,t_70" alt=""><br><a id="more"></a></p>
+<h4 id="浅蓝的渗透测试导图"><a href="#浅蓝的渗透测试导图" class="headerlink" title="浅蓝的渗透测试导图"></a>浅蓝的渗透测试导图</h4><p>这里有一个更加详细的导图，可以做一个大致的方向参考，跟着方向逐一测试,期间也可以巩固基础。<br><img src="https://i.niupic.com/images/2020/09/09/8Esy.png" alt=""><br><a href="https://github.com/iSafeBlue/Mind-Map/releases" target="_blank" rel="noopener">https://github.com/iSafeBlue/Mind-Map/releases</a></p>
 <h4 id="zero"><a href="#zero" class="headerlink" title="zero"></a>zero</h4><p>首先进行信息收集你获得的信息越多对自己后面的渗透就越有帮助，whois，旁站子域，服务器操作系统版本，web中间件以及waf与cdn，通过google与github看看是否存在已知的漏洞这样有助于快速的获得权限，端口扫描并判断服务漏洞加以利用，目录的fuzz，弱口令的fuzz，google hack 进一步探测网站的信息后台以及敏感信息，撒旦天眼也是不错的信息工具。</p>
 <h4 id="一-时刻关注返回的数据包"><a href="#一-时刻关注返回的数据包" class="headerlink" title="一.时刻关注返回的数据包"></a>一.时刻关注返回的数据包</h4><p>漏洞有很多种类型都需要渗透方认证仔细的对每个数据包已经url进行验证，要相信所有的努力都是为成功而付出的。如XSS,XSRF,sql注入，代码执行，命令执行，越权访问，目录读取，任意文件读取，下载，文件包含，远程命令执行，弱口令，上传，编辑器漏洞，暴力破解等</p>
 <ol>
@@ -306,8 +308,8 @@ var _hmt = _hmt || [];
 <nav id="article-nav">
   
   
-    <a href="/2020/08/01/伊苏8游戏/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">伊苏</div>
+    <a href="/2020/03/13/inodws恶意软件初步分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">winodws恶意软件初步分析</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -334,7 +336,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#zero"><span class="toc-number">1.1.</span> <span class="toc-text">zero</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一-时刻关注返回的数据包"><span class="toc-number">1.2.</span> <span class="toc-text">一.时刻关注返回的数据包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二-fuzz的艺术"><span class="toc-number">1.3.</span> <span class="toc-text">二.fuzz的艺术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三-AVbypass"><span class="toc-number">1.4.</span> <span class="toc-text">三.AVbypass</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四-提权与权限维持"><span class="toc-number">1.5.</span> <span class="toc-text">四.提权与权限维持</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#老牌工具Cobaltstrike-Profiles"><span class="toc-number">1.5.1.</span> <span class="toc-text">老牌工具Cobaltstrike+Profiles</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#免杀远控整理（来自Tide团队"><span class="toc-number">1.5.2.</span> <span class="toc-text">免杀远控整理（来自Tide团队)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#通过ssl加密palyoad"><span class="toc-number">1.5.3.</span> <span class="toc-text">通过ssl加密palyoad</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#windows"><span class="toc-number">1.5.4.</span> <span class="toc-text">windows</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#linux"><span class="toc-number">1.5.5.</span> <span class="toc-text">linux</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"><span class="toc-number">1.6.</span> <span class="toc-text">五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#web容器路径"><span class="toc-number">1.6.1.</span> <span class="toc-text">web容器路径</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#七、后渗透与流量隐匿"><span class="toc-number">1.7.</span> <span class="toc-text">七、后渗透与流量隐匿</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#frsocks-protoplex-流量重定向实现端口复用"><span class="toc-number">1.7.1.</span> <span class="toc-text">frsocks+protoplex+流量重定向实现端口复用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#msf后渗透一条龙"><span class="toc-number">1.7.2.</span> <span class="toc-text">msf后渗透一条龙</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#浅蓝的渗透测试导图"><span class="toc-number">1.1.</span> <span class="toc-text">浅蓝的渗透测试导图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zero"><span class="toc-number">1.2.</span> <span class="toc-text">zero</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一-时刻关注返回的数据包"><span class="toc-number">1.3.</span> <span class="toc-text">一.时刻关注返回的数据包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二-fuzz的艺术"><span class="toc-number">1.4.</span> <span class="toc-text">二.fuzz的艺术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三-AVbypass"><span class="toc-number">1.5.</span> <span class="toc-text">三.AVbypass</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四-提权与权限维持"><span class="toc-number">1.6.</span> <span class="toc-text">四.提权与权限维持</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#老牌工具Cobaltstrike-Profiles"><span class="toc-number">1.6.1.</span> <span class="toc-text">老牌工具Cobaltstrike+Profiles</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#免杀远控整理（来自Tide团队"><span class="toc-number">1.6.2.</span> <span class="toc-text">免杀远控整理（来自Tide团队)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#通过ssl加密palyoad"><span class="toc-number">1.6.3.</span> <span class="toc-text">通过ssl加密palyoad</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#windows"><span class="toc-number">1.6.4.</span> <span class="toc-text">windows</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#linux"><span class="toc-number">1.6.5.</span> <span class="toc-text">linux</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"><span class="toc-number">1.7.</span> <span class="toc-text">五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#web容器路径"><span class="toc-number">1.7.1.</span> <span class="toc-text">web容器路径</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#七、后渗透与流量隐匿"><span class="toc-number">1.8.</span> <span class="toc-text">七、后渗透与流量隐匿</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#frsocks-protoplex-流量重定向实现端口复用"><span class="toc-number">1.8.1.</span> <span class="toc-text">frsocks+protoplex+流量重定向实现端口复用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#msf后渗透一条龙"><span class="toc-number">1.8.2.</span> <span class="toc-text">msf后渗透一条龙</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -467,7 +469,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,7 +481,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,10 +497,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
@@ -503,11 +505,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
