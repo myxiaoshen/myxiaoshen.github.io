@@ -9,7 +9,7 @@
   <title>维修走的那些坑  | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="笔者这块技术还不过硬正在慢慢的学习，如有更好的经验或者建议望能够和我交流。还有就是这些工具成本是真的心疼，目前完全是靠兴趣支撑。 一、从元器件入门 图文并茂的好资料比较全面适合学习https://wenku.baidu.com/view/abfa0631866fb84ae45c8db3.html 整体的测试思路先简后繁,先软后硬,先局部后具体到某元器件这篇文章充分的讲解了主板的测试流程与注意事项提">
-<meta name="keywords" content="资料,极客">
+<meta name="keywords" content="极客,资料">
 <meta property="og:type" content="article">
 <meta property="og:title" content="维修走的那些坑 ">
 <meta property="og:url" content="http://yoursite.com/2019/04/04/维修日常/index.html">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=4041064844,4156633682&fm=173&s=0EAE7C225D5FE0CA1EFCC5DA0000C0B2&w=542&h=456&img.JPEG">
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201910/15/233225lp9oo9gouifnso56.png">
-<meta property="og:updated_time" content="2019-10-26T01:31:21.457Z">
+<meta property="og:updated_time" content="2020-09-10T01:49:57.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="维修走的那些坑 ">
 <meta name="twitter:description" content="笔者这块技术还不过硬正在慢慢的学习，如有更好的经验或者建议望能够和我交流。还有就是这些工具成本是真的心疼，目前完全是靠兴趣支撑。 一、从元器件入门 图文并茂的好资料比较全面适合学习https://wenku.baidu.com/view/abfa0631866fb84ae45c8db3.html 整体的测试思路先简后繁,先软后硬,先局部后具体到某元器件这篇文章充分的讲解了主板的测试流程与注意事项提">
@@ -195,7 +195,8 @@ var _hmt = _hmt || [];
 <p>芯片大致判断技巧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">io芯片、cpu、南桥、声网卡等芯片组：风枪取下检查外观与程序，直接替换。</span><br><span class="line">电容（二极管挡位、UF电容挡位：竖立双引脚，竖管状 ）： 1.好、正常值；坏、无穷大 2. 好、正常值；坏、无穷大</span><br><span class="line"></span><br><span class="line">电阻（Ω挡位：小芯片04 02大小，大电阻有阻值标志小电阻自己测量）： 保险电阻 0Ω.10Ω 限流电阻 100Ω</span><br><span class="line"></span><br><span class="line">二极管（二极管挡位：贴片与管状）：好、正向有值反向无穷大；坏、二边都有值</span><br><span class="line"></span><br><span class="line">电感（晶体管测试仪、二极管挡位：PL 导线缠绕的物体、实心隐藏引脚的）: 好、0数值；坏、无穷大（一般不会坏会先烧保险）</span><br></pre></td></tr></table></figure></p>
 <p>3.在线测量法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">①烧机大法（电压不能超过线路的工作电压可配合松香配合检查发烟点）通过手摸电路板上的元器件，看是否有发烫发热的元件，重点检查74系列芯片，如果元件有烫手的情况，则说明此元件有可能已经损坏。</span><br><span class="line"></span><br><span class="line">②检测电路板对应的门电路，观察逻辑是不是有问题，判定芯片的好坏。</span><br></pre></td></tr></table></figure></p>
 <h4 id="三、确定正常指标并更换"><a href="#三、确定正常指标并更换" class="headerlink" title="三、确定正常指标并更换"></a>三、确定正常指标并更换</h4><p>需要用到风枪与电烙铁多头、助焊剂、铜线、洗板水、烧录器、，电路板元件损坏的概率依次是：电解电容、功率模块、大功率晶体管、稳压二极管、小于100Ω的电阻、大于100kΩ的电阻、继电器、瓷片小电容。</p>
-<p> <a href="https://html.alldatasheet.com" target="_blank" rel="noopener">alldatasheet</a>在这个网站可以查询原件型号<br>ElectroDroid PRO是一个包含简单而强大的电子类计算工具和相关参考资料的软件,日常工作中应该有所帮助。下载地址：<a href="https://www.lanzous.com/i6svvcd" target="_blank" rel="noopener">https://www.lanzous.com/i6svvcd</a> 密码:179b<br><img src="https://attach.52pojie.cn/forum/201910/15/233225lp9oo9gouifnso56.png" alt=""><br> ①检查外围门电路通过飞线解决。</p>
+<p> <a href="https://html.alldatasheet.com" target="_blank" rel="noopener">alldatasheet</a>在这个网站可以查询原件型号<br>ElectroDroid PRO是一个包含简单而强大的电子类计算工具和相关参考资料的软件,日常工作中应该有所帮助。下载地址：<a href="https://www.lanzous.com/i6svvcd" target="_blank" rel="noopener">https://www.lanzous.com/i6svvcd</a> 密码:179b<br><img src="https://attach.52pojie.cn/forum/201910/15/233225lp9oo9gouifnso56.png" alt=""></p>
+<p> ①检查外围门电路通过飞线解决。</p>
 <p> ②直接替换，用原型号或者通过网上资料与芯片参数来决定替换芯片。</p>
 <p> ③主控芯片，bios程序烧录</p>
 
@@ -211,11 +212,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">资料</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">极客</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">极客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">资料</a>
         		</li>
       		
 		</ul>
@@ -456,19 +457,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,11 +485,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,10 +498,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">分析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
