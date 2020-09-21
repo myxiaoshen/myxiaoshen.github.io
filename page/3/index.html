@@ -155,6 +155,67 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-绕过技巧" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/绕过技巧/">上传绕过技巧</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/06/绕过技巧/" class="archive-article-date">
+  	<time datetime="2019-01-06T07:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="entry-content clearfix"><br><p style="color:#red" class="has-text-color has-background has-black-background-color"> WAF绕过,安全狗绕过,WTS-WAF&nbsp;绕过上传,百度云上传绕过,360主机上传绕过,MIME类型绕过,文件内容检测绕过,多次上传Win特性绕过,条件竞争绕过,CONTENT-LENGTH绕过,文件内容检测绕过,垃圾数据填充绕过,文件扩展名绕过,ashx上传绕过,特殊文件名绕过,Windows流特性绕过,00截断绕过上传,htaccess解析漏洞,Apache解析漏洞,IIS解析漏洞,Nginx解析漏洞,文件包含绕过 </p><br><h3 id="waf绕过">WAF绕过</h3><br><h4 id="安全狗绕过">安全狗绕过</h4><br><p>1.绕过思路：对文件的内容，数据。数据包进行处理。</p><br><pre class="wp-block-code"><code class="hljs bash">关键点在这里Content-Disposition: form-data; name=<span class="hljs-string">“file”</span>; filename=<span class="hljs-string">“ian.php”</span><br>将form-data;            修改为~form-data;</code></pre><br><p>2.通过替换大小写来进行绕过</p><br><pre class="wp-block-code"><code class="hljs bash">Content-Disposition: form-data; name=<span class="hljs-string">“file”</span>; filename=<span class="hljs-string">“yjh.php”</span><br>Content-Type: application/octet-stream<br>将Content-Disposition    修改为content-Disposition<br>将 form-data            修改为Form-data<br>将 Content-Type         修改为content-Type</code></pre><br><p>3.通过删减空格来进行绕过</p><br><pre class="wp-block-code"><code class="hljs makefile"><span class="hljs-section">Content-Disposition: form-data; name=”file”; filename=”yjh.php”</span><br><span class="hljs-section">Content-Type: application/octet-stream</span><br><span class="hljs-section">将Content-Disposition: form-data          冒号后面 增加或减少一个空格</span></code></pre></div>
+        
+          <a class="article-more-a" href="/2019/01/06/绕过技巧/#more">阅读全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ackrf笔记本" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -825,85 +886,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-burpSuite实战与插件" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/08/burpSuite实战与插件/">BurpSuite实战与插件</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/08/burpSuite实战与插件/" class="archive-article-date">
-  	<time datetime="2018-11-08T15:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><p>Burp Suite 是用于攻击web 应用程序的集成平台，包含了许多工具。针对软件可以使用fidder修改返回数据包要相对简单些。<br>注：Burps适合web测试，软件类建议通过proxifier设置全局代理通过fd的代理进行抓包（活用自动返回响应与返回数据重放可以过某些软件限制）<br></p>
-        
-          <a class="article-more-a" href="/2018/11/08/burpSuite实战与插件/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1022,19 +1007,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1050,11 +1031,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1063,6 +1044,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">

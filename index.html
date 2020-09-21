@@ -155,6 +155,64 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ntitled-1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/06/ntitled-1/">本地与云免的搭建与模式分享</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/06/ntitled-1/" class="archive-article-date">
+  	<time datetime="2020-09-06T14:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-渗透技巧汇总笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -331,7 +389,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基于公司成本考虑过的当然有更好的软件解决方案。 </p>
+        <p>实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基于公司成本考虑过的当然有更好的软件解决方案。<br>ikuai文档地址：<a href="https://www.ikuai8.com/zhic/ymgn/lyym.html" target="_blank" rel="noopener">https://www.ikuai8.com/zhic/ymgn/lyym.html</a></p>
 <h6 id="快速布局设备清单（更具情况制定我这里是做示范用与快速搭建内网）"><a href="#快速布局设备清单（更具情况制定我这里是做示范用与快速搭建内网）" class="headerlink" title="快速布局设备清单（更具情况制定我这里是做示范用与快速搭建内网）"></a>快速布局设备清单（更具情况制定我这里是做示范用与快速搭建内网）</h6><p>0.6类网线8根左右+超5类网线若干<br>1.交换机–百：H3-S1224千：H3-S1024 子百：fast24<br>2.路由器– CPU：i3-4160  3.60GHz内存: 3793MB 网卡：依照情况定<br>3.中心交换–SG1016DT（分流交换机）<br>4.核心交换–s1820ec（稳定2层交换可3层）<br>5.可管理交换–水星（MERCURY）SG116D Pro 16口全千兆智能网管交换机<br>6.ap–小:TP-AC100 大: 小贝<br>7.企业路由器（适合办公密集的地方用）–腾达（Tenda）W18E 或 华硕八爪鱼</p>
 <h4 id="路由器的软拓展（主路由分发dhcp）"><a href="#路由器的软拓展（主路由分发dhcp）" class="headerlink" title="路由器的软拓展（主路由分发dhcp）"></a>路由器的软拓展（主路由分发dhcp）</h4><p>lede基本网络路径： etc/config/network </p>
 <ol>
@@ -881,70 +939,9 @@ docker inspect --format=&apos;{{.Name}} - {{range.NetworkSettings.Networks}}{{.I
 
 
   
-    <article id="post-（转）ikuai配合华为三层实战" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/11/（转）ikuai配合华为三层实战/">（转）ikuai配合华为三层实战</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/11/（转）ikuai配合华为三层实战/" class="archive-article-date">
-  	<time datetime="2019-07-11T02:58:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div class="span10"><div class="tit"><h5 style="font-size:20px;">跨三层对接：爱快路由对接华为三层设备</h5><p>2019-01-22</p></div><div class="com" id="article_content">                            <p>        </p> <p></p><p style="text-align: left;"><strong><span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; font-size: 24px;">一、介绍</span></strong><br style="text-align: left;"></p><p style="text-align: left;"><span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; color: rgb(0, 0, 0);">在跨三层设备的环境下，路由获取三层设备下的MAC地址一般为三层设备wan口的MAC地址，针对这种情况，爱快推出了跨三层应用功能，主要解决获取三层下的MAC地址及web认证问题</span></p><p style="text-align: left;"><span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; color: rgb(0, 0, 0);">本文简单介绍下爱快与华为三层交换机之间连接后，具体需要怎么设置</span></p><p></p></div></div>
-        
-          <a class="article-more-a" href="/2019/07/11/（转）ikuai配合华为三层实战/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1063,19 +1060,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1091,11 +1084,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1104,6 +1097,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
