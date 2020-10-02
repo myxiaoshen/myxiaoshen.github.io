@@ -9,7 +9,7 @@
   <title>企业的网管笔记 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基">
-<meta name="keywords" content="笔记,web技术">
+<meta name="keywords" content="web技术,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="企业的网管笔记">
 <meta property="og:url" content="http://yoursite.com/2020/03/12/网管笔记/index.html">
@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201908/29/015703q2hihauuuhaazazh.jpg">
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201910/10/154905emwv9dx6v9nwvway.jpg">
 <meta property="og:image" content="http://www.downxia.com/uploadfiles/2019/0621/20190621095618672.jpg">
-<meta property="og:updated_time" content="2020-09-30T05:19:08.872Z">
+<meta property="og:updated_time" content="2020-10-01T11:36:12.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="企业的网管笔记">
 <meta name="twitter:description" content="实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基">
@@ -243,12 +243,13 @@ taskkill /F /IM PID /T (强制关闭进程树)
 </ol>
 <h4 id="优化系统"><a href="#优化系统" class="headerlink" title="优化系统"></a>优化系统</h4><ol>
 <li>wisecare</li>
-<li>explorer修复</li>
+<li>explorer修复，taskkill重启</li>
 <li>微软常用库</li>
 <li>wps绿色快速重装</li>
 <li>360全家桶懂电脑的用火绒5.0+自定义规则</li>
 <li>360管家提取版本</li>
 <li>DiskGenius（磁盘管理神器，可恢复数据）</li>
+<li>本地网络问题可以用360急救箱+火绒断网修复一键修复</li>
 </ol>
 <h4 id="驱动管理与常用硬件工具"><a href="#驱动管理与常用硬件工具" class="headerlink" title="驱动管理与常用硬件工具"></a>驱动管理与常用硬件工具</h4><ol>
 <li>驱动精灵或驱动总裁</li>
@@ -352,11 +353,11 @@ taskkill /F /IM PID /T (强制关闭进程树)
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
@@ -426,11 +427,11 @@ taskkill /F /IM PID /T (强制关闭进程树)
   
 <nav id="article-nav">
   
-    <a href="/2020/03/13/inodws恶意软件初步分析/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/03/13/inodws恶意软件分析/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          winodws恶意软件初步分析
+          winodws恶意软件分析
         
       </div>
     </a>
@@ -597,22 +598,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
@@ -625,6 +610,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
@@ -633,15 +634,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">实用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -662,14 +667,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
             
             <div class="clearfix"></div>
