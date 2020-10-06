@@ -96,6 +96,7 @@ var _hmt = _hmt || [];
 </div>
 
     </div>
+
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
@@ -251,7 +252,8 @@ var _hmt = _hmt || [];
       
         <p>docker仓库&gt;镜像&gt;容器&gt;数据<br>docker命令速查：<a href="https://www.jianshu.com/p/2f97f61933b9" target="_blank" rel="noopener">https://www.jianshu.com/p/2f97f61933b9</a><br>docker入门到实践：<a href="https://yeasy.gitbooks.io/docker_practice/image/dockerfile/references.html" target="_blank" rel="noopener">https://yeasy.gitbooks.io/docker_practice/image/dockerfile/references.html</a><br>docker入门到实践：<a href="https://docs.docker.com/engine/reference/builder" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder</a><br>加速地址命令：</p>
 <pre><code>curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://4e70ba5d.m.daocloud.io
-</code></pre><h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><p>1.启动一个容器并开启实时交互功能,并命名,进入shell终端（rename命名）</p>
+</code></pre><p>docker手动修改配置加速：<br>编辑文件重启docker服务<br>/etc/docker/daemon.json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    &quot;registry-mirrors&quot;:[&quot;https://almtd3fa.mirror.aliyuncs.com&quot;]      </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><p>1.启动一个容器并开启实时交互功能,并命名,进入shell终端（rename命名）</p>
 <pre><code>docker run －i－t --name &lt;name&gt;     /bin/bash //-d守护进程，-p指定端口映射，-P映射所有容器端口； -v 将目录挂载到本地 注：冒号&quot;:&quot;前面的目录是宿主机目录，后面的目录是容器内目录。-e传参配置环境参数； --link 链接容器
 </code></pre><p>2.查看容器进程与查看所有容器的ip地址</p>
 <pre><code>   docker  ps －a -l  &lt;name&gt;
@@ -931,8 +933,8 @@ msf缺少依赖运行：cd metasploit-framwork，运行bundle update nokogiri
     </nav>
   
 
- 
 
+ 
           </div>
         </div>
       </div>
@@ -992,7 +994,7 @@ setInterval("createtime()",250);
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -1046,10 +1048,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -1058,11 +1056,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1074,6 +1072,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
@@ -1082,11 +1084,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1239,5 +1241,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+ 
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":100,"height":230},"mobile":{"show":true},"log":false});</script></body>
 </html>

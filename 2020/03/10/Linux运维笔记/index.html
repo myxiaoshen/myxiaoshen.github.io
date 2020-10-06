@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20190314/5dca82d53165496d831b98a63f46a460.jpeg">
 <meta property="og:image" content="https://github.com/grayddq/GScan/blob/master/pic/2.png">
-<meta property="og:updated_time" content="2020-09-08T03:27:16.449Z">
+<meta property="og:updated_time" content="2020-10-06T02:10:28.330Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
 <meta name="twitter:description" content="笔者也做过短时间得运维这里记录一下工作的小技巧以及一些收集 Linux环境坑用linux针对我们运维人员来说作为主系统的好处非常多这里就不多说啦直接正题！笔者用的deepin，这款系统是国人基于开源linux深度修改的，非常适合国人使用比如：软件安装，驱动安装，包和源的管理非常的人性化，大大的节约开发者的时间吧多余的精力用在工作上。还有这款系统的UI是非常的美丽喔，几乎所有的按钮以及配件都经过深度">
@@ -101,6 +101,7 @@ var _hmt = _hmt || [];
 </div>
 
     </div>
+
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
@@ -175,8 +176,10 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>笔者也做过短时间得运维这里记录一下工作的小技巧以及一些收集</p>
-<h4 id="Linux环境坑"><a href="#Linux环境坑" class="headerlink" title="Linux环境坑"></a>Linux环境坑</h4><p>用linux针对我们运维人员来说作为主系统的好处非常多这里就不多说啦直接正题！笔者用的deepin，这款系统是国人基于开源linux深度修改的，非常适合国人使用比如：软件安装，驱动安装，包和源的管理非常的人性化，大大的节约开发者的时间吧多余的精力用在工作上。还有这款系统的UI是非常的美丽喔，几乎所有的按钮以及配件都经过深度优化过后的，给使用者一种优雅轻松的感觉。<br>deepin源如下</p>
+<h4 id="Linux环境坑"><a href="#Linux环境坑" class="headerlink" title="Linux环境坑"></a>Linux环境坑</h4><p>用linux针对我们运维人员来说作为主系统的好处非常多这里就不多说啦直接正题！笔者用的deepin，这款系统是国人基于开源linux深度修改的，非常适合国人使用比如：软件安装，驱动安装，包和源的管理非常的人性化，大大的节约开发者的时间吧多余的精力用在工作上。还有这款系统的UI是非常的美丽喔，几乎所有的按钮以及配件都经过深度优化过后的，给使用者一种优雅轻松的感觉。<br>deepin源</p>
 <pre><code>deb [by-hash=force] https://mirrors.tuna.tsinghua.edu.cn/deepin panda main contrib non-free
+</code></pre><p>kali源</p>
+<pre><code>deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
 </code></pre><p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190314/5dca82d53165496d831b98a63f46a460.jpeg" alt=""><br><a id="more"></a><br>0*1 git基础环境</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">绑定用户：</span><br><span class="line">git config --global user.name &quot;xxx&quot;</span><br><span class="line">git config --global user.email &quot;xxx@gmail.com&quot;</span><br><span class="line">设置SSH key：</span><br><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot; </span><br><span class="line"></span><br><span class="line">打开github，找到账户里面添加SSH，把id_rsa.pub内容复制到key里面。</span><br><span class="line"></span><br><span class="line">测试命令：</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 <p>上传本地项目到github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mkdir demo</span><br><span class="line">cd demo</span><br><span class="line">echo &quot;# demo&quot; &gt;&gt; README.md</span><br><span class="line">git init //把这个目录变成Git可以管理的仓库</span><br><span class="line">git clone https://github.com/AppCanOpenSource/666.git --config http.proxy=&apos;http://127.0.0.1:1080&apos;  #更改socks5代理 http和https同理</span><br><span class="line">git add README.md //文件添加到仓库</span><br><span class="line">git add . //不但可以跟单一文件，还可以跟通配符，更可以跟目录。一个点就把当前目录下所有未追踪的文件全部add了（空目录不会被添加）</span><br><span class="line">git status //查看当前工作区的状态（需提交的变更）</span><br><span class="line">git commit -m &quot;提交说明&quot; //把文件提交到仓库</span><br><span class="line">git remote add origin git@github.com:hxf0663/demo.git //关联远程仓库</span><br><span class="line">git push -u origin master //将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)</span><br><span class="line">git push origin master //将本地主分支推到远程主分支</span><br><span class="line">下载操作：</span><br><span class="line">git pull origin master //把远程库更改拉到本地仓库</span><br><span class="line">git clone git@github.com:hxf0663/demo.git //克隆远程仓库到本地</span><br><span class="line">git clone https://github.com/hxf0663/demo.git //克隆远程仓库到本地</span><br><span class="line">git clone https://github.com/hxf0663/demo //克隆远程仓库到本地</span><br></pre></td></tr></table></figure></p>
@@ -193,9 +196,8 @@ wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 make -j8 &amp;&amp; sudo make altinstall
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py  //下载安装脚本
 sudo python get-pip.py   
-</code></pre><p>0*3 docker安装</p>
-<pre><code>sudo apt install docker-ce
-</code></pre><p>0*4 开发环境技巧</p>
+</code></pre><p>0*3 docker安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add –</span><br><span class="line">echo &apos;deb https://download.docker.com/linux/debian stretch stable&apos;&gt; /etc/apt/sources.list.d/docker.list</span><br><span class="line">apt-get remove docker docker-engine docker.io containerd runc</span><br><span class="line">apt-get install apt-transport-https  ca-certificates   curl  gnupg2  software-properties-common</span><br><span class="line">apt-get update</span><br><span class="line">sudo apt install docker-ce</span><br></pre></td></tr></table></figure></p>
+<p>0*4 开发环境技巧</p>
 <p>jetbrains系列的软件一套安装好，vim用不惯的用submit，web开发环境建议安装在一个虚拟的centos不需要gui，而且跟线上生产环境也更为接近。如果安装再主系统这会让它变得臃肿并且复杂，而且一旦发生灾难性故障，环境也是分分钟挂掉，关键问题是环境经常会出各种神奇的问题，解决起来浪费大量的时间。虚拟机中配置好环境在设置一个镜像备份出现问题的时候就可以直接恢复了。</p>
 <p>后期通过jetbrains全家桶SSH与SFTP的连接就可以高效的进行开发了。以下是整理了俺常用的的Linux软件</p>
 <p> 0*5 常用选项<br>依赖包相关：</p>
@@ -404,6 +406,7 @@ ForwardToSyslog=no
   
 
 
+ 
           </div>
         </div>
       </div>
@@ -463,7 +466,7 @@ setInterval("createtime()",250);
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -517,10 +520,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -529,11 +528,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,6 +544,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
@@ -553,11 +556,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -710,5 +713,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+ 
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":100,"height":230},"mobile":{"show":true},"log":false});</script></body>
 </html>
