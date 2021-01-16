@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://nginxwebui.oss-cn-beijing.aliyuncs.com/img/conf.jpeg">
 <meta property="og:image" content="https://www.zerotier.com/wp-content/uploads/2020/08/zerotier_logo_black.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-156857018d33b9a936bf2dcc8da6fe49_720w.jpg?source=1940ef5c">
-<meta property="og:updated_time" content="2020-12-26T08:15:06.663Z">
+<meta property="og:updated_time" content="2021-01-16T07:21:45.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="合理利用网络上的骚操作👍">
 <meta name="twitter:description" content="免流目前只有中国电信、中国联通还能免流，移动只有很少一部分地区还可以免还需要有定向原wap已限速（20kb）。 本地tinyproxy系列。个人喜欢用核心因为它省电基于底层转发快，推荐LLTables它完美支持最新版本的安卓系统，JJ、终极防跳、zjl等经过个人测试会断流。本地免流又分为 2种伪装方式。我打包了互联网上常见的模式以及LLTables防跳。code文件夹下是个人修改和整理的模式。代理">
@@ -218,7 +218,8 @@ var _hmt = _hmt || [];
 <h6 id="在使用Unfx-Proxy-Checker测试延迟来提高ip的质量"><a href="#在使用Unfx-Proxy-Checker测试延迟来提高ip的质量" class="headerlink" title="在使用Unfx Proxy Checker测试延迟来提高ip的质量"></a>在使用Unfx Proxy Checker测试延迟来提高ip的质量</h6><p>UI很漂亮，操作也很简单不需要看太多英文也可以正常使用在github也是开源项目。<a href="https://github.com/assnctr/unfx-proxy-checker" target="_blank" rel="noopener">github地址</a><br><img src="https://camo.githubusercontent.com/4acd26be36d4a5ed14bb69567cf5ea483df51aa6/68747470733a2f2f692e6962622e636f2f6a3562354373522f332e706e67" alt=""></p>
 <h5 id="Gather-Proxy验证ip是否可过墙（可选）"><a href="#Gather-Proxy验证ip是否可过墙（可选）" class="headerlink" title="Gather Proxy验证ip是否可过墙（可选）"></a>Gather Proxy验证ip是否可过墙（可选）</h5><p>主要功能是对采集到的代理进行有效性验证，验证结果会滚屏显示出来。包括代理的存活情况、延迟值、国家、类型等等信息。<a href="https://www.lanzous.com/i44xxmb" target="_blank" rel="noopener">下载地址</a><br><img src="https://lh3.googleusercontent.com/proxy/3t6yDyIIVlIqop5MsRAg7PFk0MFHff4is-lVBBwlm4ubtzHDONYafPWEWCw8weLw9xUm1i-rqBCzj7iSJIItlbsypIcYJ6GtYv8PS86EOgxOGhgs1dWjgxDg2L_X0IUJRgNt" alt=""></p>
 <h5 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h5><p>最后吧测试过后还存活并且延迟低的ip放入与py脚本同级目录的ip-proxy.txt中就可以自动切换ip了。ps:同样可以挂云上喔👍</p>
-<h4 id="云端服务"><a href="#云端服务" class="headerlink" title="云端服务"></a>云端服务</h4><p>如x-ray、awvs联动、AdGuard 搭dns、信息收集器、小爬虫，再用ftp（可用serv-u搭建）做一个文件服务器，当然还可以用大名鼎鼎的nginxWebUI最负载均衡和反向代理，通过web随时随地都可以进行管理。<br><img src="http://nginxwebui.oss-cn-beijing.aliyuncs.com/img/conf.jpeg" alt=""></p>
+<h4 id="云端服务"><a href="#云端服务" class="headerlink" title="云端服务"></a>云端服务</h4><p>网站这些广泛的互联网服务这里就不再叙述了，介绍一些实用的如x-ray、awvs联动、AdGuard 搭dns、信息收集器、小爬虫，再用ftp（可用serv-u搭建）做一个文件服务器，当然还可以用大名鼎鼎的nginxWebUI最负载均衡和反向代理，通过web随时随地都可以进行管理。下面提供一些一键搭建的脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">bbr（tcp加速）:</span><br><span class="line">wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br><span class="line"></span><br><span class="line">v2ray（tcp） :</span><br><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br><span class="line"></span><br><span class="line">ssr（kcptun或tcp）:</span><br><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">kcptun（udp）:</span><br><span class="line">wget --no-check-certificate https://github.com/kuoruan/shell-scripts/raw/master/kcptun/kcptun.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bt:</span><br><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br><span class="line">bt磁盘分区：</span><br><span class="line">yum install wget -y &amp;&amp; wget -O auto_disk.sh http://download.bt.cn/tools/auto_disk.sh &amp;&amp; bash auto_disk.sh</span><br><span class="line"></span><br><span class="line">OneManager-php：https://github.com/qkqpttgf/OneManager-php</span><br><span class="line"></span><br><span class="line">aria2下载器：</span><br><span class="line">wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh</span><br></pre></td></tr></table></figure></p>
+<p>当然还有大名鼎鼎的nginx服务<br><img src="http://nginxwebui.oss-cn-beijing.aliyuncs.com/img/conf.jpeg" alt=""></p>
 <h4 id="局域网联机（pptp等自带协议也行）"><a href="#局域网联机（pptp等自带协议也行）" class="headerlink" title="局域网联机（pptp等自带协议也行）"></a>局域网联机（pptp等自带协议也行）</h4><p><a href="https://www.zerotier.com/" target="_blank" rel="noopener">zerotier</a>：端-端-（云面板管理）端<br><img src="https://www.zerotier.com/wp-content/uploads/2020/08/zerotier_logo_black.png" alt=""></p>
 <p><a href="https://bugxia.com/357.html" target="_blank" rel="noopener">EasyN2N</a>：端-端-（云服务器上一键搭建）端，这是目前最简单的服务器搭建方式当时安全性很差，短暂联机可以使用非常方便</p>
 <h5 id="软路由的妙用"><a href="#软路由的妙用" class="headerlink" title="软路由的妙用"></a>软路由的妙用</h5><p>软路由说白了就是一个服务器玩法自然多种多种多样，主要的是让他接管你的上网流量达到互联网上的的各种黑科技功能。搭建以及配置方面真没什么门槛，只要你认得汉字，都可以按照教程来，没人让你自己研究，网上的奶妈级教程多的很。教程方面直接看<a href="https://www.vediotalk.com/" target="_blank" rel="noopener">Vedio Talk</a>的博客<br>动态ip更新（家庭宽带路由）：ddns或者<a href="https://github.com/zhangtory/WayHome" target="_blank" rel="noopener">WayHome</a><br>系统相关：插件用iede，路由管控用ikuai。<br>插件相关直接上图：<br><img src="https://pic4.zhimg.com/80/v2-156857018d33b9a936bf2dcc8da6fe49_720w.jpg?source=1940ef5c" alt=""></p>
@@ -488,15 +489,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,15 +501,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
