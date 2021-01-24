@@ -564,6 +564,8 @@ var _hmt = _hmt || [];
 <p>3.vpn: 端到端，站到端，站到站。常见的vpn链接协议有：L2TP、L2TP、OpenVPN、IPSecVPN</p>
 <p>许多软路由自带vpn客户端功能实现异地链接到企业内网办公的需求，还有部分带服务端更方便搭建。</p>
 <p>4.NAT：网络地址转换属接入广域网（WAN）技术。 是一种将私有（保留）地址转化为合法IP地址的转换技术，它将广泛应用于各种类型Internet接入方式和各种类型的网络中。原因很简单，NAT不仅完善地解决了IP地址不足的问题。而且还能够有效地避免来自网络外部的攻击，隐藏并保护网络内部的计算机。</p>
+<p>5.arp: 地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。主机发送信息时将包含目标IP地址的ARP请求广播到局域网络上的所有主机，并接收返回消息，以此确定目标的物理地址；收到返回消息后将该IP地址和物理地址存入本机ARP缓存中并保留一定时间，下次请求时直接查询ARP缓存以节约资源。</p>
+<p>6.Route:路由表的主要工作就是为经过路由器的每个数据包寻找一条最佳的传输路径，并将该数据有效地传送到目的站点。由此可见，选择最佳路径的策略即路由算法是路由器的关键所在。</p>
 <h4 id="路由器的软拓展（由主路分发dhcp）"><a href="#路由器的软拓展（由主路分发dhcp）" class="headerlink" title="路由器的软拓展（由主路分发dhcp）"></a>路由器的软拓展（由主路分发dhcp）</h4><p>lede基本网络路径： etc/config/network </p>
 <ol>
 <li>使用ikuai自带的虚拟机拓展lede</li>
@@ -577,13 +579,19 @@ var _hmt = _hmt || [];
 <p>二、传统分类网络管理（少量业务或物联网设备管理）：再软路由上绑定arp地址并备注。注：宽带叠加需要对端口进行wan分流和对应的wan口映射才能外部访问。</p>
 <h4 id="常用dos命令"><a href="#常用dos命令" class="headerlink" title="常用dos命令"></a>常用dos命令</h4><pre><code>nslookup  （查询服务器的dns响应）
 tracert  （检查路由情况一般10个以内为正常，10-15为较慢，30以上算作无法访问）
-netstat -anoq | findstr pid（配合任务管理器分析本地软件流量动向带管道符可以筛选）
+netstat -anoq | findstr pid（配合任务管理器分析本地软件流量动向带管道符可以筛选）-r是查看路由表
+route -p add 192.168.1.0 mask 255.255.255.0 192.168.192.10（add添加一条静态路由指向 delete 是删除）
 takeown /f 文件夹名称 /r （打开权限）
 msconfig（查看系统配置）
 systeminfo （查看系统信息）
 netsh winsock reset （重置网卡）
 sfc/scannow （修复系统）
+arp (-a查看路由表，-d删除路由表缓存)
 taskkill /F /IM PID /T (强制关闭进程树)
+telnet server port （测试服务端口连通性）
+netsh interface portproxy add v4tov4 listenport=80 listen address=192.168.154.129 connectport=9999 connectaddress=192.168.154.129 （把192的80端口转发到129的9999端口）
+netsh interface portproxy show all  （显示系统中的转发规则列表）
+netsh interface portproxy reset （清除所有当前的端口转发规则）
 </code></pre>
         
           <a class="article-more-a" href="/2020/03/12/网管笔记/#more">阅读全文 >></a>
@@ -826,7 +834,7 @@ taskkill /F /IM PID /T (强制关闭进程树)
     <div class="article-entry" itemprop="articleBody">
       
         <p>分享自己在网上遇到的好软，希望增加大家的娱乐与工作效率 让这些软件在你的生活中达到事半功倍的作用，笔者不喜欢大量新建文章所以做了一个大杂烩希望大家不要介意。后续有必要在新开文章。<span ps:大量软件可能我并没有提供下载地址有需要的还请根据关键字合理的百度谷歌，如确实找不到可以给我留言。=""><br>                                                温馨提示：右下角有导航喔。</span></p>
-<p>个人小蓝盘地址（定期分享一些互联网上的资源）：<a href="http://xlsking.eastasia.cloudapp.azure.com/" target="_blank" rel="noopener">http://xlsking.eastasia.cloudapp.azure.com/</a></p>
+<p>个人小蓝盘地址（定期分享一些互联网上的资源）：<a href="http://pan.xlmy.net/" target="_blank" rel="noopener">http://pan.xlmy.net/</a></p>
 <h3 id="百度云下载"><a href="#百度云下载" class="headerlink" title="百度云下载"></a>百度云下载</h3><p>亿寻或者pandowlnod,闲麻烦的可以用奶酪的集成插件浏览器。<br><img src="https://tva3.sinaimg.cn/large/7a6a15d5gy1g8s99l1zdqg20qn0euqa8.gif" alt=""></p>
 <h3 id="花刺代理"><a href="#花刺代理" class="headerlink" title="花刺代理"></a>花刺代理</h3><p>提取可用的代理ip保护个人隐私安全上网。记住要去设置验证title的规则不然会出现误报。<a href="https://ip.ihuan.me/" target="_blank" rel="noopener">小幻ip</a> <a href="http://www.66ip.cn/pt.html" target="_blank" rel="noopener">66ip</a><br></p>
         
@@ -971,12 +979,9 @@ taskkill /F /IM PID /T (强制关闭进程树)
   <div class="outer">
     <div id="footer-info">
 
- <div>
+ 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<div>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="http://xsspt.com/TBBsiQ"></script>
+ 
 
    <script>
 var _hmt = _hmt || [];
@@ -988,10 +993,6 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-
-<link rel="stylesheet" type="text/css" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://myhkw.cn/player/js/player.js" id="myhk" key="161141057026" m="1"></script>
 
 
 <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
@@ -1015,7 +1016,7 @@ setInterval("createtime()",250);
 
     </div>
   </div>
-</div></div></footer>
+</footer>
     </div>
     <script>
 	var yiliaConfig = {
@@ -1083,7 +1084,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1091,7 +1096,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1103,19 +1108,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1127,15 +1124,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
