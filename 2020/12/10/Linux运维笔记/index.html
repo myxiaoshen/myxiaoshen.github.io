@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 戏如烟云b16</title>
+  <title>Linux运维笔记 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个脚本小子记录的一点实用技术">
-<meta property="og:type" content="website">
-<meta property="og:title" content="戏如烟云b16">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+  <meta name="description" content="笔者也做过一段时间得运维服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些收集 Linux环境坑介绍一下简单的配置查看：123456cat /proc/cpuinfo | grep &amp;quot;cpu&amp;quot;  //查看cpu核心free -h //查内存df -h //查存储dmidecode -s system-product-name //查看是否是虚拟机uname -a">
+<meta name="keywords" content="笔记,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux运维笔记">
+<meta property="og:url" content="http://yoursite.com/2020/12/10/Linux运维笔记/index.html">
 <meta property="og:site_name" content="戏如烟云b16">
-<meta property="og:description" content="一个脚本小子记录的一点实用技术">
+<meta property="og:description" content="笔者也做过一段时间得运维服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些收集 Linux环境坑介绍一下简单的配置查看：123456cat /proc/cpuinfo | grep &amp;quot;cpu&amp;quot;  //查看cpu核心free -h //查内存df -h //查存储dmidecode -s system-product-name //查看是否是虚拟机uname -a">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20190314/5dca82d53165496d831b98a63f46a460.jpeg">
+<meta property="og:image" content="https://github.com/grayddq/GScan/blob/master/pic/2.png">
+<meta property="og:updated_time" content="2021-01-29T14:15:12.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="戏如烟云b16">
-<meta name="twitter:description" content="一个脚本小子记录的一点实用技术">
+<meta name="twitter:title" content="Linux运维笔记">
+<meta name="twitter:description" content="笔者也做过一段时间得运维服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些收集 Linux环境坑介绍一下简单的配置查看：123456cat /proc/cpuinfo | grep &amp;quot;cpu&amp;quot;  //查看cpu核心free -h //查内存df -h //查存储dmidecode -s system-product-name //查看是否是虚拟机uname -a">
+<meta name="twitter:image" content="http://5b0988e595225.cdn.sohucs.com/images/20190314/5dca82d53165496d831b98a63f46a460.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="戏如烟云b16" type="application/atom+xml">
   
@@ -150,120 +155,98 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Linux运维笔记" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux运维笔记
+    </h1>
+  
+
+        
+        <a href="/2020/12/10/Linux运维笔记/" class="archive-article-date">
+  	<time datetime="2020-12-10T01:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-10</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>笔者也做过一段时间得运维服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些收集</p>
+<h3 id="Linux环境坑"><a href="#Linux环境坑" class="headerlink" title="Linux环境坑"></a>Linux环境坑</h3><p>介绍一下简单的配置查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo | grep &quot;cpu&quot;  //查看cpu核心</span><br><span class="line">free -h //查内存</span><br><span class="line">df -h //查存储</span><br><span class="line">dmidecode -s system-product-name //查看是否是虚拟机</span><br><span class="line">uname -a //处理器位数</span><br><span class="line">cat /etc/redhat-release  //查看系统版本</span><br></pre></td></tr></table></figure></p>
+<p>网络策略相关：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:3128 //查看3128端口</span><br><span class="line">sysctl -w net.ipv4.ip_forward=1  //开启ip转发</span><br><span class="line">sed -i &quot;s/SELINUX=enforcing/SELINUX=disabled/g&quot; /etc/selinux/config  //关闭selinux</span><br><span class="line">systemctl stop firewalld.service  //防火墙关闭</span><br><span class="line">systemctl disable  firewalld.service //防火墙自启关闭</span><br><span class="line">service iptables save //防火墙永久生效</span><br></pre></td></tr></table></figure></p>
+<p>网络配置方面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> /etc/sysconfig/network  #主机名配置文件</span><br><span class="line">ifconfig eth0  down   #down关闭 up启动</span><br><span class="line">service network restart #重启网络</span><br><span class="line">/etc/resolv.conf  #dns目录</span><br><span class="line">service networking restart #重启网络服务</span><br><span class="line">route add –net 192.168.0.0/24 gw 172.16.7.3  #添加一条路由delete删除</span><br></pre></td></tr></table></figure></p>
+<p>修改/etc/sysconfig/network-scripts/ifcfg-ethx:x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=ethx:x </span><br><span class="line"> </span><br><span class="line">   BOOTPROTO=static   #这里可以用dhcp</span><br><span class="line"> </span><br><span class="line">   IPIPADDR=   IP地址 </span><br><span class="line"> </span><br><span class="line">   NETMASK=  子网掩码 </span><br><span class="line"> </span><br><span class="line">   GATEWAY=  网关 </span><br><span class="line"> </span><br><span class="line">   ONBOOT=YES   是否开机启用 </span><br><span class="line"> </span><br><span class="line">   HWADDR=...... MAC</span><br></pre></td></tr></table></figure></p>
+<h4 id="主系统"><a href="#主系统" class="headerlink" title="主系统"></a>主系统</h4><p>用linux针对我们运维人员来说作为主系统的好处非常多这里就不多说啦直接正题！笔者用的deepin，这款系统是国人基于开源linux深度修改的，非常适合国人使用比如：软件安装，驱动安装，包和源的管理非常的人性化，大大的节约开发者的时间吧多余的精力用在工作上。还有这款系统的UI是非常的美丽喔，几乎所有的按钮以及配件都经过深度优化过后的，给使用者一种优雅轻松的感觉。<br>deepin源</p>
+<pre><code>deb [by-hash=force] https://mirrors.tuna.tsinghua.edu.cn/deepin panda main contrib non-free
+</code></pre><p>kali源  </p>
+<pre><code>deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+</code></pre><p>环境版本切换,python为例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">python                             # 查看当前系统默认python2版本</span><br><span class="line"></span><br><span class="line">cd /usr/bin                       # 进入/usr/bin目录   </span><br><span class="line"></span><br><span class="line">ls -l | grep python             # 显示所有名字中包含python的文件</span><br><span class="line"></span><br><span class="line">sudo rm -rf python</span><br><span class="line"></span><br><span class="line">sudo ln -s /usr/bin/python3 /usr/bin/python   # 把python的指向改为python3即可</span><br><span class="line"></span><br><span class="line">python                             # 查看当前系统默认python3版本</span><br></pre></td></tr></table></figure></p>
+<p>0*1 git基础环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">绑定用户：</span><br><span class="line">git config --global user.name &quot;xxx&quot;</span><br><span class="line">git config --global user.email &quot;xxx@gmail.com&quot;</span><br><span class="line">设置SSH key：</span><br><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot; </span><br><span class="line"></span><br><span class="line">打开github，找到账户里面添加SSH，把id_rsa.pub内容复制到key里面。</span><br><span class="line"></span><br><span class="line">测试命令：</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<p>上传本地项目到github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mkdir demo</span><br><span class="line">cd demo</span><br><span class="line">echo &quot;# demo&quot; &gt;&gt; README.md</span><br><span class="line">git init //把这个目录变成Git可以管理的仓库</span><br><span class="line">git clone https://github.com/AppCanOpenSource/666.git --config http.proxy=&apos;http://127.0.0.1:1080&apos;  #更改socks5代理 http和https同理</span><br><span class="line">git add README.md //文件添加到仓库</span><br><span class="line">git add . //不但可以跟单一文件，还可以跟通配符，更可以跟目录。一个点就把当前目录下所有未追踪的文件全部add了（空目录不会被添加）</span><br><span class="line">git status //查看当前工作区的状态（需提交的变更）</span><br><span class="line">git commit -m &quot;提交说明&quot; //把文件提交到仓库</span><br><span class="line">git remote add origin git@github.com:hxf0663/demo.git //关联远程仓库</span><br><span class="line">git push -u origin master //将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)</span><br><span class="line">git push origin master //将本地主分支推到远程主分支</span><br><span class="line">下载操作：</span><br><span class="line">git pull origin master //把远程库更改拉到本地仓库</span><br><span class="line">git clone git@github.com:hxf0663/demo.git //克隆远程仓库到本地</span><br><span class="line">git clone https://github.com/hxf0663/demo.git //克隆远程仓库到本地</span><br><span class="line">git clone https://github.com/hxf0663/demo //克隆远程仓库到本地</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>0*2 java与python安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install default-jre  //jre安装</span><br><span class="line">sudo apt-get install default-jdk  //jdk安装</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo apt install -y make build-essential libssl-dev  zlib1g-dev</span><br><span class="line">sudo apt install -y libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm</span><br><span class="line">sudo apt install -y libncurses5-dev  libncurses5-dev xz-utils tk-dev</span><br><span class="line">wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz</span><br><span class="line">./configure --enable-optimizations</span><br><span class="line">make -j8 &amp;&amp; sudo make altinstall</span><br><span class="line">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py  //下载安装脚本</span><br><span class="line">sudo python get-pip.py</span><br></pre></td></tr></table></figure></p>
+<p>0*3 docker安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add –</span><br><span class="line">echo &apos;deb https://download.docker.com/linux/debian stretch stable&apos;&gt; /etc/apt/sources.list.d/docker.list</span><br><span class="line">apt-get remove docker docker-engine docker.io containerd runc</span><br><span class="line">apt-get install apt-transport-https  ca-certificates   curl  gnupg2  software-properties-common</span><br><span class="line">apt-get update</span><br><span class="line">sudo apt install docker-ce</span><br></pre></td></tr></table></figure></p>
+<p>0*4 开发环境技巧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jetbrains系列的软件一套安装好，vim用不惯的用submit，web开发环境建议安装在一个虚拟的centos不需要gui，而且跟线上生产环境也更为接近。如果安装再主系统这会让它变得臃肿并且复杂，而且一旦发生灾难性故障，环境也是分分钟挂掉，关键问题是环境经常会出各种神奇的问题，解决起来浪费大量的时间。虚拟机中配置好环境在设置一个镜像备份出现问题的时候就可以直接恢复了。</span><br><span class="line"></span><br><span class="line">后期通过jetbrains全家桶SSH与SFTP的连接就可以高效的进行开发了。以下是整理了俺常用的的Linux软件</span><br></pre></td></tr></table></figure></p>
+<p>0*5 常用选项<br>依赖包相关：</p>
+<pre><code>yum  install net-tools lrzsz wget url 
+</code></pre><p>服务相关：</p>
+<pre><code>systemctl restart/enable/status/stop  
+</code></pre><p>网关依赖：<br>配置文件路径——/etc/sysconfig/network-scripts/ifcfg-ensXX<br>IPADDR=192.168.1.33<br>NETMASK=255.255.255.0<br>GATEWAY=192.168.1.1</p>
+<p>一些测试用的软件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">日常类：</span><br><span class="line">FileZilla	ftp管理工具</span><br><span class="line">PHPStorm	代码php</span><br><span class="line">PyCharm	代码python	</span><br><span class="line">Postman	测试api</span><br><span class="line">locust 性能测试</span><br><span class="line">tcpdump 抓包网络诊断</span><br><span class="line">——————————————————————————————————————</span><br><span class="line">web测试类</span><br><span class="line">Wireshark	抓包工具</span><br><span class="line">BurpSuite（汉化+插件）抓包分析</span><br><span class="line">sqlmap	sql注入测试</span><br><span class="line">Hydra	端口服务爆破测试</span><br><span class="line">dirmap（https://github.com/H4ckForJob/dirmap）  目录扫描工具可fuzz </span><br><span class="line">subdomain3（https://github.com/yanxiu0614/subdomain3） 子域扫描</span><br><span class="line">fuzz（https://github.com/TheKingOfDuck/fuzzDicts）	字典大全</span><br><span class="line">nmap	端口扫描</span><br><span class="line">WhatWaf（https://github.com/Ekultek/WhatWaf） waf识别并尝试绕过</span><br><span class="line">tor		匿名服务</span><br><span class="line">Lynis linux安全扫描</span><br><span class="line">routersploit（https://github.com/threat9/routersploit） 物联网漏洞扫描</span><br><span class="line">w9scan（https://github.com/w-digital-scanner/w9scan/）	1300+插件扫描器</span><br><span class="line">xray（https://github.com/chaitin/xray）	长亭被动式扫描器要强与w13scan</span><br><span class="line">w13scan(https://github.com/w-digital-scanner/w13scan/)	同上一款被动式扫描器</span><br><span class="line">Acunetix与Netsparker  web主动扫描器</span><br><span class="line">Photon（https://github.com/s0md3v/Photon） 	提取一个网站上网址，电子邮件，文件，网站帐户等的高速爬虫</span><br><span class="line">XSStrike（https://github.com/search?q=XSStrike）  可识别并绕过WAF的XSS扫描工具</span><br><span class="line">xunfeng（https://github.com/ysrc/xunfeng）	企业内网的漏洞管理平台</span><br><span class="line">msf（curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &gt; msfinstall）强大的后渗透框架</span><br><span class="line">Angry IP Scanner（https://github.com/angryip/ipscan/releases/download/3.6.2/ipscan_3.6.2_amd64.deb）快速的局域网ip扫描工具</span><br><span class="line">无线电依赖：sudo apt-get install gnuradio gnuradio-dev gr-osmosdr gr-osmosdr  hackrf</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190314/5dca82d53165496d831b98a63f46a460.jpeg" alt=""></p>
+<h3 id="一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"><a href="#一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）" class="headerlink" title="一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"></a>一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）</h3><p>1.批量部署：Ansible<br>2.ssh远程维护：xshell或FinalShell，当然还有企业级的MobaXtermv<br>3.服务器监控平台：zabbix<br>4.容器管理平台：Portainer Kubesphere<br>5.独立管理：宝塔面板<br>6.探针集群管理：旗鱼云梯，云帮手，phpstudy<br>7.项目自动化发布：Jenkins<br>8.双机热备服务：keepalived<br>9.日志管理：elk<br>10.服务器缓存（内存）加速：redis web管理工具（redis-manager）<br>11.云加速：cdn 推荐（百度云，SuCloud宿云）<br>12.服务配置优化：nginx（<a href="https://blog.csdn.net/houjinkai/article/details/81201027）" target="_blank" rel="noopener">https://blog.csdn.net/houjinkai/article/details/81201027）</a> apche（<a href="https://www.cnblogs.com/jager/p/4371259.html）" target="_blank" rel="noopener">https://www.cnblogs.com/jager/p/4371259.html）</a><br>13.数据库远程管理：navicat premium<br>14.服务器安全：RASP(百度)， waf(云锁)<br>15.负载均衡: nginx web工具（nginxWebUI）</p>
+<p>服务器常用初始配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#安装下载yum源</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line">#下载epel源</span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo</span><br><span class="line">#清空原本yum缓存</span><br><span class="line">yum clean all </span><br><span class="line">#生成新的阿里云的yum缓存，加速下载预热数据</span><br><span class="line">yum makecache</span><br><span class="line">#补齐</span><br><span class="line">yum install epel-release bash-completion bash-completion-extras</span><br><span class="line">#常用工具包与依赖</span><br><span class="line">yum groups install &quot;Development Tools&quot;</span><br><span class="line">yum install epel-release</span><br></pre></td></tr></table></figure></p>
+<h3 id="二、命令实战"><a href="#二、命令实战" class="headerlink" title="二、命令实战"></a>二、命令实战</h3><h5 id="Linux进程分析"><a href="#Linux进程分析" class="headerlink" title="Linux进程分析"></a>Linux进程分析</h5><p>0.网络带宽分析工具iftop,centos下需要下载源包进行mack编译代码如下<br>下载地址：<a href="http://www.ex-parrot.com/~pdw/iftop/" target="_blank" rel="noopener">http://www.ex-parrot.com/~pdw/iftop/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">yum install flex byacc  libpcap ncurses ncurses-devel libpcap-devel</span><br><span class="line"></span><br><span class="line">tar zxvf iftop-0.17.tar.gz</span><br><span class="line"></span><br><span class="line">cd iftop-0.17</span><br><span class="line"></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">//日常用法 i 指定网卡，P使host信息及端口信息默认就都显示，F指定网段监控，b使流量图形条默认就显示</span><br><span class="line">iftop -i etho -P -F</span><br></pre></td></tr></table></figure></p>
+<p>1.ps、top命令分析进程配合netstat与ss<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ps -ef 查找主进程</span><br><span class="line">ps -aux --sort -pcpu,-pmem | grep name | head -n 10</span><br><span class="line">//查询所有的进程并进行排序后面用-指定排序规则 管道筛选与name相关的进程 管道筛选出前10条</span><br><span class="line"></span><br><span class="line">netstat -antlp或-anulp //查看tcp或udp的端口监听</span><br><span class="line">netstat -tunpl |grep 端口号 //查看端口对应的程序</span><br><span class="line"></span><br><span class="line">ss //查看前台那些任务在走流量</span><br><span class="line"></span><br><span class="line">top ##M 内存占比排序、P cup占比排序（默认）、N 以PID排序、q 退出</span><br></pre></td></tr></table></figure></p>
+<p>2.kill -STOP 先尝试停止进程<br>  killall -9 name 关闭与name相关的进程</p>
+<p>3.whereis和which命令查找此进程文件位置并且检查/root/.ssh或用ls -l /proc/{pid号}/exe查看pid所在的进程</p>
+<p>3.find -name 查文件是否存在</p>
+<p>4.crontab -l查看是否有定时任务可疑的通过-rf删除</p>
+<p>5.chattr +ia -ia 开启解除锁定i权限</p>
+<p>6.chmod –R 权限设置 777 000 </p>
+<p>7.history 查看历史记录</p>
+<p>8.rkhunter –check  查毒</p>
+<p>9.chkconfig iptables on 防火墙</p>
+<p>10.systemctl stop ？ 停止某服务</p>
+<p>11.rm 删除与病毒相关的父目录/etc，检查/root/.ssh/路径的ssh文件</p>
+<p>12.ls -l  /etc/init.d   查看启动项 </p>
+<h6 id="内存分析"><a href="#内存分析" class="headerlink" title="内存分析"></a>内存分析</h6><p>1.ps -aux| grep -v “USER” |sort -n -r -k 4 |awk ‘NR==1{ print $0}’ 查看内存占用最大的进程,进程状态如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">D    不可中断睡眠 (通常是在IO操作) 收到信号不唤醒和不可运行, 进程必须等待直到有中断发生</span><br><span class="line">R   正在运行或可运行（在运行队列排队中）</span><br><span class="line">S   可中断睡眠 (休眠中, 受阻, 在等待某个条件的形成或接受到信号)</span><br><span class="line">T   已停止的 进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行</span><br><span class="line">W   正在换页(2.6.内核之前有效)</span><br><span class="line"> X   死进程 (未开启)</span><br><span class="line"> Z   僵尸进程  进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放BSD风格的</span><br><span class="line"> &lt;   高优先级(not nice to other users)</span><br><span class="line"> N   低优先级(nice to other users)</span><br><span class="line"> L   页面锁定在内存（实时和定制的IO）</span><br><span class="line"> s   一个信息头</span><br><span class="line"> l   多线程（使用 CLONE_THREAD，像NPTL的pthreads的那样）</span><br><span class="line"> +   在前台进程组</span><br></pre></td></tr></table></figure></p>
+<p>2.free -m  内存占用情况</p>
+<p>3.vmstat x 其中vmstat x代表每隔x秒更新一次数据。</p>
+<p>内存释放<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sync     <span class="comment">#先将内存刷出，避免数据丢失</span></span><br><span class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/vm/drop_caches <span class="comment">#释放pagecache</span></span><br><span class="line"><span class="built_in">echo</span> 2 &gt; /proc/sys/vm/drop_caches <span class="comment">#释放dentry和inode</span></span><br><span class="line"><span class="built_in">echo</span> 3 &gt; /proc/sys/vm/drop_caches <span class="comment">#释放pagecache、dentry和inode</span></span><br></pre></td></tr></table></figure></p>
+<h6 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h6><p>1.挂载新磁盘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l  //分区/查看分区</span><br><span class="line">fdisk /dev/sdc //这里写上一步的磁盘路径</span><br></pre></td></tr></table></figure></p>
+<p>2.输入 n 按回车键，然后再输入 p ，按回车键。 n 表示新建一个分区，p 表示是主分区。 输入 m 可以查看所有的命令说明。后面一直默认就行了最后一步w保存。（这里注意默认分区是1，后面需要格式化的盘就选择/dev/sdc1）</p>
+<p>3.格式化磁盘并挂载分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mkfs.xfs  /dev/sdc1           #格式化分区</span><br><span class="line"></span><br><span class="line">mkdir  /Ddata128G                #建立挂载点，建议挂在根目录下</span><br><span class="line"></span><br><span class="line">mount /dev/sdc1 /Ddata    　　　　　#挂载硬盘</span><br><span class="line"></span><br><span class="line">vim /etc/fstab                #挂载永久生效</span><br><span class="line">***************</span><br><span class="line">/dev/sdc1  /Ddata128G   xfs    defaults 0 0</span><br><span class="line">***************</span><br></pre></td></tr></table></figure></p>
+<p>*4.删除分区（如果设置了永久挂载记得去/etc/fstab删除掉挂载信息）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">umount -v /dev/sdc1    #卸载磁盘</span><br><span class="line">fdisk /dev/sdc1      #删除分区</span><br><span class="line">m  </span><br><span class="line">d  </span><br><span class="line">1  </span><br><span class="line">d</span><br></pre></td></tr></table></figure></p>
+<h6 id="日志清理与管理"><a href="#日志清理与管理" class="headerlink" title="日志清理与管理"></a>日志清理与管理</h6><p>1.检查日志磁盘占用</p>
+<pre><code>df -h 
+journalctl --disk-usage 
+</code></pre><p>2.日志限制与持久(只保存2天的日志，最大500M)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">journalctl --vacuum-time=2d  </span><br><span class="line"></span><br><span class="line">journalctl --vacuum-size=500M</span><br></pre></td></tr></table></figure></p>
+<p>持久化修改 /etc/systemd/journald.conf</p>
+<pre><code>SystemMaxUse=16M
+ForwardToSyslog=no
+</code></pre><p>3.日志功能解释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/var/log/boot.log：录了系统在引导过程中发生的事件，就是Linux系统开机自检过程显示的信息</span><br><span class="line"></span><br><span class="line">/var/log/lastlog ：记录最后一次用户成功登陆的时间、登陆IP等信息</span><br><span class="line"></span><br><span class="line">/var/log/messages ：记录Linux操作系统常见的系统和服务错误信息</span><br><span class="line"></span><br><span class="line">/var/log/secure ：Linux系统安全日志，记录用户和工作组变坏情况、用户登陆认证情况</span><br><span class="line"></span><br><span class="line">/var/log/btmp ：记录Linux登陆失败的用户、时间以及远程IP地址</span><br><span class="line"></span><br><span class="line">/var/log/syslog：只记录警告信息，常常是系统出问题的信息，使用lastlog查看</span><br><span class="line"></span><br><span class="line">/var/log/wtmp：该日志文件永久记录每个用户登录、注销及系统的启动、停机的事件，使用last命令查看</span><br><span class="line"></span><br><span class="line">/var/run/utmp：该日志文件记录有关当前登录的每个用户的信息。如 who、w、users、finger等就需要访问这个文件</span><br></pre></td></tr></table></figure></p>
+<h6 id="Linux安全分析（配合日志分析）"><a href="#Linux安全分析（配合日志分析）" class="headerlink" title="Linux安全分析（配合日志分析）"></a>Linux安全分析（配合日志分析）</h6><p>1.diff命令，将整个web目录和备份目录进行对比，排查出被修改的文件</p>
+<pre><code>diff -urNA webdir webdir_bak
+</code></pre><p>2.使用find命令配合mtime、ctime参数，搜索事发时间时间段以下是24小时，指定格式的被修改文件</p>
+<pre><code>find /var/www/html -mtime +0 &quot;*.jsp&quot;
+</code></pre><p>3.启动项排查<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/rc.local            排查rc.local文件中添加的启动项命令</span><br><span class="line">ls /etc/init.d               排查init.d目录下添加的自启动脚本</span><br><span class="line">ls /etc/profile.d            排查profile.d目录下添加的自启动脚本</span><br><span class="line">chkconfig --list             centos系统列出自启动项</span><br></pre></td></tr></table></figure></p>
+<p>4.更新test.txt的时间和test2.txt时间戳相同：touch -r test.txt test2.txt;设定时间戳：touch -t 201605171210.20 test.txt</p>
+<h4 id="三、运维实用脚本（可根据公司需求重构）"><a href="#三、运维实用脚本（可根据公司需求重构）" class="headerlink" title="三、运维实用脚本（可根据公司需求重构）"></a>三、运维实用脚本（可根据公司需求重构）</h4><h5 id="日常脚本"><a href="#日常脚本" class="headerlink" title="日常脚本"></a>日常脚本</h5><p><a href="https://github.com/Ljohn001/ljohn_ops" target="_blank" rel="noopener">https://github.com/Ljohn001/ljohn_ops</a></p>
+<p><a href="https://linuxeye.com/category/script/" target="_blank" rel="noopener">https://linuxeye.com/category/script/</a></p>
+<h5 id="应急脚本"><a href="#应急脚本" class="headerlink" title="应急脚本"></a>应急脚本</h5><p><a href="https://github.com/al0ne/LinuxCheck" target="_blank" rel="noopener">https://github.com/al0ne/LinuxCheck</a><br><img src="https://github.com/grayddq/GScan/blob/master/pic/2.png" alt=""><br><a href="https://github.com/grayddq/GScan" target="_blank" rel="noopener">https://github.com/grayddq/GScan</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/08/个人生活中一些实用的技巧/" class="archive-article-date">
-  	<time datetime="2019-01-08T09:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/08/个人生活中一些实用的技巧/">长期更新--(整理)个人生活中一些实用的技巧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实用技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/06/绕过技巧/" class="archive-article-date">
-  	<time datetime="2019-01-06T07:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/06/绕过技巧/">上传绕过技巧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/04/ackrf笔记本/" class="archive-article-date">
-  	<time datetime="2019-01-04T08:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/04/ackrf笔记本/">hackrf笔记本</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -273,311 +256,126 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">无线电</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/12/GoogleHack—谷歌语法获取信息/" class="archive-article-date">
-  	<time datetime="2018-12-12T06:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/12/GoogleHack—谷歌语法获取信息/">GoogleHack—谷歌语法获取信息</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">资料</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2020/12/10/Linux运维笔记/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/12/XSS-笔记/" class="archive-article-date">
-  	<time datetime="2018-12-12T02:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/07/理利用网络上的骚操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">合理利用网络上的骚操作👍</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/12/XSS-笔记/">XSS 笔记 XXE工具</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux环境坑"><span class="toc-number">1.</span> <span class="toc-text">Linux环境坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主系统"><span class="toc-number">1.1.</span> <span class="toc-text">主系统</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"><span class="toc-number">2.</span> <span class="toc-text">一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、命令实战"><span class="toc-number">3.</span> <span class="toc-text">二、命令实战</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux进程分析"><span class="toc-number">3.0.1.</span> <span class="toc-text">Linux进程分析</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#内存分析"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">内存分析</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#磁盘管理"><span class="toc-number">3.0.1.2.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#日志清理与管理"><span class="toc-number">3.0.1.3.</span> <span class="toc-text">日志清理与管理</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Linux安全分析（配合日志分析）"><span class="toc-number">3.0.1.4.</span> <span class="toc-text">Linux安全分析（配合日志分析）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、运维实用脚本（可根据公司需求重构）"><span class="toc-number">3.1.</span> <span class="toc-text">三、运维实用脚本（可根据公司需求重构）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#日常脚本"><span class="toc-number">3.1.1.</span> <span class="toc-text">日常脚本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#应急脚本"><span class="toc-number">3.1.2.</span> <span class="toc-text">应急脚本</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/11/向分析/" class="archive-article-date">
-  	<time datetime="2018-12-11T01:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-11</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/11/向分析/">Android逆向分析笔记 </a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/05/canners-Box高质量工具总结/" class="archive-article-date">
-  	<time datetime="2018-12-05T03:12:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/05/canners-Box高质量工具总结/">Scanners-Box高质量工具总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/02/od入门教程/" class="archive-article-date">
-  	<time datetime="2018-12-02T09:16:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/02/od入门教程/">Ollydbg学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/30/静态分析/" class="archive-article-date">
-  	<time datetime="2018-11-30T13:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/30/静态分析/">静态分析</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ide</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">逆向</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/10/Proxmark3硬件知识/" class="archive-article-date">
-  	<time datetime="2018-11-10T11:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/10/Proxmark3硬件知识/">Proxmark3硬件知识</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">极客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/4/">Next &raquo;</a>
-    </nav>
   
 
 
+ 
           </div>
         </div>
       </div>
@@ -628,8 +426,8 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

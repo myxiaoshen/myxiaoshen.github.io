@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>nmap的实战用法 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先看看几种常用的参数如下：1234567891011121314151617181920212223-sT	 TCP connect()扫描，这种方式会在目标主机的日志中记录大批连接请求和错误信息。-sS	 半开扫描，很少有系统能把它记入系统日志。不过，需要Root权限。-sF  -sN	 秘密FIN数据包扫描、Xmas Tree、Null扫描模式-sP	 ping扫描，Nmap在扫描端口时，默认">
+  <meta name="description" content="先看看几种常用的参数如下：12345678910111213141516171819202122232425-sT	 TCP connect()扫描，这种方式会在目标主机的日志中记录大批连接请求和错误信息。-sS	 半开扫描，很少有系统能把它记入系统日志。不过，需要Root权限。-sF  -sN	 秘密FIN数据包扫描、Xmas Tree、Null扫描模式-sP	 ping扫描，Nmap在扫描端口">
 <meta name="keywords" content="工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nmap的实战用法">
 <meta property="og:url" content="http://yoursite.com/2018/11/08/nmap的实战用法/index.html">
 <meta property="og:site_name" content="戏如烟云b16">
-<meta property="og:description" content="先看看几种常用的参数如下：1234567891011121314151617181920212223-sT	 TCP connect()扫描，这种方式会在目标主机的日志中记录大批连接请求和错误信息。-sS	 半开扫描，很少有系统能把它记入系统日志。不过，需要Root权限。-sF  -sN	 秘密FIN数据包扫描、Xmas Tree、Null扫描模式-sP	 ping扫描，Nmap在扫描端口时，默认">
+<meta property="og:description" content="先看看几种常用的参数如下：12345678910111213141516171819202122232425-sT	 TCP connect()扫描，这种方式会在目标主机的日志中记录大批连接请求和错误信息。-sS	 半开扫描，很少有系统能把它记入系统日志。不过，需要Root权限。-sF  -sN	 秘密FIN数据包扫描、Xmas Tree、Null扫描模式-sP	 ping扫描，Nmap在扫描端口">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-05-27T07:11:09.031Z">
+<meta property="og:updated_time" content="2021-01-27T09:06:56.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nmap的实战用法">
-<meta name="twitter:description" content="先看看几种常用的参数如下：1234567891011121314151617181920212223-sT	 TCP connect()扫描，这种方式会在目标主机的日志中记录大批连接请求和错误信息。-sS	 半开扫描，很少有系统能把它记入系统日志。不过，需要Root权限。-sF  -sN	 秘密FIN数据包扫描、Xmas Tree、Null扫描模式-sP	 ping扫描，Nmap在扫描端口时，默认">
+<meta name="twitter:description" content="先看看几种常用的参数如下：12345678910111213141516171819202122232425-sT	 TCP connect()扫描，这种方式会在目标主机的日志中记录大批连接请求和错误信息。-sS	 半开扫描，很少有系统能把它记入系统日志。不过，需要Root权限。-sF  -sN	 秘密FIN数据包扫描、Xmas Tree、Null扫描模式-sP	 ping扫描，Nmap在扫描端口">
   
     <link rel="alternative" href="/atom.xml" title="戏如烟云b16" type="application/atom+xml">
   
@@ -172,7 +172,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>先看看几种常用的参数如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">-sT	 TCP connect()扫描，这种方式会在目标主机的日志中记录大批连接请求和错误信息。</span><br><span class="line"></span><br><span class="line">-sS	 半开扫描，很少有系统能把它记入系统日志。不过，需要Root权限。</span><br><span class="line">-sF  -sN	 秘密FIN数据包扫描、Xmas Tree、Null扫描模式</span><br><span class="line">-sP	 ping扫描，Nmap在扫描端口时，默认都会使用ping扫描，只有主机存活，Nmap才会继续扫描。</span><br><span class="line">-sU	 UDP扫描，但UDP扫描是不可靠的</span><br><span class="line">-sA	 这项高级的扫描方法通常用来穿过防火墙的规则集</span><br><span class="line">-sV	 探测端口服务版本</span><br><span class="line">-Pn	 扫描之前不需要用ping命令，有些防火墙禁止ping命令。可以使用此选项进行扫描</span><br><span class="line">-v	 显示扫描过程，推荐使用</span><br><span class="line"></span><br><span class="line">-h	 帮助选项，是最清楚的帮助文档</span><br><span class="line">-p	 指定端口，如“1-65535、1433、135、22、80”等</span><br><span class="line">-O	 启用远程操作系统检测，存在误报</span><br><span class="line">-A	 全面系统检测、启用脚本检测、扫描等</span><br><span class="line">-oN/-oX/-oG	 将报告写入文件，分别是正常、XML、grepable 三种格式</span><br><span class="line">-T4	 针对TCP端口禁止动态扫描延迟超过10ms</span><br><span class="line">-iL	 读取主机列表，例如，“-iL C:\ip.txt”</span><br><span class="line">-P0 nmap扫描前不Ping目标主机。在扫描之前，不必ping主机。有些网络的防火墙不允许ICMP <span class="built_in">echo</span>请求穿过，使用这个选项可以对这些网络进行扫描。</span><br><span class="line"> -n/-R  不对 IP 进行域名反向解析/为所有的 IP 都进行域名 的反向解析</span><br><span class="line"> -PS/PA/PU/PY[portlist]  TCP SYN Ping/TCP ACK Ping/UDP Ping 发现 。</span><br><span class="line"></span><br><span class="line"> -PE/PP/PM 使用 ICMP <span class="built_in">echo</span>， timestamp and netmask 请求 包发现主机 。</span><br></pre></td></tr></table></figure></p>
+        <p>先看看几种常用的参数如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">-sT	 TCP connect()扫描，这种方式会在目标主机的日志中记录大批连接请求和错误信息。</span><br><span class="line"></span><br><span class="line">-sS	 半开扫描，很少有系统能把它记入系统日志。不过，需要Root权限。</span><br><span class="line">-sF  -sN	 秘密FIN数据包扫描、Xmas Tree、Null扫描模式</span><br><span class="line">-sP	 ping扫描，Nmap在扫描端口时，默认都会使用ping扫描，只有主机存活，Nmap才会继续扫描。</span><br><span class="line">-sU	 UDP扫描，但UDP扫描是不可靠的</span><br><span class="line">-sA	 这项高级的扫描方法通常用来穿过防火墙的规则集</span><br><span class="line">-sV	 探测端口服务版本</span><br><span class="line">-Pn	 扫描之前不需要用ping命令，有些防火墙禁止ping命令。可以使用此选项进行扫描</span><br><span class="line">-v	 显示扫描过程，推荐使用</span><br><span class="line"></span><br><span class="line">-h	 帮助选项，是最清楚的帮助文档</span><br><span class="line">-p	 指定端口，如“1-65535、1433、135、22、80”等</span><br><span class="line">-O	 启用远程操作系统检测，存在误报</span><br><span class="line">-A	 全面系统检测、启用脚本检测、扫描等</span><br><span class="line">-oN/-oX/-oG	 将报告写入文件，分别是正常、XML、grepable 三种格式</span><br><span class="line">-T4	 针对TCP端口禁止动态扫描延迟超过10ms</span><br><span class="line">-iL	 读取主机列表，例如，“-iL C:\ip.txt”</span><br><span class="line">-P0 nmap扫描前不Ping目标主机。在扫描之前，不必ping主机。有些网络的防火墙不允许ICMP <span class="built_in">echo</span>请求穿过，使用这个选项可以对这些网络进行扫描。</span><br><span class="line"> -n/-R  不对 IP 进行域名反向解析/为所有的 IP 都进行域名 的反向解析</span><br><span class="line"> -PS/PA/PU/PY[portlist]  TCP SYN Ping/TCP ACK Ping/UDP Ping 发现 。</span><br><span class="line"></span><br><span class="line"> -PE/PP/PM 使用 ICMP <span class="built_in">echo</span>， timestamp and netmask 请求 包发现主机 。</span><br><span class="line"> -e 指定网卡</span><br><span class="line"> -S 用于伪装源地址进行扫描，需要搭配-e</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>nmap脚本在实战中也有很大的帮助在扫描时可根据需要设置–script=类别这种方式进行比较笼统的扫描：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">-sC  根据端口识别的服务，调用默认脚本</span><br><span class="line">auth: 负责处理鉴权证书（绕开鉴权）的脚本</span><br><span class="line"></span><br><span class="line">broadcast: 在局域网内探查更多服务开启状况，如dhcp/dns/sqlserver等服务</span><br><span class="line"></span><br><span class="line">brute: 提供暴力破解方式，针对常见的应用如http/snmp等</span><br><span class="line"></span><br><span class="line">default: 使用-sC或-A选项扫描时候默认的脚本，提供基本脚本扫描能力</span><br><span class="line"> &lt;!-- more --&gt;</span><br><span class="line">discovery: 对网络进行更多的信息，如SMB枚举、SNMP查询等</span><br><span class="line"></span><br><span class="line">dos: 用于进行拒绝服务攻击</span><br><span class="line"></span><br><span class="line">exploit: 利用已知的漏洞入侵系统</span><br><span class="line"></span><br><span class="line">external: 利用第三方的数据库或资源，例如进行whois解析</span><br><span class="line"></span><br><span class="line">fuzzer: 模糊测试的脚本，发送异常的包到目标机，探测出潜在漏洞 intrusive: 入侵性的脚本，此类脚本可能引发对方的IDS/IPS的记录或屏蔽</span><br><span class="line"></span><br><span class="line">malware: 探测目标机是否感染了病毒、开启了后门等信息</span><br><span class="line"></span><br><span class="line">safe: 此类与intrusive相反，属于安全性脚本</span><br><span class="line"></span><br><span class="line">version: 负责增强服务与版本扫描（Version Detection）功能的脚本</span><br><span class="line"></span><br><span class="line">vuln: 负责检查目标机是否有常见的漏洞（Vulnerability），如是否有MS08_067</span><br></pre></td></tr></table></figure>
@@ -186,7 +186,8 @@ var _hmt = _hmt || [];
 操作系统扫描：nmap-T4 -O targetip
 </code></pre><p>  使用Decoy（诱骗）方式来掩盖真实的扫描地址，例如-D ip1,ip2,ip3,ip4,ME，这样就会产生多个虚假的ip同时对目标机进行探测，其中ME代表本机的真实地址，这样对方的防火墙不容易识别出是扫描者的身份。</p>
 <pre><code>nmap -T4 -F -n -Pn -D192.168.1.100,192.168.1.101,192.168.1.102,ME 192.168.1.1
-</code></pre>
+</code></pre><p>使用-S伪装自己源地址扫描需要使用-e指定网卡和-Pn参数才能伪装如下：<br>      nmap -e eth0 10.10.10.164 -S 10.10.10.163 -Pn </p>
+
       
 
       
@@ -440,6 +441,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -448,11 +457,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -461,10 +466,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,15 +485,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">

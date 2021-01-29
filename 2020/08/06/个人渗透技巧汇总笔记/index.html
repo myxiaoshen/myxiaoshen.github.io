@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://i.niupic.com/images/2020/01/09/6gm0.jpg">
 <meta property="og:image" content="https://i.niupic.com/images/2020/10/05/8LBE.png">
 <meta property="og:image" content="https://camo.githubusercontent.com/4d1e7e864f6be9fb19d0be7eff8b28c9b522e62d/68747470733a2f2f7777772e7665696c2d6672616d65776f726b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f31322f63726f707065642d5665696c2d53796d626f6c322e706e67">
-<meta property="og:updated_time" content="2020-12-26T07:59:38.368Z">
+<meta property="og:updated_time" content="2021-01-29T04:23:16.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人渗透技巧汇总笔记">
 <meta name="twitter:description" content="前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，">
@@ -231,7 +231,7 @@ var _hmt = _hmt || [];
 </code></pre><p>windows:</p>
 <pre><code>netsh interface portproxy add v4tov4 listenport=80 listen address=192.168.154.129 connectport=9999 connectaddress=192.168.154.129
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy show all //查看转发规则</span><br><span class="line">netsh interface portproxy reset   //清除所有转发规则</span><br></pre></td></tr></table></figure>
-<h5 id="将-IP-流量封装进-IMCP-的-ping-数据包进行传输"><a href="#将-IP-流量封装进-IMCP-的-ping-数据包进行传输" class="headerlink" title="将 IP 流量封装进 IMCP 的 ping 数据包进行传输"></a>将 IP 流量封装进 IMCP 的 ping 数据包进行传输</h5><p>工具如下<br>1、icmptunnel：<a href="https://github.com/jamesbarlow/icmptunnel" target="_blank" rel="noopener">https://github.com/jamesbarlow/icmptunnel</a><br>2、ptunnel：<a href="http://www.cs.uit.no/~daniels/PingTunnel/" target="_blank" rel="noopener">http://www.cs.uit.no/~daniels/PingTunnel/</a><br>3、icmpsh：<a href="https://github.com/inquisb/icmpsh" target="_blank" rel="noopener">https://github.com/inquisb/icmpsh</a><br>4、Powershell-ICMP：<a href="https://github.com/api0cradle/Powershell-ICMP" target="_blank" rel="noopener">https://github.com/api0cradle/Powershell-ICMP</a></p>
+<h5 id="将-IP-流量封装进-IMCP-的-ping-数据包进行传输"><a href="#将-IP-流量封装进-IMCP-的-ping-数据包进行传输" class="headerlink" title="将 IP 流量封装进 IMCP 的 ping 数据包进行传输"></a>将 IP 流量封装进 IMCP 的 ping 数据包进行传输</h5><p>工具如下<br>1、icmptunnel：<a href="https://github.com/jamesbarlow/icmptunnel" target="_blank" rel="noopener">https://github.com/jamesbarlow/icmptunnel</a><br>2、ptunnel：<a href="http://www.cs.uit.no/~daniels/PingTunnel/" target="_blank" rel="noopener">http://www.cs.uit.no/~daniels/PingTunnel/</a><br>3、icmpsh：<a href="https://github.com/inquisb/icmpsh" target="_blank" rel="noopener">https://github.com/inquisb/icmpsh</a><br>4、Powershell-ICMP：<a href="https://github.com/api0cradle/Powershell-ICMP" target="_blank" rel="noopener">https://github.com/api0cradle/Powershell-ICMP</a><br>5、复杂的网络环境可以使用EarchWorm(ew)实现多级代理访问目标主机</p>
 <h5 id="msf后渗透"><a href="#msf后渗透" class="headerlink" title="msf后渗透"></a>msf后渗透</h5><p>详情参考这个：<a href="https://blog.csdn.net/qq_33020901/article/details/98357659" target="_blank" rel="noopener">https://blog.csdn.net/qq_33020901/article/details/98357659</a><br>添加开机自启</p>
 <pre><code>reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v &quot;Keyname&quot; /t REG_SZ /d &quot;C:\Users\KingXL\1.exe&quot; /f 
 
@@ -498,6 +498,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -506,11 +514,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,10 +523,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,15 +542,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">

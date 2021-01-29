@@ -260,11 +260,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		
 		</ul>
@@ -467,7 +467,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>先看看几种常用的参数如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">-sT	 TCP connect()扫描，这种方式会在目标主机的日志中记录大批连接请求和错误信息。</span><br><span class="line"></span><br><span class="line">-sS	 半开扫描，很少有系统能把它记入系统日志。不过，需要Root权限。</span><br><span class="line">-sF  -sN	 秘密FIN数据包扫描、Xmas Tree、Null扫描模式</span><br><span class="line">-sP	 ping扫描，Nmap在扫描端口时，默认都会使用ping扫描，只有主机存活，Nmap才会继续扫描。</span><br><span class="line">-sU	 UDP扫描，但UDP扫描是不可靠的</span><br><span class="line">-sA	 这项高级的扫描方法通常用来穿过防火墙的规则集</span><br><span class="line">-sV	 探测端口服务版本</span><br><span class="line">-Pn	 扫描之前不需要用ping命令，有些防火墙禁止ping命令。可以使用此选项进行扫描</span><br><span class="line">-v	 显示扫描过程，推荐使用</span><br><span class="line"></span><br><span class="line">-h	 帮助选项，是最清楚的帮助文档</span><br><span class="line">-p	 指定端口，如“1-65535、1433、135、22、80”等</span><br><span class="line">-O	 启用远程操作系统检测，存在误报</span><br><span class="line">-A	 全面系统检测、启用脚本检测、扫描等</span><br><span class="line">-oN/-oX/-oG	 将报告写入文件，分别是正常、XML、grepable 三种格式</span><br><span class="line">-T4	 针对TCP端口禁止动态扫描延迟超过10ms</span><br><span class="line">-iL	 读取主机列表，例如，“-iL C:\ip.txt”</span><br><span class="line">-P0 nmap扫描前不Ping目标主机。在扫描之前，不必ping主机。有些网络的防火墙不允许ICMP <span class="built_in">echo</span>请求穿过，使用这个选项可以对这些网络进行扫描。</span><br><span class="line"> -n/-R  不对 IP 进行域名反向解析/为所有的 IP 都进行域名 的反向解析</span><br><span class="line"> -PS/PA/PU/PY[portlist]  TCP SYN Ping/TCP ACK Ping/UDP Ping 发现 。</span><br><span class="line"></span><br><span class="line"> -PE/PP/PM 使用 ICMP <span class="built_in">echo</span>， timestamp and netmask 请求 包发现主机 。</span><br></pre></td></tr></table></figure></p>
+        <p>先看看几种常用的参数如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">-sT	 TCP connect()扫描，这种方式会在目标主机的日志中记录大批连接请求和错误信息。</span><br><span class="line"></span><br><span class="line">-sS	 半开扫描，很少有系统能把它记入系统日志。不过，需要Root权限。</span><br><span class="line">-sF  -sN	 秘密FIN数据包扫描、Xmas Tree、Null扫描模式</span><br><span class="line">-sP	 ping扫描，Nmap在扫描端口时，默认都会使用ping扫描，只有主机存活，Nmap才会继续扫描。</span><br><span class="line">-sU	 UDP扫描，但UDP扫描是不可靠的</span><br><span class="line">-sA	 这项高级的扫描方法通常用来穿过防火墙的规则集</span><br><span class="line">-sV	 探测端口服务版本</span><br><span class="line">-Pn	 扫描之前不需要用ping命令，有些防火墙禁止ping命令。可以使用此选项进行扫描</span><br><span class="line">-v	 显示扫描过程，推荐使用</span><br><span class="line"></span><br><span class="line">-h	 帮助选项，是最清楚的帮助文档</span><br><span class="line">-p	 指定端口，如“1-65535、1433、135、22、80”等</span><br><span class="line">-O	 启用远程操作系统检测，存在误报</span><br><span class="line">-A	 全面系统检测、启用脚本检测、扫描等</span><br><span class="line">-oN/-oX/-oG	 将报告写入文件，分别是正常、XML、grepable 三种格式</span><br><span class="line">-T4	 针对TCP端口禁止动态扫描延迟超过10ms</span><br><span class="line">-iL	 读取主机列表，例如，“-iL C:\ip.txt”</span><br><span class="line">-P0 nmap扫描前不Ping目标主机。在扫描之前，不必ping主机。有些网络的防火墙不允许ICMP <span class="built_in">echo</span>请求穿过，使用这个选项可以对这些网络进行扫描。</span><br><span class="line"> -n/-R  不对 IP 进行域名反向解析/为所有的 IP 都进行域名 的反向解析</span><br><span class="line"> -PS/PA/PU/PY[portlist]  TCP SYN Ping/TCP ACK Ping/UDP Ping 发现 。</span><br><span class="line"></span><br><span class="line"> -PE/PP/PM 使用 ICMP <span class="built_in">echo</span>， timestamp and netmask 请求 包发现主机 。</span><br><span class="line"> -e 指定网卡</span><br><span class="line"> -S 用于伪装源地址进行扫描，需要搭配-e</span><br></pre></td></tr></table></figure></p>
         
           <a class="article-more-a" href="/2018/11/08/nmap的实战用法/#more">阅读全文 >></a>
         
@@ -557,11 +557,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		
 		</ul>
@@ -1015,6 +1015,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -1023,11 +1031,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1036,10 +1040,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1059,15 +1059,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
