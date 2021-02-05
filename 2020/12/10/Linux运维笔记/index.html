@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Linux运维笔记 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="笔者也做过一段时间得运维服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些收集 Linux环境坑介绍一下简单的配置查看：123456cat /proc/cpuinfo | grep &amp;quot;cpu&amp;quot;  //查看cpu核心free -h //查内存df -h //查存储dmidecode -s system-product-name //查看是否是虚拟机uname -a">
+  <meta name="description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。 俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。 Linux环境坑介绍一下简单的配置查看：123456cat /proc/cpuinfo | grep &amp;quot;cpu&amp;quot;  //查看cpu核心free -h //查内存df">
 <meta name="keywords" content="笔记,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux运维笔记">
 <meta property="og:url" content="http://yoursite.com/2020/12/10/Linux运维笔记/index.html">
 <meta property="og:site_name" content="戏如烟云b16">
-<meta property="og:description" content="笔者也做过一段时间得运维服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些收集 Linux环境坑介绍一下简单的配置查看：123456cat /proc/cpuinfo | grep &amp;quot;cpu&amp;quot;  //查看cpu核心free -h //查内存df -h //查存储dmidecode -s system-product-name //查看是否是虚拟机uname -a">
+<meta property="og:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。 俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。 Linux环境坑介绍一下简单的配置查看：123456cat /proc/cpuinfo | grep &amp;quot;cpu&amp;quot;  //查看cpu核心free -h //查内存df">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20190314/5dca82d53165496d831b98a63f46a460.jpeg">
 <meta property="og:image" content="https://github.com/grayddq/GScan/blob/master/pic/2.png">
-<meta property="og:updated_time" content="2021-02-04T05:28:11.555Z">
+<meta property="og:updated_time" content="2021-02-05T13:24:57.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
-<meta name="twitter:description" content="笔者也做过一段时间得运维服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些收集 Linux环境坑介绍一下简单的配置查看：123456cat /proc/cpuinfo | grep &amp;quot;cpu&amp;quot;  //查看cpu核心free -h //查内存df -h //查存储dmidecode -s system-product-name //查看是否是虚拟机uname -a">
+<meta name="twitter:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。 俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。 Linux环境坑介绍一下简单的配置查看：123456cat /proc/cpuinfo | grep &amp;quot;cpu&amp;quot;  //查看cpu核心free -h //查内存df">
 <meta name="twitter:image" content="http://5b0988e595225.cdn.sohucs.com/images/20190314/5dca82d53165496d831b98a63f46a460.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="戏如烟云b16" type="application/atom+xml">
@@ -87,10 +87,10 @@ var _hmt = _hmt || [];
       o = ["效率是做好工作的灵魂。", "人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。", "工欲善其事，必先利其器","把别人的评论当作无足轻重的事。","Own master.","两宫遥相望，双阙百余尺。","你的问题,主要在于读书不多而想得太多"].map(function (r) {
       return r + ""
       }),
-      a = 2,
+      a = 600,
       g = 1,
       s = 5,
-      d = 75,
+      d = 80,
       b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
       c = {
         text: "",
@@ -218,7 +218,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>笔者也做过一段时间得运维服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些收集</p>
+        <p>个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。</p>
+<p>俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。</p>
 <h3 id="Linux环境坑"><a href="#Linux环境坑" class="headerlink" title="Linux环境坑"></a>Linux环境坑</h3><p>介绍一下简单的配置查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo | grep &quot;cpu&quot;  //查看cpu核心</span><br><span class="line">free -h //查内存</span><br><span class="line">df -h //查存储</span><br><span class="line">dmidecode -s system-product-name //查看是否是虚拟机</span><br><span class="line">uname -a //处理器位数</span><br><span class="line">cat /etc/redhat-release  //查看系统版本</span><br></pre></td></tr></table></figure></p>
 <p>网络策略相关：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:3128 //查看3128端口</span><br><span class="line">sysctl -w net.ipv4.ip_forward=1  //开启ip转发</span><br><span class="line">sed -i &quot;s/SELINUX=enforcing/SELINUX=disabled/g&quot; /etc/selinux/config  //关闭selinux</span><br><span class="line">systemctl stop firewalld.service  //防火墙关闭</span><br><span class="line">systemctl disable  firewalld.service //防火墙自启关闭</span><br><span class="line">service iptables save //防火墙永久生效</span><br></pre></td></tr></table></figure></p>
 <p>网络配置方面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> /etc/sysconfig/network  #主机名配置文件</span><br><span class="line">ifconfig eth0  down   #down关闭 up启动</span><br><span class="line">service network restart #重启网络</span><br><span class="line">/etc/resolv.conf  #dns目录</span><br><span class="line">service networking restart #重启网络服务</span><br><span class="line">route add –net 192.168.0.0/24 gw 172.16.7.3  #添加一条路由delete删除</span><br></pre></td></tr></table></figure></p>
@@ -537,6 +538,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
@@ -545,7 +554,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,19 +562,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,11 +570,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
