@@ -217,8 +217,8 @@ var _hmt = _hmt || [];
       
         <p>个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。</p>
 <p>俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。</p>
-<h3 id="Linux环境坑"><a href="#Linux环境坑" class="headerlink" title="Linux环境坑"></a>Linux环境坑</h3><p>介绍一下简单的配置查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo | grep &quot;cpu&quot;  //查看cpu核心</span><br><span class="line">free -h //查内存</span><br><span class="line">df -h //查存储</span><br><span class="line">dmidecode -s system-product-name //查看是否是虚拟机</span><br><span class="line">uname -a //处理器位数</span><br><span class="line">cat /etc/redhat-release  //查看系统版本</span><br></pre></td></tr></table></figure></p>
-<p>网络策略相关：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:3128 //查看3128端口</span><br><span class="line">sysctl -w net.ipv4.ip_forward=1  //开启ip转发</span><br><span class="line">sed -i &quot;s/SELINUX=enforcing/SELINUX=disabled/g&quot; /etc/selinux/config  //关闭selinux</span><br><span class="line">systemctl stop firewalld.service  //防火墙关闭</span><br><span class="line">systemctl disable  firewalld.service //防火墙自启关闭</span><br><span class="line">service iptables save //防火墙永久生效</span><br></pre></td></tr></table></figure></p>
+<h3 id="Linux环境坑"><a href="#Linux环境坑" class="headerlink" title="Linux环境坑"></a>Linux环境坑</h3><p>介绍一下简单的配置查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo | grep &quot;cpu&quot;  //查看cpu核心</span><br><span class="line">free -h //查内存</span><br><span class="line">df -h //查存储</span><br><span class="line">dmidecode -s system-product-name //查看是否是虚拟机</span><br><span class="line">uname -a //处理器位数</span><br><span class="line">cat /etc/redhat-release  //查看系统版本</span><br><span class="line">w //查看登录用户</span><br></pre></td></tr></table></figure></p>
+<p>网络策略相关：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:3128 //查看3128端口</span><br><span class="line">sysctl -w net.ipv4.ip_forward=1  //开启ip转发</span><br><span class="line">sed -i &quot;s/SELINUX=enforcing/SELINUX=disabled/g&quot; /etc/selinux/config  //关闭selinux</span><br><span class="line">systemctl stop firewalld.service  //防火墙关闭</span><br><span class="line">systemctl disable  firewalld.service //防火墙自启关闭</span><br><span class="line">service iptables save //防火墙永久生效</span><br><span class="line"></span><br><span class="line">firewall-cmd --zone=public --add-port=3306/tcp --add-port=6379/tcp --permanent   # 添加放行指定单个端口</span><br><span class="line">firewall-cmd --reload       # 生效添加的要放行的端口</span><br><span class="line">firewall-cmd --list-ports   # 查看所有被放行的端口</span><br><span class="line">firewall-cmd --zone=public --remove-port=8081/tcp --permanent   # 取消指定一开放端口</span><br></pre></td></tr></table></figure></p>
 <p>网络配置方面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> /etc/sysconfig/network  #主机名配置文件</span><br><span class="line">ifconfig eth0  down   #down关闭 up启动</span><br><span class="line">service network restart #重启网络</span><br><span class="line">/etc/resolv.conf  #dns目录</span><br><span class="line">service networking restart #重启网络服务</span><br><span class="line">route add –net 192.168.0.0/24 gw 172.16.7.3  #添加一条路由delete删除</span><br></pre></td></tr></table></figure></p>
 <p>修改/etc/sysconfig/network-scripts/ifcfg-ethx:x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=ethx:x </span><br><span class="line"> </span><br><span class="line">   BOOTPROTO=static   #这里可以用dhcp</span><br><span class="line"> </span><br><span class="line">   IPIPADDR=   IP地址 </span><br><span class="line"> </span><br><span class="line">   NETMASK=  子网掩码 </span><br><span class="line"> </span><br><span class="line">   GATEWAY=  网关 </span><br><span class="line"> </span><br><span class="line">   ONBOOT=YES   是否开机启用 </span><br><span class="line"> </span><br><span class="line">   HWADDR=...... MAC</span><br></pre></td></tr></table></figure></p>
 <h4 id="主系统"><a href="#主系统" class="headerlink" title="主系统"></a>主系统</h4><p>用linux针对我们运维人员来说作为主系统的好处非常多这里就不多说啦直接正题！笔者用的deepin，这款系统是国人基于开源linux深度修改的，非常适合国人使用比如：软件安装，驱动安装，包和源的管理非常的人性化，大大的节约开发者的时间吧多余的精力用在工作上。还有这款系统的UI是非常的美丽喔，几乎所有的按钮以及配件都经过深度优化过后的，给使用者一种优雅轻松的感觉。<br>deepin源</p>
@@ -398,11 +398,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -739,11 +739,11 @@ netsh interface portproxy reset （清除所有当前的端口转发规则）
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		
 		</ul>
@@ -1130,6 +1130,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -1142,19 +1146,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1166,11 +1166,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1178,11 +1178,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
