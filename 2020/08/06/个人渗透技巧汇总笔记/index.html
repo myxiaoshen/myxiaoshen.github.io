@@ -9,7 +9,7 @@
   <title>个人渗透技巧汇总笔记 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，">
-<meta name="keywords" content="笔记,web技术,渗透测试">
+<meta name="keywords" content="web技术,笔记,渗透测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="个人渗透技巧汇总笔记">
 <meta property="og:url" content="http://yoursite.com/2020/08/06/个人渗透技巧汇总笔记/index.html">
@@ -22,7 +22,10 @@
 <meta property="og:image" content="https://i.niupic.com/images/2020/01/09/6gm0.jpg">
 <meta property="og:image" content="https://i.niupic.com/images/2020/10/05/8LBE.png">
 <meta property="og:image" content="https://camo.githubusercontent.com/4d1e7e864f6be9fb19d0be7eff8b28c9b522e62d/68747470733a2f2f7777772e7665696c2d6672616d65776f726b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f31322f63726f707065642d5665696c2d53796d626f6c322e706e67">
-<meta property="og:updated_time" content="2021-01-29T04:23:16.659Z">
+<meta property="og:image" content="https://z3.ax1x.com/2021/03/29/cCaOxI.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/03/29/cCaLRA.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/03/29/cCaqGd.png">
+<meta property="og:updated_time" content="2021-03-29T08:21:21.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人渗透技巧汇总笔记">
 <meta name="twitter:description" content="前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，">
@@ -280,6 +283,8 @@ var _hmt = _hmt || [];
 
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v &quot;test&quot; /t REG_SZ /d &quot;C:\Users\KingXL\1.exe&quot; /f
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sc create &quot;server power&quot; binpath= &quot;C:\Windows\System32\config.exe&quot;</span><br><span class="line">//设置服务的描述字符串</span><br><span class="line">sc description &quot;server power&quot; &quot;description&quot; </span><br><span class="line">//设置这个服务为自动启动</span><br><span class="line">sc config &quot;server power&quot; start= auto </span><br><span class="line">net start &quot;server power&quot; 启动服务</span><br></pre></td></tr></table></figure>
+<h4 id="八、-一个便捷的hack浏览器"><a href="#八、-一个便捷的hack浏览器" class="headerlink" title="八、 一个便捷的hack浏览器"></a>八、 一个便捷的hack浏览器</h4><p>这里个人做一个备份有需求的自行google，解释一下英文的插件功能。<br><img src="https://z3.ax1x.com/2021/03/29/cCaOxI.png" alt=""><br><img src="https://z3.ax1x.com/2021/03/29/cCaLRA.png" alt=""><br><img src="https://z3.ax1x.com/2021/03/29/cCaqGd.png" alt=""><br>Ajax Interceptor：可以自定义ajax的json返回值，前端测试用。<br>Anti-HoneyPot： 红队用，可以检查网页中的蜜罐链接并提示。<br>ApiRequest.io Ajax Capture Debugging Tool：这个是神器！！强推，可以测试网页中任何的ajax请求包括跨站ajax请求重放，官网提供了只30天的请求历史记录记得保存重要请求。<br>APK Downloader for Google Play Store ：免google框架在线下载应用商店的app。<br>Buster Captcha Solver for Humans： 过goole验证码，有时候识别会比较慢。<br>Easy WebRTC Block： 干掉webrtc的ip回显，避免泄露真实ip<br>IP Whois &amp; Flags Chrome &amp; Websites Rating： 自动在后台测试当前网站ip的归属地然后以小图标的形式返回给前台非常便捷，点击进去还可以看到cdn以及whois信息。<br>NoScript: 慎用，此插件可以强力的拦截网页上的追踪器来保护用户的隐私与真实信息，但是会造成许多网站打开异常。<br>Identify web technologies ：可以帮你分析当前网站所使用的网络技术与框架。<br>Shodan： 网络搜索引擎同fofa与钟馗之眼，互联网设备大杀器<br>Picture-in-Picture Extension：画中画悬浮窗口看视频 </p>
+
       
 
       
@@ -292,11 +297,11 @@ reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v &quo
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -408,7 +413,7 @@ reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v &quo
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#浅蓝的渗透测试导图以及小工具"><span class="toc-number">1.1.</span> <span class="toc-text">浅蓝的渗透测试导图以及小工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zero"><span class="toc-number">1.2.</span> <span class="toc-text">zero</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一-时刻关注返回的数据包"><span class="toc-number">1.3.</span> <span class="toc-text">一.时刻关注返回的数据包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二-fuzz的艺术"><span class="toc-number">1.4.</span> <span class="toc-text">二.fuzz的艺术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三-Webbypass"><span class="toc-number">1.5.</span> <span class="toc-text">三.Webbypass</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四-提权与权限维持"><span class="toc-number">1.6.</span> <span class="toc-text">四.提权与权限维持</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#老牌工具Cobaltstrike-Profiles"><span class="toc-number">1.6.1.</span> <span class="toc-text">老牌工具Cobaltstrike+Profiles</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#免杀远控整理（来自Tide团队"><span class="toc-number">1.6.2.</span> <span class="toc-text">免杀远控整理（来自Tide团队)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#windows下的免杀生成（顺序从上到下依次混淆）"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">windows下的免杀生成（顺序从上到下依次混淆）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Veil"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">Veil</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#一些payload加料的技巧"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">一些payload加料的技巧</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#windows"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">windows</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#linux"><span class="toc-number">1.6.2.5.</span> <span class="toc-text">linux</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"><span class="toc-number">1.7.</span> <span class="toc-text">五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#windows-1"><span class="toc-number">1.7.1.</span> <span class="toc-text">windows</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#linux（检索根目录以及上级目录是否存在备份）"><span class="toc-number">1.7.2.</span> <span class="toc-text">linux（检索根目录以及上级目录是否存在备份）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#web容器路径"><span class="toc-number">1.7.3.</span> <span class="toc-text">web容器路径</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#七、后渗透与流量隐匿"><span class="toc-number">1.8.</span> <span class="toc-text">七、后渗透与流量隐匿</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#frsocks-protoplex-流量重定向实现端口复用"><span class="toc-number">1.8.1.</span> <span class="toc-text">frsocks+protoplex+流量重定向实现端口复用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#将-IP-流量封装进-IMCP-的-ping-数据包进行传输"><span class="toc-number">1.8.2.</span> <span class="toc-text">将 IP 流量封装进 IMCP 的 ping 数据包进行传输</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#msf后渗透"><span class="toc-number">1.8.3.</span> <span class="toc-text">msf后渗透</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#浅蓝的渗透测试导图以及小工具"><span class="toc-number">1.1.</span> <span class="toc-text">浅蓝的渗透测试导图以及小工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zero"><span class="toc-number">1.2.</span> <span class="toc-text">zero</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一-时刻关注返回的数据包"><span class="toc-number">1.3.</span> <span class="toc-text">一.时刻关注返回的数据包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二-fuzz的艺术"><span class="toc-number">1.4.</span> <span class="toc-text">二.fuzz的艺术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三-Webbypass"><span class="toc-number">1.5.</span> <span class="toc-text">三.Webbypass</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四-提权与权限维持"><span class="toc-number">1.6.</span> <span class="toc-text">四.提权与权限维持</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#老牌工具Cobaltstrike-Profiles"><span class="toc-number">1.6.1.</span> <span class="toc-text">老牌工具Cobaltstrike+Profiles</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#免杀远控整理（来自Tide团队"><span class="toc-number">1.6.2.</span> <span class="toc-text">免杀远控整理（来自Tide团队)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#windows下的免杀生成（顺序从上到下依次混淆）"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">windows下的免杀生成（顺序从上到下依次混淆）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Veil"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">Veil</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#一些payload加料的技巧"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">一些payload加料的技巧</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#windows"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">windows</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#linux"><span class="toc-number">1.6.2.5.</span> <span class="toc-text">linux</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）"><span class="toc-number">1.7.</span> <span class="toc-text">五、日志清理（细心的安全工程师会更改位置并定时备份后渗透主要还是靠细心）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#windows-1"><span class="toc-number">1.7.1.</span> <span class="toc-text">windows</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#linux（检索根目录以及上级目录是否存在备份）"><span class="toc-number">1.7.2.</span> <span class="toc-text">linux（检索根目录以及上级目录是否存在备份）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#web容器路径"><span class="toc-number">1.7.3.</span> <span class="toc-text">web容器路径</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#七、后渗透与流量隐匿"><span class="toc-number">1.8.</span> <span class="toc-text">七、后渗透与流量隐匿</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#frsocks-protoplex-流量重定向实现端口复用"><span class="toc-number">1.8.1.</span> <span class="toc-text">frsocks+protoplex+流量重定向实现端口复用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#将-IP-流量封装进-IMCP-的-ping-数据包进行传输"><span class="toc-number">1.8.2.</span> <span class="toc-text">将 IP 流量封装进 IMCP 的 ping 数据包进行传输</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#msf后渗透"><span class="toc-number">1.8.3.</span> <span class="toc-text">msf后渗透</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#八、-一个便捷的hack浏览器"><span class="toc-number">1.9.</span> <span class="toc-text">八、 一个便捷的hack浏览器</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -541,7 +546,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,10 +562,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -565,7 +570,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,11 +594,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">

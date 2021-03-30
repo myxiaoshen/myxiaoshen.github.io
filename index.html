@@ -202,13 +202,13 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/10/Linux运维笔记/">Linux运维笔记</a>
+      <a class="article-title" href="/2021/03/21/Linux运维笔记/">Linux运维笔记</a>
     </h1>
   
 
         
-        <a href="/2020/12/10/Linux运维笔记/" class="archive-article-date">
-  	<time datetime="2020-12-10T01:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-10</time>
+        <a href="/2021/03/21/Linux运维笔记/" class="archive-article-date">
+  	<time datetime="2021-03-21T01:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-21</time>
 </a>
         
       </header>
@@ -229,7 +229,7 @@ var _hmt = _hmt || [];
 <p>0*1 git基础环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">绑定用户：</span><br><span class="line">git config --global user.name &quot;xxx&quot;</span><br><span class="line">git config --global user.email &quot;xxx@gmail.com&quot;</span><br><span class="line">设置SSH key：</span><br><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot; </span><br><span class="line"></span><br><span class="line">打开github，找到账户里面添加SSH，把id_rsa.pub内容复制到key里面。</span><br><span class="line"></span><br><span class="line">测试命令：</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
 <p>上传本地项目到github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mkdir demo</span><br><span class="line">cd demo</span><br><span class="line">echo &quot;# demo&quot; &gt;&gt; README.md</span><br><span class="line">git init //把这个目录变成Git可以管理的仓库</span><br><span class="line">git clone https://github.com/AppCanOpenSource/666.git --config http.proxy=&apos;http://127.0.0.1:1080&apos;  #更改socks5代理 http和https同理</span><br><span class="line">git add README.md //文件添加到仓库</span><br><span class="line">git add . //不但可以跟单一文件，还可以跟通配符，更可以跟目录。一个点就把当前目录下所有未追踪的文件全部add了（空目录不会被添加）</span><br><span class="line">git status //查看当前工作区的状态（需提交的变更）</span><br><span class="line">git commit -m &quot;提交说明&quot; //把文件提交到仓库</span><br><span class="line">git remote add origin git@github.com:hxf0663/demo.git //关联远程仓库</span><br><span class="line">git push -u origin master //将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)</span><br><span class="line">git push origin master //将本地主分支推到远程主分支</span><br><span class="line">下载操作：</span><br><span class="line">git pull origin master //把远程库更改拉到本地仓库</span><br><span class="line">git clone git@github.com:hxf0663/demo.git //克隆远程仓库到本地</span><br><span class="line">git clone https://github.com/hxf0663/demo.git //克隆远程仓库到本地</span><br><span class="line">git clone https://github.com/hxf0663/demo //克隆远程仓库到本地</span><br></pre></td></tr></table></figure></p>
         
-          <a class="article-more-a" href="/2020/12/10/Linux运维笔记/#more">阅读全文 >></a>
+          <a class="article-more-a" href="/2021/03/21/Linux运维笔记/#more">阅读全文 >></a>
         
       
 
@@ -398,11 +398,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -739,11 +739,11 @@ netsh interface portproxy reset （清除所有当前的端口转发规则）
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
@@ -958,7 +958,7 @@ netsh interface portproxy reset （清除所有当前的端口转发规则）
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>伊苏系类从初1就接触了，唯美而又轻松的画风让人放松，加上冒险的剧情与游戏精密的装备设定让游戏更加具有发掘性，挑战boss的刺激画面和音乐的切入都很震撼人心，我最喜欢的单机游戏没有之一！<br>伊苏6，7，起源，誓约都给人一种热血冒险的感觉。现在伊苏8新作也上市咯，开始冒险之旅吧！伊苏天下第一！破音~~~~<br><img src="/2020/03/01/伊苏8游戏/2.jpg" alt=""><br></p>
+        <p>伊苏系类从初1就接触了，陪伴到了我上大学爷青回~唯美而又轻松的画风让人放松，加上冒险的剧情与游戏精密的装备设定让游戏更加具有发掘性，挑战boss的刺激画面和音乐的切入都很震撼人心，我最喜欢的单机游戏没有之一！<br>伊苏6，7，起源，誓约都给人一种热血冒险的感觉。现在伊苏8新作也上市咯，开始冒险之旅吧！伊苏天下第一！破音~~~~<br><img src="/2020/03/01/伊苏8游戏/2.jpg" alt=""><br></p>
         
           <a class="article-more-a" href="/2020/03/01/伊苏8游戏/#more">阅读全文 >></a>
         
@@ -1130,7 +1130,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1142,10 +1146,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -1154,7 +1154,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1178,11 +1178,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
