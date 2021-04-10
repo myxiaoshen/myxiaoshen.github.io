@@ -215,8 +215,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="笔者这部分不是专业的只是单纯的记录一下生活中个人认为实用的技巧以便再一些特殊情节能够用上，具体的教程还是需要自己网上多baidu、google"><a href="#笔者这部分不是专业的只是单纯的记录一下生活中个人认为实用的技巧以便再一些特殊情节能够用上，具体的教程还是需要自己网上多baidu、google" class="headerlink" title="笔者这部分不是专业的只是单纯的记录一下生活中个人认为实用的技巧以便再一些特殊情节能够用上，具体的教程还是需要自己网上多baidu、google"></a>笔者这部分不是专业的只是单纯的记录一下生活中个人认为实用的技巧以便再一些特殊情节能够用上，具体的教程还是需要自己网上多baidu、google</h2><h3 id="Windows痕迹清理"><a href="#Windows痕迹清理" class="headerlink" title="Windows痕迹清理"></a>Windows痕迹清理</h3><p>这里我整理了一个<a href="https://pan.baidu.com/s/1ljtS15QbDUYMjVt3hyqz-g" target="_blank" rel="noopener">bat程序</a>可以清理日志记录。<br>日志分析：eventvwr.exe</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">修改IP地址和ARP地址或arp防火墙 </span><br><span class="line">大致流程： </span><br><span class="line">1. arp -a一下，会看到网络主人的电脑IP地址和MAC地址，记录下来。 </span><br><span class="line">2. 在无线网卡属性中修改MAC地址为记录下的地址。修改MAC地址 </span><br><span class="line">3. 手动修改自己的IP地址为记录下的IP地址 记住，这两步的顺序不能弄错！否则对方主机会显示IP冲突。 </span><br><span class="line">4. MAC和IP与合法主机一模一样了；两台主机都能上网，而且不会在对方的arp表中显示，完美隐藏了自己。</span><br></pre></td></tr></table></figure>
+        <h2 id="笔者这部分不是专业的只是单纯的记录一下生活中个人认为实用的技巧以便再一些特殊情节能够用上，具体的教程还是需要自己网上多baidu、google"><a href="#笔者这部分不是专业的只是单纯的记录一下生活中个人认为实用的技巧以便再一些特殊情节能够用上，具体的教程还是需要自己网上多baidu、google" class="headerlink" title="笔者这部分不是专业的只是单纯的记录一下生活中个人认为实用的技巧以便再一些特殊情节能够用上，具体的教程还是需要自己网上多baidu、google"></a>笔者这部分不是专业的只是单纯的记录一下生活中个人认为实用的技巧以便再一些特殊情节能够用上，具体的教程还是需要自己网上多baidu、google</h2><h4 id="渗透三字诀"><a href="#渗透三字诀" class="headerlink" title="渗透三字诀"></a>渗透三字诀</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">进谷歌  找注入</span><br><span class="line">没注入  就旁注</span><br><span class="line">没旁注  用0day</span><br><span class="line">没0day  猜目录</span><br><span class="line">没目录  就嗅探</span><br><span class="line">爆账户  找后台</span><br><span class="line">传小马  放大马</span><br><span class="line">拿权限  挂页面</span><br><span class="line">放暗链  清数据</span><br><span class="line">渗透企业实战版</span><br><span class="line">搞企业  先扫描</span><br><span class="line">扫描器  商业好</span><br><span class="line">默密码  都知道</span><br><span class="line">社工库  找一找</span><br><span class="line">邮箱号  先列好</span><br><span class="line">九头蛇  跑一跑</span><br><span class="line">搞不定  放大招</span><br><span class="line">找插件  挖一挖</span><br><span class="line">发邮件  凭伪造</span><br><span class="line">没邮箱  搞网站</span><br><span class="line">二级域  皆可爆</span><br><span class="line">老漏洞  没修好</span><br><span class="line">新漏洞  刷一票</span><br><span class="line">干研发  Git 找</span><br><span class="line">源代码  全都要</span><br><span class="line">C D N  可以跳</span><br><span class="line">防火墙  可以撬</span><br><span class="line">堡垒机  可以秒</span><br><span class="line">云防护  可以秒</span><br><span class="line">是企业  没有哪家搞不了！</span><br></pre></td></tr></table></figure>
+<h3 id="Windows痕迹清理"><a href="#Windows痕迹清理" class="headerlink" title="Windows痕迹清理"></a>Windows痕迹清理</h3><p>这里我整理了一个<a href="https://pan.baidu.com/s/1ljtS15QbDUYMjVt3hyqz-g" target="_blank" rel="noopener">bat程序</a>可以清理日志记录。<br>日志分析：eventvwr.exe</p>
         
           <a class="article-more-a" href="/2019/01/08/个人生活中一些实用的技巧/#more">阅读全文 >></a>
         
@@ -1067,14 +1067,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -1083,11 +1075,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1103,11 +1103,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
