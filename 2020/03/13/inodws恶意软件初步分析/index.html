@@ -6,18 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | 戏如烟云b16</title>
+  <title>winodws恶意软件初步分析 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个脚本小子的点滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="戏如烟云b16">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢 杀毒软件初步的过滤建议还是装一个小白360，懂点电脑的用火绒+自定义协议或者卡巴与小红伞。 在线分析网站先吧HASH/MD5/SHA1丢平台分析，通过大数据先过滤一遍。有依赖组件的可以打包成单独的可执行文件">
+<meta name="keywords" content="笔记,分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="winodws恶意软件初步分析">
+<meta property="og:url" content="http://yoursite.com/2020/03/13/inodws恶意软件初步分析/index.html">
 <meta property="og:site_name" content="戏如烟云b16">
-<meta property="og:description" content="一个脚本小子的点滴">
+<meta property="og:description" content="目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢 杀毒软件初步的过滤建议还是装一个小白360，懂点电脑的用火绒+自定义协议或者卡巴与小红伞。 在线分析网站先吧HASH/MD5/SHA1丢平台分析，通过大数据先过滤一遍。有依赖组件的可以打包成单独的可执行文件">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70pw.png">
+<meta property="og:image" content="https://i.niupic.com/images/2020/03/13/719g.png">
+<meta property="og:image" content="https://ae05.alicdn.com/kf/H6b1067265fbe41a59d6123bd815f0573N.png">
+<meta property="og:image" content="https://i.niupic.com/images/2020/03/13/719d.png">
+<meta property="og:image" content="https://attach.52pojie.cn/forum/201707/09/212028if5nv2132unwm1lp.png">
+<meta property="og:image" content="https://files.catbox.moe/rlv5va.jpg">
+<meta property="og:image" content="http://www.nirsoft.net/utils/fileactivitywatch.png">
+<meta property="og:image" content="https://i.niupic.com/images/2020/10/02/8L6N.png">
+<meta property="og:image" content="https://files.catbox.moe/ls43xp.png">
+<meta property="og:image" content="https://files.catbox.moe/j2vhgw.png">
+<meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lT.png">
+<meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lS.png">
+<meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lU.png">
+<meta property="og:updated_time" content="2021-04-27T06:23:56.713Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="戏如烟云b16">
-<meta name="twitter:description" content="一个脚本小子的点滴">
+<meta name="twitter:title" content="winodws恶意软件初步分析">
+<meta name="twitter:description" content="目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢 杀毒软件初步的过滤建议还是装一个小白360，懂点电脑的用火绒+自定义协议或者卡巴与小红伞。 在线分析网站先吧HASH/MD5/SHA1丢平台分析，通过大数据先过滤一遍。有依赖组件的可以打包成单独的可执行文件">
+<meta name="twitter:image" content="https://i.niupic.com/images/2020/03/12/70pw.png">
   
     <link rel="alternative" href="/atom.xml" title="戏如烟云b16" type="application/atom+xml">
   
@@ -193,36 +209,44 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-inodws恶意软件初步分析" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      winodws恶意软件初步分析
+    </h1>
+  
+
+        
+        <a href="/2020/03/13/inodws恶意软件初步分析/" class="archive-article-date">
+  	<time datetime="2020-03-13T02:17:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢</p>
+<h5 id="杀毒软件"><a href="#杀毒软件" class="headerlink" title="杀毒软件"></a>杀毒软件</h5><p>初步的过滤建议还是装一个小白360，懂点电脑的用火绒+自定义协议或者卡巴与小红伞。<br><img src="https://i.niupic.com/images/2020/03/12/70pw.png" alt=""></p>
+<h5 id="在线分析网站"><a href="#在线分析网站" class="headerlink" title="在线分析网站"></a>在线分析网站</h5><p>先吧HASH/MD5/SHA1丢平台分析，通过大数据先过滤一遍。有依赖组件的可以打包成单独的可执行文件，上传到某在线网站分析查看结果：推荐360，魔盾，微步云沙箱，Hybrid analysis<br><img src="https://i.niupic.com/images/2020/03/13/719g.png" alt=""><br><a id="more"></a></p>
+<p><img src="https://ae05.alicdn.com/kf/H6b1067265fbe41a59d6123bd815f0573N.png" alt=""></p>
+<h5 id="带进程监控的沙箱软件进行初步分析"><a href="#带进程监控的沙箱软件进行初步分析" class="headerlink" title="带进程监控的沙箱软件进行初步分析"></a>带进程监控的沙箱软件进行初步分析</h5><p>可以使用 sandboxie与BSA进行联动分析软件可参考<a href="https://blog.csdn.net/AC1145/article/details/103380567" target="_blank" rel="noopener">链接</a>，简单的小程序可以丢<a href="https://www.52pojie.cn/thread-580845-1-1.html" target="_blank" rel="noopener">File_Analysis</a>这个小工具里面跑跑<br><img src="https://i.niupic.com/images/2020/03/13/719d.png" alt=""><br><img src="https://attach.52pojie.cn/forum/201707/09/212028if5nv2132unwm1lp.png" alt=""><br>ProcessHacker可以监控文件的同时直接右键可以程序一键上传到病毒分析网站内置3条接口很方便。<br><img src="https://files.catbox.moe/rlv5va.jpg" alt=""></p>
+<h5 id="监控文件"><a href="#监控文件" class="headerlink" title="监控文件"></a>监控文件</h5><p>监控电脑中所有软件的读写操作，控制软件的恶意删除读取行为当然火绒剑也可以做到。也可以使用：FileActivityWatch或Process Monitor<br><img src="http://www.nirsoft.net/utils/fileactivitywatch.png" alt=""></p>
+<p><img src="https://i.niupic.com/images/2020/10/02/8L6N.png" alt=""><br>专注网络推荐Netlimiter 4可以看到tcp/udp/ip下级的流量走向并可以进行控制(P2P,LISTENING隧道后ip)，单纯排查可以直接使用windows资源管理器自带的流量管理<br><img src="https://files.catbox.moe/ls43xp.png" alt=""><br><img src="https://files.catbox.moe/j2vhgw.png" alt=""></p>
+<h5 id="进程监控软件"><a href="#进程监控软件" class="headerlink" title="进程监控软件"></a>进程监控软件</h5><p>恶意行为ip可以拉入黑名单禁止它出入站，并配合ip情报网站查询。<br><img src="https://i.niupic.com/images/2020/03/12/70lT.png" alt=""><br>网络的数据包连接数据包状态码如下：</p>
+<p><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td>CLOSED</td>            <td>没有使用这个套接字[netstat 无法显示closed状态]</td>        </tr><tr><td>LISTEN</td>            <td>套接字正在监听连接[调用listen后]</td>        </tr><tr><td>SYN_SENT</td>            <td>套接字正在试图主动建立连接[发送SYN后还没有收到ACK]</td>        </tr><tr><td>SYN_RECEIVED</td>            <td>正在处于连接的初始同步状态[收到对方的SYN，但还没收到自己发过去的SYN的ACK]</td>        </tr><tr><td>ESTABLISHED</td>            <td>连接已建立</td>        </tr><tr><td>CLOSE_WAIT</td>            <td>远程套接字已经关闭：正在等待关闭这个套接字[被动关闭的一方收到FIN]</td>        </tr><tr><td>FIN_WAIT_1</td>            <td>套接字已关闭，正在关闭连接[发送FIN，没有收到ACK也没有收到FIN]</td>        </tr><tr><td>CLOSING</td>            <td>套接字已关闭，远程套接字正在关闭，暂时挂起关闭确认[在FIN_WAIT_1状态下收到被动方的FIN]</td>        </tr><tr><td>LAST_ACK</td>            <td>远程套接字已关闭，正在等待本地套接字的关闭确认[被动方在CLOSE_WAIT状态下发送FIN]</td>        </tr><tr><td>FIN_WAIT_2</td>            <td>套接字已关闭，正在等待远程套接字关闭[在FIN_WAIT_1状态下收到发过去FIN对应的ACK]</td>        </tr><tr><td>TIME_WAIT</td>            <td>这个套接字已经关闭，正在等待远程套接字的关闭传送[FIN、ACK、FIN、ACK都完毕，这是主动方的最后一个状态，在过了2MSL时间后变为CLOSED状态]</td>        </tr></tbody></table><br>进程分析：1.观察进程产生的子进程以及衍生的文件是否存在恶意行为。2.未知的签名文件重点查看其功能。3.查看任务组可以发现对那些文件进行了关联。4.线程可以观看调用了那些底层应用以及开始时间。（一般对电脑系统造成不稳定影响都会被杀软拦截）<br><img src="https://i.niupic.com/images/2020/03/12/70lS.png" alt=""></p>
+<h5 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h5><p>直接再网络层进行抓包监控可以通过Wireshark过滤抓包判断数据包是否存在恶意行为,当然全局代理抓包（fd、burp）一样能够获取但是有些软件是socks5以及隧道流量所以还是只能用Wireshark喔，而且直接再（查看tcp流与3次tcp连接的数据包）。<br>虚拟机环境使用tcp流查看到的恶意数据包如下：<br><img src="https://i.niupic.com/images/2020/03/12/70lU.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/11/nux日常命令/" class="archive-article-date">
-  	<time datetime="2019-09-11T05:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/11/nux日常命令/">Linux日常命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -232,374 +256,135 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分析</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2020/03/13/inodws恶意软件初步分析/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/21/docker常用命令与实践/" class="archive-article-date">
-  	<time datetime="2019-07-21T07:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/06/30/在线工具/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          渗透在线工具
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/12/网管笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">企业的网管笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/21/docker常用命令与实践/">docker常用命令与实践</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#杀毒软件"><span class="toc-number">1.</span> <span class="toc-text">杀毒软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在线分析网站"><span class="toc-number">2.</span> <span class="toc-text">在线分析网站</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#带进程监控的沙箱软件进行初步分析"><span class="toc-number">3.</span> <span class="toc-text">带进程监控的沙箱软件进行初步分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控文件"><span class="toc-number">4.</span> <span class="toc-text">监控文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#进程监控软件"><span class="toc-number">5.</span> <span class="toc-text">进程监控软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Wireshark"><span class="toc-number">6.</span> <span class="toc-text">Wireshark</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/11/（转）ikuai配合华为三层实战/" class="archive-article-date">
-  	<time datetime="2019-07-11T02:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-11</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/11/（转）ikuai配合华为三层实战/">（转）ikuai配合华为三层实战</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/11/ikuai配合三层组网技巧/" class="archive-article-date">
-  	<time datetime="2019-07-11T02:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/11/ikuai配合三层组网技巧/">(转)ikuai配合三层组网技巧</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/16/ravel-API笔记/" class="archive-article-date">
-  	<time datetime="2019-06-16T12:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/16/ravel-API笔记/">laravel API简易开发笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/07/ansible笔记/" class="archive-article-date">
-  	<time datetime="2019-05-07T13:33:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/07/ansible笔记/">Ansible入门笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实用技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/18/安全牛课堂高质量视频（ctf，逆向，渗透）/" class="archive-article-date">
-  	<time datetime="2019-04-18T05:37:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/18/安全牛课堂高质量视频（ctf，逆向，渗透）/">安全牛课堂高质量视频（ctf，逆向，渗透）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/04/维修日常/" class="archive-article-date">
-  	<time datetime="2019-04-04T02:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/04/维修日常/">维修走的那些坑 </a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">资料</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">极客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/19/年好玩的硬件/" class="archive-article-date">
-  	<time datetime="2019-01-19T06:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/19/年好玩的硬件/">(整理)那些有趣的小玩意更新中。。。。</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">极客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/18/大数据下保护自己的隐私/" class="archive-article-date">
-  	<time datetime="2019-01-18T13:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/18/大数据下保护自己的隐私/">大数据下保护自己的隐私</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实用技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
+ 
           </div>
         </div>
       </div>
@@ -650,8 +435,8 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
