@@ -9,7 +9,7 @@
   <title>个人渗透技巧汇总笔记 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，">
-<meta name="keywords" content="web技术,笔记,渗透测试">
+<meta name="keywords" content="笔记,web技术,渗透测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="个人渗透技巧汇总笔记">
 <meta property="og:url" content="http://yoursite.com/2020/08/06/个人渗透技巧汇总笔记/index.html">
@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/cCaOxI.png">
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/cCaLRA.png">
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/cCaqGd.png">
-<meta property="og:updated_time" content="2021-04-07T04:03:35.962Z">
+<meta property="og:updated_time" content="2021-05-23T04:10:45.787Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人渗透技巧汇总笔记">
 <meta name="twitter:description" content="前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，">
@@ -253,7 +253,7 @@ var _hmt = _hmt || [];
 <p>Cobaltstrike推荐插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">EventLogMaster (日志清除)</span><br><span class="line"></span><br><span class="line">ProcessColor.cna（显示带有颜色的进程列表）</span><br><span class="line"></span><br><span class="line">ProcessMonitor.cna（指定时间段内对于程序运行情况的监控）</span><br><span class="line"></span><br><span class="line">elevate.cna（增加五种提权方式）</span><br></pre></td></tr></table></figure></p>
 <p>3.验证c2lint，启动服务端，载入汉化运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./c2lint C2.profile</span><br><span class="line">./teamserver ip:prot ./C2.profile </span><br><span class="line">java -Dfile.encoding=UTF-8 -javaagent:CobaltStrikeCN.jar -XX:ParallelGCThreads=4 -XX:+AggressiveHeap -XX:+UseParallelGC  -jar cobaltstrike.jar</span><br></pre></td></tr></table></figure></p>
 <h5 id="免杀远控整理（来自Tide团队"><a href="#免杀远控整理（来自Tide团队" class="headerlink" title="免杀远控整理（来自Tide团队)"></a>免杀远控整理（来自Tide团队)</h5><p><img src="https://i.niupic.com/images/2020/01/09/6gm0.jpg" alt=""><br>项目地址:<a href="https://github.com/QChiLan/BypassAntiVirus" target="_blank" rel="noopener">https://github.com/QChiLan/BypassAntiVirus</a></p>
-<h6 id="windows下的免杀生成（顺序从上到下依次混淆）"><a href="#windows下的免杀生成（顺序从上到下依次混淆）" class="headerlink" title="windows下的免杀生成（顺序从上到下依次混淆）"></a>windows下的免杀生成（顺序从上到下依次混淆）</h6><p>如果需要捆绑正常软件运行使用shellter，如不能过免杀，再分步测试以下操作。cs文件编码混淆用AVIATOR生成。测试可以再用python再当前目录打开一个web服务器: python3 -m http.server 8080<br>1.Lime-Crypter<br>2.DeepSeaOBFuscator<br>3.CryptoObfuscator<br><img src="https://i.niupic.com/images/2020/10/05/8LBE.png" alt=""></p>
+<h6 id="windows下的免杀生成（顺序从上到下依次混淆）"><a href="#windows下的免杀生成（顺序从上到下依次混淆）" class="headerlink" title="windows下的免杀生成（顺序从上到下依次混淆）"></a>windows下的免杀生成（顺序从上到下依次混淆）</h6><p>如果需要捆绑正常软件运行使用shellter，如不能过免杀，再分步测试以下操作。cs文件编码混淆用AVIATOR生成。测试可以再用python再当前目录打开一个web服务器: python3 -m http.server 8080<br>1.Lime-Crypter<br>2.DeepSeaOBFuscator<br>3.CryptoObfuscator<br><img src="https://i.niupic.com/images/2020/10/05/8LBE.png" alt=""><br>也可以通过把软件分块用杀软重复扫描找到特征码进行修改。</p>
 <h6 id="Veil"><a href="#Veil" class="headerlink" title="Veil"></a>Veil</h6><p>Veil是一种工具，用于生成绕过常见防病毒解决方案的metasploit有效负载。<br><img src="https://camo.githubusercontent.com/4d1e7e864f6be9fb19d0be7eff8b28c9b522e62d/68747470733a2f2f7777772e7665696c2d6672616d65776f726b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f31322f63726f707065642d5665696c2d53796d626f6c322e706e67" alt=""><br><a href="https://github.com/Veil-Framework/Veil" target="_blank" rel="noopener">https://github.com/Veil-Framework/Veil</a></p>
 <p>######9</p>
 <h6 id="一些payload加料的技巧"><a href="#一些payload加料的技巧" class="headerlink" title="一些payload加料的技巧"></a>一些payload加料的技巧</h6><p>1、通过ssl与加壳加密palyoad（免杀）<br>2、<a href="https://mp.weixin.qq.com/s/fdGnJxDjh1Orb2V76EX8tQ" target="_blank" rel="noopener">通过dns或套cdn传输</a></p>
@@ -297,11 +297,11 @@ reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v &quo
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -546,7 +546,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,15 +566,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
