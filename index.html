@@ -380,7 +380,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： <a href="https://myxiaoshen.github.io/2019/01/18/%E5%A4%A7%E6%95%B0%E6%8D%AE%E4%B8%8B%E4%BF%9D%E6%8A%A4%E8%87%AA%E5%B7%B1%E7%9A%84%E9%9A%90%E7%A7%81/" target="_blank" rel="noopener">点此跳转</a></p>
+        <p>部分工具转到<a href="https://pan.xlmy.net/%E5%AE%89%E5%85%A8%E7%B1%BB/" target="_blank" rel="noopener">云盘</a>自取</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： <a href="https://myxiaoshen.github.io/2019/01/18/%E5%A4%A7%E6%95%B0%E6%8D%AE%E4%B8%8B%E4%BF%9D%E6%8A%A4%E8%87%AA%E5%B7%B1%E7%9A%84%E9%9A%90%E7%A7%81/" target="_blank" rel="noopener">点此跳转</a></p>
 <p>当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，心里一定要有点b数！小提示：在使用proxychains的时候，程序或者终端选项尽量不要设置任何协议的代理,否则可能会打乱这个代理回路出现网络错误。</p>
 <p><img src="https://img-blog.csdnimg.cn/20181028004554212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE5NzUzNjM=,size_27,color_FFFFFF,t_70" alt=""><br></p>
         
@@ -703,6 +704,10 @@ var _hmt = _hmt || [];
 <li>双软路由  终端&gt;lede&gt;ikuai&gt;pve</li>
 <li>双物理机安装，2头使用lan口链接，ikuai做主路由lede旁路由</li>
 </ol>
+<h4 id="硬件扫盲"><a href="#硬件扫盲" class="headerlink" title="硬件扫盲"></a>硬件扫盲</h4><p>核心交换机-三层交换机：选背板带宽和吞吐量大与端口拓展多的，可管理的二层也行，简化管理可以上带web界面的。<br>大流量-堆叠交换机：方便机房统一管理增加流量传输效率与端口数量</p>
+<p>服务器-防火墙：因为流量会涉及到外联需要保留日志可以考虑上带硬盘插槽的</p>
+<p>打印管控-打印控制器：涉密与管控的一种解决方案</p>
+<p>集成管理-虚拟化平台：极大程度满足局域网统一业务管理</p>
 <h4 id="局域网的搭建"><a href="#局域网的搭建" class="headerlink" title="局域网的搭建"></a>局域网的搭建</h4><p>路由器+交换机的配置路由器提供内网和外网的链接和VLAN（虚拟局域网）的划分，以及各种防火墙和路由功能的配置。而交换机一头连到路由器上，作为一个子网，另一头链接子网中的各台终端。划分几个子网，则从路由连出几台交换机即可。<br>子网源码绝定了可以分配的dhcp数量可通过站长工具计算：<a href="http://tool.chinaz.com/Tools/subnetmask" target="_blank" rel="noopener">http://tool.chinaz.com/Tools/subnetmask</a><br><img src="https://i.niupic.com/images/2020/03/13/70Lv.png" alt=""><br>LAN口（分配地址用）：合理划分lan口，空闲的可以做LAN扩展绑定减少网卡的负担。笔者划分2条一条用于有线线路，一条用于无线线路<br>WAN口（联网用）:合理更具需求增加拨号带宽，多余的一样可以做vlan划分。<br>笔者构了一个导图大致布局如下：<br><img src="https://i.niupic.com/images/2019/09/16/_252.png" alt=""></p>
 <h4 id="特殊办公区域"><a href="#特殊办公区域" class="headerlink" title="特殊办公区域"></a>特殊办公区域</h4><p>一般公司的财务和一些稳定的办公区域通常会对网络进行隔离，以免出现特殊情况财务延时转账，网络波动较大以及局域网的网络风暴和arp攻击。以下提供几种解决方案。<br>一、最简单的一种单独迁入一条宽带。<br>二、主路由或者三层交换机划分出vlan网段做隔离。<br>三、可管理交换机或可切换模式的分流型交换机，分配稳定的带宽流量给指定区域。</p>
 <h4 id="员工终端管控"><a href="#员工终端管控" class="headerlink" title="员工终端管控"></a>员工终端管控</h4><p>个人不喜欢微软自带的域管理，它虽然可以和微软系统自带的功能进行无缝对接但是现在很多软件都可以替代域控而且管理功能都比域更加的全面比如说：IP-guard<br>（当之无愧的第一老牌），iMonitor（貌似这玩意有最近的pj版），威眼（UI漂亮适合新手上手的界面）。<br>单纯的巡检，病毒，软件，启动项管理推荐使用360企业版，或者火绒企业版。</p>
@@ -1139,11 +1144,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,7 +1168,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1167,19 +1176,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
