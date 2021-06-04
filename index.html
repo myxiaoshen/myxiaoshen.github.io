@@ -195,6 +195,69 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-一些自动化测试的工具推荐" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/22/一些自动化测试的工具推荐/">一些自动化测试的工具推荐</a>
+    </h1>
+  
+
+        
+        <a href="/2021/03/22/一些自动化测试的工具推荐/" class="archive-article-date">
+  	<time datetime="2021-03-22T08:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Testproject（强推特良心）"><a href="#Testproject（强推特良心）" class="headerlink" title="Testproject（强推特良心）"></a>Testproject（强推特良心）</h3><p>TestProject是世界上第一个免费的，基于云的，由社区提供动力的测试自动化平台，它使用户能够轻松测试所有操作系统上的Web，Android和iOS应用程序。使用Selenium和Appium与您的团队轻松协作，以确保质量和速度。使用TestProject强大的SDK，可以使用先进的内置记录功能，创建和使用插件（由整个社区共享的自动化操作）或开发编码测试，而这些操作完全免费！ps:这东西还能生成自动化代码<br><img src="https://aws1.discourse-cdn.com/business7/uploads/testproject/original/1X/35d1b811fade26c10839efff58c9318891515618.gif" alt=""></p>
+<h3 id="Katalon-Studio"><a href="#Katalon-Studio" class="headerlink" title="Katalon Studio"></a>Katalon Studio</h3><p>强大的GUI界面与驱动测试方便新手入门，<a href="https://docs.katalon.com/katalon-studio/tutorials/index.html" target="_blank" rel="noopener">官网文档</a>比较详细，可以应对大部分测试。<br><img src="https://s3.amazonaws.com/katalon-forum/editor/ai/f7l2bhj0xaug.gif" alt=""></p>
+<h3 id="Apifox"><a href="#Apifox" class="headerlink" title="Apifox"></a>Apifox</h3><p>听说可以成为postman替代品，对国人也很友好。<br><img src="https://cdn3.apifox.cn/www/screenshot/apifox-api-case-1.png" alt=""></p>
+<h3 id="jmeter-用来fuzz数据和驱动测试"><a href="#jmeter-用来fuzz数据和驱动测试" class="headerlink" title="jmeter(用来fuzz数据和驱动测试)"></a>jmeter(用来fuzz数据和驱动测试)</h3><p>我们可以将用例的数据存放在csv文件中，然后通过csv文件配置来读取用例中的数据，执行测试。<br><img src="https://ftp.bmp.ovh/imgs/2021/06/01f2917ffb7554dc.png" alt=""><br>各字段解释<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;caseSeq&#125;</span>:用例编号</span><br><span class="line"></span><br><span class="line"><span class="variable">$&#123;apiType&#125;</span>:api 类型</span><br><span class="line"></span><br><span class="line"><span class="variable">$&#123;apiSeq&#125;</span> ：api 版本号</span><br><span class="line"></span><br><span class="line"><span class="variable">$&#123;apiName&#125;</span>：api 名称</span><br><span class="line"></span><br><span class="line"><span class="variable">$&#123;priority&#125;</span>:优先级</span><br><span class="line"></span><br><span class="line"><span class="variable">$&#123;url&#125;</span>:api 路径</span><br><span class="line"></span><br><span class="line"><span class="variable">$&#123;methods&#125;</span>:请求方法</span><br><span class="line"></span><br><span class="line"><span class="variable">$&#123;parameter&#125;</span>: 请求参数</span><br><span class="line"></span><br><span class="line"><span class="variable">$&#123;expectValue&#125;</span>:期望值，用于断言</span><br></pre></td></tr></table></figure></p>
+<p>1.添加逻辑控制器-循环控制器<br>2.在循环控制器节点下添加CSV数据文件设置<br><img src="https://ftp.bmp.ovh/imgs/2021/06/82b1a467c97f848d.png" alt=""><br>3.添加逻辑控制器——如果（if） 控制器分别控制get和post请求–”${methods}”==”GET” 其中 ${methods}表示引用 csv 中的 methods 中的值，POST 条件语句设置为：”${methods}”==”POST”<br><img src="https://ftp.bmp.ovh/imgs/2021/06/6e7007256d0a2841.png" alt=""><br>4.GET和POST两个控制器下分别添加请求和响应断言<br>(1)添加GET请求类型的用例，用例名称格式：${caseSeq}<em> ${apiSeq}</em>${apiName}<br><img src="https://ftp.bmp.ovh/imgs/2021/06/e1ccef238042f50a.png" alt=""><br>(2)断言设置如下：${expectValue}引用 csv 中对应的值。<br><img src="https://ftp.bmp.ovh/imgs/2021/06/3363679693da74ea.png" alt=""><br>(3)添加POST请求类型的用例，用例名称格式：${caseSeq}<em> ${apiSeq}</em>${apiName}<br><img src="https://ftp.bmp.ovh/imgs/2021/06/504bd39b873f6fff.png" alt=""><br>(4)断言设置如下：${expectValue}引用 csv 中对应的值。<br><img src="https://ftp.bmp.ovh/imgs/2021/06/68ce4051a5be421a.png" alt=""><br>(5)POST请求如果发送的是json格式的参数，需要添加配置元件-HTTP信息头管理器，写入名称：Content-Type；值:application/json</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux运维笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -248,6 +311,85 @@ var _hmt = _hmt || [];
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-(整理)那些实用的工具" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/06/(整理)那些实用的工具/">长期更新--(整理)那些实用的软件🤩</a>
+    </h1>
+  
+
+        
+        <a href="/2021/03/06/(整理)那些实用的工具/" class="archive-article-date">
+  	<time datetime="2021-03-06T14:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>分享自己在网上遇到的好软，希望增加大家的娱乐与工作效率 让这些软件在你的生活中达到事半功倍的作用，笔者不喜欢大量新建文章所以做了一个大杂烩希望大家不要介意。后续有必要在新开文章。<span ps:大量软件可能我并没有提供下载地址有需要的还请根据关键字合理的百度谷歌，如确实找不到可以给我留言。=""><br>                                                温馨提示：右下角有导航喔。</span></p>
+<p>个人小蓝盘地址（定期分享一些互联网上的资源）：<a href="http://pan.xlmy.net/" target="_blank" rel="noopener">http://pan.xlmy.net/</a></p>
+<h3 id="百度云下载"><a href="#百度云下载" class="headerlink" title="百度云下载"></a>百度云下载</h3><p>使用<a href="https://kinhdown.kinh.cc/" target="_blank" rel="noopener">Kinhdown</a>配合Motrix在线解析下载需要多刷新几次网页，或者通过<a href="https://www.cnblogs.com/softxmm/p/13972678.html" target="_blank" rel="noopener">软件小妹</a>提供的脚本进行直接下载。<br><img src="https://tva3.sinaimg.cn/large/7a6a15d5gy1g8s99l1zdqg20qn0euqa8.gif" alt=""></p>
+<h3 id="花刺代理"><a href="#花刺代理" class="headerlink" title="花刺代理"></a>花刺代理</h3><p>提取可用的代理ip保护个人隐私安全上网。记住要去设置验证title的规则不然会出现误报。<a href="https://ip.ihuan.me/" target="_blank" rel="noopener">小幻ip</a> <a href="http://www.66ip.cn/pt.html" target="_blank" rel="noopener">66ip</a><br></p>
+        
+          <a class="article-more-a" href="/2021/03/06/(整理)那些实用的工具/#more">阅读全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实用技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		
 		</ul>
@@ -698,6 +840,8 @@ var _hmt = _hmt || [];
 <p>4.NAT：网络地址转换属接入广域网（WAN）技术。 是一种将私有（保留）地址转化为合法IP地址的转换技术，它将广泛应用于各种类型Internet接入方式和各种类型的网络中。原因很简单，NAT不仅完善地解决了IP地址不足的问题。而且还能够有效地避免来自网络外部的攻击，隐藏并保护网络内部的计算机。</p>
 <p>5.arp: 地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。主机发送信息时将包含目标IP地址的ARP请求广播到局域网络上的所有主机，并接收返回消息，以此确定目标的物理地址；收到返回消息后将该IP地址和物理地址存入本机ARP缓存中并保留一定时间，下次请求时直接查询ARP缓存以节约资源。</p>
 <p>6.Route:路由表的主要工作就是为经过路由器的每个数据包寻找一条最佳的传输路径，并将该数据有效地传送到目的站点。由此可见，选择最佳路径的策略即路由算法是路由器的关键所在。</p>
+<p>7.端口汇聚（链路聚合的不同处是他在lan口运作）：端口汇聚功能是将交换机的多个物理端口汇聚在一起形成一个逻辑上的物理端口，同一汇聚组内的多条链路则可视为一条逻辑链路。端口汇聚主要有两个作用：带宽叠加、链路备份。</p>
+<p>8.端口镜像：端口镜像是一种数据包获取技术，可以实现将一个或几个端口（被镜像端口）的数据包复制到一个特定的端口（镜像端口），通过对收集到的数据包进行分析，可以达到网络监控或排除网络故障的目的。</p>
 <h4 id="路由器的软拓展（由主路分发dhcp）"><a href="#路由器的软拓展（由主路分发dhcp）" class="headerlink" title="路由器的软拓展（由主路分发dhcp）"></a>路由器的软拓展（由主路分发dhcp）</h4><p>lede基本网络路径： etc/config/network </p>
 <ol>
 <li>使用ikuai自带的虚拟机拓展lede</li>
@@ -785,85 +929,6 @@ netsh interface portproxy reset （清除所有当前的端口转发规则）
 
 
   
-    <article id="post-(整理)那些实用的工具" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/06/(整理)那些实用的工具/">长期更新--(整理)那些实用的软件🤩</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/06/(整理)那些实用的工具/" class="archive-article-date">
-  	<time datetime="2020-03-06T14:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>分享自己在网上遇到的好软，希望增加大家的娱乐与工作效率 让这些软件在你的生活中达到事半功倍的作用，笔者不喜欢大量新建文章所以做了一个大杂烩希望大家不要介意。后续有必要在新开文章。<span ps:大量软件可能我并没有提供下载地址有需要的还请根据关键字合理的百度谷歌，如确实找不到可以给我留言。=""><br>                                                温馨提示：右下角有导航喔。</span></p>
-<p>个人小蓝盘地址（定期分享一些互联网上的资源）：<a href="http://pan.xlmy.net/" target="_blank" rel="noopener">http://pan.xlmy.net/</a></p>
-<h3 id="百度云下载"><a href="#百度云下载" class="headerlink" title="百度云下载"></a>百度云下载</h3><p>使用<a href="https://kinhdown.kinh.cc/" target="_blank" rel="noopener">Kinhdown</a>配合Motrix在线解析下载需要多刷新几次网页，或者通过<a href="https://www.cnblogs.com/softxmm/p/13972678.html" target="_blank" rel="noopener">软件小妹</a>提供的脚本进行直接下载。<br><img src="https://tva3.sinaimg.cn/large/7a6a15d5gy1g8s99l1zdqg20qn0euqa8.gif" alt=""></p>
-<h3 id="花刺代理"><a href="#花刺代理" class="headerlink" title="花刺代理"></a>花刺代理</h3><p>提取可用的代理ip保护个人隐私安全上网。记住要去设置验证title的规则不然会出现误报。<a href="https://ip.ihuan.me/" target="_blank" rel="noopener">小幻ip</a> <a href="http://www.66ip.cn/pt.html" target="_blank" rel="noopener">66ip</a><br></p>
-        
-          <a class="article-more-a" href="/2020/03/06/(整理)那些实用的工具/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实用技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-伊苏8游戏" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -901,86 +966,6 @@ netsh interface portproxy reset （清除所有当前的端口转发规则）
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">娱乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-隐藏技巧" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/10/隐藏技巧/">隐藏技巧</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/10/隐藏技巧/" class="archive-article-date">
-  	<time datetime="2020-01-10T02:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="快捷键必备吧"><a href="#快捷键必备吧" class="headerlink" title="快捷键必备吧"></a>快捷键必备吧</h4><p>Alt+ F4：快速关闭当前窗口。</p>
-<p>Win +D：一键让所有窗口最小化，只显示桌面。</p>
-<p>Win +L：快速锁定电脑屏幕，离开工位前的必备操作。</p>
-<p>Alt +Tab：在多个窗口间进行切换。在按住Alt键的状态下，间隔敲击Tab键，就可以实现下图的效果。<br>Ctrl +Win +D：WIN10虚拟桌面的快捷切换</p>
-<h4 id="Thief-Book"><a href="#Thief-Book" class="headerlink" title="Thief-Book"></a>Thief-Book</h4><p>看书爱好者的摸鱼神器：<a href="https://github.com/cteamx/Thief-Book" target="_blank" rel="noopener">https://github.com/cteamx/Thief-Book</a><br><img src="https://github.com/cteamx/Thief-Book/raw/master/images/4.png" alt=""><br></p>
-        
-          <a class="article-more-a" href="/2020/01/10/隐藏技巧/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实用技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		
 		</ul>
@@ -1140,7 +1125,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1156,11 +1145,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1172,11 +1157,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1184,7 +1169,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1197,10 +1186,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
             
             <div class="clearfix"></div>
