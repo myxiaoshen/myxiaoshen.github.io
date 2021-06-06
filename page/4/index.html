@@ -195,6 +195,86 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-静态分析" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/30/静态分析/">静态分析</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/30/静态分析/" class="archive-article-date">
+  	<time datetime="2018-11-30T13:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h4><p>Fortify SCA的代码审计功能依赖于它的规则库文件，可以审计多种编制语言，我们可以下载更新的规则库，然后放置在安装目录下相应的位置。bin文件放置在安装目录下Core\config\rules文件夹，xml文件放置在Core\config\ExternalMetadata文件夹(如果该文件夹没有则新建一个)。<br><img src="http://img.9553.com/uploadfile/2016/0216/20160216035457805.jpg" alt=""></p>
+<!---->
+<p>php代码审计使用RIPS会更加的直观，它PHP语法分析非常精准，可以实现跨文件变量和函数追踪，误报率较低。<br><img src="http://php.tedu.cn/upload/20180627/20180627183315_677.jpg" alt=""><br>Checkmarx    Checkmarx的CxEnterprise静态源代码安全漏洞扫描和管理方案是一款比较全面的。适合轻度一键代码审计。<br><img src="http://pic.downcc.com/upload/2017-6/20176201129565611.PNG" alt=""></p>
+<h4 id="IDA–静态软件分析神器（噢！女神！）"><a href="#IDA–静态软件分析神器（噢！女神！）" class="headerlink" title="IDA–静态软件分析神器（噢！女神！）"></a>IDA–静态软件分析神器（噢！女神！）</h4><p><img src="https://img-blog.csdn.net/20160911174307035" alt=""></p>
+<p>我们进行逆向分析的主要场所就在IDA View-A反汇编窗口。</p>
+<p>IDA图形视图会有执行流，Yes箭头默认为绿色，No箭头默认为红色，蓝色表示默认下一个执行块。我们可以在左侧查看代码的运行过程，按下空格键也可以直观地看到程序的图形视图。</p>
+<p>在反汇编窗口中大多是eax, ebx, ecx, edx, esi, edi, ebp, esp等。这些都是X86 汇编语言中CPU上的通用寄存器的名称，是32位的寄存器。这些寄存器相当于C语言中的变量。<br>EAX 是”累加器”(accumulator), 它是很多加法乘法指令的缺省寄存器。<br>EBX 是”基地址”(base)寄存器, 在内存寻址时存放基地址。<br>ECX 是计数器(counter), 是重复(REP)前缀指令和LOOP指令的内定计数器。<br>EDX 则总是被用来放整数除法产生的余数。<br>ESI/EDI 分别叫做”源/目标索引寄存器”(source/destination index),因为在很多字符串操作指令中， DS:ESI指向源串,而ES:EDI指向目标串。<br>EBP 是”基址指针”(BASE POINTER), 它最经常被用作高级语言函数调用的”框架指针”(frame pointer)。<br>ESP 专门用作堆栈指针，被形象地称为栈顶指针，堆栈的顶部是地址小的区域，压入堆栈的数据越多，ESP也就越来越小。在32位平台上，ESP每次减少4字节。<br>还有一些指令，如：mov，jmp等。</p>
+ <pre id="best-content-1034604267" class="best-text mb-10" style="line-height:29px;min-height:55px;" name="code">资料转移指令<br style="display:block;width:700px;">MOV 移动<br style="display:block;width:700px;">MOVC 程式记忆体移动<br style="display:block;width:700px;">MOVX 外部RAM和扩展I/O口与累加器A的数据传送指令<br style="display:block;width:700px;">PUSH 放入堆叠<br style="display:block;width:700px;">POP 由堆叠取回<br style="display:block;width:700px;">XCH 8位元交换<br style="display:block;width:700px;">XCHD 低4位元交换<br style="display:block;width:700px;">SWAP 高低4位元交换<br style="display:block;width:700px;"><br style="display:block;width:700px;">算术指令<br style="display:block;width:700px;">ADD 两数相加<br style="display:block;width:700px;">ADDC 两数相加再加C<br style="display:block;width:700px;">SUBB 两数相减再减C<br style="display:block;width:700px;">INC 加一指令<br style="display:block;width:700px;">DEC 减一指令<br style="display:block;width:700px;">MUL （MUL AB乘法指令仅此一条）相乘指令，所得的16位二进制数低8位存累加器A高8位存B<br style="display:block;width:700px;">DIV （DIV AB 除法指令仅此一条）相除指令，所得商存A，余数存B<br style="display:block;width:700px;">DA (DA A 只此一条指令)调整为十进数<br style="display:block;width:700px;"><br style="display:block;width:700px;">逻辑指令<br style="display:block;width:700px;">ANL做AND（逻辑与）运算<br style="display:block;width:700px;">ORL做OR（逻辑或）运算<br style="display:block;width:700px;">XRL 做（<a href="https://www.baidu.com/s?wd=%E9%80%BB%E8%BE%91%E5%BC%82%E6%88%96&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YLrjP9uyPhrjTkP1D3nWnL0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EPjcYPjfLn1nd" rel="nofollow" class="baidu-highlight" target="_blank"><span style="color:#000000;">逻辑异或</span></a>）运算<br style="display:block;width:700px;">CLR 清除为0<br style="display:block;width:700px;">CPL 取反指令<br style="display:block;width:700px;">RL 不带进位左环移<br style="display:block;width:700px;">RLC 带进位左环移<br style="display:block;width:700px;">RR 不带进位右环移<br style="display:block;width:700px;">RRC 带进位右环移<br style="display:block;width:700px;"><br style="display:block;width:700px;">控制转移类指令<br style="display:block;width:700px;">JC C=1时跳<br style="display:block;width:700px;">JNC C=0时跳<br style="display:block;width:700px;">JB 位元=1时跳<br style="display:block;width:700px;">JNB 位元=0时跳<br style="display:block;width:700px;">JBC 位元=1时跳且清除此位元<br style="display:block;width:700px;">LCALL 长调用子程序<br style="display:block;width:700px;">ACALL 绝对调用子程序<br style="display:block;width:700px;">RET 由副程式返回<br style="display:block;width:700px;">RETI 由中断副程式返回<br style="display:block;width:700px;">AJMP 绝对转移<br style="display:block;width:700px;">SJMP 相对转移<br style="display:block;width:700px;">JMP @A+DPTR 散转，相对DPTR的间接转移<br style="display:block;width:700px;">JZ A=0时跳<br style="display:block;width:700px;">JNZA 0时跳<br style="display:block;width:700px;">CJNE 二数比较,不相等时跳<br style="display:block;width:700px;">DJNZ 减一,不等於0时跳<br style="display:block;width:700px;">NOP 空操作<br style="display:block;width:700px;"><br style="display:block;width:700px;">位变量指令<br style="display:block;width:700px;">SETB 设定为1<br style="display:block;width:700px;"><br style="display:block;width:700px;">ORG 程序开始，规定程序的起始地址<br style="display:block;width:700px;">END 程序结束<br style="display:block;width:700px;">EQU  等值指令（先赋值后使用）例：SUM EQU 30H<br style="display:block;width:700px;">DB 定义字节指令<br style="display:block;width:700px;">DW 定义字内容<br style="display:block;width:700px;">DS 定义保留一定的存贮单元数目<br style="display:block;width:700px;">BIT 位地址符号指令 例：SAM BIT P1.0<br style="display:block;width:700px;">RET 子程序返回指令<br style="display:block;width:700px;">RETI 中断子程序返回指令<br style="display:block;width:700px;">$ 本条指令地址</pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ide</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">逆向</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Proxmark3硬件知识" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -375,11 +455,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		
 		</ul>
@@ -672,11 +752,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		
 		</ul>
@@ -866,78 +946,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-个人觉得还不错的后台模板" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/11/个人觉得还不错的后台模板/">个人觉得还不错的后台模板分享</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/11/个人觉得还不错的后台模板/" class="archive-article-date">
-  	<time datetime="2017-08-11T07:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="简洁风蓝色后台模板"><a href="#简洁风蓝色后台模板" class="headerlink" title="简洁风蓝色后台模板"></a>简洁风蓝色后台模板</h4><p><img src="/2017/08/11/个人觉得还不错的后台模板/3.png" alt=""><br></p>
-        
-          <a class="article-more-a" href="/2017/08/11/个人觉得还不错的后台模板/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1058,15 +1066,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1082,10 +1094,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
@@ -1094,11 +1102,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">

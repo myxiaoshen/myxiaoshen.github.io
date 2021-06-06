@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70pw.png">
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/13/719g.png">
-<meta property="og:image" content="https://ae05.alicdn.com/kf/H6b1067265fbe41a59d6123bd815f0573N.png">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/fffd82177ccc2ced.png">
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/13/719d.png">
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201707/09/212028if5nv2132unwm1lp.png">
 <meta property="og:image" content="https://files.catbox.moe/rlv5va.jpg">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lT.png">
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lS.png">
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lU.png">
-<meta property="og:updated_time" content="2021-04-27T06:23:56.713Z">
+<meta property="og:updated_time" content="2021-06-06T06:17:03.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="winodws恶意软件初步分析">
 <meta name="twitter:description" content="目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢 杀毒软件初步的过滤建议还是装一个小白360，懂点电脑的用火绒+自定义协议或者卡巴与小红伞。 在线分析网站先吧HASH/MD5/SHA1丢平台分析，通过大数据先过滤一遍。有依赖组件的可以打包成单独的可执行文件">
@@ -232,7 +232,7 @@ var _hmt = _hmt || [];
         <p>目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢</p>
 <h5 id="杀毒软件"><a href="#杀毒软件" class="headerlink" title="杀毒软件"></a>杀毒软件</h5><p>初步的过滤建议还是装一个小白360，懂点电脑的用火绒+自定义协议或者卡巴与小红伞。<br><img src="https://i.niupic.com/images/2020/03/12/70pw.png" alt=""></p>
 <h5 id="在线分析网站"><a href="#在线分析网站" class="headerlink" title="在线分析网站"></a>在线分析网站</h5><p>先吧HASH/MD5/SHA1丢平台分析，通过大数据先过滤一遍。有依赖组件的可以打包成单独的可执行文件，上传到某在线网站分析查看结果：推荐360，魔盾，微步云沙箱，Hybrid analysis<br><img src="https://i.niupic.com/images/2020/03/13/719g.png" alt=""><br><a id="more"></a></p>
-<p><img src="https://ae05.alicdn.com/kf/H6b1067265fbe41a59d6123bd815f0573N.png" alt=""></p>
+<p><img src="https://ftp.bmp.ovh/imgs/2021/06/fffd82177ccc2ced.png" alt=""></p>
 <h5 id="带进程监控的沙箱软件进行初步分析"><a href="#带进程监控的沙箱软件进行初步分析" class="headerlink" title="带进程监控的沙箱软件进行初步分析"></a>带进程监控的沙箱软件进行初步分析</h5><p>可以使用 sandboxie与BSA进行联动分析软件可参考<a href="https://blog.csdn.net/AC1145/article/details/103380567" target="_blank" rel="noopener">链接</a>，简单的小程序可以丢<a href="https://www.52pojie.cn/thread-580845-1-1.html" target="_blank" rel="noopener">File_Analysis</a>这个小工具里面跑跑<br><img src="https://i.niupic.com/images/2020/03/13/719d.png" alt=""><br><img src="https://attach.52pojie.cn/forum/201707/09/212028if5nv2132unwm1lp.png" alt=""><br>ProcessHacker可以监控文件的同时直接右键可以程序一键上传到病毒分析网站内置3条接口很方便。<br><img src="https://files.catbox.moe/rlv5va.jpg" alt=""></p>
 <h5 id="监控文件"><a href="#监控文件" class="headerlink" title="监控文件"></a>监控文件</h5><p>监控电脑中所有软件的读写操作，控制软件的恶意删除读取行为当然火绒剑也可以做到。也可以使用：FileActivityWatch或Process Monitor<br><img src="http://www.nirsoft.net/utils/fileactivitywatch.png" alt=""></p>
 <p><img src="https://i.niupic.com/images/2020/10/02/8L6N.png" alt=""><br>专注网络推荐Netlimiter 4可以看到tcp/udp/ip下级的流量走向并可以进行控制(P2P,LISTENING隧道后ip)，单纯排查可以直接使用windows资源管理器自带的流量管理<br><img src="https://files.catbox.moe/ls43xp.png" alt=""><br><img src="https://files.catbox.moe/j2vhgw.png" alt=""></p>
@@ -497,15 +497,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,10 +525,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
@@ -533,11 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
