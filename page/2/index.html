@@ -195,6 +195,84 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-inodws恶意软件初步分析" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/13/inodws恶意软件初步分析/">winodws恶意软件初步分析</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/13/inodws恶意软件初步分析/" class="archive-article-date">
+  	<time datetime="2020-03-13T02:17:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢</p>
+<h5 id="杀毒软件"><a href="#杀毒软件" class="headerlink" title="杀毒软件"></a>杀毒软件</h5><p>初步的过滤建议还是装一个小白360，懂点电脑的用火绒+自定义协议或者卡巴与小红伞。<br><img src="https://i.niupic.com/images/2020/03/12/70pw.png" alt=""></p>
+<h5 id="在线分析网站"><a href="#在线分析网站" class="headerlink" title="在线分析网站"></a>在线分析网站</h5><p>先吧HASH/MD5/SHA1丢平台分析，通过大数据先过滤一遍。有依赖组件的可以打包成单独的可执行文件，上传到某在线网站分析查看结果：推荐360，魔盾，微步云沙箱，Hybrid analysis<br><img src="https://i.niupic.com/images/2020/03/13/719g.png" alt=""><br></p>
+        
+          <a class="article-more-a" href="/2020/03/13/inodws恶意软件初步分析/#more">阅读全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-网管笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -409,7 +487,10 @@ netsh interface portproxy reset （清除所有当前的端口转发规则）
         <h4 id="快捷键必备吧"><a href="#快捷键必备吧" class="headerlink" title="快捷键必备吧"></a>快捷键必备吧</h4><p>Alt+ F4：快速关闭当前窗口。</p>
 <p>Win +D：一键让所有窗口最小化，只显示桌面。</p>
 <p>Win +L：快速锁定电脑屏幕，离开工位前的必备操作。</p>
-<p>Alt +Tab：在多个窗口间进行切换。在按住Alt键的状态下，间隔敲击Tab键，就可以实现下图的效果。<br>Ctrl +Win +D：WIN10虚拟桌面的快捷切换</p>
+<p>Alt +Tab：在多个窗口间进行切换。在按住Alt键的状态下，间隔敲击Tab键，就可以实现下图的效果。</p>
+<p>Ctrl+shift+esc：快速打开任务管理器</p>
+<p>Ctrl +Win +D：WIN10虚拟桌面的快捷创建，然后通过Ctrl +Win+←或者→快速切换</p>
+<p>win+v 剪贴板 win+shift+s 快速截图</p>
 <h4 id="Thief-Book"><a href="#Thief-Book" class="headerlink" title="Thief-Book"></a>Thief-Book</h4><p>看书爱好者的摸鱼神器：<a href="https://github.com/cteamx/Thief-Book" target="_blank" rel="noopener">https://github.com/cteamx/Thief-Book</a><br><img src="https://github.com/cteamx/Thief-Book/raw/master/images/4.png" alt=""><br></p>
         
           <a class="article-more-a" href="/2020/01/10/隐藏技巧/#more">阅读全文 >></a>
@@ -900,68 +981,6 @@ docker inspect --format=&apos;{{.Name}} - {{range.NetworkSettings.Networks}}{{.I
 		</ul>
 	</div>
 
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-安全牛课堂高质量视频（ctf，逆向，渗透）" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/18/安全牛课堂高质量视频（ctf，逆向，渗透）/">安全牛课堂高质量视频（ctf，逆向，渗透）</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/18/安全牛课堂高质量视频（ctf，逆向，渗透）/" class="archive-article-date">
-  	<time datetime="2019-04-18T05:37:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>注：资源来自与互联网，笔者只做学习收集。资料与详情请移步安全牛课堂。为避免课程拿去售卖，想用来自己学习的加qq：1097228498免费分享。（课程详细请移步安全牛<a href="https://edu.aqniu.com/" target="_blank" rel="noopener">https://edu.aqniu.com/</a> ）</p>
-<h5 id="一、-ctf入门到提升"><a href="#一、-ctf入门到提升" class="headerlink" title="一、 ctf入门到提升"></a>一、 ctf入门到提升</h5><p><img src="https://scd7a3b2c52r-sb-qn.qiqiuyun.net/files/course/2018/08-21/153045559e46829818.jpg" alt=""></p>
-        
-          <a class="article-more-a" href="/2019/04/18/安全牛课堂高质量视频（ctf，逆向，渗透）/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
       
 
       
