@@ -17,6 +17,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://image.3001.net/images/20210321/1616306403_6056e0e343ceea91eae26.png">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/553ba7c3ce9f5a45.png">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/07/dbe410c59403e43a.png">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/a1a20f10ffa4edb6.png">
 <meta property="og:image" content="https://image.3001.net/images/20210321/1616306172_6056dffc0199a07453685.png">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/fffd82177ccc2ced.png">
@@ -26,7 +27,7 @@
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/aa46ef278c3b65f1.jpg">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/904108970cc00afb.png">
 <meta property="og:image" content="https://www.ddosi.com/wp-content/uploads/2020/03/Ahmia.jpg">
-<meta property="og:updated_time" content="2021-06-10T12:42:40.317Z">
+<meta property="og:updated_time" content="2021-07-24T06:13:28.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络中的那些信息搜集">
 <meta name="twitter:description" content="大家都知道在生活中往往会z在需要对目标进行信息收集的时候，在攻防演练时我们更多的称之为外围打点，即需要发现能够获取权限的漏洞，利用从而进入目标内网。大多数情况下，利用漏洞其实大家已经不成问题了，更多的场景是找不到这个入口点，下面整理一些常用的信息收集方法。 搜索小技巧：通过搜索引擎多使用关键字：1.xx在线工具 2.xx破解版 3.xx在线 4. xx补丁 5.xx+当前年份 6.云xx 7.最好">
@@ -35,7 +36,7 @@
     <link rel="alternative" href="/atom.xml" title="戏如烟云b16" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/cat.png">
+    <link rel="icon" href="/img/my.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.266c1c.css">
   <style type="text/css">
@@ -141,9 +142,11 @@ var _hmt = _hmt || [];
 		<nav class="header-nav">
 			<div class="social">
 				
+					<a class="rss" target="_blank" href="https://pan.xlmy.net" title="rss"><i class="icon-rss"></i></a>
+		        
 					<a class="qq" target="_blank" href="http://sighttp.qq.com/msgrd?v=1&uin=1097228498" title="qq"><i class="icon-qq"></i></a>
 		        
-					<a class="mail" target="_blank" href="/1097228498@qq.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="mailto:1097228498@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -180,9 +183,11 @@ var _hmt = _hmt || [];
 			<nav class="header-nav">
 				<div class="social">
 					
+						<a class="rss" target="_blank" href="https://pan.xlmy.net" title="rss"><i class="icon-rss"></i></a>
+			        
 						<a class="qq" target="_blank" href="http://sighttp.qq.com/msgrd?v=1&uin=1097228498" title="qq"><i class="icon-qq"></i></a>
 			        
-						<a class="mail" target="_blank" href="/1097228498@qq.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="mailto:1097228498@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -256,7 +261,7 @@ var _hmt = _hmt || [];
 nmap  -p80,443  --script=http-waf-detect  ip
 wafw00f  -a  域名
 </code></pre><h4 id="组织架构查询"><a href="#组织架构查询" class="headerlink" title="组织架构查询"></a>组织架构查询</h4><p><blockquote><p>天眼查：<a href="https://www.tianyancha.com/" target="_blank" rel="noopener"><u>https://www.tianyancha.com/</u></a>&nbsp;</p><p>ICP备案查询网：<a href="http://www.beianbeian.com/" target="_blank" rel="noopener"><u>http://www.beianbeian.com/</u></a>&nbsp;</p><p>国家企业信用信息公示系统：<a href="http://www.gsxt.gov.cn/index.html" target="_blank" rel="noopener"><u>http://www.gsxt.gov.cn/index.html</u></a>&nbsp;</p></blockquote><br>注意：国外的服务器一般来说是查不到的，因为他们不需要备案。国内的基本上都可以查到。如果在站长之家上隐藏了信息，可在who.is上再次查看。<br>ICP备案查询:<a href="https://beian.miit.gov.cn/#/Integrated/recordQuery" target="_blank" rel="noopener">https://beian.miit.gov.cn/#/Integrated/recordQuery</a><br>公安部备案查询：<a href="http://www.beian.gov.cn/portal/recordQuery" target="_blank" rel="noopener">http://www.beian.gov.cn/portal/recordQuery</a> </p>
-<h3 id="二、其他平台资产收集"><a href="#二、其他平台资产收集" class="headerlink" title="二、其他平台资产收集"></a>二、其他平台资产收集</h3><h4 id="平台信息"><a href="#平台信息" class="headerlink" title="平台信息"></a>平台信息</h4><p>微信公众号和小程序还是用手机微信搜索 比较方便，当然也可以通过搜狗来发现目标大概有哪些公众号，但是最终还是得用手机测试抓包(PS:现在PC端微信抓包也很方便啦):weixin.sogou.com<br>除了微信公众号外，也可以在APP商城中和Google上通过反查开发者来尽可能多的收集目标的移动端资产。脉脉、知乎、贴吧、领英这些平台有时候也能找到关键信息<br><img src="https://ftp.bmp.ovh/imgs/2021/06/553ba7c3ce9f5a45.png" alt=""></p>
+<h3 id="二、其他平台资产收集"><a href="#二、其他平台资产收集" class="headerlink" title="二、其他平台资产收集"></a>二、其他平台资产收集</h3><h4 id="平台信息"><a href="#平台信息" class="headerlink" title="平台信息"></a>平台信息</h4><p>微信公众号和小程序还是用手机微信搜索 比较方便，当然也可以通过搜狗来发现目标大概有哪些公众号，但是最终还是得用手机测试抓包(PS:现在PC端微信抓包也很方便啦):<a href="https://search.chongbuluo.com/" target="_blank" rel="noopener">聚合搜索引擎</a><br>除了微信公众号外，也可以在APP商城中和Google上通过反查开发者来尽可能多的收集目标的移动端资产。脉脉、知乎、微博、贴吧、领英这些平台有时候也能找到关键信息<br><img src="https://ftp.bmp.ovh/imgs/2021/06/553ba7c3ce9f5a45.png" alt=""><br><img src="https://ftp.bmp.ovh/imgs/2021/07/dbe410c59403e43a.png" alt=""></p>
 <h4 id="网盘泄露"><a href="#网盘泄露" class="headerlink" title="网盘泄露"></a>网盘泄露</h4><p><a href="http://hao.ujuji.com/#/" target="_blank" rel="noopener">聚合网盘</a><br><img src="https://ftp.bmp.ovh/imgs/2021/06/a1a20f10ffa4edb6.png" alt=""></p>
 <h4 id="历史快照"><a href="#历史快照" class="headerlink" title="历史快照"></a>历史快照</h4><p>可以看到一些删除过的网页有些也是会泄露一些信息的</p>
 <p><blockquote><p style="text-align: justify;">洞见微信聚合 :<a href="http://wechat.doonsec.com/" target="_blank" rel="noopener"><u>http://wechat.doonsec.com/</u></a>&nbsp;</p><p style="text-align: justify;">快照查询 : <a href="https://2tool.top/" target="_blank" rel="noopener"><u>https://2tool.top/</u></a>&nbsp;</p><p style="text-align: justify;">网页时光机（推荐）：<a href="http://www.wayback.com/" target="_blank" rel="noopener"><u>http://www.wayback.com/</u></a>&nbsp;</p><p style="text-align: justify;">网页磁带机：<a href="https://archive.is/" target="_blank" rel="noopener"><u>https://archive.is/</u></a>&nbsp;</p><p style="text-align: justify;"></p></blockquote></p>
@@ -524,10 +529,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
@@ -537,6 +538,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,7 +632,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt;俺是一个小学生业余喜欢在网上跟着做一些有趣的事情和diy一些电子设备，看看新鲜事什么的。也喜欢去网上copy一些好玩实用的东西记录下来，以后万一就用上了呢哈哈。&lt;br&gt;最近在专研python自动化和一些常用的算法，日常靠着一些技术在一家公司摸鱼。希望能有一份更加稳定的工作，平时接点外包好养老。&lt;br&gt;我是一个比较开朗的，心细，写代码也爱写备注的娃娃。&lt;br&gt; 不擅长与女娃娃交际。看着妹子就脸红 -_-|     &lt;br&gt;业余时间用hexo捣了一个博客，希望这些玩意能够在工作中帮到大家（文章中错别字可能有很多233- -\|）。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt;俺是一个小学生业余喜欢在网上跟着做一些有趣的事情和diy一些电子设备，看看高效率的技术什么的。也喜欢去网上copy一些好玩实用的东西记录下来，以后万一就用上了呢哈哈。&lt;br&gt;最近在专研python自动化和一些常用的算法。&lt;br&gt;我是一个比较开朗的，心细，写代码也爱写备注的娃娃。&lt;br&gt; 不擅长与女娃娃交际。看着妹子就脸红 -_-|     &lt;br&gt;业余时间用hexo捣了一个博客，希望这些玩意能够在工作中帮到大家（文章中错别字可能有很多233- -\|）。</div>
   	  	
     	</section>
     
