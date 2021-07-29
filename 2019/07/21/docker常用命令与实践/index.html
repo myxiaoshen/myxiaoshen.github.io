@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://i.niupic.com/images/2020/10/06/8LNA.png">
 <meta property="og:image" content="https://i.niupic.com/images/2019/11/27/_518.png">
-<meta property="og:updated_time" content="2021-02-04T05:30:43.866Z">
+<meta property="og:updated_time" content="2021-07-27T03:44:56.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker常用命令与实践">
 <meta name="twitter:description" content="前言Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。有了docker很多环境就不需要你配了，比如mys">
@@ -243,14 +243,13 @@ docker inspect --format=&apos;{{.Name}} - {{range.NetworkSettings.Networks}}{{.I
 </code></pre><p>7.查看容器进程</p>
 <pre><code>docker top &lt;name&gt;
 </code></pre><p>8.启动容器里的进程</p>
-<pre><code>docker exec &lt;name&gt;
-</code></pre><p>9.列出本地镜像，查看镜像信息，创建镜像，删除镜像</p>
-<pre><code>  docker images
-docker inspect
-docker image rm
-docker commit &lt;name&gt; &lt;new id&gt;创建新的镜像
-docker tag 克隆一个镜像 一般用于命名
-</code></pre><p>10.获取镜像，下载镜像，上传镜像到云仓库</p>
+<ul>
+<li>docker exec <name></name></li>
+<li><p>docker exec -it <name> bash //进入交互式shell<br>9.列出本地镜像，查看镜像信息，创建镜像，删除镜像</name></p>
+<p> docker images<br>docker inspect<br>docker image rm<br>docker commit <name> <new id="">创建新的镜像<br>docker tag 克隆一个镜像 一般用于命名</new></name></p>
+</li>
+</ul>
+<p>10.获取镜像，下载镜像，上传镜像到云仓库</p>
 <pre><code>docker search 
 docker pull
 docker push
@@ -554,6 +553,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -562,7 +565,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,15 +573,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,11 +589,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="戏如烟云b16">
 <meta property="og:description" content="先看看几种常用的参数如下：123456789101112131415161718192021222324-sT	 TCP connect()扫描，这种方式会在目标主机的日志中记录大批连接请求和错误信息。-sS	 半开扫描，很少有系统能把它记入系统日志。不过，需要Root权限。-sF  -sN	 秘密FIN数据包扫描、Xmas Tree、Null扫描模式-sP	 ping扫描，Nmap在扫描端口时，">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2021-07-24T03:04:15.049Z">
+<meta property="og:updated_time" content="2021-07-27T04:06:47.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nmap的实战用法">
 <meta name="twitter:description" content="先看看几种常用的参数如下：123456789101112131415161718192021222324-sT	 TCP connect()扫描，这种方式会在目标主机的日志中记录大批连接请求和错误信息。-sS	 半开扫描，很少有系统能把它记入系统日志。不过，需要Root权限。-sF  -sN	 秘密FIN数据包扫描、Xmas Tree、Null扫描模式-sP	 ping扫描，Nmap在扫描端口时，">
@@ -223,6 +223,7 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 <p>时序命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-T0  偏执的：非常非常慢，用于IDS逃逸</span><br><span class="line">-T1  猥琐的：相当慢，用于IDS逃逸</span><br><span class="line">-T2  有礼貌的：降低速度以消耗更小的带宽，比默认慢十倍</span><br><span class="line">-T3  普通的：默认，根据目标的反应自动调整时间模式</span><br><span class="line">-T4  野蛮的：假定处在一个很好的网络环境，请求可能会淹没目标</span><br><span class="line">-T5  疯狂的：非常野蛮，很可能会淹没目标端口或是漏掉一些开放端口</span><br></pre></td></tr></table></figure>
+<p>nmap批量扫描并导3出到csv文件，也可以单ip测试<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmap -P0 -T2 -sO -iL target.txt -p 1-65535 -oN result.csv</span><br><span class="line">nmap -T4 -P0  -p 1-65535 -oN result.csv 127.0.0.1</span><br></pre></td></tr></table></figure></p>
 <p>nmap脚本在实战中也有很大的帮助在扫描时可根据需要设置–script=类别这种方式进行比较笼统的扫描：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">-sC  根据端口识别的服务，调用默认脚本</span><br><span class="line">auth: 负责处理鉴权证书（绕开鉴权）的脚本</span><br><span class="line"></span><br><span class="line">broadcast: 在局域网内探查更多服务开启状况，如dhcp/dns/sqlserver等服务</span><br><span class="line"></span><br><span class="line">brute: 提供暴力破解方式，针对常见的应用如http/snmp等</span><br><span class="line"></span><br><span class="line">default: 使用-sC或-A选项扫描时候默认的脚本，提供基本脚本扫描能力</span><br><span class="line"></span><br><span class="line">discovery: 对网络进行更多的信息，如SMB枚举、SNMP查询等</span><br><span class="line"></span><br><span class="line">dos: 用于进行拒绝服务攻击</span><br><span class="line"></span><br><span class="line">exploit: 利用已知的漏洞入侵系统</span><br><span class="line"></span><br><span class="line">external: 利用第三方的数据库或资源，例如进行whois解析</span><br><span class="line"></span><br><span class="line">fuzzer: 模糊测试的脚本，发送异常的包到目标机，探测出潜在漏洞 intrusive: 入侵性的脚本，此类脚本可能引发对方的IDS/IPS的记录或屏蔽</span><br><span class="line"></span><br><span class="line">malware: 探测目标机是否感染了病毒、开启了后门等信息</span><br><span class="line"></span><br><span class="line">safe: 此类与intrusive相反，属于安全性脚本</span><br><span class="line"></span><br><span class="line">version: 负责增强服务与版本扫描（Version Detection）功能的脚本</span><br><span class="line"></span><br><span class="line">vuln: 负责检查目标机是否有常见的漏洞（Vulnerability），如是否有MS08_067</span><br></pre></td></tr></table></figure>
 <pre><code> 全面扫描：nmap-T4 -A targetip  
@@ -503,6 +504,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -511,7 +516,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,15 +524,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,11 +540,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">

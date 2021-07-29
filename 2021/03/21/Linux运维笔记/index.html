@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20190314/5dca82d53165496d831b98a63f46a460.jpeg">
 <meta property="og:image" content="https://github.com/grayddq/GScan/blob/master/pic/2.png">
-<meta property="og:updated_time" content="2021-04-02T05:14:51.869Z">
+<meta property="og:updated_time" content="2021-07-27T03:49:00.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
 <meta name="twitter:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。 俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。 Linux环境坑介绍一下简单的配置查看：1234567cat /proc/cpuinfo | grep &amp;quot;cpu&amp;quot;  //查看cpu核心free -h //查内存d">
@@ -250,7 +250,7 @@ var _hmt = _hmt || [];
 <p>1.ps、top命令分析进程配合netstat与ss<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ps -ef 查找主进程</span><br><span class="line">ps -aux --sort -pcpu,-pmem | grep name | head -n 10</span><br><span class="line">//查询所有的进程并进行排序后面用-指定排序规则 管道筛选与name相关的进程 管道筛选出前10条</span><br><span class="line"></span><br><span class="line">netstat -antlp或-anulp //查看tcp或udp的端口监听</span><br><span class="line">netstat -tunlpa |grep 端口号 //查看端口对应的程序</span><br><span class="line"></span><br><span class="line">ss -lspa//查看socks套字节信息后面+t查看tcp +u查看udp</span><br><span class="line"></span><br><span class="line">top ##M 内存占比排序、P cup占比排序（默认）、N 以PID排序、q 退出</span><br></pre></td></tr></table></figure></p>
 <p>2.kill -STOP 先尝试停止进程<br>  killall -9 name 关闭与name相关的进程</p>
 <p>3.whereis和which命令查找此进程文件位置并且检查/root/.ssh或用ls -l /proc/{pid号}/exe查看pid所在的进程</p>
-<p>3.find -name 查文件是否存在</p>
+<p>3.find 路径 -name 文件没  查文件是否存在</p>
 <p>4.crontab -l查看是否有定时任务可疑的通过-rf删除</p>
 <p>5.chattr +ia -ia 开启解除锁定i权限</p>
 <p>6.chmod –R 权限设置 777 000 </p>
@@ -558,6 +558,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -566,7 +570,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,15 +578,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,11 +594,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
