@@ -9,7 +9,7 @@
   <title>企业的网管笔记 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基">
-<meta name="keywords" content="笔记,web技术">
+<meta name="keywords" content="web技术,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="企业的网管笔记">
 <meta property="og:url" content="http://yoursite.com/2020/03/12/网管笔记/index.html">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://i.niupic.com/images/2019/10/14/_1381.png">
 <meta property="og:image" content="https://camo.githubusercontent.com/0c10358cd4d5b3c681fbb1b376c2ba847a627bba/68747470733a2f2f67697465652e636f6d2f75706c6f6164732f696d616765732f323031382f303532372f3131343032315f65663539316361335f313339303337382e706e67">
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201908/29/015703q2hihauuuhaazazh.jpg">
-<meta property="og:updated_time" content="2021-06-09T04:03:22.215Z">
+<meta property="og:updated_time" content="2021-08-10T02:30:35.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="企业的网管笔记">
 <meta name="twitter:description" content="实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基">
@@ -300,7 +300,7 @@ netsh interface portproxy reset （清除所有当前的端口转发规则）
 <ol>
 <li>U启通或微pe+win纯净<br>公司电脑比较老式推荐进2003pe，不然可能识别不到磁盘。装完系统需要安装许多常用的软件推荐使用it天空的软件安装助理，或者自己封装GHO包（正版化检查的公司不能用GHO喔）</li>
 <li>win直装</li>
-<li>ios软碟通启动直装</li>
+<li>ios软碟通启动直装或者使用Ventoy多iso文件启动而且不影响U盘的使用</li>
 <li>卡windows，拔外设进系统插上，bios重置；bios保存问题更换电池。</li>
 </ol>
 <h4 id="引导修复与活动分区激活"><a href="#引导修复与活动分区激活" class="headerlink" title="引导修复与活动分区激活"></a>引导修复与活动分区激活</h4><ol>
@@ -421,11 +421,11 @@ netsh interface portproxy reset （清除所有当前的端口转发规则）
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
@@ -666,15 +666,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -686,15 +678,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,10 +707,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
