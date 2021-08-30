@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://i.niupic.com/images/2020/10/06/8LNA.png">
 <meta property="og:image" content="https://i.niupic.com/images/2019/11/27/_518.png">
-<meta property="og:updated_time" content="2021-07-27T03:44:56.814Z">
+<meta property="og:updated_time" content="2021-08-30T09:12:34.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker常用命令与实践">
 <meta name="twitter:description" content="前言Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。有了docker很多环境就不需要你配了，比如mys">
@@ -222,7 +222,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。有了docker很多环境就不需要你配了，比如mysql，tomcat,redis等等。活用dockers可以让你再环境搭建中剩下很多的事情<br>—————————————————————————————————————————<br>docker仓库&gt;镜像&gt;容器&gt;数据<br>docker命令速查：<a href="https://www.jianshu.com/p/2f97f61933b9" target="_blank" rel="noopener">https://www.jianshu.com/p/2f97f61933b9</a><br>docker入门到实践：<a href="https://yeasy.gitbooks.io/docker_practice/image/dockerfile/references.html" target="_blank" rel="noopener">https://yeasy.gitbooks.io/docker_practice/image/dockerfile/references.html</a><br>docker入门到实践：<a href="https://docs.docker.com/engine/reference/builder" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder</a><br>加速地址命令：</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。有了docker很多环境就不需要你配了，比如mysql，tomcat,redis等等。活用dockers可以让你再环境搭建中省下很多的事情<br>—————————————————————————————————————————<br>docker仓库&gt;镜像&gt;容器&gt;数据<br>docker命令速查：<a href="https://www.jianshu.com/p/2f97f61933b9" target="_blank" rel="noopener">https://www.jianshu.com/p/2f97f61933b9</a><br>docker入门到实践：<a href="https://yeasy.gitbooks.io/docker_practice/image/dockerfile/references.html" target="_blank" rel="noopener">https://yeasy.gitbooks.io/docker_practice/image/dockerfile/references.html</a><br>docker入门到实践：<a href="https://docs.docker.com/engine/reference/builder" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder</a><br>加速地址命令：</p>
 <pre><code>curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://4e70ba5d.m.daocloud.io
 </code></pre><p>docker手动修改配置加速：<br>编辑文件重启docker服务<br>/etc/docker/daemon.json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    &quot;registry-mirrors&quot;:[&quot;https://almtd3fa.mirror.aliyuncs.com&quot;]      </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><p>1.启动一个容器并开启实时交互功能,并命名,进入shell终端（rename命名）</p>
@@ -285,7 +285,7 @@ node docker //不设置网络
 <h3 id="创建Redis集群"><a href="#创建Redis集群" class="headerlink" title="创建Redis集群"></a>创建Redis集群</h3><p>多个Redis同理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">docker pull yyyyttttwwww/redis</span><br><span class="line">docker network create --subnet=172.19.0.0/16 net2</span><br><span class="line">docker run -it -d --name r1 -p 5001:6379 --net=net2 --ip 172.19.0.2 redis bash</span><br><span class="line">修改redis配置：cp /home/redis/redis.conf /usr/redis/redis.conf</span><br><span class="line"></span><br><span class="line">启动redis指令：cd /usr/redis/src | ./redis-server ../redis.conf</span><br></pre></td></tr></table></figure></p>
 <p>redis配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">daemonize yes 	#以后台进程运行</span><br><span class="line">cluster-enabled yes	#开启集群</span><br><span class="line">cluster-config-file nodes.conf	#集群配置文件</span><br><span class="line">cluster-node-timeout 1 5000	#超时时间</span><br><span class="line">appendonly yes	#开启AOF模式</span><br></pre></td></tr></table></figure></p>
 <p>通过脚本创建Cluster集群</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">在r1节点上执行下面的指令</span></span><br><span class="line">cd /usr/redis/src</span><br><span class="line">mkdir -p ../cluster</span><br><span class="line">cp redis-trib.rb ../cluster/</span><br><span class="line">cd ../cluster</span><br><span class="line"><span class="meta">#</span><span class="bash">创建Cluster集群</span></span><br><span class="line">./redis-trib.rb create --replicas 1 172.19.0.2:6379 172.19.0.3:6379 172.19.0.4:6379 172.19.0.5:6379 172.19.0.6:6379 172.19.0.7:6379</span><br></pre></td></tr></table></figure>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>在r1节点上执行下面的指令</span><br><span class="line">cd /usr/redis/src</span><br><span class="line">mkdir -p ../cluster</span><br><span class="line">cp redis-trib.rb ../cluster/</span><br><span class="line">cd ../cluster</span><br><span class="line"><span class="meta">#</span>创建Cluster集群</span><br><span class="line">./redis-trib.rb create --replicas 1 172.19.0.2:6379 172.19.0.3:6379 172.19.0.4:6379 172.19.0.5:6379 172.19.0.6:6379 172.19.0.7:6379</span><br></pre></td></tr></table></figure>
 <h3 id="kubesphere与k8s"><a href="#kubesphere与k8s" class="headerlink" title="kubesphere与k8s"></a>kubesphere与k8s</h3><p>……</p>
 
       
@@ -541,7 +541,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,19 +565,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,11 +573,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">

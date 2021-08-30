@@ -347,7 +347,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Testproject（强推特良心）"><a href="#Testproject（强推特良心）" class="headerlink" title="Testproject（强推特良心）"></a>Testproject（强推特良心）</h3><p>TestProject是世界上第一个免费的，基于云的，由社区提供动力的测试自动化平台，它使用户能够轻松测试所有操作系统上的Web，Android和iOS应用程序。使用Selenium和Appium与您的团队轻松协作，以确保质量和速度。使用TestProject强大的SDK，可以使用先进的内置记录功能，创建和使用插件（由整个社区共享的自动化操作）或开发编码测试，而这些操作完全免费！ps:这东西还能生成自动化代码<br><img src="https://aws1.discourse-cdn.com/business7/uploads/testproject/original/1X/35d1b811fade26c10839efff58c9318891515618.gif" alt=""></p>
+        <h3 id="Testproject（强推特良心）"><a href="#Testproject（强推特良心）" class="headerlink" title="Testproject（强推特良心）"></a>Testproject（强推特良心）</h3><p>TestProject是世界上第一个免费的! 基于云的，由社区提供动力的测试自动化平台，它使用户能够轻松测试所有操作系统上的Web，Android和iOS应用程序。使用Selenium和Appium与您的团队轻松协作，以确保质量和速度。使用TestProject强大的SDK，可以使用先进的内置记录功能，创建和使用插件（由整个社区共享的自动化操作）或开发编码测试，而这些操作完全免费！ps:这东西还能生成自动化代码<br><img src="https://aws1.discourse-cdn.com/business7/uploads/testproject/original/1X/35d1b811fade26c10839efff58c9318891515618.gif" alt=""></p>
 <h3 id="Katalon-Studio"><a href="#Katalon-Studio" class="headerlink" title="Katalon Studio"></a>Katalon Studio</h3><p>强大的GUI界面与驱动测试方便新手入门，个人认为一般吧没得上面的强,生成的代码也是类脚本略显鸡肋,但是<a href="https://docs.katalon.com/katalon-studio/tutorials/index.html" target="_blank" rel="noopener">官网文档</a>比较详细，可以应对大部分测试。<br><img src="https://s3.amazonaws.com/katalon-forum/editor/ai/f7l2bhj0xaug.gif" alt=""><br></p>
         
           <a class="article-more-a" href="/2021/03/22/一些自动化测试的工具推荐/#more">阅读全文 >></a>
@@ -421,7 +421,7 @@ var _hmt = _hmt || [];
 <pre><code>deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
 </code></pre><p>环境版本切换,python为例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">python                             # 查看当前系统默认python2版本</span><br><span class="line"></span><br><span class="line">cd /usr/bin                       # 进入/usr/bin目录   </span><br><span class="line"></span><br><span class="line">ls -l | grep python             # 显示所有名字中包含python的文件</span><br><span class="line"></span><br><span class="line">sudo rm -rf python</span><br><span class="line"></span><br><span class="line">sudo ln -s /usr/bin/python3 /usr/bin/python   # 把python的指向改为python3即可</span><br><span class="line"></span><br><span class="line">python                             # 查看当前系统默认python3版本</span><br></pre></td></tr></table></figure></p>
 <p>0*1 git基础环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">绑定用户：</span><br><span class="line">git config --global user.name &quot;xxx&quot;</span><br><span class="line">git config --global user.email &quot;xxx@gmail.com&quot;</span><br><span class="line">设置SSH key：</span><br><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot; </span><br><span class="line"></span><br><span class="line">打开github，找到账户里面添加SSH，把id_rsa.pub内容复制到key里面。</span><br><span class="line"></span><br><span class="line">测试命令：</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
-<p>上传本地项目到github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mkdir demo</span><br><span class="line">cd demo</span><br><span class="line">echo &quot;# demo&quot; &gt;&gt; README.md</span><br><span class="line">git init //把这个目录变成Git可以管理的仓库</span><br><span class="line">git clone https://github.com/AppCanOpenSource/666.git --config http.proxy=&apos;http://127.0.0.1:1080&apos;  #更改socks5代理 http和https同理</span><br><span class="line">git add README.md //文件添加到仓库</span><br><span class="line">git add . //不但可以跟单一文件，还可以跟通配符，更可以跟目录。一个点就把当前目录下所有未追踪的文件全部add了（空目录不会被添加）</span><br><span class="line">git status //查看当前工作区的状态（需提交的变更）</span><br><span class="line">git commit -m &quot;提交说明&quot; //把文件提交到仓库</span><br><span class="line">git remote add origin git@github.com:hxf0663/demo.git //关联远程仓库</span><br><span class="line">git push -u origin master //将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)</span><br><span class="line">git push origin master //将本地主分支推到远程主分支</span><br><span class="line">下载操作：</span><br><span class="line">git pull origin master //把远程库更改拉到本地仓库</span><br><span class="line">git clone git@github.com:hxf0663/demo.git //克隆远程仓库到本地</span><br><span class="line">git clone https://github.com/hxf0663/demo.git //克隆远程仓库到本地</span><br><span class="line">git clone https://github.com/hxf0663/demo //克隆远程仓库到本地</span><br></pre></td></tr></table></figure></p>
+<p>上传本地项目到github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mkdir demo</span><br><span class="line">cd demo</span><br><span class="line">echo &quot;# demo&quot; &gt;&gt; README.md</span><br><span class="line">git init //把这个目录变成Git可以管理的仓库</span><br><span class="line">git clone https://github.com/AppCanOpenSource/666.git --config http.proxy=&apos;http://127.0.0.1:1080&apos;  #更改socks5代理 http和https同理</span><br><span class="line">git add README.md //文件添加到仓库</span><br><span class="line">git add . //不但可以跟单一文件，还可以跟通配符，更可以跟目录。一个点就把当前目录下所有未追踪的文件全部add了（空目录不会被添加）</span><br><span class="line">git status //查看当前工作区的状态（需提交的变更）</span><br><span class="line">git commit -m &quot;提交说明&quot; //把文件提交到仓库</span><br><span class="line">git remote add origin git@github.com:hxf0663/demo.git //关联远程仓库</span><br><span class="line">git push -u origin master //将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)</span><br><span class="line">git push origin master //将本地主分支推到远程主分支</span><br><span class="line">下载操作：</span><br><span class="line">git pull origin master //把远程库更改拉到本地仓库</span><br><span class="line">git clone git@github.com:hxf0663/demo.git //克隆远程仓库到本地</span><br><span class="line">git clone https://github.com/hxf0663/demo.git //克隆远程仓库到本地</span><br><span class="line">git clone https://github.com/hxf0663/demo //克隆远程仓库到本地</span><br><span class="line"></span><br><span class="line">git branch //列出，-d删除</span><br></pre></td></tr></table></figure></p>
         
           <a class="article-more-a" href="/2021/03/21/Linux运维笔记/#more">阅读全文 >></a>
         
@@ -1062,7 +1062,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1074,19 +1086,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1094,11 +1094,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">

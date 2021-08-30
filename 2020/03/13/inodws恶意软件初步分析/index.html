@@ -23,6 +23,8 @@
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/13/719d.png">
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201707/09/212028if5nv2132unwm1lp.png">
 <meta property="og:image" content="https://files.catbox.moe/rlv5va.jpg">
+<meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/de8a3f7b3f49e67fbd80bb43f54adc68.png">
+<meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/cfefa1f7cebb2b54d609d934f9f82fda.png">
 <meta property="og:image" content="http://www.nirsoft.net/utils/fileactivitywatch.png">
 <meta property="og:image" content="https://i.niupic.com/images/2020/10/02/8L6N.png">
 <meta property="og:image" content="https://files.catbox.moe/ls43xp.png">
@@ -31,7 +33,7 @@
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lT.png">
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lS.png">
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lU.png">
-<meta property="og:updated_time" content="2021-07-24T06:58:41.885Z">
+<meta property="og:updated_time" content="2021-08-14T04:26:18.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="winodws恶意软件初步分析">
 <meta name="twitter:description" content="目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢 杀毒软件初步的过滤建议还是装一个小白360，个人电脑的用火绒+eset（主核心模块用火绒eset做基线保护）。 在线分析网站先吧HASH/MD5/SHA1丢平台分析，通过大数据先过滤一遍。有依赖组件的可以打">
@@ -240,6 +242,7 @@ var _hmt = _hmt || [];
 <h5 id="在线分析网站"><a href="#在线分析网站" class="headerlink" title="在线分析网站"></a>在线分析网站</h5><p>先吧HASH/MD5/SHA1丢平台分析，通过大数据先过滤一遍。有依赖组件的可以打包成单独的可执行文件，上传到某在线网站分析查看结果：推荐360，魔盾，微步云沙箱，Hybrid analysis<br><img src="https://i.niupic.com/images/2020/03/13/719g.png" alt=""><br><a id="more"></a></p>
 <p><img src="https://ftp.bmp.ovh/imgs/2021/06/fffd82177ccc2ced.png" alt=""></p>
 <h5 id="带进程监控的沙箱软件进行初步分析"><a href="#带进程监控的沙箱软件进行初步分析" class="headerlink" title="带进程监控的沙箱软件进行初步分析"></a>带进程监控的沙箱软件进行初步分析</h5><p>可以使用 sandboxie与BSA进行联动分析软件可参考<a href="https://blog.csdn.net/AC1145/article/details/103380567" target="_blank" rel="noopener">链接</a>，简单的小程序可以丢<a href="https://www.52pojie.cn/thread-580845-1-1.html" target="_blank" rel="noopener">File_Analysis</a>这个小工具里面跑跑<br><img src="https://i.niupic.com/images/2020/03/13/719d.png" alt=""><br><img src="https://attach.52pojie.cn/forum/201707/09/212028if5nv2132unwm1lp.png" alt=""><br>ProcessHacker可以监控文件的同时直接右键可以程序一键上传到病毒分析网站内置3条接口很方便。<br><img src="https://files.catbox.moe/rlv5va.jpg" alt=""></p>
+<h5 id="驱动监控与加载（win21h2无法使用需要自签名）"><a href="#驱动监控与加载（win21h2无法使用需要自签名）" class="headerlink" title="驱动监控与加载（win21h2无法使用需要自签名）"></a>驱动监控与加载（win21h2无法使用需要自签名）</h5><p>OpenArk64<br><img src="https://pic.rmb.bdstatic.com/bjh/de8a3f7b3f49e67fbd80bb43f54adc68.png" alt=""><br>PowerTool64同类型有PCHunter64和YDArk<br><img src="https://pic.rmb.bdstatic.com/bjh/cfefa1f7cebb2b54d609d934f9f82fda.png" alt=""></p>
 <h5 id="监控文件与网络"><a href="#监控文件与网络" class="headerlink" title="监控文件与网络"></a>监控文件与网络</h5><p>监控电脑中所有软件的读写操作，控制软件的恶意删除读取行为当然火绒剑也可以做到。也可以使用：FileActivityWatch或Process Monitor<br><img src="http://www.nirsoft.net/utils/fileactivitywatch.png" alt=""></p>
 <p><img src="https://i.niupic.com/images/2020/10/02/8L6N.png" alt=""><br>专注网络推荐Netlimiter 4可以看到tcp/udp/ip下级的流量走向并可以进行控制(P2P,LISTENING隧道后ip)，单纯排查可以直接使用windows资源管理器自带的流量管理<br><img src="https://files.catbox.moe/ls43xp.png" alt=""><br><img src="https://files.catbox.moe/j2vhgw.png" alt=""><br>这里有强安全需求的小伙伴可以开启联网控制进一步控制电脑的出站流量，记得系统的签名也不要放过达到零信任环境。<br><img src="https://ftp.bmp.ovh/imgs/2021/07/347bd25220f4abd3.png" alt=""></p>
 <h5 id="进程监控软件"><a href="#进程监控软件" class="headerlink" title="进程监控软件"></a>进程监控软件</h5><p>恶意行为ip可以拉入黑名单禁止它出入站，并配合ip情报网站查询。<br><img src="https://i.niupic.com/images/2020/03/12/70lT.png" alt=""><br>网络的数据包连接数据包状态码如下：</p>
@@ -370,7 +373,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#杀毒软件"><span class="toc-number">1.</span> <span class="toc-text">杀毒软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在线分析网站"><span class="toc-number">2.</span> <span class="toc-text">在线分析网站</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#带进程监控的沙箱软件进行初步分析"><span class="toc-number">3.</span> <span class="toc-text">带进程监控的沙箱软件进行初步分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控文件与网络"><span class="toc-number">4.</span> <span class="toc-text">监控文件与网络</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#进程监控软件"><span class="toc-number">5.</span> <span class="toc-text">进程监控软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Wireshark"><span class="toc-number">6.</span> <span class="toc-text">Wireshark</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#杀毒软件"><span class="toc-number">1.</span> <span class="toc-text">杀毒软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在线分析网站"><span class="toc-number">2.</span> <span class="toc-text">在线分析网站</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#带进程监控的沙箱软件进行初步分析"><span class="toc-number">3.</span> <span class="toc-text">带进程监控的沙箱软件进行初步分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#驱动监控与加载（win21h2无法使用需要自签名）"><span class="toc-number">4.</span> <span class="toc-text">驱动监控与加载（win21h2无法使用需要自签名）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控文件与网络"><span class="toc-number">5.</span> <span class="toc-text">监控文件与网络</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#进程监控软件"><span class="toc-number">6.</span> <span class="toc-text">进程监控软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Wireshark"><span class="toc-number">7.</span> <span class="toc-text">Wireshark</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -503,7 +506,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,19 +530,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,11 +538,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
