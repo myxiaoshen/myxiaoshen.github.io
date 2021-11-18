@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/aa46ef278c3b65f1.jpg">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/904108970cc00afb.png">
 <meta property="og:image" content="https://www.ddosi.com/wp-content/uploads/2020/03/Ahmia.jpg">
-<meta property="og:updated_time" content="2021-11-15T12:57:41.772Z">
+<meta property="og:updated_time" content="2021-11-16T02:27:43.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络中的那些信息搜集">
 <meta name="twitter:description" content="大家都知道在生活中往往会在需要对目标进行信息收集的时候，在攻防演练时我们更多的称之为外围打点，即需要发现能够获取权限的漏洞，利用从而进入目标内网。大多数情况下，利用漏洞其实大家已经不成问题了，更多的场景是找不到这个入口点，下面整理一些常用的信息收集方法。 搜索小技巧：通过搜索引擎多使用关键字：1.xx在线工具 2.xx破解版 3.xx在线 4. xx补丁 5.xx+当前年份 6.云xx 7.最好的">
@@ -233,7 +233,7 @@ var _hmt = _hmt || [];
         <p>大家都知道在生活中往往会在需要对目标进行信息收集的时候，在攻防演练时我们更多的称之为外围打点，即需要发现能够获取权限的漏洞，利用从而进入目标内网。大多数情况下，利用漏洞其实大家已经不成问题了，更多的场景是找不到这个入口点，下面整理一些常用的信息收集方法。</p>
 <p><b>搜索小技巧：通过搜索引擎多使用关键字：1.xx在线工具 2.xx破解版 3.xx在线 4. xx补丁 5.xx+当前年份 6.云xx 7.最好的xx 8.xx推荐  9.xx之类的 xx替代 10.中英互转搜索(推荐DeeL翻译)</b></p>
 <h3 id="一、通用的网站信息收集"><a href="#一、通用的网站信息收集" class="headerlink" title="一、通用的网站信息收集"></a>一、通用的网站信息收集</h3><p>先这里推荐几个工具，大家可以在这些工具的基础上进行修改，当然不改也是可以的，工具本身已经非常好用了：<a href="https://github.com/shmilylty/OneForAll" target="_blank" rel="noopener">Oneforall</a>、Teemo、subDomainsBrute这三款工具基本上已经满足了搜集二级域名的所有需求，包括枚举、证书、DNS、威胁情报、搜索引擎等多个维度获取信息。当然也可以使用Google语法搜索。</p>
-<h4 id="Google语法"><a href="#Google语法" class="headerlink" title="Google语法"></a>Google语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">site：可以限制你搜索范围的域名；</span><br><span class="line">inurl：用于搜索网页上包含的URL，这个语法对寻找网页上的搜索，帮助之类的很有用；</span><br><span class="line">intext: 只搜索网页&lt;body&gt;部分中包含的文字(也就是忽略了标题、URL等的文字)；</span><br><span class="line">intitle: 查包含关键词的页面，一般用于社工别人的webshell密码；</span><br><span class="line">filetype：搜索文件的后缀或者扩展名；</span><br><span class="line">intitle：限制你搜索的网页标题；</span><br></pre></td></tr></table></figure>
+<h4 id="Google语法"><a href="#Google语法" class="headerlink" title="Google语法"></a>Google语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">site：可以限制你搜索范围的域名；</span><br><span class="line">inurl：用于搜索网页上包含的URL，这个语法对寻找网页上的搜索，帮助之类的很有用；</span><br><span class="line">intext: 只搜索网页&lt;body&gt;部分中包含的文字(也就是忽略了标题、URL等的文字)；</span><br><span class="line">intitle: 查包含关键词的页面，一般用于社工别人的webshell密码；</span><br><span class="line">filetype：搜索文件的后缀或者扩展名；</span><br><span class="line">intitle：限制你搜索的网页标题；</span><br><span class="line">- :-号可以过滤一些不需要的关键字</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h5 id="一般OSINT"><a href="#一般OSINT" class="headerlink" title="一般OSINT"></a>一般OSINT</h5><ul>
 <li>查目标与控股单位，如果能内网连通或实地考察即可高效攻击</li>
@@ -522,6 +522,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -530,19 +538,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
