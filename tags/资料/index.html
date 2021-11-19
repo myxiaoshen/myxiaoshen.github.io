@@ -50,6 +50,13 @@ var _hmt = _hmt || [];
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
+<!--     侧边栏css调用 -->
+      <div class="mymenucontainer" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
     <div class="left-col" q-class="show:isShow">
       
 <div class="overlay" style="background: #4d4d4d"></div>
@@ -63,7 +70,7 @@ var _hmt = _hmt || [];
     var binft = function (r) {
       function t() {
         return b[Math.floor(Math.random() * b.length)]
-      }  
+      }
       function e() {
         return String.fromCharCode(94 * Math.random() + 33)
       }
@@ -137,7 +144,8 @@ var _hmt = _hmt || [];
 			</div>
 		</nav>
 
-	</header>		
+	</header>
+
 </div>
 
     </div>
@@ -441,11 +449,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,18 +614,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
- 
+
  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="/js/love.js"></script>
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?4e519493fbe77edc8f83fd9e1283551d";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+<script type="text/javascript" >
+    var hide = false;
+
+    function myFunction(x) {
+        x.classList.toggle("change");
+        if(hide == false){
+            $(".left-col").css('display', 'none');
+            $(".mid-col").css("left", 6);
+            $(".tools-col").css('display', 'none');
+            $(".tools-col.hide").css('display', 'none');
+            hide = true;
+        }else{
+            $(".left-col").css('display', '');
+            $(".mid-col").css("left", 300);
+            $(".tools-col").css('display', '');
+            $(".tools-col.hide").css('display', '');
+            hide = false;
+        }
+    }
 </script>
+
+
+
+<!-- <script> -->
+<!-- var _hmt = _hmt || []; -->
+<!-- (function() { -->
+<!--   var hm = document.createElement("script"); -->
+<!--   hm.src = "https://hm.baidu.com/hm.js?4e519493fbe77edc8f83fd9e1283551d"; -->
+<!--   var s = document.getElementsByTagName("script")[0]; -->
+<!--   s.parentNode.insertBefore(hm, s); -->
+<!-- })(); -->
+<!-- </script> -->
 <script type="text/javascript" src="//js.users.51.la/21187799.js"></script>
 
 

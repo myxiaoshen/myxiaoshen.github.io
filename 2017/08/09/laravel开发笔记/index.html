@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="戏如烟云b16">
 <meta property="og:description" content="1.控制器增删改（文章分类设计的范围比较广就用他来示范，大致的方法）增12345678910111213141516public function store()    &amp;#123;   	 //获取用户输入并剔除数组中不需要的元素        $Input =Input::except(&apos;_token&apos;,&apos;art_img&apos;); 		 // 获取当前时间戳        $Input[&apos;art_">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-08-28T04:32:52.725Z">
+<meta property="og:updated_time" content="2021-11-19T04:35:39.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="laravel笔记">
 <meta name="twitter:description" content="1.控制器增删改（文章分类设计的范围比较广就用他来示范，大致的方法）增12345678910111213141516public function store()    &amp;#123;   	 //获取用户输入并剔除数组中不需要的元素        $Input =Input::except(&apos;_token&apos;,&apos;art_img&apos;); 		 // 获取当前时间戳        $Input[&apos;art_">
@@ -52,6 +52,13 @@ var _hmt = _hmt || [];
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
+<!--     侧边栏css调用 -->
+      <div class="mymenucontainer" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
     <div class="left-col" q-class="show:isShow">
       
 <div class="overlay" style="background: #4d4d4d"></div>
@@ -65,7 +72,7 @@ var _hmt = _hmt || [];
     var binft = function (r) {
       function t() {
         return b[Math.floor(Math.random() * b.length)]
-      }  
+      }
       function e() {
         return String.fromCharCode(94 * Math.random() + 33)
       }
@@ -139,7 +146,8 @@ var _hmt = _hmt || [];
 			</div>
 		</nav>
 
-	</header>		
+	</header>
+
 </div>
 
     </div>
@@ -226,7 +234,7 @@ var _hmt = _hmt || [];
 <h6 id="2-排序"><a href="#2-排序" class="headerlink" title="2.排序"></a>2.排序</h6><p>先声明排序的post路由</p>
 <p>前台</p>
 <pre><code>&lt;input type=&quot;text&quot; onchange=&quot;changeOrder(this,{{$v->nav_id}})&quot; value=&quot;{{$v->nav_order}}&quot;&gt;
-</code></pre><p>引入uploadify 异步提交数据到后台控制器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> changeOrder(obj,nav_id)&#123;</span><br><span class="line">    var nav_order = $(obj).val();</span><br><span class="line">    $.post(<span class="string">"&#123;&#123;url('admin/navs/changeorder')&#125;&#125;"</span>,&#123;<span class="string">'_token'</span>:<span class="string">'&#123;&#123;csrf_token()&#125;&#125;'</span>,<span class="string">'nav_id'</span>:nav_id,<span class="string">'nav_order'</span>:nav_order&#125;,<span class="keyword">function</span>(data)&#123;</span><br><span class="line">        <span class="keyword">if</span>(data.status == 0)&#123;</span><br><span class="line">            layer.msg(data.msg, &#123;icon: 6&#125;);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            layer.msg(data.msg, &#123;icon: 5&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</code></pre><p>引入uploadify 异步提交数据到后台控制器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> changeOrder(obj,nav_id)&#123;	</span><br><span class="line">    var nav_order = $(obj).val();</span><br><span class="line">    $.post(<span class="string">"&#123;&#123;url('admin/navs/changeorder')&#125;&#125;"</span>,&#123;<span class="string">'_token'</span>:<span class="string">'&#123;&#123;csrf_token()&#125;&#125;'</span>,<span class="string">'nav_id'</span>:nav_id,<span class="string">'nav_order'</span>:nav_order&#125;,<span class="keyword">function</span>(data)&#123;</span><br><span class="line">        <span class="keyword">if</span>(data.status == 0)&#123;</span><br><span class="line">            layer.msg(data.msg, &#123;icon: 6&#125;);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            layer.msg(data.msg, &#123;icon: 5&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public function changeOrder()</span><br><span class="line">   &#123;</span><br><span class="line">       $input = Input::all();</span><br><span class="line">       $navs = Navs::find($input[&apos;nav_id&apos;]);</span><br><span class="line">       $navs-&gt;nav_order = $input[&apos;nav_order&apos;];</span><br><span class="line">       $re = $navs-&gt;update();</span><br><span class="line">       if($re)&#123;</span><br><span class="line">           $data = [</span><br><span class="line">               &apos;status&apos; =&gt; 0,</span><br><span class="line">               &apos;msg&apos; =&gt; &apos;自定义导航排序更新成功！&apos;,</span><br><span class="line">           ];</span><br><span class="line">       &#125;else&#123;</span><br><span class="line">           $data = [</span><br><span class="line">               &apos;status&apos; =&gt; 1,</span><br><span class="line">               &apos;msg&apos; =&gt; &apos;自定义导航排序更新失败，请稍后重试！&apos;,</span><br><span class="line">           ];</span><br><span class="line">       &#125;</span><br><span class="line">       return $data;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <h6 id="3-传输数据到前台"><a href="#3-传输数据到前台" class="headerlink" title="3.传输数据到前台"></a>3.传输数据到前台</h6><p>分页<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//用orderBy通过ID排倒叙，并用paginate向页面输入10条信息用 调用links方法显示分页信息</span><br><span class="line"><span class="variable">$Word</span> = Word::orderBy(<span class="string">'art_id'</span>, <span class="string">'desc'</span>)-&gt;paginate(1);</span><br><span class="line"> //compact页面大范围使用 with部分 传入变量</span><br><span class="line"> <span class="built_in">return</span> view(<span class="string">'admin.list'</span>,compact(<span class="string">'Word'</span>));</span><br></pre></td></tr></table></figure></p>
 <h6 id="4-前台模板"><a href="#4-前台模板" class="headerlink" title="4.前台模板"></a>4.前台模板</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@extends</span><br><span class="line">@section</span><br><span class="line">@foreach</span><br><span class="line">			//<span class="keyword">if</span>语句的用法&#123;&#123;--如果父级标题id等于当前子级标题id就默认选中--&#125;&#125;</span><br><span class="line">@<span class="keyword">if</span>(<span class="variable">$d</span>-&gt;cate_id==<span class="variable">$shuju</span>-&gt;cate_pid) selected @endif </span><br><span class="line"></span><br><span class="line">&#123;&#123;！！  ！！&#125;&#125;可以将一些敏感元素排除</span><br></pre></td></tr></table></figure>
@@ -239,8 +247,7 @@ var _hmt = _hmt || [];
 <h6 id="8-子分类的管理"><a href="#8-子分类的管理" class="headerlink" title="8.子分类的管理"></a>8.子分类的管理</h6><p> 建议卸载mode文件中，通过控制器调用tree方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">    public <span class="keyword">function</span> tree()</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="variable">$cate</span> = <span class="variable">$this</span>-&gt;all();</span><br><span class="line">       <span class="built_in">return</span> <span class="variable">$this</span>-&gt;getTree(<span class="variable">$cate</span>, <span class="string">'cate_name'</span>, <span class="string">'cate_id'</span>, <span class="string">'cate_pid'</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public <span class="keyword">function</span> getTree(<span class="variable">$data</span>, <span class="variable">$field_name</span>, <span class="variable">$field_id</span> = <span class="string">'id'</span>, <span class="variable">$field_pid</span> = <span class="string">'pid'</span>, <span class="variable">$pid</span> = 0)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">$arr</span> = array();</span><br><span class="line">    foreach (<span class="variable">$data</span> as <span class="variable">$k</span> =&gt; <span class="variable">$v</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$v</span>-&gt;<span class="variable">$field_pid</span> == <span class="variable">$pid</span>) &#123;</span><br><span class="line">            <span class="variable">$data</span>[<span class="variable">$k</span>][<span class="string">"_"</span> . <span class="variable">$field_name</span>] = <span class="variable">$data</span>[<span class="variable">$k</span>][<span class="variable">$field_name</span>];</span><br><span class="line">            <span class="variable">$arr</span>[] = <span class="variable">$data</span>[<span class="variable">$k</span>];</span><br><span class="line">            foreach (<span class="variable">$data</span> as <span class="variable">$m</span> =&gt; <span class="variable">$n</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="variable">$n</span>-&gt;<span class="variable">$field_pid</span> == <span class="variable">$v</span>-&gt;<span class="variable">$field_id</span>) &#123;</span><br><span class="line">                    <span class="variable">$data</span>[<span class="variable">$m</span>][<span class="variable">$field_name</span>] =  <span class="string">''</span>.<span class="string">'├─ '</span>.<span class="variable">$data</span>[<span class="variable">$m</span>][<span class="variable">$field_name</span>];</span><br><span class="line">                    <span class="variable">$arr</span>[] = <span class="variable">$data</span>[<span class="variable">$m</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$arr</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>控制器调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public function index()</span><br><span class="line">   &#123;</span><br><span class="line">       $cate = (new Cate)-&gt;tree();</span><br><span class="line">       return view(&apos;admin.cate&apos;)-&gt;with(&apos;fl&apos;, $cate);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
 <h6 id="9-前台用到的魔术方法"><a href="#9-前台用到的魔术方法" class="headerlink" title="9.前台用到的魔术方法"></a>9.前台用到的魔术方法</h6><p>通过这个方法将每个页面需要用到的数据传输进去<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">function</span> __construct()</span><br><span class="line">  &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="variable">$navs</span> = Navs::all();</span><br><span class="line">      View::share(<span class="string">'navs'</span>,<span class="variable">$navs</span>);</span><br><span class="line"> </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<h5 id="网站配置篇"><a href="#网站配置篇" class="headerlink" title="网站配置篇"></a>网站配置篇</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><br><br>常用的artisan命令<br><a><a href="http://blog.csdn.net/jiandanokok/article/details/72897682" target="_blank" rel="noopener">http://blog.csdn.net/jiandanokok/article/details/72897682</a></a></p>
+<h5 id="网站配置篇"><a href="#网站配置篇" class="headerlink" title="网站配置篇"></a>网站配置篇</h5><p><br><br>常用的artisan命令<br><a><a href="http://blog.csdn.net/jiandanokok/article/details/72897682" target="_blank" rel="noopener">http://blog.csdn.net/jiandanokok/article/details/72897682</a></a></p>
 
       
 
@@ -518,11 +525,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,18 +690,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
- 
+
  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="/js/love.js"></script>
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?4e519493fbe77edc8f83fd9e1283551d";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+<script type="text/javascript" >
+    var hide = false;
+
+    function myFunction(x) {
+        x.classList.toggle("change");
+        if(hide == false){
+            $(".left-col").css('display', 'none');
+            $(".mid-col").css("left", 6);
+            $(".tools-col").css('display', 'none');
+            $(".tools-col.hide").css('display', 'none');
+            hide = true;
+        }else{
+            $(".left-col").css('display', '');
+            $(".mid-col").css("left", 300);
+            $(".tools-col").css('display', '');
+            $(".tools-col.hide").css('display', '');
+            hide = false;
+        }
+    }
 </script>
+
+
+
+<!-- <script> -->
+<!-- var _hmt = _hmt || []; -->
+<!-- (function() { -->
+<!--   var hm = document.createElement("script"); -->
+<!--   hm.src = "https://hm.baidu.com/hm.js?4e519493fbe77edc8f83fd9e1283551d"; -->
+<!--   var s = document.getElementsByTagName("script")[0]; -->
+<!--   s.parentNode.insertBefore(hm, s); -->
+<!-- })(); -->
+<!-- </script> -->
 <script type="text/javascript" src="//js.users.51.la/21187799.js"></script>
 
 
