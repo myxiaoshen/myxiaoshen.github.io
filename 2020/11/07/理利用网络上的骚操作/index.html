@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/07b273086a4f4432.png">
 <meta property="og:image" content="https://files.catbox.moe/pbg9ks.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-156857018d33b9a936bf2dcc8da6fe49_720w.jpg?source=1940ef5c">
-<meta property="og:updated_time" content="2021-10-18T06:58:52.755Z">
+<meta property="og:updated_time" content="2021-12-11T15:16:16.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="合理利用网络上的骚操作👍">
 <meta name="twitter:description" content="免流目前只有中国电信、中国联通还能免流，移动只有很少一部分地区还可以免还需要有定向原wap已限速（20kb）。 本地tinyproxy系列。个人喜欢用核心因为它省电基于底层转发快，推荐LLTables它完美支持最新版本的安卓系统，JJ、终极防跳、zjl等经过个人测试会断流。本地免流又分为 2种伪装方式。我打包了互联网上常见的模式以及LLTables防跳（因tiny已经停更可以用最新的CLNC完美支">
@@ -292,7 +292,7 @@ var _hmt = _hmt || [];
 <p>搭建需要先安装java jdk和mysql环境，关键端口web:8020 后台定位:5055<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/traccar/traccar/releases/download/v4.12/traccar-linux-64-4.12.zip</span><br><span class="line">unzip traccar-linux-*.zip</span><br><span class="line">./traccar.run	</span><br><span class="line">vim traccar.xml</span><br><span class="line">cp traccar.xml /opt/traccar/conf/ </span><br><span class="line">systemctl start traccar</span><br></pre></td></tr></table></figure></p>
 <p>traccar.xml配置文件如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE properties SYSTEM &apos;http://java.sun.com/dtd/properties.dtd&apos;&gt;</span><br><span class="line"></span><br><span class="line">&lt;properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;entry key=&quot;config.default&quot;&gt;./conf/default.xml&lt;/entry&gt;</span><br><span class="line"></span><br><span class="line">    &lt;entry key=&apos;web.port&apos;&gt;8082&lt;/entry&gt;</span><br><span class="line"></span><br><span class="line">    &lt;entry key=&apos;geocoder.enable&apos;&gt;false&lt;/entry&gt;</span><br><span class="line"></span><br><span class="line">    &lt;entry key=&apos;database.driver&apos;&gt;com.mysql.jdbc.Driver&lt;/entry&gt;</span><br><span class="line">    &lt;entry key=&apos;database.url&apos;&gt;jdbc:mysql://localhost/traccar?allowMultiQueries=true&amp;amp;autoReconnect=true&amp;amp;useUnicode=yes&amp;amp;characterEncoding=UTF-8&amp;amp;sessionVariables=sql_mode=&apos;&apos;&lt;/entry&gt;</span><br><span class="line">    &lt;entry key=&apos;database.user&apos;&gt;root&lt;/entry&gt;</span><br><span class="line">    &lt;entry key=&apos;database.password&apos;&gt;你的MySQL密码&lt;/entry&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;entry key=&apos;server.timeout&apos;&gt;120&lt;/entry&gt;</span><br><span class="line"></span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://files.catbox.moe/pbg9ks.png" alt=""></p>
-<h4 id="软路由的妙用"><a href="#软路由的妙用" class="headerlink" title="软路由的妙用"></a>软路由的妙用</h4><p>软路由说白了就是一个服务器玩法自然多种多种多样，主要的是让他接管你的上网流量达到互联网上的的各种黑科技功能。搭建以及配置方面真没什么门槛，只要你认得汉字，都可以按照教程来，没人让你自己研究，网上的奶妈级教程多的很。教程方面直接看<a href="https://www.vediotalk.com/" target="_blank" rel="noopener">Vedio Talk</a>的博客<br>动态ip更新（家庭宽带路由）：ddns或者<a href="https://github.com/zhangtory/WayHome" target="_blank" rel="noopener">WayHome</a><br>系统相关：插件用iede，路由管控用ikuai。<br>插件相关直接上图：<br><img src="https://pic4.zhimg.com/80/v2-156857018d33b9a936bf2dcc8da6fe49_720w.jpg?source=1940ef5c" alt=""></p>
+<h4 id="软路由的妙用"><a href="#软路由的妙用" class="headerlink" title="软路由的妙用"></a>软路由的妙用</h4><p>软路由说白了就是一个服务器玩法自然多种多种多样，主要的是让他接管你的上网流量达到互联网上的的各种黑科技功能。搭建以及配置方面真没什么门槛，只要你认得汉字，都可以按照教程来，没人让你自己研究，网上的奶妈级教程多的很。教程方面直接看<a href="https://www.vediotalk.com/" target="_blank" rel="noopener">Vedio Talk</a>的博客。这类有云存储方面需求的可以上微软的开发者E5，通过某些开源项目可以搭建基于OneDrive的个人网盘一直续费到达一直免费用的效果具体教程访问<a href="https://qyi.io/archives/687.html" target="_blank" rel="noopener">E5续订</a><br>动态ip更新（家庭宽带路由）：ddns或者<a href="https://github.com/zhangtory/WayHome" target="_blank" rel="noopener">WayHome</a><br>系统相关：插件用iede，路由管控用ikuai。<br>插件相关直接上图：<br><img src="https://pic4.zhimg.com/80/v2-156857018d33b9a936bf2dcc8da6fe49_720w.jpg?source=1940ef5c" alt=""></p>
 
       
 
@@ -551,6 +551,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
@@ -564,18 +576,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,19 +595,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">

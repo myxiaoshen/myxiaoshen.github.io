@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/aa46ef278c3b65f1.jpg">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/904108970cc00afb.png">
 <meta property="og:image" content="https://www.ddosi.com/wp-content/uploads/2020/03/Ahmia.jpg">
-<meta property="og:updated_time" content="2021-11-16T02:27:43.303Z">
+<meta property="og:updated_time" content="2021-12-11T15:18:07.154Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络中的那些信息搜集">
 <meta name="twitter:description" content="大家都知道在生活中往往会在需要对目标进行信息收集的时候，在攻防演练时我们更多的称之为外围打点，即需要发现能够获取权限的漏洞，利用从而进入目标内网。大多数情况下，利用漏洞其实大家已经不成问题了，更多的场景是找不到这个入口点，下面整理一些常用的信息收集方法。 搜索小技巧：通过搜索引擎多使用关键字：1.xx在线工具 2.xx破解版 3.xx在线 4. xx补丁 5.xx+当前年份 6.云xx 7.最好的">
@@ -239,7 +239,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>大家都知道在生活中往往会在需要对目标进行信息收集的时候，在攻防演练时我们更多的称之为外围打点，即需要发现能够获取权限的漏洞，利用从而进入目标内网。大多数情况下，利用漏洞其实大家已经不成问题了，更多的场景是找不到这个入口点，下面整理一些常用的信息收集方法。</p>
-<p><b>搜索小技巧：通过搜索引擎多使用关键字：1.xx在线工具 2.xx破解版 3.xx在线 4. xx补丁 5.xx+当前年份 6.云xx 7.最好的xx 8.xx推荐  9.xx之类的 xx替代 10.中英互转搜索(推荐DeeL翻译)</b></p>
+<p><b>搜索小技巧：通过搜索引擎多使用关键字：1.xx在线工具 2.xx破解版 3.xx在线 4. xx补丁 5.xx+当前年份 6.云xx 7.最好的xx 8.xx推荐  9.xx之类的 xx替代 10.中英互转搜索(推荐DeeL翻译) 11.xx特别版</b></p>
 <h3 id="一、通用的网站信息收集"><a href="#一、通用的网站信息收集" class="headerlink" title="一、通用的网站信息收集"></a>一、通用的网站信息收集</h3><p>先这里推荐几个工具，大家可以在这些工具的基础上进行修改，当然不改也是可以的，工具本身已经非常好用了：<a href="https://github.com/shmilylty/OneForAll" target="_blank" rel="noopener">Oneforall</a>、Teemo、subDomainsBrute这三款工具基本上已经满足了搜集二级域名的所有需求，包括枚举、证书、DNS、威胁情报、搜索引擎等多个维度获取信息。当然也可以使用Google语法搜索。</p>
 <h4 id="Google语法"><a href="#Google语法" class="headerlink" title="Google语法"></a>Google语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">site：可以限制你搜索范围的域名；</span><br><span class="line">inurl：用于搜索网页上包含的URL，这个语法对寻找网页上的搜索，帮助之类的很有用；</span><br><span class="line">intext: 只搜索网页&lt;body&gt;部分中包含的文字(也就是忽略了标题、URL等的文字)；</span><br><span class="line">intitle: 查包含关键词的页面，一般用于社工别人的webshell密码；</span><br><span class="line">filetype：搜索文件的后缀或者扩展名；</span><br><span class="line">intitle：限制你搜索的网页标题；</span><br><span class="line">- :-号可以过滤一些不需要的关键字</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -275,7 +275,7 @@ nmap  -p80,443  --script=http-waf-detect  ip
 wafw00f  -a  域名
 </code></pre><h4 id="组织架构查询"><a href="#组织架构查询" class="headerlink" title="组织架构查询"></a>组织架构查询</h4><p><blockquote><p>天眼查：<a href="https://www.tianyancha.com/" target="_blank" rel="noopener"><u>https://www.tianyancha.com/</u></a>&nbsp;</p><p>ICP备案查询网：<a href="http://www.beianbeian.com/" target="_blank" rel="noopener"><u>http://www.beianbeian.com/</u></a>&nbsp;</p><p>国家企业信用信息公示系统：<a href="http://www.gsxt.gov.cn/index.html" target="_blank" rel="noopener"><u>http://www.gsxt.gov.cn/index.html</u></a>&nbsp;</p></blockquote><br>注意：国外的服务器一般来说是查不到的，因为他们不需要备案。国内的基本上都可以查到。如果在站长之家上隐藏了信息，可在who.is上再次查看。<br>ICP备案查询:<a href="https://beian.miit.gov.cn/#/Integrated/recordQuery" target="_blank" rel="noopener">https://beian.miit.gov.cn/#/Integrated/recordQuery</a><br>公安部备案查询：<a href="http://www.beian.gov.cn/portal/recordQuery" target="_blank" rel="noopener">http://www.beian.gov.cn/portal/recordQuery</a> </p>
 <h3 id="二、其他平台资产收集"><a href="#二、其他平台资产收集" class="headerlink" title="二、其他平台资产收集"></a>二、其他平台资产收集</h3><h4 id="平台信息"><a href="#平台信息" class="headerlink" title="平台信息"></a>平台信息</h4><p>微信公众号和小程序还是用手机微信搜索 比较方便，当然也可以通过搜狗来发现目标大概有哪些公众号，但是最终还是得用手机测试抓包(PS:现在PC端微信抓包也很方便啦):<a href="https://search.chongbuluo.com/" target="_blank" rel="noopener">聚合搜索引擎</a><br>除了微信公众号外，也可以在APP商城中和Google上通过反查开发者来尽可能多的收集目标的移动端资产。脉脉、github、知乎、微博、贴吧、领英还有新媒体资产如：抖音小程序客服沟通。还有视频平台如：B站，youtube这些地方有时候也能找到自己需要的关键信息<br><img src="https://ftp.bmp.ovh/imgs/2021/06/553ba7c3ce9f5a45.png" alt=""></p>
-<h4 id="网盘泄露"><a href="#网盘泄露" class="headerlink" title="网盘泄露"></a>网盘泄露</h4><p><a href="http://hao.ujuji.com/#/" target="_blank" rel="noopener">聚合网盘</a><br><img src="https://ftp.bmp.ovh/imgs/2021/06/a1a20f10ffa4edb6.png" alt=""></p>
+<h4 id="网盘泄露"><a href="#网盘泄露" class="headerlink" title="网盘泄露"></a>网盘泄露</h4><p><a href="https://lzpan.com/" target="_blank" rel="noopener">聚合网盘</a><br><img src="https://ftp.bmp.ovh/imgs/2021/06/a1a20f10ffa4edb6.png" alt=""></p>
 <h4 id="历史快照"><a href="#历史快照" class="headerlink" title="历史快照"></a>历史快照</h4><p>可以看到一些删除过的网页有些也是会泄露一些信息的</p>
 <p><blockquote><p style="text-align: justify;">洞见微信聚合 :<a href="http://wechat.doonsec.com/" target="_blank" rel="noopener"><u>http://wechat.doonsec.com/</u></a>&nbsp;</p><p style="text-align: justify;">快照查询 : <a href="https://2tool.top/" target="_blank" rel="noopener"><u>https://2tool.top/</u></a>&nbsp;</p><p style="text-align: justify;">网页时光机（推荐）：<a href="http://www.wayback.com/" target="_blank" rel="noopener"><u>http://www.wayback.com/</u></a>&nbsp;</p><p style="text-align: justify;">网页磁带机：<a href="https://archive.is/" target="_blank" rel="noopener"><u>https://archive.is/</u></a>&nbsp;</p><p style="text-align: justify;"></p></blockquote></p>
 <h3 id="三、网络空间搜索引擎"><a href="#三、网络空间搜索引擎" class="headerlink" title="三、网络空间搜索引擎"></a>三、网络空间搜索引擎</h3><p><blockquote><p style="text-align: justify;">ZoomEy：<a href="https://www.zoomeye.org/" target="_blank" rel="noopener"><u>https://www.zoomeye.org/</u></a>&nbsp;</p><p style="text-align: justify;">FoFa：<a href="https://fofa.so/" target="_blank" rel="noopener"><u>https://fofa.so/</u></a>&nbsp;</p><p style="text-align: justify;">Dnsdb：<a href="https://www.dnsdb.io/zh-cn/" target="_blank" rel="noopener"><u>https://www.dnsdb.io/zh-cn/</u></a>&nbsp;</p><p style="text-align: justify;">Shodan：<a href="https://www.shodan.io/" target="_blank" rel="noopener"><u>https://www.shodan.io/</u></a>&nbsp;</p><p style="text-align: justify;">Censys：<a href="https://censys.io/" target="_blank" rel="noopener"><u>https://censys.io/</u></a>&nbsp;</p><p>御剑全家桶：<a href="http://www.moonsec.com/post-753.html" target="_blank" rel="noopener"><u>http://www.moonsec.com/post-753.html</u></a>&nbsp;</p></blockquote><br>这里我们使用fofa来举例，因为一般都是用的fofa许多工具也写了fofa的API对接方便后期和其他资源联动。fofa既可以搜索到部分子域名，也可以搜索到目标的各种系统，如OA、后台等等，而这些系统很容易成为突破口。<br>FoFa语法（官网下也有方便随时查询）<br><img src="https://image.3001.net/images/20210321/1616306172_6056dffc0199a07453685.png" alt=""></p>
@@ -530,6 +530,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
@@ -543,18 +555,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,19 +574,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
