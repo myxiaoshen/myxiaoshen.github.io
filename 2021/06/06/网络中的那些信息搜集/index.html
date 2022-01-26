@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/aa46ef278c3b65f1.jpg">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/904108970cc00afb.png">
 <meta property="og:image" content="https://www.ddosi.com/wp-content/uploads/2020/03/Ahmia.jpg">
-<meta property="og:updated_time" content="2021-12-11T15:18:07.154Z">
+<meta property="og:updated_time" content="2022-01-26T12:56:32.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络中的那些信息搜集">
 <meta name="twitter:description" content="大家都知道在生活中往往会在需要对目标进行信息收集的时候，在攻防演练时我们更多的称之为外围打点，即需要发现能够获取权限的漏洞，利用从而进入目标内网。大多数情况下，利用漏洞其实大家已经不成问题了，更多的场景是找不到这个入口点，下面整理一些常用的信息收集方法。 搜索小技巧：通过搜索引擎多使用关键字：1.xx在线工具 2.xx破解版 3.xx在线 4. xx补丁 5.xx+当前年份 6.云xx 7.最好的">
@@ -261,7 +261,7 @@ var _hmt = _hmt || [];
 <p>（3）通过查询域名历史ip，<a href="http://toolbar.netcraft.com（借鉴）。" target="_blank" rel="noopener">http://toolbar.netcraft.com（借鉴）。</a></p>
 <p>（4）通过国外冷门的DNS的查询：nslookup xxx.com国外冷门DNS地址（借鉴）。</p>
 <p> (5) 通过证书此方法适用于https的站点首先获得网站证书序列号（不要挂代理）<br><img src="https://image.3001.net/images/20210321/1616306403_6056e0e343ceea91eae26.png" alt=""><br>查看证书将证书转换为10进制</p>
-<p>收集到大量IP，那就要进行端口扫描了，看看有什么常见的漏洞。</p>
+<p>收集到IP，那就要进行端口扫描了，看看有什么常见的漏洞。（如何是局域网获取可用静态ip段可以用wirshark或者科来网络分析系统找心跳包原理就是会广播数据）</p>
 <p>最常用的就是神器Nmap了。命令：nmap  -T4  -sT  -p-  -sV  ip</p>
 <h5 id="网站架构探测"><a href="#网站架构探测" class="headerlink" title="网站架构探测"></a>网站架构探测</h5><p>当我们探测目标站点网站架构时，比如说：操作系统，中间件，脚本语言，数据库，服务器，web容器等等，CMS指纹识别又有很多方法，比如说御剑指纹识别、Webrobot工具、whatweb工具、还有在线查询的网站等等。常用的使用以下方法查询。</p>
 <p><blockquote><p>（1）wappalyzer插件——火狐插件</p><p>（2）云悉：<a href="http://www.yunsee.cn/info.html" target="_blank" rel="noopener"><u>http://www.yunsee.cn/info.html</u></a></p><p>（3）查看数据包响应头</p><p>（4）CMS指纹识别：<a href="http://whatweb.bugscaner.com/look/" target="_blank" rel="noopener"><u>http://whatweb.bugscaner.com/look/</u></a>&nbsp;</p></blockquote></p>
@@ -530,6 +530,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -542,19 +546,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,11 +574,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">

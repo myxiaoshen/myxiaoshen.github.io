@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>winodws恶意软件初步分析 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢 杀毒软件初步的过滤建议还是装一个小白360，个人电脑的用火绒+eset（主核心模块用火绒eset做基线保护）。这里有强安全需求的小伙伴可以通过火绒开启联网控制进一步控制电脑的出站流量，记得系统的签名也不要放">
+  <meta name="description" content="目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢。ps：直接虚拟机调试也行。 杀毒软件初步的过滤建议还是装一个小白360，个人电脑的用火绒+eset（主核心模块用火绒eset做基线保护）。这里有强安全需求的小伙伴可以通过火绒开启联网控制进一步控制电脑的出站">
 <meta name="keywords" content="笔记,分析">
 <meta property="og:type" content="article">
 <meta property="og:title" content="winodws恶意软件初步分析">
 <meta property="og:url" content="http://yoursite.com/2020/03/13/inodws恶意软件初步分析/index.html">
 <meta property="og:site_name" content="戏如烟云b16">
-<meta property="og:description" content="目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢 杀毒软件初步的过滤建议还是装一个小白360，个人电脑的用火绒+eset（主核心模块用火绒eset做基线保护）。这里有强安全需求的小伙伴可以通过火绒开启联网控制进一步控制电脑的出站流量，记得系统的签名也不要放">
+<meta property="og:description" content="目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢。ps：直接虚拟机调试也行。 杀毒软件初步的过滤建议还是装一个小白360，个人电脑的用火绒+eset（主核心模块用火绒eset做基线保护）。这里有强安全需求的小伙伴可以通过火绒开启联网控制进一步控制电脑的出站">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70pw.png">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/07/b401a6233b4261dc.png">
@@ -36,10 +36,10 @@
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lT.png">
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lS.png">
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lU.png">
-<meta property="og:updated_time" content="2021-09-03T09:58:49.765Z">
+<meta property="og:updated_time" content="2022-01-26T12:49:44.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="winodws恶意软件初步分析">
-<meta name="twitter:description" content="目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢 杀毒软件初步的过滤建议还是装一个小白360，个人电脑的用火绒+eset（主核心模块用火绒eset做基线保护）。这里有强安全需求的小伙伴可以通过火绒开启联网控制进一步控制电脑的出站流量，记得系统的签名也不要放">
+<meta name="twitter:description" content="目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢。ps：直接虚拟机调试也行。 杀毒软件初步的过滤建议还是装一个小白360，个人电脑的用火绒+eset（主核心模块用火绒eset做基线保护）。这里有强安全需求的小伙伴可以通过火绒开启联网控制进一步控制电脑的出站">
 <meta name="twitter:image" content="https://i.niupic.com/images/2020/03/12/70pw.png">
   
     <link rel="alternative" href="/atom.xml" title="戏如烟云b16" type="application/atom+xml">
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢</p>
+        <p>目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢。ps：直接虚拟机调试也行。</p>
 <h5 id="杀毒软件"><a href="#杀毒软件" class="headerlink" title="杀毒软件"></a>杀毒软件</h5><p>初步的过滤建议还是装一个小白360，个人电脑的用火绒+eset（主核心模块用火绒eset做基线保护）。<br><img src="https://i.niupic.com/images/2020/03/12/70pw.png" alt=""><br><img src="https://ftp.bmp.ovh/imgs/2021/07/b401a6233b4261dc.png" alt=""><br>这里有强安全需求的小伙伴可以通过火绒开启联网控制进一步控制电脑的出站流量，记得系统的签名也不要放过达到入站网络零信任环境。<br><img src="https://ftp.bmp.ovh/imgs/2021/07/347bd25220f4abd3.png" alt=""></p>
 <h5 id="在线分析网站"><a href="#在线分析网站" class="headerlink" title="在线分析网站"></a>在线分析网站</h5><p>先吧HASH/MD5/SHA1丢平台分析，通过大数据先过滤一遍。有依赖组件的可以打包成单独的可执行文件，上传到某在线网站分析查看结果：推荐360，魔盾，微步云沙箱，Hybrid analysis<br><img src="https://i.niupic.com/images/2020/03/13/719g.png" alt=""><br><a id="more"></a></p>
 <p><img src="https://ftp.bmp.ovh/imgs/2021/06/fffd82177ccc2ced.png" alt=""></p>
@@ -520,6 +520,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -532,19 +536,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,11 +564,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
