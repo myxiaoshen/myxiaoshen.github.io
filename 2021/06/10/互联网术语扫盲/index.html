@@ -26,8 +26,11 @@
 <meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/4b9372303d73396a9087dd19cfda24dd.png">
 <meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/eb443a54c175ff27aecaef8ee3b9c13a.png">
 <meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/a1b8e7386704e7c200c579bdd10b2a04.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/14479941835/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/14479959676/0.png">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2022/01/4e413a53d66eb302.png">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/4d9ad183ae170835.png">
-<meta property="og:updated_time" content="2021-12-11T10:31:28.503Z">
+<meta property="og:updated_time" content="2022-01-31T06:49:53.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="互联网术语扫盲 ">
 <meta name="twitter:description" content="认证cookie 存储在客户端： cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。 session 再中间件的内存中：它是与cookie的一个桥梁，可以把它想成一个服务端控制器用来监控客户端的认证状态，默认根据中间件设置失效时间。:用户第一次请求服务器的时候，服务器根据用户提交的相关信息，创建对应的 Session，请">
@@ -250,12 +253,13 @@ var _hmt = _hmt || [];
 <h4 id="架构建设技术"><a href="#架构建设技术" class="headerlink" title="架构建设技术"></a>架构建设技术</h4><p>传统架构技术<br><img src="https://pic.rmb.bdstatic.com/bjh/840b56a2875e6e2d46d1e39b69a03ecb.png" alt=""><br>云服务架构<br><img src="https://pic.rmb.bdstatic.com/bjh/5ba56c87dd429f5e22dbc156189477c8.png" alt=""><br>落拓的架构图<br><img src="https://ftp.bmp.ovh/imgs/2021/12/d2a02590bee051c4.jpg" alt=""></p>
 <h5 id="负载均衡与集群："><a href="#负载均衡与集群：" class="headerlink" title="负载均衡与集群："></a>负载均衡与集群：</h5><p><b>负载均衡</b>: 全局负载均衡主要解决全球用户只需一个域名或IP地址就能,访问到离自己距离最近的服务器获得最快的访问速度,或者是空闲的服务器。<br><img src="https://pic.rmb.bdstatic.com/bjh/e1423afad1907e98b90d40f049a84302.png" alt=""><br><b>集群</b>: 服务器集群就是指将很多服务器集中起来一起进行同一种服务,在客户端看来就像是只有一个服务器。集群可以利用多个计算机进行并行计算从而获得很高的计算速度,也可以用多个计算机做备份,从而使得任何一个机器坏了整个系统还是能正常运行。</p>
 <h6 id="数据库与集群设计："><a href="#数据库与集群设计：" class="headerlink" title="数据库与集群设计："></a>数据库与集群设计：</h6><p><b>数据库读写分离:</b>为了确保数据库产品的稳定性,很多数据库拥有双机热备功能。也就是,第一台数据库服务器,是对外提供增删改查业务的生产服务器;第二台数据库服务器,仅仅接收来自第一台服务器的备份数据一个主库用于写数据,多个从库完成读数据的操作,主从库之间通过某种机制进行数据的同步,是一种常见的数据库架构。<br><img src="https://pic.rmb.bdstatic.com/bjh/b523ef0863e7a48b038f8d129802f16e.png" alt=""><br><b>垂直拆分:</b>垂直拆分是把不同的表拆到不同的数据库中。一个数据库由很多表的构成,每个表对应着不同的业务,垂直切分是指按照业务将表进行分类,分布到不同的数据库上面,这样也就将数据或者说压力分担到不同的库上面<br><img src="https://pic.rmb.bdstatic.com/bjh/4b9372303d73396a9087dd19cfda24dd.png" alt=""><br><b>水平拆分:</b>水平拆分是把同一个表拆到不同的数据库中。我们可以将数据的水平切分理解为是按照数据行的切分，就是将表中 的某些行切分到一个数据库，而另外的某些行又切分到其他的数据库中，主要有分表，分库两种模式，如图：<br><img src="https://pic.rmb.bdstatic.com/bjh/eb443a54c175ff27aecaef8ee3b9c13a.png" alt=""><br><img src="https://pic.rmb.bdstatic.com/bjh/a1b8e7386704e7c200c579bdd10b2a04.png" alt=""></p>
-<h5 id="webserver："><a href="#webserver：" class="headerlink" title="webserver："></a>webserver：</h5><p>　　　　Java：Tomcat，Apache，Jboss<br>　　　　Python：gunicorn、uwsgi、twisted、webpy、tornado</p>
-<h5 id="容器："><a href="#容器：" class="headerlink" title="容器："></a>容器：</h5><p>　　　　docker，kubernetes</p>
-<h5 id="缓存："><a href="#缓存：" class="headerlink" title="缓存："></a>缓存：</h5><p>　　　　memcache、redis等</p>
-<h5 id="协调中心："><a href="#协调中心：" class="headerlink" title="协调中心："></a>协调中心：</h5><p>　　　　zookeeper、etcd等<br>　　　　zookeeper使用了Paxos协议Paxos是强一致性，高可用的去中心化分布式。zookeeper的使用场景非常广泛</p>
+<h5 id="访问架构层："><a href="#访问架构层：" class="headerlink" title="访问架构层："></a>访问架构层：</h5><p><img src="https://inews.gtimg.com/newsapp_ls/0/14479941835/0.png" alt=""><br>　　　　LVS、Nginx</p>
+<h5 id="容器："><a href="#容器：" class="headerlink" title="容器："></a>容器：</h5><p>　　　　docker、kubernetes、K8S</p>
+<h5 id="缓存："><a href="#缓存：" class="headerlink" title="缓存："></a>缓存：</h5><p>　　　　cdn、memcache、redis、Nginx、本地缓存等</p>
+<h5 id="协调中心："><a href="#协调中心：" class="headerlink" title="协调中心："></a>协调中心：</h5><p><img src="https://inews.gtimg.com/newsapp_ls/0/14479959676/0.png" alt=""></p>
+<p>　　　　zookeeper、etcd、dubbo等<br>　　　　zookeeper使用了Paxos协议Paxos是强一致性，高可用的去中心化分布式。zookeeper的使用场景非常广泛</p>
 <h5 id="rpc框架："><a href="#rpc框架：" class="headerlink" title="rpc框架："></a>rpc框架：</h5><p>　　　　grpc、dubbo、brpc<br>　　　　dubbo是阿里开源的Java语言开发的高性能RPC框架，在阿里系的诸多架构中，都使用了dubbo + spring boot</p>
-<h5 id="消息队列："><a href="#消息队列：" class="headerlink" title="消息队列："></a>消息队列：</h5><p>　　　　kafka、rabbitMQ、rocketMQ、QSP<br>　　　　消息队列的应用场景：异步处理、应用解耦、流量削锋和消息通讯</p>
+<h5 id="消息队列："><a href="#消息队列：" class="headerlink" title="消息队列："></a>消息队列：</h5><p><img src="https://ftp.bmp.ovh/imgs/2022/01/4e413a53d66eb302.png" alt=""><br>　　　　kafka、rabbitMQ、rocketMQ、QSP<br>　　　　消息队列的应用场景：异步处理、应用解耦、流量削锋和消息通讯</p>
 <h5 id="可视数据平台："><a href="#可视数据平台：" class="headerlink" title="可视数据平台："></a>可视数据平台：</h5><p>　　　    storm、akka<br>    三方：ecnarts finereport finebi</p>
 <h5 id="离线数据平台："><a href="#离线数据平台：" class="headerlink" title="离线数据平台："></a>离线数据平台：</h5><p>　　　　hadoop、spark<br>　　　　PS: apark、akka、kafka都是scala语言写的 </p>
 <h5 id="dbproxy："><a href="#dbproxy：" class="headerlink" title="dbproxy："></a>dbproxy：</h5><p>　　　　cobar也是阿里开源的，在阿里系中使用也非常广泛，是关系型数据库的sharding + replica 代理</p>
@@ -363,7 +367,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#认证"><span class="toc-number">1.</span> <span class="toc-text">认证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络抓包技术"><span class="toc-number">2.</span> <span class="toc-text">网络抓包技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#LAN-TAP"><span class="toc-number">2.1.</span> <span class="toc-text">LAN TAP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#端口镜像与路由"><span class="toc-number">2.2.</span> <span class="toc-text">端口镜像与路由</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#fiddler"><span class="toc-number">2.3.</span> <span class="toc-text">fiddler</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#wireshark"><span class="toc-number">2.4.</span> <span class="toc-text">wireshark</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#架构建设技术"><span class="toc-number">3.</span> <span class="toc-text">架构建设技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#负载均衡与集群："><span class="toc-number">3.1.</span> <span class="toc-text">负载均衡与集群：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#数据库与集群设计："><span class="toc-number">3.1.1.</span> <span class="toc-text">数据库与集群设计：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#webserver："><span class="toc-number">3.2.</span> <span class="toc-text">webserver：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#容器："><span class="toc-number">3.3.</span> <span class="toc-text">容器：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缓存："><span class="toc-number">3.4.</span> <span class="toc-text">缓存：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#协调中心："><span class="toc-number">3.5.</span> <span class="toc-text">协调中心：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rpc框架："><span class="toc-number">3.6.</span> <span class="toc-text">rpc框架：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#消息队列："><span class="toc-number">3.7.</span> <span class="toc-text">消息队列：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#可视数据平台："><span class="toc-number">3.8.</span> <span class="toc-text">可视数据平台：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#离线数据平台："><span class="toc-number">3.9.</span> <span class="toc-text">离线数据平台：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dbproxy："><span class="toc-number">3.10.</span> <span class="toc-text">dbproxy：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#搜索："><span class="toc-number">3.11.</span> <span class="toc-text">搜索：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#日志："><span class="toc-number">3.12.</span> <span class="toc-text">日志：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#零-低代码平台"><span class="toc-number">3.13.</span> <span class="toc-text">零/低代码平台</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#认证"><span class="toc-number">1.</span> <span class="toc-text">认证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络抓包技术"><span class="toc-number">2.</span> <span class="toc-text">网络抓包技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#LAN-TAP"><span class="toc-number">2.1.</span> <span class="toc-text">LAN TAP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#端口镜像与路由"><span class="toc-number">2.2.</span> <span class="toc-text">端口镜像与路由</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#fiddler"><span class="toc-number">2.3.</span> <span class="toc-text">fiddler</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#wireshark"><span class="toc-number">2.4.</span> <span class="toc-text">wireshark</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#架构建设技术"><span class="toc-number">3.</span> <span class="toc-text">架构建设技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#负载均衡与集群："><span class="toc-number">3.1.</span> <span class="toc-text">负载均衡与集群：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#数据库与集群设计："><span class="toc-number">3.1.1.</span> <span class="toc-text">数据库与集群设计：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#访问架构层："><span class="toc-number">3.2.</span> <span class="toc-text">访问架构层：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#容器："><span class="toc-number">3.3.</span> <span class="toc-text">容器：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缓存："><span class="toc-number">3.4.</span> <span class="toc-text">缓存：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#协调中心："><span class="toc-number">3.5.</span> <span class="toc-text">协调中心：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rpc框架："><span class="toc-number">3.6.</span> <span class="toc-text">rpc框架：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#消息队列："><span class="toc-number">3.7.</span> <span class="toc-text">消息队列：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#可视数据平台："><span class="toc-number">3.8.</span> <span class="toc-text">可视数据平台：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#离线数据平台："><span class="toc-number">3.9.</span> <span class="toc-text">离线数据平台：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dbproxy："><span class="toc-number">3.10.</span> <span class="toc-text">dbproxy：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#搜索："><span class="toc-number">3.11.</span> <span class="toc-text">搜索：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#日志："><span class="toc-number">3.12.</span> <span class="toc-text">日志：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#零-低代码平台"><span class="toc-number">3.13.</span> <span class="toc-text">零/低代码平台</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -496,14 +500,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
@@ -520,11 +516,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,11 +536,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,11 +552,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
