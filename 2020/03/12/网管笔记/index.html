@@ -9,7 +9,7 @@
   <title>企业的网管笔记 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基">
-<meta name="keywords" content="笔记,web技术">
+<meta name="keywords" content="web技术,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="企业的网管笔记">
 <meta property="og:url" content="http://yoursite.com/2020/03/12/网管笔记/index.html">
@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://i.niupic.com/images/2019/10/14/_1381.png">
 <meta property="og:image" content="https://camo.githubusercontent.com/0c10358cd4d5b3c681fbb1b376c2ba847a627bba/68747470733a2f2f67697465652e636f6d2f75706c6f6164732f696d616765732f323031382f303532372f3131343032315f65663539316361335f313339303337382e706e67">
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201908/29/015703q2hihauuuhaazazh.jpg">
-<meta property="og:updated_time" content="2022-01-26T13:12:43.501Z">
+<meta property="og:updated_time" content="2022-02-28T03:08:44.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="企业的网管笔记">
 <meta name="twitter:description" content="实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基">
@@ -280,7 +280,7 @@ var _hmt = _hmt || [];
 <p>现在很多软件都可以替代域控而且管理功能都比域更加的全面比如说：IP-guard<br>（当之无愧的第一老牌），iMonitor（貌似这玩意有最近的pj版），威眼（UI漂亮适合新手上手的界面），52大佬的<a href="https://pan.xlmy.net/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E7%BB%B4%E6%8A%A4%E5%B7%A5%E5%85%B7/" target="_blank" rel="noopener">神目监控</a>也不错<br>单纯的巡检，病毒，软件，启动项管理推荐使用360企业版，或者火绒企业版。</p>
 <h4 id="业务机器的管理"><a href="#业务机器的管理" class="headerlink" title="业务机器的管理"></a>业务机器的管理</h4><p>以下提供2种方案分别解决了少量业务与大量业务的后期管理。<br>一、集群化管理方案（大量产品业务）：VMware vCenter 或者Kubernetes（后者难度较高没有基础建议用前者）</p>
 <p>二、传统分类网络管理（少量业务或物联网设备管理）：再软路由上绑定arp地址并备注。注：宽带叠加需要对端口进行wan分流和对应的wan口映射才能外部访问。</p>
-<h4 id="常用dos命令"><a href="#常用dos命令" class="headerlink" title="常用dos命令"></a>常用dos命令</h4><pre><code>nslookup  （查询服务器的dns响应）
+<h4 id="常用dos命令"><a href="#常用dos命令" class="headerlink" title="常用dos命令"></a>常用dos命令</h4><pre><code>nslookup -qt=txt ip dns（查询服务器的dns响应,-qt或者-type查看解析值）
 tracert  （检查路由情况一般10个以内为正常，10-15为较慢，30以上算作无法访问）
 netstat -anoq | findstr pid（配合任务管理器分析本地软件流量动向带管道符可以筛选）-r是查看路由表
 route -p add 192.168.1.0 mask 255.255.255.0 192.168.192.10（add添加一条静态路由指向 delete 是删除）
@@ -432,11 +432,11 @@ ping 192.168.*.255 然后使用arp -a （查看活跃的ip地址）
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
@@ -677,10 +677,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -689,11 +685,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -701,7 +697,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -729,11 +729,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">

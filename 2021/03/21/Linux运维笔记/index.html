@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20190314/5dca82d53165496d831b98a63f46a460.jpeg">
 <meta property="og:image" content="https://github.com/grayddq/GScan/blob/master/pic/2.png">
-<meta property="og:updated_time" content="2022-01-18T09:39:21.236Z">
+<meta property="og:updated_time" content="2022-04-14T04:00:37.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
 <meta name="twitter:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。 俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。 Linux环境坑介绍一下简单的配置查看：1234567891011121314cat /proc/cpuinfo | grep &amp;quot;cpu&amp;quot;  //查看cpu核心fr">
@@ -236,6 +236,7 @@ var _hmt = _hmt || [];
 <p>网络策略相关：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:3128 //查看3128端口</span><br><span class="line">sysctl -w net.ipv4.ip_forward=1  //开启ip转发</span><br><span class="line">sed -i &quot;s/SELINUX=enforcing/SELINUX=disabled/g&quot; /etc/selinux/config  //关闭selinux</span><br><span class="line">systemctl stop firewalld.service  //防火墙关闭</span><br><span class="line">systemctl disable  firewalld.service //防火墙自启关闭</span><br><span class="line">service iptables save //防火墙永久生效</span><br><span class="line"># 修改/etc/sysctl.conf禁用某一个指定接口的IPv6(例如：eth0, lo)</span><br><span class="line">net.ipv6.conf.lo.disable_ipv6 = 1</span><br><span class="line">net.ipv6.conf.eth0.disable_ipv6 = 1</span><br><span class="line">echo 1 &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</span><br><span class="line">echo 1 &gt; /proc/sys/net/ipv6/conf/default/disable_ipv6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">firewall-cmd --zone=public --add-port=3306/tcp --add-port=6379/tcp --permanent   # 添加放行指定单个端口</span><br><span class="line">firewall-cmd --reload       # 生效添加的要放行的端口</span><br><span class="line">firewall-cmd --list-ports   # 查看所有被放行的端口</span><br><span class="line">firewall-cmd --zone=public --remove-port=8081/tcp --permanent   # 取消指定一开放端口</span><br></pre></td></tr></table></figure></p>
 <p>网络配置方面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> /etc/sysconfig/network  #主机名配置文件</span><br><span class="line">ifconfig eth0  down   #down关闭 up启动</span><br><span class="line">service network restart #重启网络</span><br><span class="line">/etc/resolv.conf  #dns目录</span><br><span class="line">service networking restart #重启网络服务</span><br><span class="line">route add –net 192.168.0.0/24 gw 172.16.7.3  #添加一条路由delete删除</span><br></pre></td></tr></table></figure></p>
 <p>修改/etc/sysconfig/network-scripts/ifcfg-ethx:x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=ethx:x </span><br><span class="line"> </span><br><span class="line">   BOOTPROTO=static   #这里可以用dhcp</span><br><span class="line"> </span><br><span class="line">   IPIPADDR=   IP地址 </span><br><span class="line"> </span><br><span class="line">   NETMASK=  子网掩码 </span><br><span class="line"> </span><br><span class="line">   GATEWAY=  网关 </span><br><span class="line"> </span><br><span class="line">   ONBOOT=YES   是否开机启用 </span><br><span class="line"> </span><br><span class="line">   HWADDR=...... MAC</span><br></pre></td></tr></table></figure></p>
+<p>用户与组操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">adduser &lt;username&gt;   //创建用户</span><br><span class="line">userdel &lt;username&gt;   //删除用户</span><br><span class="line">passwd &lt;username&gt;   //设置密码</span><br><span class="line">groups wuliang     //查询用户属于那个组</span><br><span class="line">gpasswd -a &lt;username&gt; wheel   //授予sudo权限 -d删除组权限</span><br><span class="line">lid -g wheel     //列出wheel组的权限用户</span><br><span class="line"></span><br><span class="line">用户列表文件：/etc/passwd</span><br><span class="line">用户组列表文件：/etc/group</span><br></pre></td></tr></table></figure></p>
 <h4 id="服务器坑"><a href="#服务器坑" class="headerlink" title="服务器坑"></a>服务器坑</h4><h5 id="Raid基础"><a href="#Raid基础" class="headerlink" title="Raid基础"></a>Raid基础</h5><p>Raid0：将所有磁盘整合在一起，空间叠加，没有冗余。</p>
 <p>优点：磁盘空间利用率最大，可以获得最大的存储空间。读写速度略高于裸盘。<br>缺点：任何一块磁盘损坏，所有数据丢失。<br>Raid1：两块磁盘可做 raid1，相互备份，损坏一块阵列可以照常运行。当两块磁盘大小和速度不一致时，容量和读写速度依照小容量和低速盘。</p>
 <p>优点：两块磁盘互备，高可用。无法扩展。读速度略高于裸盘。<br>缺点：损失一半磁盘空间。<br>Raid10：四块和以上磁盘的偶数磁盘可以做 raid10。结合 raid1 和 raid0 优势，所有磁盘两两分组，组成 raid1，然后多个 raid1 组成 raid10。</p>
@@ -262,8 +263,8 @@ var _hmt = _hmt || [];
 <h3 id="一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"><a href="#一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）" class="headerlink" title="一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"></a>一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）</h3><p>1.批量部署：Ansible<br>2.ssh远程维护：xshell或FinalShell，当然还有企业级的MobaXtermv<br>3.服务器监控平台：zabbix<br>4.容器管理平台：Portainer Kubesphere<br>5.独立管理：宝塔面板(服务器初步安全可以直接防火墙和OpenRASP，服务器上挂个waf和火绒控制外网流量)<br>6.探针集群管理：旗鱼云梯，云帮手，phpstudy<br>7.项目自动化发布：Jenkins<br>8.haporoxy与keeplaive的web管理工具：<a href="docker pull smcline06/haproxy-wi-docker">haproxy-wi</a><br>9.日志管理：<a href="https://blog.csdn.net/soulteary/article/details/105921729" target="_blank" rel="noopener">elk</a>,<a href="https://wangzhan.qianxin.com/activity/xingtu" target="_blank" rel="noopener">360星图</a>,<a href="https://www.splunk.com/zh-hans_cn/download/splunk-enterprise.html" target="_blank" rel="noopener">Splunk</a><br>10.服务器缓存（内存）加速：redis web管理工具（redis-manager）<br>11.云加速：cdn 推荐（百度云，SuCloud宿云）<br>12.服务配置优化：nginx（<a href="https://blog.csdn.net/houjinkai/article/details/81201027）" target="_blank" rel="noopener">https://blog.csdn.net/houjinkai/article/details/81201027）</a> apche（<a href="https://www.cnblogs.com/jager/p/4371259.html）" target="_blank" rel="noopener">https://www.cnblogs.com/jager/p/4371259.html）</a><br>13.数据库远程管理：navicat premium<br>14.web层安全：RASP(百度)， waf(云锁)。服务层：火绒<br>15.负载均衡: nginx web工具（nginxWebUI)<br>16.BL大数据分析平台 ：FineBI或者powerBI</p>
 <p>服务器常用初始配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#安装下载yum源</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line">#下载epel源</span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo</span><br><span class="line">#清空原本yum缓存</span><br><span class="line">yum clean all </span><br><span class="line">#生成新的阿里云的yum缓存，加速下载预热数据</span><br><span class="line">yum makecache</span><br><span class="line">#补齐</span><br><span class="line">yum install epel-release bash-completion bash-completion-extras</span><br><span class="line">#常用工具包与依赖</span><br><span class="line">yum groups install &quot;Development Tools&quot;</span><br><span class="line">yum install epel-release</span><br></pre></td></tr></table></figure></p>
 <h3 id="二、必备命令"><a href="#二、必备命令" class="headerlink" title="二、必备命令"></a>二、必备命令</h3><h4 id="综合分析"><a href="#综合分析" class="headerlink" title="综合分析"></a>综合分析</h4><p>0.网络带宽分析工具iftop,centos下需要下载源包进行mack编译代码如下<br>下载地址：<a href="http://www.ex-parrot.com/~pdw/iftop/" target="_blank" rel="noopener">http://www.ex-parrot.com/~pdw/iftop/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">yum install flex byacc  libpcap ncurses ncurses-devel libpcap-devel</span><br><span class="line"></span><br><span class="line">tar zxvf iftop-0.17.tar.gz</span><br><span class="line"></span><br><span class="line">cd iftop-0.17</span><br><span class="line"></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">//日常用法 i 指定网卡，P使host信息及端口信息默认就都显示，F指定网段监控，b使流量图形条默认就显示</span><br><span class="line">iftop -i etho -P -F</span><br></pre></td></tr></table></figure></p>
-<p>1.ps、top命令分析进程配合netstat与ss以及一些常用的网络调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ps -ef 查找主进程</span><br><span class="line">ps -aux --sort -pcpu,-pmem | grep name | head -n 10</span><br><span class="line">//查询所有的进程并进行排序后面用-指定排序规则 管道筛选与name相关的进程 管道筛选出前10条</span><br><span class="line"></span><br><span class="line">netstat -antlp或-anulp //查看tcp或udp的端口监听</span><br><span class="line">netstat -tunlpa |grep 端口号 //查看端口对应的程序</span><br><span class="line"></span><br><span class="line">ss -lspa//查看socks套字节信息后面+t查看tcp +u查看udp</span><br><span class="line"></span><br><span class="line">top ##M 内存占比排序、C显示路径、P cup占比排序（默认）、N 以PID排序、q 退出</span><br><span class="line"></span><br><span class="line">iptables -I INPUT -s ***.***.***.*** -j DROP //封停一个ip</span><br><span class="line"></span><br><span class="line">iptables -I INPUT -p tcp --dport 6666 -j ACCEPT //开启某端口</span><br><span class="line"></span><br><span class="line">traceroute -p 8080 192.168.10.11 //路由端口追踪</span><br></pre></td></tr></table></figure></p>
-<p>2.kill -STOP 先尝试停止进程<br>  killall -9 name 关闭与name相关的进程</p>
+<p>1.ps、top命令分析进程配合netstat与ss以及一些常用的网络调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ps -ef 查找主进程 ps</span><br><span class="line">ps -aux --sort -pcpu,-pmem | grep name | head -n 10</span><br><span class="line">//查询所有的进程并进行排序后面用-指定排序规则 管道筛选与name相关的进程 管道筛选出前10条</span><br><span class="line">ps -axfj 列出所有进程并显示各种id号</span><br><span class="line"></span><br><span class="line">netstat -antlp或-anulp //查看tcp或udp的端口监听</span><br><span class="line">netstat -tunlpa |grep 端口号 //查看端口对应的程序</span><br><span class="line"></span><br><span class="line">ss -lspa//查看socks套字节信息后面+t查看tcp +u查看udp</span><br><span class="line"></span><br><span class="line">top ##M 内存占比排序、C显示路径、P cup占比排序（默认）、N 以PID排序、q 退出</span><br><span class="line"></span><br><span class="line">iptables -I INPUT -s ***.***.***.*** -j DROP //封停一个ip</span><br><span class="line"></span><br><span class="line">iptables -I INPUT -p tcp --dport 6666 -j ACCEPT //开启某端口</span><br><span class="line"></span><br><span class="line">traceroute -p 8080 192.168.10.11 //路由端口追踪</span><br></pre></td></tr></table></figure></p>
+<p>2.kill -STOP 先尝试停止进程<br>  killall -9 name 关闭与name相关的进程<br>  kill -9 -pid  关闭pid进程组<br>  pkill -s sid 杀掉session组, 配合ps -axuf查看sid</p>
 <p>3.whereis和which命令查找此进程文件位置并且检查/root/.ssh或用ls -l /proc/{pid号}/exe查看pid所在的进程</p>
 <p>3.find 路径 -name 文件没  查文件是否存在</p>
 <p>4.crontab -l查看是否有定时任务可疑的通过-rf删除</p>
@@ -271,7 +272,7 @@ var _hmt = _hmt || [];
 <p>6.chmod –R 权限设置 777 000 </p>
 <p>7.history 查看历史记录</p>
 <p>8.rkhunter –check  查毒</p>
-<p>9.chkconfig iptables on 防火墙</p>
+<p>9.chkconfig iptables on 防火墙开启</p>
 <p>10.systemctl stop ？ 停止某服务</p>
 <p>11.rm 删除与病毒相关的父目录/etc，检查/root/.ssh/路径的ssh文件</p>
 <p>12.ls -l  /etc/init.d   查看启动项 </p>
@@ -292,8 +293,8 @@ ln –s  /var/www/test   /var/test  \\创建/var/test 引向/var/www/test 文件
 <p>2.输入 n 按回车键，然后再输入 p ，按回车键。 n 表示新建一个分区，p 表示是主分区。 输入 m 可以查看所有的命令说明。后面一直默认就行了最后一步w保存。（这里注意默认分区是1，后面需要格式化的盘就选择/dev/sdc1）</p>
 <p>3.格式化磁盘并挂载分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mkfs.xfs  /dev/sdc1           #格式化分区</span><br><span class="line"></span><br><span class="line">mkdir  /Ddata128G                #建立挂载点，建议挂在根目录下</span><br><span class="line"></span><br><span class="line">mount /dev/sdc1 /Ddata    　　　　　#挂载硬盘</span><br><span class="line"></span><br><span class="line">vim /etc/fstab                #挂载永久生效</span><br><span class="line">***************</span><br><span class="line">/dev/sdc1  /Ddata128G   xfs    defaults 0 0</span><br><span class="line">***************</span><br></pre></td></tr></table></figure></p>
 <p>*4.删除分区（如果设置了永久挂载记得去/etc/fstab删除掉挂载信息）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">umount -v /dev/sdc1    #卸载磁盘</span><br><span class="line">fdisk /dev/sdc1      #删除分区</span><br><span class="line">m  </span><br><span class="line">d  </span><br><span class="line">1  </span><br><span class="line">d</span><br></pre></td></tr></table></figure></p>
-<h4 id="Linux安全分析（配合日志分析）"><a href="#Linux安全分析（配合日志分析）" class="headerlink" title="Linux安全分析（配合日志分析）"></a>Linux安全分析（配合日志分析）</h4><p>1.diff命令，将整个web目录和备份目录进行对比，排查出被修改的文件</p>
-<pre><code>diff -urn webdir webdir_bak
+<h4 id="Linux安全分析（配合日志分析）"><a href="#Linux安全分析（配合日志分析）" class="headerlink" title="Linux安全分析（配合日志分析）"></a>Linux安全分析（配合日志分析）</h4><p>1.diff命令，将整个web目录和备份目录进行对比，排查出被修改的文件 -r对比文件夹</p>
+<pre><code>diff -r webdir webdir_bak 
 </code></pre><p>2.使用find命令配合mtime、ctime参数，搜索事发时间时间段以下是24小时，指定格式的被修改文件</p>
 <pre><code>find /var/www/html -mtime +0 &quot;*.jsp&quot;
 </code></pre><p>3.启动项排查<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/rc.local            排查rc.local文件中添加的启动项命令</span><br><span class="line">ls /etc/init.d               排查init.d目录下添加的自启动脚本</span><br><span class="line">ls /etc/profile.d            排查profile.d目录下添加的自启动脚本</span><br><span class="line">chkconfig --list             centos系统列出自启动项</span><br></pre></td></tr></table></figure></p>
@@ -569,10 +570,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -581,11 +578,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,7 +590,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,11 +622,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
