@@ -228,7 +228,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢。ps：直接虚拟机调试也行。</p>
-<h5 id="杀毒软件"><a href="#杀毒软件" class="headerlink" title="杀毒软件"></a>杀毒软件</h5><p>初步的过滤建议还是装一个小白360，个人电脑的用火绒+eset（主核心模块用火绒eset做基线保护）。<br><img src="https://i.niupic.com/images/2020/03/12/70pw.png" alt=""><br><img src="https://ftp.bmp.ovh/imgs/2021/07/b401a6233b4261dc.png" alt=""><br>这里有强安全需求的小伙伴可以通过火绒开启联网控制进一步控制电脑的出站流量，记得系统的签名也不要放过达到入站网络零信任环境。<br><img src="https://ftp.bmp.ovh/imgs/2021/07/347bd25220f4abd3.png" alt=""></p>
+<h5 id="杀毒软件"><a href="#杀毒软件" class="headerlink" title="杀毒软件"></a>杀毒软件</h5><p>初步的过滤建议还是装一个小白360，个人电脑的用火绒+eset（主核心模块用火绒eset做基线保护）。<br><img src="https://i.niupic.com/images/2020/03/12/70pw.png" alt=""><br><img src="https://ftp.bmp.ovh/imgs/2021/07/b401a6233b4261dc.png" alt=""><br>这里有强安全需求的小伙伴可以通过火绒开启联网控制进一步控制电脑的出站流量，记得系统的签名也不要放过达到入站网络零信任环境。系统防护类的选项同理。<br><img src="https://ftp.bmp.ovh/imgs/2021/07/347bd25220f4abd3.png" alt=""></p>
 <h5 id="在线分析网站"><a href="#在线分析网站" class="headerlink" title="在线分析网站"></a>在线分析网站</h5><p>先吧HASH/MD5/SHA1丢平台分析，通过大数据先过滤一遍。有依赖组件的可以打包成单独的可执行文件，上传到某在线网站分析查看结果：推荐360，魔盾，微步云沙箱，Hybrid analysis<br><img src="https://i.niupic.com/images/2020/03/13/719g.png" alt=""><br></p>
         
           <a class="article-more-a" href="/2020/03/13/inodws恶意软件初步分析/#more">阅读全文 >></a>
@@ -305,7 +305,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基于公司成本考虑过的当然有更好的软件解决方案。<br>ikuai文档地址：<a href="https://www.ikuai8.com/zhic/ymgn/lyym.html" target="_blank" rel="noopener">https://www.ikuai8.com/zhic/ymgn/lyym.html</a></p>
+        <p>实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基于公司成本考虑过的当然有更好的软件解决方案。这里推荐一个B站UP<a href="https://space.bilibili.com/12369096" target="_blank" rel="noopener">贾宝玉</a>开发的自动化运维工具感觉未来会用上减少维护时间<br>ikuai文档地址：<a href="https://www.ikuai8.com/zhic/ymgn/lyym.html" target="_blank" rel="noopener">https://www.ikuai8.com/zhic/ymgn/lyym.html</a></p>
 <h6 id="快速布局设备清单（更具情况制定我这里是做示范用与快速搭建内网）"><a href="#快速布局设备清单（更具情况制定我这里是做示范用与快速搭建内网）" class="headerlink" title="快速布局设备清单（更具情况制定我这里是做示范用与快速搭建内网）"></a>快速布局设备清单（更具情况制定我这里是做示范用与快速搭建内网）</h6><p>0.6类网线8根左右+超5类网线若干–以下是网线科普图<br><img src="https://pic.rmb.bdstatic.com/bjh/56a923d19a6a44e0fb6053aea2c3c975.png" alt=""><br>1.交换机–百：H3-S1224千：H3-S1024 子百：fast24<br>2.路由器– CPU：i3-4160  3.60GHz内存: 3793MB 网卡：依照情况定<br>3.中心交换–SG1016DT（分流交换机）<br>4.核心交换–s1820ec（稳定2层交换可3层）<br>5.可管理交换–水星（MERCURY）SG116D Pro 16口全千兆智能网管交换机<br>6.ap–小:TP-AC100 大: 小贝<br>7.企业路由器（适合办公密集的地方用）–腾达（Tenda）W18E 或 华硕八爪鱼</p>
 <h4 id="网工术语应用场景"><a href="#网工术语应用场景" class="headerlink" title="网工术语应用场景"></a>网工术语应用场景</h4><p>0.0.0.0表示本机上的所有 IPv4 地址，255.255.255.255是广播地址，它作为目标IP表示一个本地网络的广播地址。<br>1.静态路由：先确定需要连接到的lan口段（指定外网填wan口），然后确定二级路由下的地址与子网（目的地址），最后填写二级路由ip地址（下一跳，设置ip段直通填写0.0.0.0）。这样就可以吧二级路由下的请求通过路由表规则链接到上级路由，依次类推。</p>
 <p>2.vlan：VLAN是一种将局域网设备从逻辑上划分成一个个网段，实现每个网段对应一个部门方便管理和避免网络异常引起的网络风暴和攻击，适用于大型的公司与安全有特殊要求的公司（小企业可以使用带vlan隔离的二层傻瓜交换简单一键隔离）。</p>
@@ -1152,10 +1152,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
@@ -1172,11 +1168,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
