@@ -418,7 +418,7 @@ var _hmt = _hmt || [];
       
         <p>个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。</p>
 <p>俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。</p>
-<h3 id="Linux环境坑"><a href="#Linux环境坑" class="headerlink" title="Linux环境坑"></a>Linux环境坑</h3><p>介绍一下简单的配置查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo | grep &quot;cpu&quot;  //查看cpu核心</span><br><span class="line">free -h //查内存</span><br><span class="line">df -h //查存储</span><br><span class="line">tar czvf xxx.tar //压缩目录</span><br><span class="line">tar zxvf xxx.tar //解压缩</span><br><span class="line">zip -r xxx.zip //压缩目录</span><br><span class="line">unzip -o xxx.zip -d /tmp/ //解压缩d路径</span><br><span class="line">dmidecode -s system-product-name //查看是否是虚拟机</span><br><span class="line">uname -a //处理器位数</span><br><span class="line">cat /etc/redhat-release  //查看系统版本</span><br><span class="line">w //查看登录用户</span><br><span class="line">######mysql外部访问##########</span><br><span class="line">use mysql;</span><br><span class="line">update user set host = &apos;%&apos; where user = &apos;root&apos;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Linux环境坑"><a href="#Linux环境坑" class="headerlink" title="Linux环境坑"></a>Linux环境坑</h3><p>介绍一下简单的配置查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">lscpu 列cpu</span><br><span class="line">lsof  列文件</span><br><span class="line">lsusb 列usb设备</span><br><span class="line">lspci 列总线</span><br><span class="line">cat /proc/cpuinfo | grep &quot;cpu&quot;  //查看cpu核心</span><br><span class="line">free -h //查内存</span><br><span class="line">df -h //查存储</span><br><span class="line">tar czvf xxx.tar //压缩目录</span><br><span class="line">tar zxvf xxx.tar //解压缩</span><br><span class="line">zip -r xxx.zip //压缩目录</span><br><span class="line">unzip -o xxx.zip -d /tmp/ //解压缩d路径</span><br><span class="line">dmidecode -s system-product-name //查看是否是虚拟机</span><br><span class="line">uname -a //处理器位数</span><br><span class="line">cat /etc/redhat-release  //查看系统版本</span><br><span class="line">w //查看登录用户</span><br><span class="line">######mysql外部访问##########</span><br><span class="line">use mysql;</span><br><span class="line">update user set host = &apos;%&apos; where user = &apos;root&apos;;</span><br></pre></td></tr></table></figure></p>
 <p>网络策略相关：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:3128 //查看3128端口</span><br><span class="line">sysctl -w net.ipv4.ip_forward=1  //开启ip转发</span><br><span class="line">sed -i &quot;s/SELINUX=enforcing/SELINUX=disabled/g&quot; /etc/selinux/config  //关闭selinux</span><br><span class="line">systemctl stop firewalld.service  //防火墙关闭</span><br><span class="line">systemctl disable  firewalld.service //防火墙自启关闭</span><br><span class="line">service iptables save //防火墙永久生效</span><br><span class="line"># 修改/etc/sysctl.conf禁用某一个指定接口的IPv6(例如：eth0, lo)</span><br><span class="line">net.ipv6.conf.lo.disable_ipv6 = 1</span><br><span class="line">net.ipv6.conf.eth0.disable_ipv6 = 1</span><br><span class="line">echo 1 &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</span><br><span class="line">echo 1 &gt; /proc/sys/net/ipv6/conf/default/disable_ipv6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">firewall-cmd --zone=public --add-port=3306/tcp --add-port=6379/tcp --permanent   # 添加放行指定单个端口</span><br><span class="line">firewall-cmd --reload       # 生效添加的要放行的端口</span><br><span class="line">firewall-cmd --list-ports   # 查看所有被放行的端口</span><br><span class="line">firewall-cmd --zone=public --remove-port=8081/tcp --permanent   # 取消指定一开放端口</span><br></pre></td></tr></table></figure></p>
 <p>网络配置方面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> /etc/sysconfig/network  #主机名配置文件</span><br><span class="line">ifconfig eth0  down   #down关闭 up启动</span><br><span class="line">service network restart #重启网络</span><br><span class="line">/etc/resolv.conf  #dns目录</span><br><span class="line">service networking restart #重启网络服务</span><br><span class="line">route add –net 192.168.0.0/24 gw 172.16.7.3  #添加一条路由delete删除</span><br></pre></td></tr></table></figure></p>
 <p>修改/etc/sysconfig/network-scripts/ifcfg-ethx:x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=ethx:x </span><br><span class="line"> </span><br><span class="line">   BOOTPROTO=static   #这里可以用dhcp</span><br><span class="line"> </span><br><span class="line">   IPIPADDR=   IP地址 </span><br><span class="line"> </span><br><span class="line">   NETMASK=  子网掩码 </span><br><span class="line"> </span><br><span class="line">   GATEWAY=  网关 </span><br><span class="line"> </span><br><span class="line">   ONBOOT=YES   是否开机启用 </span><br><span class="line"> </span><br><span class="line">   HWADDR=...... MAC</span><br></pre></td></tr></table></figure></p>
@@ -530,11 +530,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实用技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实用技术</a>
         		</li>
       		
 		</ul>
@@ -610,11 +610,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">极客</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">极客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		
 		</ul>
@@ -766,11 +766,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1078,19 +1078,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1102,15 +1090,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
