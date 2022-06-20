@@ -17,8 +17,9 @@
 <meta property="og:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。 俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。 Linux环境坑介绍一下简单的配置查看：123456789101112131415161718lscpu 列cpulsof  列文件lsusb 列usb设备lspci 列总线cat /">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20190314/5dca82d53165496d831b98a63f46a460.jpeg">
+<meta property="og:image" content="https://images.gitee.com/uploads/images/2020/0605/190221_06a883fe_1168339.png">
 <meta property="og:image" content="https://github.com/grayddq/GScan/blob/master/pic/2.png">
-<meta property="og:updated_time" content="2022-06-09T08:12:14.566Z">
+<meta property="og:updated_time" content="2022-06-20T06:50:06.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
 <meta name="twitter:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。 俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。 Linux环境坑介绍一下简单的配置查看：123456789101112131415161718lscpu 列cpulsof  列文件lsusb 列usb设备lspci 列总线cat /">
@@ -310,9 +311,10 @@ ForwardToSyslog=no
 <p>4.mysql数据库日志<br>代码补全工具mycli<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">基本信息导出: mysql -uroot -p -S /opt/data/mysql.sock  -e &quot;\s;show global variables;&quot; &gt; /tmp/msyql_baseinfo.txt</span><br><span class="line">错误日志文件路径:  show variables like &apos;log_error&apos;;</span><br><span class="line">慢日志: show variables like &apos;slow_query_log_file&apos;;</span><br><span class="line">日志路径: show variables like &apos;general_log_file&apos;;</span><br></pre></td></tr></table></figure></p>
 <p>sql分析<br>正在执行的sql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show processlist;</span><br></pre></td></tr></table></figure></p>
 <p>sql日志开启与关闭（调试完毕记得关闭不然会塞满磁盘）：日志文件位置：/home/root/mysql/data/mysql/general_log.CSV<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SET GLOBAL log_output = &apos;TABLE&apos;;SET GLOBAL general_log = &apos;ON&apos;; </span><br><span class="line">SET GLOBAL log_output = &apos;FILE&apos;; SET GLOBAL general_log = &apos;OFF&apos;;  //日志关闭</span><br></pre></td></tr></table></figure></p>
-<h3 id="三、运维实用脚本（可根据公司需求重构）"><a href="#三、运维实用脚本（可根据公司需求重构）" class="headerlink" title="三、运维实用脚本（可根据公司需求重构）"></a>三、运维实用脚本（可根据公司需求重构）</h3><h4 id="日常脚本"><a href="#日常脚本" class="headerlink" title="日常脚本"></a>日常脚本</h4><p><a href="https://github.com/Ljohn001/ljohn_ops" target="_blank" rel="noopener">https://github.com/Ljohn001/ljohn_ops</a></p>
+<h3 id="三、运维实用脚本（可根据公司需求重构）"><a href="#三、运维实用脚本（可根据公司需求重构）" class="headerlink" title="三、运维实用脚本（可根据公司需求重构）"></a>三、运维实用脚本（可根据公司需求重构）</h3><h4 id="日常脚本"><a href="#日常脚本" class="headerlink" title="日常脚本"></a>日常脚本</h4><p>快捷运维，代号<a href="https://github.com/aqzt/kjyw" target="_blank" rel="noopener">kjyw</a>，项目基于shell、python，运维脚本工具库，收集各类运维常用工具脚本，实现快速安装nginx、mysql、php、redis、nagios、运维经常使用的脚本等等…</p>
+<p><a href="https://github.com/Ljohn001/ljohn_ops" target="_blank" rel="noopener">https://github.com/Ljohn001/ljohn_ops</a></p>
 <p><a href="https://linuxeye.com/category/script/" target="_blank" rel="noopener">https://linuxeye.com/category/script/</a></p>
-<h4 id="应急脚本"><a href="#应急脚本" class="headerlink" title="应急脚本"></a>应急脚本</h4><p><a href="https://github.com/al0ne/LinuxCheck" target="_blank" rel="noopener">https://github.com/al0ne/LinuxCheck</a><br><img src="https://github.com/grayddq/GScan/blob/master/pic/2.png" alt=""><br><a href="https://github.com/grayddq/GScan" target="_blank" rel="noopener">https://github.com/grayddq/GScan</a></p>
+<h4 id="应急工具"><a href="#应急工具" class="headerlink" title="应急工具"></a>应急工具</h4><p>一站式问题定位平台，以agent的方式无侵入接入应用，提供各种指标，动态线程堆栈追踪，完整集成arthas功能模块，致力于应用级监控，帮助开发人员快速定位问题。<a href="https://gitee.com/dromara/cubic" target="_blank" rel="noopener">cubic</a><br><img src="https://images.gitee.com/uploads/images/2020/0605/190221_06a883fe_1168339.png" alt=""><br><a href="https://github.com/al0ne/LinuxCheck" target="_blank" rel="noopener">https://github.com/al0ne/LinuxCheck</a><br><img src="https://github.com/grayddq/GScan/blob/master/pic/2.png" alt=""><br><a href="https://github.com/grayddq/GScan" target="_blank" rel="noopener">https://github.com/grayddq/GScan</a></p>
 <h3 id="云计算与虚拟化坑"><a href="#云计算与虚拟化坑" class="headerlink" title="云计算与虚拟化坑"></a>云计算与虚拟化坑</h3><h4 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h4>
       
 
@@ -438,7 +440,7 @@ ForwardToSyslog=no
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux环境坑"><span class="toc-number">1.</span> <span class="toc-text">Linux环境坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器坑"><span class="toc-number">1.1.</span> <span class="toc-text">服务器坑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Raid基础"><span class="toc-number">1.1.1.</span> <span class="toc-text">Raid基础</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux系统"><span class="toc-number">1.1.2.</span> <span class="toc-text">Linux系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"><span class="toc-number">2.</span> <span class="toc-text">一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、必备命令"><span class="toc-number">3.</span> <span class="toc-text">二、必备命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#综合分析"><span class="toc-number">3.1.</span> <span class="toc-text">综合分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存分析"><span class="toc-number">3.2.</span> <span class="toc-text">内存分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#磁盘管理"><span class="toc-number">3.3.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux安全分析（配合日志分析）"><span class="toc-number">3.4.</span> <span class="toc-text">Linux安全分析（配合日志分析）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#日志清理与管理"><span class="toc-number">3.4.1.</span> <span class="toc-text">日志清理与管理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、运维实用脚本（可根据公司需求重构）"><span class="toc-number">4.</span> <span class="toc-text">三、运维实用脚本（可根据公司需求重构）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#日常脚本"><span class="toc-number">4.1.</span> <span class="toc-text">日常脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应急脚本"><span class="toc-number">4.2.</span> <span class="toc-text">应急脚本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#云计算与虚拟化坑"><span class="toc-number">5.</span> <span class="toc-text">云计算与虚拟化坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes"><span class="toc-number">5.1.</span> <span class="toc-text">Kubernetes</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux环境坑"><span class="toc-number">1.</span> <span class="toc-text">Linux环境坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器坑"><span class="toc-number">1.1.</span> <span class="toc-text">服务器坑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Raid基础"><span class="toc-number">1.1.1.</span> <span class="toc-text">Raid基础</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux系统"><span class="toc-number">1.1.2.</span> <span class="toc-text">Linux系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"><span class="toc-number">2.</span> <span class="toc-text">一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、必备命令"><span class="toc-number">3.</span> <span class="toc-text">二、必备命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#综合分析"><span class="toc-number">3.1.</span> <span class="toc-text">综合分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存分析"><span class="toc-number">3.2.</span> <span class="toc-text">内存分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#磁盘管理"><span class="toc-number">3.3.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux安全分析（配合日志分析）"><span class="toc-number">3.4.</span> <span class="toc-text">Linux安全分析（配合日志分析）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#日志清理与管理"><span class="toc-number">3.4.1.</span> <span class="toc-text">日志清理与管理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、运维实用脚本（可根据公司需求重构）"><span class="toc-number">4.</span> <span class="toc-text">三、运维实用脚本（可根据公司需求重构）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#日常脚本"><span class="toc-number">4.1.</span> <span class="toc-text">日常脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应急工具"><span class="toc-number">4.2.</span> <span class="toc-text">应急工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#云计算与虚拟化坑"><span class="toc-number">5.</span> <span class="toc-text">云计算与虚拟化坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes"><span class="toc-number">5.1.</span> <span class="toc-text">Kubernetes</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -571,23 +573,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,11 +593,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,7 +609,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,7 +625,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">

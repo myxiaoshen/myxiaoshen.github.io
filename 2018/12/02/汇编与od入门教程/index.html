@@ -20,8 +20,9 @@
 <meta property="og:image" content="https://i.loli.net/2018/12/04/5c05f60e0c817.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/30/5c0095e679d85.png">
 <meta property="og:image" content="https://image.3001.net/images/20180601/15278364441127.png!small">
+<meta property="og:image" content="https://p5.ssl.qhimg.com/t01d51bd0b4917445b0.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/01/29/kQp9pT.png">
-<meta property="og:updated_time" content="2022-06-13T05:59:12.591Z">
+<meta property="og:updated_time" content="2022-06-20T08:36:38.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编与od入门教程">
 <meta name="twitter:description" content="视频学习平台推荐1：软件逆向教程–https://www.cnblogs.com/LyShark/  2：52系类教程–https://www.52pojie.cn/home.php?mod=space&amp;amp;uid=396495&amp;amp;do=thread&amp;amp;type=thread&amp;amp;view=me&amp;amp;from=space 3：视频教程–http://www.yxfzedu.">
@@ -254,7 +255,7 @@ var _hmt = _hmt || [];
 <table><thead><tr><th style="text-align: center;">指令名称</th><th style="text-align: center;">指令英文全拼</th><th style="text-align: center;">功能</th></tr></thead><tbody><tr><td style="text-align: center;">call(CALL)</td><td style="text-align: center;">CALL</td><td style="text-align: center;">调用子程序或者函数</td></tr><tr><td style="text-align: center;">ret(RET)</td><td style="text-align: center;">return</td><td style="text-align: center;">返回到</td></tr><tr><td style="text-align: center;">LOOP</td><td style="text-align: center;">LOPP</td><td style="text-align: center;">循环</td></tr></tbody></table>
 
 <p>6.算术指令</p>
-<table><thead><tr><th style="text-align: center;">指令名称</th><th style="text-align: center;">功能</th></tr></thead><tbody><tr><td style="text-align: center;">add(ADD)</td><td style="text-align: center;">加法</td></tr><tr><td style="text-align: center;">sub(SUB) subr(SUBR)</td><td style="text-align: center;">减法</td></tr><tr><td style="text-align: center;">mul(MUL),imul</td><td style="text-align: center;">乘法</td></tr><tr><td style="text-align: center;">div(DIV) divr(DIVR) idiv</td><td style="text-align: center;">除法</td></tr><tr><td style="text-align: center;">inc</td><td style="text-align: center;">目标数+1</td></tr><tr><td style="text-align: center;">and，or，xor</td><td style="text-align: center;">对两个操作数进行逻辑，异或操作</td></tr></tbody></table>
+<table><thead><tr><th style="text-align: center;">指令名称</th><th style="text-align: center;">功能</th></tr></thead><tbody><tr><td style="text-align: center;">add(ADD)</td><td style="text-align: center;">加法</td></tr><tr><td style="text-align: center;">sub(SUB) subr(SUBR)</td><td style="text-align: center;">减法</td></tr><tr><td style="text-align: center;">mul(MUL),imul</td><td style="text-align: center;">乘法</td></tr><tr><td style="text-align: center;">div(DIV) divr(DIVR) idiv</td><td style="text-align: center;">除法</td></tr><tr><td style="text-align: center;">inc dec</td><td style="text-align: center;">目标数+1，-1</td></tr><tr><td style="text-align: center;">and，or，xor</td><td style="text-align: center;">对两个操作数进行逻辑，异或操作</td></tr></tbody></table>
 
 <p>7.其他指令</p>
 <table><thead><tr><th style="text-align: center;">指令名称</th><th style="text-align: center;">功能</th></tr></thead><tbody><tr><td style="text-align: center;">lea(加载有效地址)</td><td style="text-align: center;">取值（也可做运算）</td></tr><td style="text-align: center;">PROC，ENDP（伪指令）</td><td style="text-align: center;">子程序入口，出口</td></tbody></table>
@@ -367,7 +368,8 @@ var _hmt = _hmt || [];
 <p>win漏洞分析思路：对应测试异常功能点-&gt;ID软件启动分析-&gt;溢出覆盖EIP-&gt;找EIP的偏移地址与量（mona）-&gt;确定JMP ESP缓冲大小 -&gt; 设置nop缓冲池（一般在20左右）<br><img src="https://image.3001.net/images/20180601/15278364441127.png!small" alt=""></p>
 <p>以下windwos漏洞利用教程挺详细的可以学习：</p>
 <pre><code>http://www.freebuf.com/articles/system/166500.html
-</code></pre><h3 id="python利用教程"><a href="#python利用教程" class="headerlink" title="python利用教程"></a>python利用教程</h3><p><img src="https://s2.ax1x.com/2019/01/29/kQp9pT.png" alt=""></p>
+</code></pre><h4 id="二进制安全"><a href="#二进制安全" class="headerlink" title="二进制安全"></a>二进制安全</h4><p>常见的二进制漏洞主要分为：栈溢出、堆溢出、整数溢出、格式化字符串、双重释放、释放重引用、数组访问越界、内核级、类型混淆、沙盒逃逸以及PRC等。详情访问<a href="https://www.anquanke.com/post/id/168276" target="_blank" rel="noopener">安全客</a>原文，二进制漏洞辅助工具<a href="https://github.com/KeenSecurityLab/BinAbsInspector" target="_blank" rel="noopener">BinAbsInspector</a><br><img src="https://p5.ssl.qhimg.com/t01d51bd0b4917445b0.jpg" alt=""></p>
+<h3 id="python利用教程"><a href="#python利用教程" class="headerlink" title="python利用教程"></a>python利用教程</h3><p><img src="https://s2.ax1x.com/2019/01/29/kQp9pT.png" alt=""></p>
 <p>教程地址：  <a href="https://github.com/smartFlash/pySecurity" target="_blank" rel="noopener">https://github.com/smartFlash/pySecurity</a></p>
 
       
@@ -490,7 +492,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#视频学习平台推荐"><span class="toc-number">1.</span> <span class="toc-text">视频学习平台推荐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-01汇编指令"><span class="toc-number">2.</span> <span class="toc-text">0*01汇编指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-02快捷指令与功能图"><span class="toc-number">3.</span> <span class="toc-text">0*02快捷指令与功能图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-03常用逆向与win漏洞分析思路"><span class="toc-number">4.</span> <span class="toc-text">0*03常用逆向与win漏洞分析思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python利用教程"><span class="toc-number">5.</span> <span class="toc-text">python利用教程</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#视频学习平台推荐"><span class="toc-number">1.</span> <span class="toc-text">视频学习平台推荐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-01汇编指令"><span class="toc-number">2.</span> <span class="toc-text">0*01汇编指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-02快捷指令与功能图"><span class="toc-number">3.</span> <span class="toc-text">0*02快捷指令与功能图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-03常用逆向与win漏洞分析思路"><span class="toc-number">4.</span> <span class="toc-text">0*03常用逆向与win漏洞分析思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#二进制安全"><span class="toc-number">4.1.</span> <span class="toc-text">二进制安全</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python利用教程"><span class="toc-number">5.</span> <span class="toc-text">python利用教程</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -623,23 +625,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,11 +645,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,7 +661,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,7 +677,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -27,17 +27,19 @@
 <meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/de8a3f7b3f49e67fbd80bb43f54adc68.png">
 <meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/cfefa1f7cebb2b54d609d934f9f82fda.png">
 <meta property="og:image" content="http://www.nirsoft.net/utils/fileactivitywatch.png">
-<meta property="og:image" content="https://i.niupic.com/images/2020/10/02/8L6N.png">
+<meta property="og:image" content="https://files.catbox.moe/c3u0vv.jpg">
 <meta property="og:image" content="https://files.catbox.moe/j2vhgw.png">
 <meta property="og:image" content="https://files.catbox.moe/ls43xp.png">
+<meta property="og:image" content="https://files.catbox.moe/opjh8d.jpg">
 <meta property="og:image" content="http://www.rohitab.com/gallery/api-monitor-2-0/summary.png">
+<meta property="og:image" content="https://files.catbox.moe/777482.jpg">
 <meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/569ee5970e5e6a2717695b5b2a06c772.png">
 <meta property="og:image" content="https://files.catbox.moe/gj9wrv.png">
 <meta property="og:image" content="https://i.loli.net/2021/09/03/Fx6HDmXtgGPzJvw.gif">
-<meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lT.png">
+<meta property="og:image" content="https://files.catbox.moe/wqa9rl.png">
+<meta property="og:image" content="https://files.catbox.moe/qeykt9.jpg">
 <meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lS.png">
-<meta property="og:image" content="https://i.niupic.com/images/2020/03/12/70lU.png">
-<meta property="og:updated_time" content="2022-05-11T02:16:34.254Z">
+<meta property="og:updated_time" content="2022-06-13T08:15:09.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="winodws恶意软件初步分析">
 <meta name="twitter:description" content="目前的互联网的兴起网上出现了许多各式各样的软件，当然加了”料”的软件也存在其中。加料的软件常常存在与破解软件、钓鱼软件、这些恶意行为的软件可能会上传用户数据、获取系统shell、如何判断他们呢。ps：直接虚拟机调试也行。 杀毒软件初步的过滤建议还是装一个小白360，个人电脑的用火绒+eset（主核心模块用火绒eset做基线保护）。这里有强安全需求的小伙伴可以通过火绒开启联网控制进一步控制电脑的出站">
@@ -256,13 +258,20 @@ var _hmt = _hmt || [];
 <h5 id="带进程监控的沙箱软件进行初步分析"><a href="#带进程监控的沙箱软件进行初步分析" class="headerlink" title="带进程监控的沙箱软件进行初步分析"></a>带进程监控的沙箱软件进行初步分析</h5><p>可以使用 sandboxie与BSA进行联动分析软件可参考<a href="https://blog.csdn.net/AC1145/article/details/103380567" target="_blank" rel="noopener">链接</a>，简单的小程序可以丢<a href="https://www.52pojie.cn/thread-580845-1-1.html" target="_blank" rel="noopener">File_Analysis</a>这个小工具里面跑跑<br><img src="https://i.niupic.com/images/2020/03/13/719d.png" alt=""><br><img src="https://attach.52pojie.cn/forum/201707/09/212028if5nv2132unwm1lp.png" alt=""><br>ProcessHacker可以监控文件的同时直接右键可以程序一键上传到病毒分析网站内置3条接口很方便。<br><img src="https://files.catbox.moe/rlv5va.jpg" alt=""></p>
 <h5 id="驱动监控与加载（win新版本可以用PowerTool64或者PYArk）"><a href="#驱动监控与加载（win新版本可以用PowerTool64或者PYArk）" class="headerlink" title="驱动监控与加载（win新版本可以用PowerTool64或者PYArk）"></a>驱动监控与加载（win新版本可以用PowerTool64或者PYArk）</h5><p>OpenArk64<br><img src="https://pic.rmb.bdstatic.com/bjh/de8a3f7b3f49e67fbd80bb43f54adc68.png" alt=""><br>PowerTool64-PYArk同类型有PCHunter64和YDArk<br><img src="https://pic.rmb.bdstatic.com/bjh/cfefa1f7cebb2b54d609d934f9f82fda.png" alt=""></p>
 <h5 id="监控文件与网络"><a href="#监控文件与网络" class="headerlink" title="监控文件与网络"></a>监控文件与网络</h5><p>监控电脑中所有软件的读写操作，控制软件的恶意删除读取行为当然火绒剑也可以做到。也可以使用：FileActivityWatch或Process Monitor<br><img src="http://www.nirsoft.net/utils/fileactivitywatch.png" alt=""></p>
-<p><img src="https://i.niupic.com/images/2020/10/02/8L6N.png" alt=""></p>
+<p><img src="https://files.catbox.moe/c3u0vv.jpg" alt=""></p>
 <p><img src="https://files.catbox.moe/j2vhgw.png" alt=""></p>
 <p>专注网络推荐Netlimiter 4可以看到tcp/udp/ip下级的流量走向并可以进行控制(P2P,LISTENING隧道后ip)，单纯排查可以直接使用windows资源管理器自带的流量管理<br><img src="https://files.catbox.moe/ls43xp.png" alt=""></p>
-<h5 id="dll分析与简单hook"><a href="#dll分析与简单hook" class="headerlink" title="dll分析与简单hook"></a>dll分析与简单hook</h5><p>API Monitor分析电脑中各种dll的调用<br> <img src="http://www.rohitab.com/gallery/api-monitor-2-0/summary.png" alt=""><br>在X64DBG中加载Rundll32.exe，然后在文件-更改命令行中加载要调用的DLL和导出函数.在选项-首选项中将DLL入口断点勾上,然后反复F9断在你要加载的DLL上面，中途可以通过cheatengine查看内存Ultimap配合x64dbg分析程序反复调试找到hook点下断点分析程序恶意功能。<br><img src="https://pic.rmb.bdstatic.com/bjh/569ee5970e5e6a2717695b5b2a06c772.png" alt=""><br><img src="https://files.catbox.moe/gj9wrv.png" alt=""><br>还有一种直接反编译dll的方法直接使用dnspy<br><img src="https://i.loli.net/2021/09/03/Fx6HDmXtgGPzJvw.gif" alt=""></p>
-<h5 id="进程监控软件"><a href="#进程监控软件" class="headerlink" title="进程监控软件"></a>进程监控软件</h5><p>恶意行为ip可以拉入黑名单禁止它出入站，并配合ip情报网站查询。<br><img src="https://i.niupic.com/images/2020/03/12/70lT.png" alt=""><br>网络的数据包连接数据包状态码如下：</p>
+<h5 id="查看文件pe头信息"><a href="#查看文件pe头信息" class="headerlink" title="查看文件pe头信息"></a>查看文件pe头信息</h5><p>可以通过像<code>StudyPE+ x86</code>这类PE结构分析软件来查看文件的编译时间以及加载信息，如下图我们通过查看PE头中的文件时间戳，并且计算出时间即可得到文件的编译时间。</p>
+<p><img src="https://files.catbox.moe/opjh8d.jpg" alt=""></p>
+<h5 id="dll分析与简单hook"><a href="#dll分析与简单hook" class="headerlink" title="dll分析与简单hook"></a>dll分析与简单hook</h5><p>API Monitor分析电脑中各种dll的调用，也可以通过pe软件查看动态库<br> <img src="http://www.rohitab.com/gallery/api-monitor-2-0/summary.png" alt=""></p>
+<p><img src="https://files.catbox.moe/777482.jpg" alt=""></p>
+<p>在X64DBG中加载Rundll32.exe，然后在文件-更改命令行中加载要调用的DLL和导出函数.在选项-首选项中将DLL入口断点勾上,然后反复F9断在你要加载的DLL上面，中途可以通过cheatengine查看内存Ultimap配合x64dbg分析程序反复调试找到hook点下断点分析程序恶意功能。ps:火绒剑内置了汇编代码预览可以简单的进行分析。<br><img src="https://pic.rmb.bdstatic.com/bjh/569ee5970e5e6a2717695b5b2a06c772.png" alt=""><br><img src="https://files.catbox.moe/gj9wrv.png" alt=""><br>还有一种直接反编译dll的方法直接使用dnspy<br><img src="https://i.loli.net/2021/09/03/Fx6HDmXtgGPzJvw.gif" alt=""></p>
+<h5 id="静态文件脱壳分析"><a href="#静态文件脱壳分析" class="headerlink" title="静态文件脱壳分析"></a>静态文件脱壳分析</h5><p>这里对ida不多累赘需要一定的专业基础(需要汇编基础与编程思想），简单分析字符串可以使用Restorator 可以看到一些未加密的信息（需要先查壳和入口信息）和恶意释放的子程序如bat ，bin，dll文件。简单脱壳工具：XVolkolak</p>
+<p><img src="https://files.catbox.moe/wqa9rl.png" alt=""></p>
+<p>ida分析参考样图：    </p>
+<h5 id="进程监控软件"><a href="#进程监控软件" class="headerlink" title="进程监控软件"></a>进程监控软件</h5><p>恶意行为ip可以拉入黑名单禁止它出入站，并配合ip情报网站查询。<br><img src="https://files.catbox.moe/qeykt9.jpg" alt=""><br>网络的数据包连接数据包状态码如下：</p>
 <p><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td>CLOSED</td>            <td>没有使用这个套接字[netstat 无法显示closed状态]</td>        </tr><tr><td>LISTEN</td>            <td>套接字正在监听连接[调用listen后]</td>        </tr><tr><td>SYN_SENT</td>            <td>套接字正在试图主动建立连接[发送SYN后还没有收到ACK]</td>        </tr><tr><td>SYN_RECEIVED</td>            <td>正在处于连接的初始同步状态[收到对方的SYN，但还没收到自己发过去的SYN的ACK]</td>        </tr><tr><td>ESTABLISHED</td>            <td>连接已建立</td>        </tr><tr><td>CLOSE_WAIT</td>            <td>远程套接字已经关闭：正在等待关闭这个套接字[被动关闭的一方收到FIN]</td>        </tr><tr><td>FIN_WAIT_1</td>            <td>套接字已关闭，正在关闭连接[发送FIN，没有收到ACK也没有收到FIN]</td>        </tr><tr><td>CLOSING</td>            <td>套接字已关闭，远程套接字正在关闭，暂时挂起关闭确认[在FIN_WAIT_1状态下收到被动方的FIN]</td>        </tr><tr><td>LAST_ACK</td>            <td>远程套接字已关闭，正在等待本地套接字的关闭确认[被动方在CLOSE_WAIT状态下发送FIN]</td>        </tr><tr><td>FIN_WAIT_2</td>            <td>套接字已关闭，正在等待远程套接字关闭[在FIN_WAIT_1状态下收到发过去FIN对应的ACK]</td>        </tr><tr><td>TIME_WAIT</td>            <td>这个套接字已经关闭，正在等待远程套接字的关闭传送[FIN、ACK、FIN、ACK都完毕，这是主动方的最后一个状态，在过了2MSL时间后变为CLOSED状态]</td>        </tr></tbody></table><br>进程分析：1.观察进程产生的子进程以及衍生的文件是否存在恶意行为。2.未知的签名文件重点查看其功能。3.查看任务组可以发现对那些文件进行了关联。4.线程可以观看调用了那些底层应用以及开始时间。（一般对电脑系统造成不稳定影响都会被杀软拦截）<br><img src="https://i.niupic.com/images/2020/03/12/70lS.png" alt=""></p>
-<h5 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h5><p>直接再网络层进行抓包监控可以通过Wireshark过滤抓包判断数据包是否存在恶意行为,当然全局代理抓包（fd、burp）一样能够获取但是有些软件是socks5以及隧道流量所以还是只能用Wireshark喔，而且直接再（查看tcp流与3次tcp连接的数据包）。<br>虚拟机环境使用tcp流查看到的恶意数据包如下：<br><img src="https://i.niupic.com/images/2020/03/12/70lU.png" alt=""><br>也可以使用在线流量包分析工具<a href="https://packettotal.com/" target="_blank" rel="noopener">packetTotal</a>遇到某些标准头数据包损坏的情况下可以使用(pacpfix)[<a href="http://f00l.de/hacking/pcapfix.php]修复试试能否还原完整数据包。" target="_blank" rel="noopener">http://f00l.de/hacking/pcapfix.php]修复试试能否还原完整数据包。</a></p>
+<h5 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h5><p>直接再网络层进行抓包监控可以通过Wireshark过滤抓包判断数据包是否存在恶意行为,当然全局代理抓包（fd、burp）一样能够获取但是有些软件是socks5以及隧道流量所以还是只能用Wireshark喔，而且直接再（查看tcp流与3次tcp连接的数据包）。<br>虚拟机环境使用tcp流查看到的恶意数据包如下：<br>也可以使用在线流量包分析工具<a href="https://packettotal.com/" target="_blank" rel="noopener">packetTotal</a>遇到某些标准头数据包损坏的情况下可以使用<a href="http://f00l.de/hacking/pcapfix.php" target="_blank" rel="noopener">pacpfix</a>修复试试能否还原完整数据包。</p>
 
       
 
@@ -388,7 +397,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#杀毒软件"><span class="toc-number">1.</span> <span class="toc-text">杀毒软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在线分析网站"><span class="toc-number">2.</span> <span class="toc-text">在线分析网站</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#带进程监控的沙箱软件进行初步分析"><span class="toc-number">3.</span> <span class="toc-text">带进程监控的沙箱软件进行初步分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#驱动监控与加载（win新版本可以用PowerTool64或者PYArk）"><span class="toc-number">4.</span> <span class="toc-text">驱动监控与加载（win新版本可以用PowerTool64或者PYArk）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控文件与网络"><span class="toc-number">5.</span> <span class="toc-text">监控文件与网络</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dll分析与简单hook"><span class="toc-number">6.</span> <span class="toc-text">dll分析与简单hook</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#进程监控软件"><span class="toc-number">7.</span> <span class="toc-text">进程监控软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Wireshark"><span class="toc-number">8.</span> <span class="toc-text">Wireshark</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#杀毒软件"><span class="toc-number">1.</span> <span class="toc-text">杀毒软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在线分析网站"><span class="toc-number">2.</span> <span class="toc-text">在线分析网站</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#带进程监控的沙箱软件进行初步分析"><span class="toc-number">3.</span> <span class="toc-text">带进程监控的沙箱软件进行初步分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#驱动监控与加载（win新版本可以用PowerTool64或者PYArk）"><span class="toc-number">4.</span> <span class="toc-text">驱动监控与加载（win新版本可以用PowerTool64或者PYArk）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控文件与网络"><span class="toc-number">5.</span> <span class="toc-text">监控文件与网络</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看文件pe头信息"><span class="toc-number">6.</span> <span class="toc-text">查看文件pe头信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dll分析与简单hook"><span class="toc-number">7.</span> <span class="toc-text">dll分析与简单hook</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#静态文件脱壳分析"><span class="toc-number">8.</span> <span class="toc-text">静态文件脱壳分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#进程监控软件"><span class="toc-number">9.</span> <span class="toc-text">进程监控软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Wireshark"><span class="toc-number">10.</span> <span class="toc-text">Wireshark</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -521,23 +530,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,11 +550,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,7 +566,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,7 +582,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">

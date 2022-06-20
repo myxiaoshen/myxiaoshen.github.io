@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://i.niupic.com/images/2019/10/14/_1381.png">
 <meta property="og:image" content="https://camo.githubusercontent.com/0c10358cd4d5b3c681fbb1b376c2ba847a627bba/68747470733a2f2f67697465652e636f6d2f75706c6f6164732f696d616765732f323031382f303532372f3131343032315f65663539316361335f313339303337382e706e67">
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201908/29/015703q2hihauuuhaazazh.jpg">
-<meta property="og:updated_time" content="2022-05-11T02:30:20.409Z">
+<meta property="og:updated_time" content="2022-06-20T06:59:19.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="企业的网管笔记">
 <meta name="twitter:description" content="实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基">
@@ -280,6 +280,12 @@ var _hmt = _hmt || [];
 <p>现在很多软件都可以替代域控而且管理功能都比域更加的全面比如说：IP-guard<br>（当之无愧的第一老牌），iMonitor（貌似这玩意有最近的pj版），威眼（UI漂亮适合新手上手的界面），52大佬的<a href="https://pan.xlmy.net/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E7%BB%B4%E6%8A%A4%E5%B7%A5%E5%85%B7/" target="_blank" rel="noopener">神目监控</a>也不错<br>单纯的巡检，病毒，软件，启动项管理推荐使用360企业版，或者火绒企业版。</p>
 <h4 id="业务机器的管理"><a href="#业务机器的管理" class="headerlink" title="业务机器的管理"></a>业务机器的管理</h4><p>以下提供2种方案分别解决了少量业务与大量业务的后期管理。<br>一、集群化管理方案（大量产品业务）：VMware vCenter 或者Kubernetes（后者难度较高没有基础建议用前者）</p>
 <p>二、传统分类网络管理（少量业务或物联网设备管理）：再软路由上绑定arp地址并备注。注：宽带叠加需要对端口进行wan分流和对应的wan口映射才能外部访问。</p>
+<p>三、走devops生产线，一体化面板管理linux服务器与容器打包。推荐开源项目<a href="https://gitee.com/dromara/Jpom" target="_blank" rel="noopener">Jpom</a><br>路由器与交换机的差异:</p>
+<table class="ke-zeroborder" style="width: 100%;" border="0" cellspacing="0" cellpadding="2"><tbody><tr><td>传输速度</td><td>路由器比交换机慢，同一网线上网相互影响</td><td>交换机比较路由器快，同一网线各自上网互不受影响</td></tr><tr><td>使用范围</td><td>路由器是必需的网络设备，在路由器无法全部连接电脑的情况下，再加交换机。</td><td>单独交换机无法实现上互联网功能，交换机在局域网中起到拓展的作用</td></tr><tr><td>网络地址</td><td>路由器可以把一个IP分配给很多个主机使用，但IP都是相同的</td><td>交换机可以多个主机连起来，主机对外各有各的IP，IP都不同</td></tr><tr><td>安全性能</td><td>路由器提供了防火墙的服务，路由器同时具有交换机的功能</td><td>交换机不具备此功能，交换机不具备路由功能</td></tr><tr><td>数据转发</td><td>以MAC地址来确定转发数据的目的地址，一般硬件自带</td><td>以不同网络的ID号来确定数据转发地址。IP地址由网络管理员或系统自动分配</td></tr><tr><td>购买价格</td><td>较高（因为部份路由器具备交换机功能）</td><td>高</td></tr></tbody></table>
+
+<p>企业带宽接入选择：</p>
+ <table class="ke-zeroborder" style="width: 100%;" border="0" cellspacing="0" cellpadding="2"><tbody><tr><td>接入方式</td><td>优点</td><td>缺点</td><td>使用范围</td></tr><tr><td>ADSL接入</td><td>带宽较大、连高速数据传输、接法简单、投资较小、覆盖面广</td><td>对线路质量要求较高，当线路质量不高时影响使用</td><td>家庭用户、中小企业用户、集中的用户接、分散的用户接入使用</td></tr><tr><td>VDSL接入</td><td>更快的互联网接入、具有LAN速率的安全LAN接入、低成本的办公应用、IP电话传递</td><td>传输速度与传输距离成反比，配线质量需相当好。且VDSL目前还没有一套统一标准，各家所制造的设备互不兼容</td><td>适用于酒店等服务行业或中小型企业使用</td></tr><tr><td>Home PNA接入</td><td>Home PNA传输速度快、收费低、共享上网、施工简单</td><td>虽然成本较低，但传输距离太短，长距离的传输仍然需要ADSL技术、VDSL技术等来实现</td><td>家庭电话线网络组建</td></tr><tr><td>MMDS接入</td><td>成本低廉、MMDS技术比较成熟，使用广泛</td><td>带宽有限，尤其在人口密集的地区，很多用户有可能共用同一无线信道，数据流量会低于其他宽带无线服务</td><td>适用于中小企业用户和集团用户及大、中城市个人用户使用</td></tr></tbody></table>
+
 <h4 id="常用dos命令"><a href="#常用dos命令" class="headerlink" title="常用dos命令"></a>常用dos命令</h4><pre><code>nslookup -qt=txt ip dns（查询服务器的dns响应,-qt或者-type查看解析值）
 tracert  （检查路由情况一般10个以内为正常，10-15为较慢，30以上算作无法访问）
 netstat -anoq | findstr pid（配合任务管理器分析本地软件流量动向带管道符可以筛选）-r是查看路由表
@@ -298,17 +304,14 @@ netsh interface portproxy show all  （显示系统中的转发规则列表）
 netsh interface portproxy reset （清除所有当前的端口转发规则）
 ping 192.168.*.255 然后使用arp -a （查看活跃的ip地址）
 </code></pre><a id="more"></a>
-<p>路由器与交换机的差异:</p>
-<table class="ke-zeroborder" style="width: 100%;" border="0" cellspacing="0" cellpadding="2"><tbody><tr><td>传输速度</td><td>路由器比交换机慢，同一网线上网相互影响</td><td>交换机比较路由器快，同一网线各自上网互不受影响</td></tr><tr><td>使用范围</td><td>路由器是必需的网络设备，在路由器无法全部连接电脑的情况下，再加交换机。</td><td>单独交换机无法实现上互联网功能，交换机在局域网中起到拓展的作用</td></tr><tr><td>网络地址</td><td>路由器可以把一个IP分配给很多个主机使用，但IP都是相同的</td><td>交换机可以多个主机连起来，主机对外各有各的IP，IP都不同</td></tr><tr><td>安全性能</td><td>路由器提供了防火墙的服务，路由器同时具有交换机的功能</td><td>交换机不具备此功能，交换机不具备路由功能</td></tr><tr><td>数据转发</td><td>以MAC地址来确定转发数据的目的地址，一般硬件自带</td><td>以不同网络的ID号来确定数据转发地址。IP地址由网络管理员或系统自动分配</td></tr><tr><td>购买价格</td><td>较高（因为部份路由器具备交换机功能）</td><td>高</td></tr></tbody></table>
-
-<p>企业带宽接入选择：</p>
- <table class="ke-zeroborder" style="width: 100%;" border="0" cellspacing="0" cellpadding="2"><tbody><tr><td>接入方式</td><td>优点</td><td>缺点</td><td>使用范围</td></tr><tr><td>ADSL接入</td><td>带宽较大、连高速数据传输、接法简单、投资较小、覆盖面广</td><td>对线路质量要求较高，当线路质量不高时影响使用</td><td>家庭用户、中小企业用户、集中的用户接、分散的用户接入使用</td></tr><tr><td>VDSL接入</td><td>更快的互联网接入、具有LAN速率的安全LAN接入、低成本的办公应用、IP电话传递</td><td>传输速度与传输距离成反比，配线质量需相当好。且VDSL目前还没有一套统一标准，各家所制造的设备互不兼容</td><td>适用于酒店等服务行业或中小型企业使用</td></tr><tr><td>Home PNA接入</td><td>Home PNA传输速度快、收费低、共享上网、施工简单</td><td>虽然成本较低，但传输距离太短，长距离的传输仍然需要ADSL技术、VDSL技术等来实现</td><td>家庭电话线网络组建</td></tr><tr><td>MMDS接入</td><td>成本低廉、MMDS技术比较成熟，使用广泛</td><td>带宽有限，尤其在人口密集的地区，很多用户有可能共用同一无线信道，数据流量会低于其他宽带无线服务</td><td>适用于中小企业用户和集团用户及大、中城市个人用户使用</td></tr></tbody></table>
-
-
-<h4 id="电脑重装与维护"><a href="#电脑重装与维护" class="headerlink" title="电脑重装与维护"></a>电脑重装与维护</h4><p>先推荐2个系统网</p>
-<p>官方镜像:[<a href="http://www.aichunjing.com/" target="_blank" rel="noopener">http://www.aichunjing.com/</a>]<br>iso系统镜像：[<a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener">https://msdn.itellyou.cn/</a>]<br>三方纯净gho:[<a href="http://www.aichunjing.com/" target="_blank" rel="noopener">http://www.aichunjing.com/</a>]</p>
+<p>系统修复命令<br>1.非损坏严重性修复<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sfc /SCANNOW   <span class="comment">##扫描系统文件到日志文件</span></span><br><span class="line">Dism /Online /Cleanup-Image /ScanHealth    <span class="comment">#扫描全部系统文件和系统映像文件是否与官方版本一致</span></span><br><span class="line">Dism /Online /Cleanup-Image /CheckHealth   <span class="comment">#检查损害文件</span></span><br><span class="line">DISM /Online /Cleanup-image /RestoreHealth  <span class="comment">#联机下载并修复已损坏的系统文件</span></span><br></pre></td></tr></table></figure></p>
+<p>2.镜像损坏与其他情况需要先准备好与当前系统相对应的系统镜像文件，打开镜像文件将sources目录下的install.wim文件复制到C盘根目录下，在C盘根目录下新建一个文件夹命名为REP(可换目录)，用本地wim修复系统镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ATTRIB C:\install.wim -R &amp; DISM.exe /Mount-Image /ImageFile:C:\install.wim /Index:1 /MountDir:C:\REP</span><br></pre></td></tr></table></figure>
+<p>修复过后卸载命令，然后以后修复可以直接使用第一种方法修复。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DISM.exe /Unmount-Image /MountDir:C:\REP /Discard</span><br></pre></td></tr></table></figure></p>
+<h4 id="电脑重装与维护"><a href="#电脑重装与维护" class="headerlink" title="电脑重装与维护"></a>电脑重装与维护</h4><p>先推荐几个系统网</p>
+<p>423精简镜像:[<a href="https://www.423down.com/win10" target="_blank" rel="noopener">https://www.423down.com/win10</a>]<br>iso系统镜像：[<a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener">https://msdn.itellyou.cn/</a>]<br>三方纯净gho:[<a href="http://www.aichunjing.com/" target="_blank" rel="noopener">http://www.aichunjing.com/</a>]</p>
 <ol>
-<li>U启通或微pe+win纯净<br>公司电脑比较老式推荐进2003pe，不然可能识别不到磁盘。装完系统需要安装许多常用的软件推荐使用it天空的软件安装助理，或者自己封装GHO包（正版化检查的公司不能用GHO喔）</li>
+<li>U启通或微pe<br>公司电脑比较老式推荐进2003pe，不然可能识别不到磁盘。装完系统需要安装许多常用的软件推荐使用it天空的软件安装助理，或者自己封装GHO包（正版化检查的公司不能用GHO喔）</li>
 <li>win直装</li>
 <li>ios软碟通启动直装或者使用Ventoy多iso文件启动而且不影响U盘的使用</li>
 <li>卡windows，拔外设进系统插上，bios重置；bios保存问题更换电池。</li>
@@ -677,23 +680,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -705,11 +700,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,7 +716,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -729,7 +732,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
