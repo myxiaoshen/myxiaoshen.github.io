@@ -17,9 +17,13 @@
 <meta property="og:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。 俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。 Linux环境坑介绍一下简单的配置查看：123456789101112131415161718lscpu 列cpulsof  列文件lsusb 列usb设备lspci 列总线cat /">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20190314/5dca82d53165496d831b98a63f46a460.jpeg">
-<meta property="og:image" content="https://images.gitee.com/uploads/images/2020/0605/190221_06a883fe_1168339.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/07/01/jQDK0O.png">
 <meta property="og:image" content="https://github.com/grayddq/GScan/blob/master/pic/2.png">
-<meta property="og:updated_time" content="2022-06-20T06:50:06.945Z">
+<meta property="og:image" content="https://kuboard.cn/assets/img/module_01_cluster.8f54b2c5.svg">
+<meta property="og:image" content="https://kuboard.cn/assets/img/module_03_nodes.38f0ef71.svg">
+<meta property="og:image" content="https://kuboard.cn/assets/img/module_05_scaling2.3f74dfba.svg">
+<meta property="og:image" content="https://s1.ax1x.com/2022/07/01/jQRGOs.png">
+<meta property="og:updated_time" content="2022-07-01T09:23:11.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
 <meta name="twitter:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。 俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。 Linux环境坑介绍一下简单的配置查看：123456789101112131415161718lscpu 列cpulsof  列文件lsusb 列usb设备lspci 列总线cat /">
@@ -290,7 +294,8 @@ var _hmt = _hmt || [];
 <h4 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h4><p>首先ln命令是必须要会用的</p>
 <pre><code>ln –s  /var/www/test  test \\当前路径创建test 引向/var/www/test 文件夹 
 ln –s  /var/www/test   /var/test  \\创建/var/test 引向/var/www/test 文件夹 
-</code></pre><p>1.挂载新磁盘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l  //分区/查看分区</span><br><span class="line">fdisk /dev/sdc //这里写上一步的磁盘路径</span><br></pre></td></tr></table></figure></p>
+</code></pre><p>1.查看新磁盘路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l  //分区/查看分区</span><br><span class="line">fdisk /dev/sdc //这里写上一步的磁盘路径</span><br></pre></td></tr></table></figure>
 <p>2.输入 n 按回车键，然后再输入 p ，按回车键。 n 表示新建一个分区，p 表示是主分区。 输入 m 可以查看所有的命令说明。后面一直默认就行了最后一步w保存。（这里注意默认分区是1，后面需要格式化的盘就选择/dev/sdc1）</p>
 <p>3.格式化磁盘并挂载分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mkfs.xfs  /dev/sdc1           #格式化分区</span><br><span class="line"></span><br><span class="line">mkdir  /Ddata128G                #建立挂载点，建议挂在根目录下</span><br><span class="line"></span><br><span class="line">mount /dev/sdc1 /Ddata    　　　　　#挂载硬盘</span><br><span class="line"></span><br><span class="line">vim /etc/fstab                #挂载永久生效</span><br><span class="line">***************</span><br><span class="line">/dev/sdc1  /Ddata128G   xfs    defaults 0 0</span><br><span class="line">***************</span><br></pre></td></tr></table></figure></p>
 <p>*4.删除分区（如果设置了永久挂载记得去/etc/fstab删除掉挂载信息）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">umount -v /dev/sdc1    #卸载磁盘</span><br><span class="line">fdisk /dev/sdc1      #删除分区</span><br><span class="line">m  </span><br><span class="line">d  </span><br><span class="line">1  </span><br><span class="line">d</span><br></pre></td></tr></table></figure></p>
@@ -314,8 +319,45 @@ ForwardToSyslog=no
 <h3 id="三、运维实用脚本（可根据公司需求重构）"><a href="#三、运维实用脚本（可根据公司需求重构）" class="headerlink" title="三、运维实用脚本（可根据公司需求重构）"></a>三、运维实用脚本（可根据公司需求重构）</h3><h4 id="日常脚本"><a href="#日常脚本" class="headerlink" title="日常脚本"></a>日常脚本</h4><p>快捷运维，代号<a href="https://github.com/aqzt/kjyw" target="_blank" rel="noopener">kjyw</a>，项目基于shell、python，运维脚本工具库，收集各类运维常用工具脚本，实现快速安装nginx、mysql、php、redis、nagios、运维经常使用的脚本等等…</p>
 <p><a href="https://github.com/Ljohn001/ljohn_ops" target="_blank" rel="noopener">https://github.com/Ljohn001/ljohn_ops</a></p>
 <p><a href="https://linuxeye.com/category/script/" target="_blank" rel="noopener">https://linuxeye.com/category/script/</a></p>
-<h4 id="应急工具"><a href="#应急工具" class="headerlink" title="应急工具"></a>应急工具</h4><p>一站式问题定位平台，以agent的方式无侵入接入应用，提供各种指标，动态线程堆栈追踪，完整集成arthas功能模块，致力于应用级监控，帮助开发人员快速定位问题。<a href="https://gitee.com/dromara/cubic" target="_blank" rel="noopener">cubic</a><br><img src="https://images.gitee.com/uploads/images/2020/0605/190221_06a883fe_1168339.png" alt=""><br><a href="https://github.com/al0ne/LinuxCheck" target="_blank" rel="noopener">https://github.com/al0ne/LinuxCheck</a><br><img src="https://github.com/grayddq/GScan/blob/master/pic/2.png" alt=""><br><a href="https://github.com/grayddq/GScan" target="_blank" rel="noopener">https://github.com/grayddq/GScan</a></p>
-<h3 id="云计算与虚拟化坑"><a href="#云计算与虚拟化坑" class="headerlink" title="云计算与虚拟化坑"></a>云计算与虚拟化坑</h3><h4 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h4>
+<h4 id="应急工具"><a href="#应急工具" class="headerlink" title="应急工具"></a>应急工具</h4><p>一站式问题定位平台，以agent的方式无侵入接入应用，提供各种指标，动态线程堆栈追踪，完整集成arthas功能模块，致力于应用级监控，帮助开发人员快速定位问题。<a href="https://gitee.com/dromara/cubic" target="_blank" rel="noopener">cubic</a><br><img src="https://s1.ax1x.com/2022/07/01/jQDK0O.png" alt=""><br><a href="https://github.com/al0ne/LinuxCheck" target="_blank" rel="noopener">https://github.com/al0ne/LinuxCheck</a><br><img src="https://github.com/grayddq/GScan/blob/master/pic/2.png" alt=""><br><a href="https://github.com/grayddq/GScan" target="_blank" rel="noopener">https://github.com/grayddq/GScan</a></p>
+<h3 id="云计算扫盲"><a href="#云计算扫盲" class="headerlink" title="云计算扫盲"></a>云计算扫盲</h3><h4 id="Kubernetes基础"><a href="#Kubernetes基础" class="headerlink" title="Kubernetes基础"></a>Kubernetes基础</h4><p><img src="https://kuboard.cn/assets/img/module_01_cluster.8f54b2c5.svg" alt=""></p>
+<p><strong>术语总结</strong></p>
+<blockquote>
+<p><strong>控制节点（Master）</strong>：负责协调集群中的所有活动，例如调度应用程序，维护应用程序的状态，扩展和更新应用程序。</p>
+<blockquote>
+<blockquote>
+<p><strong>工作节点（Node）</strong>：是VM(虚拟机)或物理计算机，充当k8s集群中的工作计算机。每个node都有一个Kubelet用于通讯</p>
+</blockquote>
+</blockquote>
+<p><strong>负载部署方式</strong></p>
+<blockquote>
+<blockquote>
+<ul>
+<li>Deployment（无状态）：微服务类</li>
+<li>StatefulSet（有状态副本集）：中间件类</li>
+<li>DaemonSet（守护进程集）：日志，监控定时类 </li>
+</ul>
+<blockquote>
+<p><strong>容器组（Pod）</strong>:用于存放一组 container（可包含一个或多个 container 容器，即图下正方体)，以及这些 container （容器）的一些共享资源。这些资源包括：</p>
+<ul>
+<li>共享存储，称为卷(Volumes)：数据挂载地数据与配置文件等</li>
+<li>网络，每个 Pod（容器组）在集群中有个唯一的 IP，pod（容器组）中的 container（容器）共享该IP地址</li>
+<li>container（容器）: 的基本信息，例如容器的镜像版本，对外暴露的端口等</li>
+</ul>
+</blockquote>
+<p>服务（Service）：它使用 <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels" target="_blank" rel="noopener">Labels、LabelSelector(标签和选择器) (opens new window)</a>匹配一组 Pod。Labels（标签）是附加到 Kubernetes 对象的键/值对，其用途有多种：</p>
+<ul>
+<li>将 Kubernetes 对象（Node、Deployment、Pod、Service等）指派用于开发环境、测试环境或生产环境</li>
+<li>嵌入版本标签，使用标签区别不同应用软件版本</li>
+<li>使用标签对 Kubernetes 对象进行分类</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><img src="https://kuboard.cn/assets/img/module_03_nodes.38f0ef71.svg" alt=""></p>
+<p><img src="https://kuboard.cn/assets/img/module_05_scaling2.3f74dfba.svg" alt="Kubernetes教程：伸缩"></p>
+<p>教程的话直接看<a href="https://kuboard.cn/learning/k8s-basics/kubernetes-basics.html#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87" target="_blank" rel="noopener">Kuboard文档</a>下的教程学习效率杠杠的，然后配合<a href="https://www.bilibili.com/video/BV13Q4y1C7hS" target="_blank" rel="noopener">尚硅谷的视频</a>教程开启云原生时代。<br><img src="https://s1.ax1x.com/2022/07/01/jQRGOs.png" alt=""><br>懂原理过后直接上青云的kubesphere面板或者Kuboard的面板直接突突突就行了,有手就行。</p>
+
       
 
       
@@ -440,7 +482,7 @@ ForwardToSyslog=no
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux环境坑"><span class="toc-number">1.</span> <span class="toc-text">Linux环境坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器坑"><span class="toc-number">1.1.</span> <span class="toc-text">服务器坑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Raid基础"><span class="toc-number">1.1.1.</span> <span class="toc-text">Raid基础</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux系统"><span class="toc-number">1.1.2.</span> <span class="toc-text">Linux系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"><span class="toc-number">2.</span> <span class="toc-text">一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、必备命令"><span class="toc-number">3.</span> <span class="toc-text">二、必备命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#综合分析"><span class="toc-number">3.1.</span> <span class="toc-text">综合分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存分析"><span class="toc-number">3.2.</span> <span class="toc-text">内存分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#磁盘管理"><span class="toc-number">3.3.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux安全分析（配合日志分析）"><span class="toc-number">3.4.</span> <span class="toc-text">Linux安全分析（配合日志分析）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#日志清理与管理"><span class="toc-number">3.4.1.</span> <span class="toc-text">日志清理与管理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、运维实用脚本（可根据公司需求重构）"><span class="toc-number">4.</span> <span class="toc-text">三、运维实用脚本（可根据公司需求重构）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#日常脚本"><span class="toc-number">4.1.</span> <span class="toc-text">日常脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应急工具"><span class="toc-number">4.2.</span> <span class="toc-text">应急工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#云计算与虚拟化坑"><span class="toc-number">5.</span> <span class="toc-text">云计算与虚拟化坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes"><span class="toc-number">5.1.</span> <span class="toc-text">Kubernetes</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux环境坑"><span class="toc-number">1.</span> <span class="toc-text">Linux环境坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器坑"><span class="toc-number">1.1.</span> <span class="toc-text">服务器坑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Raid基础"><span class="toc-number">1.1.1.</span> <span class="toc-text">Raid基础</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux系统"><span class="toc-number">1.1.2.</span> <span class="toc-text">Linux系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"><span class="toc-number">2.</span> <span class="toc-text">一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、必备命令"><span class="toc-number">3.</span> <span class="toc-text">二、必备命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#综合分析"><span class="toc-number">3.1.</span> <span class="toc-text">综合分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存分析"><span class="toc-number">3.2.</span> <span class="toc-text">内存分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#磁盘管理"><span class="toc-number">3.3.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux安全分析（配合日志分析）"><span class="toc-number">3.4.</span> <span class="toc-text">Linux安全分析（配合日志分析）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#日志清理与管理"><span class="toc-number">3.4.1.</span> <span class="toc-text">日志清理与管理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、运维实用脚本（可根据公司需求重构）"><span class="toc-number">4.</span> <span class="toc-text">三、运维实用脚本（可根据公司需求重构）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#日常脚本"><span class="toc-number">4.1.</span> <span class="toc-text">日常脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应急工具"><span class="toc-number">4.2.</span> <span class="toc-text">应急工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#云计算扫盲"><span class="toc-number">5.</span> <span class="toc-text">云计算扫盲</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes基础"><span class="toc-number">5.1.</span> <span class="toc-text">Kubernetes基础</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -573,18 +615,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -593,19 +623,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,11 +639,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,7 +667,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
