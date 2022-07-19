@@ -423,7 +423,10 @@ var _hmt = _hmt || [];
 <p>网络配置方面：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/network  <span class="comment">#主机名配置文件</span></span><br><span class="line">ifconfig eth0  down   <span class="comment">#down关闭 up启动</span></span><br><span class="line">service network restart <span class="comment">#重启网络</span></span><br><span class="line">/etc/resolv.conf  <span class="comment">#dns目录</span></span><br><span class="line">service networking restart <span class="comment">#重启网络服务</span></span><br><span class="line">route add –net 192.168.0.0/24 gw 172.16.7.3  <span class="comment">#添加一条路由delete删除</span></span><br></pre></td></tr></table></figure></p>
 <p>修改/etc/sysconfig/network-scripts/ifcfg-ethx:x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=ethx:x </span><br><span class="line"> </span><br><span class="line">   BOOTPROTO=static   #这里可以用dhcp</span><br><span class="line"> </span><br><span class="line">   IPIPADDR=   IP地址 </span><br><span class="line"> </span><br><span class="line">   NETMASK=  子网掩码 </span><br><span class="line"> </span><br><span class="line">   GATEWAY=  网关 </span><br><span class="line"> </span><br><span class="line">   ONBOOT=YES   是否开机启用 </span><br><span class="line"> </span><br><span class="line">   HWADDR=...... MAC</span><br></pre></td></tr></table></figure></p>
 <p>用户与组操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">adduser &lt;username&gt;   //创建用户</span><br><span class="line">userdel &lt;username&gt;   //删除用户</span><br><span class="line">passwd &lt;username&gt;   //设置密码</span><br><span class="line">groups wuliang     //查询用户属于那个组</span><br><span class="line">gpasswd -a &lt;username&gt; wheel   //授予sudo权限 -d删除组权限</span><br><span class="line">lid -g wheel     //列出wheel组的权限用户</span><br><span class="line"></span><br><span class="line">用户列表文件：/etc/passwd</span><br><span class="line">用户组列表文件：/etc/group</span><br></pre></td></tr></table></figure></p>
-<h4 id="服务器坑"><a href="#服务器坑" class="headerlink" title="服务器坑"></a>服务器坑</h4><h5 id="Raid基础"><a href="#Raid基础" class="headerlink" title="Raid基础"></a>Raid基础</h5><p>Raid0：将所有磁盘整合在一起，空间叠加，没有冗余。</p>
+<h4 id="服务器坑"><a href="#服务器坑" class="headerlink" title="服务器坑"></a>服务器坑</h4><blockquote>
+<p>太久忘记密码启动菜单按e键，linux版本一行最后加上”init=/bin/sh”然后ro改为rw -&gt;ctrl+x 最后启动更改密码后更新selinux-&gt; touch /.autorelabel</p>
+</blockquote>
+<h5 id="Raid基础"><a href="#Raid基础" class="headerlink" title="Raid基础"></a>Raid基础</h5><p>Raid0：将所有磁盘整合在一起，空间叠加，没有冗余。</p>
 <p>优点：磁盘空间利用率最大，可以获得最大的存储空间。读写速度略高于裸盘。<br>缺点：任何一块磁盘损坏，所有数据丢失。<br>Raid1：两块磁盘可做 raid1，相互备份，损坏一块阵列可以照常运行。当两块磁盘大小和速度不一致时，容量和读写速度依照小容量和低速盘。</p>
 <p>优点：两块磁盘互备，高可用。无法扩展。读速度略高于裸盘。<br>缺点：损失一半磁盘空间。<br>Raid10：四块和以上磁盘的偶数磁盘可以做 raid10。结合 raid1 和 raid0 优势，所有磁盘两两分组，组成 raid1，然后多个 raid1 组成 raid10。</p>
 <p>优点：每组磁盘两两互备，高可用。磁盘空间可以扩展。读写速度略高于裸盘。<br>缺点：损失一半磁盘空间。<br>Raid5：三块以上磁盘可以做 raid5。Raid5 用校验的方式写数据和读数据。提供 n-1 的磁盘空间和 1 块磁盘冗余。</p>
@@ -530,11 +533,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实用技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实用技术</a>
         		</li>
       		
 		</ul>
@@ -766,11 +769,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1078,22 +1081,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -1102,7 +1089,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1114,19 +1117,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
