@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/aa46ef278c3b65f1.jpg">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/904108970cc00afb.png">
 <meta property="og:image" content="https://www.ddosi.com/wp-content/uploads/2020/03/Ahmia.jpg">
-<meta property="og:updated_time" content="2022-06-20T07:51:33.144Z">
+<meta property="og:updated_time" content="2022-07-30T14:01:42.383Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络中的那些信息搜集">
 <meta name="twitter:description" content="大家都知道在生活中往往会在需要对目标进行信息收集的时候，在攻防演练时我们更多的称之为外围打点，即需要发现能够获取权限的漏洞，利用从而进入目标内网。大多数情况下，利用漏洞其实大家已经不成问题了，更多的场景是找不到这个入口点，下面整理一些常用的信息收集方法。 搜索小技巧：通过搜索引擎多使用关键字：1.xx在线工具 2.xx破解版 3.xx在线 4. xx补丁 5.xx+当前年份 6.云xx 7.最好的">
@@ -270,9 +270,9 @@ var _hmt = _hmt || [];
 <h5 id="邮箱与证书信息搜集"><a href="#邮箱与证书信息搜集" class="headerlink" title="邮箱与证书信息搜集"></a>邮箱与证书信息搜集</h5><p>邮箱：<br><a href="https://www.skymem.info/" target="_blank" rel="noopener">https://www.skymem.info/</a></p>
 <h5 id="waf探测"><a href="#waf探测" class="headerlink" title="waf探测"></a>waf探测</h5><p><a href="https://blog.csdn.net/weixin_46676743/article/details/112245605" target="_blank" rel="noopener">看图识waf</a><br>（1）手工（提交恶意数据，简单粗暴）</p>
 <p>（2）Kaili工具（WAFW00F、Nmap）</p>
-<pre><code> nmap  -p80,443  --script=http-waf-fingerprint  ip
-nmap  -p80,443  --script=http-waf-detect  ip
-wafw00f  -a  域名
+<pre><code>nmap  -p80,443  --script=http-waf-fingerprint  ip
+  nmap  -p80,443  --script=http-waf-detect  ip
+  wafw00f  -a  域名
 </code></pre><h4 id="组织架构查询"><a href="#组织架构查询" class="headerlink" title="组织架构查询"></a>组织架构查询</h4><p><blockquote><p>天眼查：<a href="https://www.tianyancha.com/" target="_blank" rel="noopener"><u>https://www.tianyancha.com/</u></a>&nbsp;</p><p>ICP备案查询网：<a href="http://www.beianbeian.com/" target="_blank" rel="noopener"><u>http://www.beianbeian.com/</u></a>&nbsp;</p><p>国家企业信用信息公示系统：<a href="http://www.gsxt.gov.cn/index.html" target="_blank" rel="noopener"><u>http://www.gsxt.gov.cn/index.html</u></a>&nbsp;</p></blockquote><br>注意：国外的服务器一般来说是查不到的，因为他们不需要备案。国内的基本上都可以查到。如果在站长之家上隐藏了信息，可在who.is上再次查看。<br>ICP备案查询:<a href="https://beian.miit.gov.cn/#/Integrated/recordQuery" target="_blank" rel="noopener">https://beian.miit.gov.cn/#/Integrated/recordQuery</a><br>公安部备案查询：<a href="http://www.beian.gov.cn/portal/recordQuery" target="_blank" rel="noopener">http://www.beian.gov.cn/portal/recordQuery</a> </p>
 <h3 id="二、其他平台资产收集"><a href="#二、其他平台资产收集" class="headerlink" title="二、其他平台资产收集"></a>二、其他平台资产收集</h3><h4 id="平台信息"><a href="#平台信息" class="headerlink" title="平台信息"></a>平台信息</h4><p>微信公众号和小程序还是用手机微信搜索 比较方便，当然也可以通过搜狗来发现目标大概有哪些公众号，但是最终还是得用手机测试抓包(PS:现在PC端微信抓包也很方便啦):<a href="https://search.chongbuluo.com/" target="_blank" rel="noopener">聚合搜索引擎</a><br>除了微信公众号外，也可以在APP商城中和Google上通过反查开发者来尽可能多的收集目标的移动端资产、还可以通过开源工具<a href="https://github.com/cqkenuo/appinfoscanner" target="_blank" rel="noopener">appinfo</a>寻找app内有用的的静态信息。其他信息收集还包括脉脉、github、码云、语雀、钉钉、知乎、微博、贴吧、领英还有新媒体资产如：抖音小程序客服沟通。还有视频平台如：B站，youtube这些地方有时候也能找到自己需要的关键信息。以上信息多结合支付宝和微信的反查获取真实信息(站长工具给钱可以直接出备案的网站负责人)。<br><img src="https://ftp.bmp.ovh/imgs/2021/06/553ba7c3ce9f5a45.png" alt=""></p>
 <h4 id="网盘泄露"><a href="#网盘泄露" class="headerlink" title="网盘泄露"></a>网盘泄露</h4><p><a href="https://lzpan.com/" target="_blank" rel="noopener">聚合网盘</a><br><img src="https://ftp.bmp.ovh/imgs/2021/06/a1a20f10ffa4edb6.png" alt=""></p>
@@ -285,8 +285,25 @@ wafw00f  -a  域名
 <h4 id="内部泄露"><a href="#内部泄露" class="headerlink" title="内部泄露"></a>内部泄露</h4><p>在QQ群中搜索目标关键字，加群即可，然后根据群内聊天内容，适当调整木马名称上传至群共享，上线率极高。企业内部宏文档，图片马，解压缩文件，点击劫持，flash钓鱼和组件钓鱼，还有js内部文件的泄露。</p>
 <h4 id="社工库泄露"><a href="#社工库泄露" class="headerlink" title="社工库泄露"></a>社工库泄露</h4><p><a href="https://t.me/tgInternetSecurity" target="_blank" rel="noopener">信息安全群</a><br><a href="https://t.me/FreeSGKbot?start=SGKDAVMMUC" target="_blank" rel="noopener">tg公开泄露</a>:<br><img src="https://ftp.bmp.ovh/imgs/2021/06/07c97324a8621a7c.png" alt=""><br><a href="http://www.qbcxw.top/TvjvF2Nb4mpIub7L7c/index.html" target="_blank" rel="noopener">公开数据泄露</a>：<br><img src="https://ftp.bmp.ovh/imgs/2021/06/09de3fba63cd3826.png" alt=""><br>某一哥查询(网图):<br><img src="https://ftp.bmp.ovh/imgs/2021/06/aa46ef278c3b65f1.jpg" alt=""></p>
 <h3 id="六、深网泄露"><a href="#六、深网泄露" class="headerlink" title="六、深网泄露"></a>六、深网泄露</h3><p>（1）可以把母语翻译成其他国家的语言然后去Google进行搜索最后再以web翻译的形式进行查看可以发现很多新大陆的信息（注意了解国外人的发音与方言可以配合DeepL翻译多试几种翻译结果。<br>（2） 筛选国家和地区来找到对应需要的资源。<br>    <img src="https://ftp.bmp.ovh/imgs/2021/06/904108970cc00afb.png" alt=""></p>
-<h4 id="tg电报群搜索"><a href="#tg电报群搜索" class="headerlink" title="tg电报群搜索"></a>tg电报群搜索</h4><p>telegram（TG）在中国也叫电报，是个国外的聊天工具，提供频道、群组、机器人等功能。这里收集了多种功能不同的机器人，机器人可以帮助管理群组，可以提供翻译，可以代下文件，可以提醒网站更新等。而且可以发掘许多免费的资源以及一些小道情报，你还可以在这里找到各种神器的产业。<br><a href="https://t.me/hao1234bot" target="_blank" rel="noopener">@hao1234bot</a> 【超级索引】：Telegram上的Hao123，频道大全，也有个频道，是发送关键词，然后BOT提供关键词相关群组的机器人。可以拉到群组使用。</p>
+<h4 id="tg电报群搜索"><a href="#tg电报群搜索" class="headerlink" title="tg电报群搜索"></a>tg电报群搜索</h4><p>telegram（TG）在中国也叫电报，是个国外的聊天工具，提供频道、群组、机器人等功能。这里收集了多种功能不同的机器人，机器人可以帮助管理群组，可以提供翻译，可以代下文件，可以提醒网站更新等。而且可以发掘许多免费的资源以及一些小道情报，你还可以在这里找到各种神器的产业。以下推荐几个搜索工具</p>
+<blockquote>
+<p>搜索引擎：<a href="https://www.sssoou.com/" target="_blank" rel="noopener">TG中文搜索引擎</a>与<a href="tg.qianfan.app">千fan搜索</a></p>
+<p>tg机器人： <a href="https://t.me/hao1234bot" target="_blank" rel="noopener">@hao1234bot</a> 【超级索引】 </p>
+</blockquote>
 <h4 id="暗网搜索引擎"><a href="#暗网搜索引擎" class="headerlink" title="暗网搜索引擎"></a>暗网搜索引擎</h4><p>暗网是互联网站点的隐藏集合，只能通过专门的网络浏览器访问。它用于保持互联网活动的匿名性和私密性，这对合法和非法应用程序都有帮助。虽然有些人用它来逃避政府审查，但众所周知，它也被用于高度非法的活动。<b>为避免被骗，您需要通过网络上的明智行为来保护自己。不是每个人都像他们看起来的那样。保持安全需要您注意与谁交谈以及访问的地方。如果感觉不对劲，应该马上停止浏览并及时采取行动让自己脱离现状使用的身份也尽量不要真实包括互联网信息</b>下面推荐几个深网的搜索引擎方便搜寻资料：<br>1.msydqstlz2kzerdg.onion–Ahmia（推荐）<br>  msydqstlz2kzerdg.onion/i2p–Ahmia i2p引擎<br>Ahmia会自动检测到错误的.onion链接并将其列入数据库黑名单，并且还会维护其最多链接访问图表<br><img src="https://www.ddosi.com/wp-content/uploads/2020/03/Ahmia.jpg" alt=""><br>2.dnmugu4755642434.onion–药品科普搜索引擎<br>3.3g2upl4pq6kufc4m.onion–DuckDuckGo搜索引擎</p>
+<h4 id="文本信息处理"><a href="#文本信息处理" class="headerlink" title="文本信息处理"></a>文本信息处理</h4><p>通常生活中会处理一些文本数据以及过滤、替换一些有用信息，这个时候就需要设计到文本提取了。通常用到的软件有如下：</p>
+<blockquote>
+<p>实用插件参考:<a href="https://zhuanlan.zhihu.com/p/40515363" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/40515363</a></p>
+<p>通配符参考：<a href="http://www.360doc.com/content/22/0121/23/51704_1014370647.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/22/0121/23/51704_1014370647.shtml</a></p>
+</blockquote>
+<ul>
+<li>Word–通配符替换</li>
+<li>excel-通配符、公式、标准换行数据格式</li>
+<li>sublime_text–轻量级快捷操作文本，支持高亮批量编辑，正则查找等</li>
+<li>正则表达式自动生成器–可以和支持正则的文本处理软件配合提取文本</li>
+<li>在线工具处理–<a href="http://www.txttool.com/" target="_blank" rel="noopener">txttool</a>或abc工具箱</li>
+<li>循环替换工具–<a href="https://www.52pojie.cn/thread-562290-1-1.html" target="_blank" rel="noopener">吾爱zhangbo093</a></li>
+</ul>
 
       
 
@@ -397,7 +414,7 @@ wafw00f  -a  域名
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、通用的网站信息收集"><span class="toc-number">1.</span> <span class="toc-text">一、通用的网站信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Google语法"><span class="toc-number">1.1.</span> <span class="toc-text">Google语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一般OSINT"><span class="toc-number">1.1.1.</span> <span class="toc-text">一般OSINT</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#whois"><span class="toc-number">1.2.</span> <span class="toc-text">whois</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安全架构识别"><span class="toc-number">1.3.</span> <span class="toc-text">安全架构识别</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#开放端口探测"><span class="toc-number">1.3.1.</span> <span class="toc-text">开放端口探测</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#网站架构探测"><span class="toc-number">1.3.2.</span> <span class="toc-text">网站架构探测</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#敏感文件、敏感目录探测"><span class="toc-number">1.3.3.</span> <span class="toc-text">敏感文件、敏感目录探测</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#邮箱与证书信息搜集"><span class="toc-number">1.3.4.</span> <span class="toc-text">邮箱与证书信息搜集</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#waf探测"><span class="toc-number">1.3.5.</span> <span class="toc-text">waf探测</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组织架构查询"><span class="toc-number">1.4.</span> <span class="toc-text">组织架构查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、其他平台资产收集"><span class="toc-number">2.</span> <span class="toc-text">二、其他平台资产收集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#平台信息"><span class="toc-number">2.1.</span> <span class="toc-text">平台信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网盘泄露"><span class="toc-number">2.2.</span> <span class="toc-text">网盘泄露</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#历史快照"><span class="toc-number">2.3.</span> <span class="toc-text">历史快照</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、网络空间搜索引擎"><span class="toc-number">3.</span> <span class="toc-text">三、网络空间搜索引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、分析软件外部请求"><span class="toc-number">4.</span> <span class="toc-text">四、分析软件外部请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、泄露渠道"><span class="toc-number">5.</span> <span class="toc-text">五、泄露渠道</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#公开漏洞泄露平台"><span class="toc-number">5.1.</span> <span class="toc-text">公开漏洞泄露平台</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内部泄露"><span class="toc-number">5.2.</span> <span class="toc-text">内部泄露</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#社工库泄露"><span class="toc-number">5.3.</span> <span class="toc-text">社工库泄露</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、深网泄露"><span class="toc-number">6.</span> <span class="toc-text">六、深网泄露</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tg电报群搜索"><span class="toc-number">6.1.</span> <span class="toc-text">tg电报群搜索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#暗网搜索引擎"><span class="toc-number">6.2.</span> <span class="toc-text">暗网搜索引擎</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、通用的网站信息收集"><span class="toc-number">1.</span> <span class="toc-text">一、通用的网站信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Google语法"><span class="toc-number">1.1.</span> <span class="toc-text">Google语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一般OSINT"><span class="toc-number">1.1.1.</span> <span class="toc-text">一般OSINT</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#whois"><span class="toc-number">1.2.</span> <span class="toc-text">whois</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安全架构识别"><span class="toc-number">1.3.</span> <span class="toc-text">安全架构识别</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#开放端口探测"><span class="toc-number">1.3.1.</span> <span class="toc-text">开放端口探测</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#网站架构探测"><span class="toc-number">1.3.2.</span> <span class="toc-text">网站架构探测</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#敏感文件、敏感目录探测"><span class="toc-number">1.3.3.</span> <span class="toc-text">敏感文件、敏感目录探测</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#邮箱与证书信息搜集"><span class="toc-number">1.3.4.</span> <span class="toc-text">邮箱与证书信息搜集</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#waf探测"><span class="toc-number">1.3.5.</span> <span class="toc-text">waf探测</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组织架构查询"><span class="toc-number">1.4.</span> <span class="toc-text">组织架构查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、其他平台资产收集"><span class="toc-number">2.</span> <span class="toc-text">二、其他平台资产收集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#平台信息"><span class="toc-number">2.1.</span> <span class="toc-text">平台信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网盘泄露"><span class="toc-number">2.2.</span> <span class="toc-text">网盘泄露</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#历史快照"><span class="toc-number">2.3.</span> <span class="toc-text">历史快照</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、网络空间搜索引擎"><span class="toc-number">3.</span> <span class="toc-text">三、网络空间搜索引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、分析软件外部请求"><span class="toc-number">4.</span> <span class="toc-text">四、分析软件外部请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、泄露渠道"><span class="toc-number">5.</span> <span class="toc-text">五、泄露渠道</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#公开漏洞泄露平台"><span class="toc-number">5.1.</span> <span class="toc-text">公开漏洞泄露平台</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内部泄露"><span class="toc-number">5.2.</span> <span class="toc-text">内部泄露</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#社工库泄露"><span class="toc-number">5.3.</span> <span class="toc-text">社工库泄露</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、深网泄露"><span class="toc-number">6.</span> <span class="toc-text">六、深网泄露</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tg电报群搜索"><span class="toc-number">6.1.</span> <span class="toc-text">tg电报群搜索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#暗网搜索引擎"><span class="toc-number">6.2.</span> <span class="toc-text">暗网搜索引擎</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文本信息处理"><span class="toc-number">6.3.</span> <span class="toc-text">文本信息处理</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -530,23 +547,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,7 +555,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
