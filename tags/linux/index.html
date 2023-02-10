@@ -124,7 +124,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="rss" target="_blank" href="https://pan.xlmy.net" title="rss"><i class="icon-rss"></i></a>
+					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
 					<a class="qq" target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=Zg3m93U7KAzHABWMsWc39vWsLYD6O-Co&jump_from=webapi" title="qq"><i class="icon-qq"></i></a>
 		        
@@ -166,7 +166,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="rss" target="_blank" href="https://pan.xlmy.net" title="rss"><i class="icon-rss"></i></a>
+						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
 						<a class="qq" target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=Zg3m93U7KAzHABWMsWc39vWsLYD6O-Co&jump_from=webapi" title="qq"><i class="icon-qq"></i></a>
 			        
@@ -411,14 +411,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -427,15 +419,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,6 +605,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="/js/love.js"></script>
+<script src="/js/sweetalert.js"></script>
+<link rel="stylesheet" href="/css/sweetalert.css">
 
 # 自定义的js文件
 
@@ -628,9 +630,32 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         }
     }
 </script>
+###公告系统localStorag检查用户之前有没有打开过这个页面，判断是否要打开弹窗。
+<script>
+ 
+if(!window.localStorage.getItem('storge')){
+function welcome(){
+
+        welcome_text="小蓝盘目前出于维护状态开放时间待定~";
+    swal({
+        title: "欢迎光临！",
+        imageUrl: "/img/hi.png",
+        text: welcome_text="小蓝盘目前出于资源维护阶段，开放时间待定QAQ~", 
+        timer: 4500,//弹出时间
+        showConfirmButton: false
+    });
+}
+$(document).ready(()=>{//若未引用JQuery，请引用
+    welcome()
+})
+window.localStorage.setItem('storge','true')
+}
+</script>
+
 
 
 <script type="text/javascript" src="//js.users.51.la/21187799.js"></script>
+
 
 
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":60,"height":150},"mobile":{"show":true},"log":false});</script></body>
