@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://kuboard.cn/assets/img/module_03_nodes.38f0ef71.svg">
 <meta property="og:image" content="https://kuboard.cn/assets/img/module_05_scaling2.3f74dfba.svg">
 <meta property="og:image" content="https://s1.ax1x.com/2022/07/01/jQRGOs.png">
-<meta property="og:updated_time" content="2022-12-08T09:00:01.358Z">
+<meta property="og:updated_time" content="2023-03-13T09:21:44.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
 <meta name="twitter:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。 俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。 Linux环境坑介绍一下简单的配置查看：1234567891011121314151617181920lscpu 列cpulsof  列文件lsusb 列usb设备lspci 列总线c">
@@ -377,8 +377,10 @@ ForwardToSyslog=no
 </ol>
 </li>
 </ol>
-<p><img src="https://s1.ax1x.com/2022/07/01/jQRGOs.png" alt=""><br>懂原理过后直接上青云的kubesphere面板或者Kuboard的面板直接突突突就行了,有手就行。</p>
-<h4 id="devops"><a href="#devops" class="headerlink" title="devops"></a>devops</h4>
+<p><img src="https://s1.ax1x.com/2022/07/01/jQRGOs.png" alt=""></p>
+<h4 id="devops"><a href="#devops" class="headerlink" title="devops"></a>devops</h4><p>……</p>
+<h4 id="原生总结"><a href="#原生总结" class="headerlink" title="原生总结"></a>原生总结</h4><p>原生系列其实无疑就是无限套娃，懂原理过后直接上青云的kubesphere面板或者Kuboard的面板直接突突突就行了,有手就行。 如特殊环境或者减轻服务器压力、弱网环境等可考虑边缘计算KubeEdge并结合云原生和物联网平台满足当前需求。虽然以后许多复杂的配置会被paas或者saas业务所替代但是使用这些服务与工具的前提是基础架构一定要思路清晰，并能够通过配置文件找寻关键问题。原生蓝图参考地址:(<a href="https://landscape.cncf.io/?category=continuous-integration-delivery&amp;grouping=category" target="_blank" rel="noopener">云原生环境蓝图</a>)</p>
+
       
 
       
@@ -503,7 +505,7 @@ ForwardToSyslog=no
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux环境坑"><span class="toc-number">1.</span> <span class="toc-text">Linux环境坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器坑"><span class="toc-number">1.1.</span> <span class="toc-text">服务器坑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Raid基础"><span class="toc-number">1.1.1.</span> <span class="toc-text">Raid基础</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux系统"><span class="toc-number">1.1.2.</span> <span class="toc-text">Linux系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#0-1-git基础环境"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">0*1 git基础环境</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#0-2-java与python安装"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">0*2 java与python安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#0-3-docker安装"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">0*3 docker安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#0-4-开发环境技巧"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">0*4 开发环境技巧</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"><span class="toc-number">2.</span> <span class="toc-text">一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、必备命令"><span class="toc-number">3.</span> <span class="toc-text">二、必备命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#综合分析"><span class="toc-number">3.1.</span> <span class="toc-text">综合分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存分析"><span class="toc-number">3.2.</span> <span class="toc-text">内存分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#性能分析"><span class="toc-number">3.3.</span> <span class="toc-text">性能分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#磁盘管理"><span class="toc-number">3.4.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux安全分析（配合日志分析）"><span class="toc-number">3.5.</span> <span class="toc-text">Linux安全分析（配合日志分析）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#日志清理与管理"><span class="toc-number">3.5.1.</span> <span class="toc-text">日志清理与管理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、运维实用脚本（可根据公司需求重构）"><span class="toc-number">4.</span> <span class="toc-text">三、运维实用脚本（可根据公司需求重构）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#日常脚本"><span class="toc-number">4.1.</span> <span class="toc-text">日常脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应急工具"><span class="toc-number">4.2.</span> <span class="toc-text">应急工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#云计算扫盲"><span class="toc-number">5.</span> <span class="toc-text">云计算扫盲</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes基础"><span class="toc-number">5.1.</span> <span class="toc-text">Kubernetes基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简单命令"><span class="toc-number">5.2.</span> <span class="toc-text">简单命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#容器启动步骤"><span class="toc-number">5.3.</span> <span class="toc-text">容器启动步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#devops"><span class="toc-number">5.4.</span> <span class="toc-text">devops</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux环境坑"><span class="toc-number">1.</span> <span class="toc-text">Linux环境坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器坑"><span class="toc-number">1.1.</span> <span class="toc-text">服务器坑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Raid基础"><span class="toc-number">1.1.1.</span> <span class="toc-text">Raid基础</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux系统"><span class="toc-number">1.1.2.</span> <span class="toc-text">Linux系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#0-1-git基础环境"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">0*1 git基础环境</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#0-2-java与python安装"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">0*2 java与python安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#0-3-docker安装"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">0*3 docker安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#0-4-开发环境技巧"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">0*4 开发环境技巧</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"><span class="toc-number">2.</span> <span class="toc-text">一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、必备命令"><span class="toc-number">3.</span> <span class="toc-text">二、必备命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#综合分析"><span class="toc-number">3.1.</span> <span class="toc-text">综合分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存分析"><span class="toc-number">3.2.</span> <span class="toc-text">内存分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#性能分析"><span class="toc-number">3.3.</span> <span class="toc-text">性能分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#磁盘管理"><span class="toc-number">3.4.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux安全分析（配合日志分析）"><span class="toc-number">3.5.</span> <span class="toc-text">Linux安全分析（配合日志分析）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#日志清理与管理"><span class="toc-number">3.5.1.</span> <span class="toc-text">日志清理与管理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、运维实用脚本（可根据公司需求重构）"><span class="toc-number">4.</span> <span class="toc-text">三、运维实用脚本（可根据公司需求重构）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#日常脚本"><span class="toc-number">4.1.</span> <span class="toc-text">日常脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应急工具"><span class="toc-number">4.2.</span> <span class="toc-text">应急工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#云计算扫盲"><span class="toc-number">5.</span> <span class="toc-text">云计算扫盲</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes基础"><span class="toc-number">5.1.</span> <span class="toc-text">Kubernetes基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简单命令"><span class="toc-number">5.2.</span> <span class="toc-text">简单命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#容器启动步骤"><span class="toc-number">5.3.</span> <span class="toc-text">容器启动步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#devops"><span class="toc-number">5.4.</span> <span class="toc-text">devops</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原生总结"><span class="toc-number">5.5.</span> <span class="toc-text">原生总结</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -629,6 +631,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -637,15 +643,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,7 +651,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,11 +675,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
