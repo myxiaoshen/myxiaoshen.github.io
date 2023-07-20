@@ -35,10 +35,11 @@
 <meta property="og:image" content="https://files.catbox.moe/19t2gg.png">
 <meta property="og:image" content="https://files.catbox.moe/l82eca.png">
 <meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/1f3a1dee4dcf20240e0e1b544d5970e6.png">
+<meta property="og:image" content="https://files.catbox.moe/wroyor.png">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/07b273086a4f4432.png">
 <meta property="og:image" content="https://files.catbox.moe/pbg9ks.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-156857018d33b9a936bf2dcc8da6fe49_720w.jpg?source=1940ef5c">
-<meta property="og:updated_time" content="2023-04-21T07:22:35.704Z">
+<meta property="og:updated_time" content="2023-05-08T06:51:17.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="合理利用网络上的骚操作👍">
 <meta name="twitter:description" content="免流目前只有中国电信、中国联通还能免流，移动只有很少一部分地区还可以免还需要有定向原wap已限速（20kb）。 本地tinyproxy系列。个人喜欢用核心因为它省电基于底层转发快，推荐LLTables它完美支持最新版本的安卓系统，JJ、终极防跳、zjl等经过个人测试会断流。本地免流又分为 2种伪装方式。我打包了互联网上常见的模式以及LLTables防跳（因tiny已经停更可以用最新的CLNC完美支">
@@ -162,9 +163,7 @@
 				
 					<a class="rss" target="_blank" href="https://pan.xlmy.net" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="qq" target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=Zg3m93U7KAzHABWMsWc39vWsLYD6O-Co&jump_from=webapi" title="qq"><i class="icon-qq"></i></a>
-		        
-					<a class="mail" target="_blank" href="mailto:1097228498@qq.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="mailto:wenchadanjiu@protonmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -204,9 +203,7 @@
 					
 						<a class="rss" target="_blank" href="https://pan.xlmy.net" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="qq" target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=Zg3m93U7KAzHABWMsWc39vWsLYD6O-Co&jump_from=webapi" title="qq"><i class="icon-qq"></i></a>
-			        
-						<a class="mail" target="_blank" href="mailto:1097228498@qq.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="mailto:wenchadanjiu@protonmail.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -287,8 +284,11 @@
 <h4 id="局域网联机（pptp等自带协议也行）"><a href="#局域网联机（pptp等自带协议也行）" class="headerlink" title="局域网联机（pptp等自带协议也行）"></a>局域网联机（pptp等自带协议也行）</h4><p>测试当前网络的 NAT 工具<a href="https://github.com/HMBSbige/NatTypeTester/releases/" target="_blank" rel="noopener">NatTypeTester</a><br><img src="https://github.com/HMBSbige/NatTypeTester/blob/master/pic/1.png" alt=""><br>Full Cone NAT （完全圆锥型）:都允许与内网主机建立通信<br>Restricted Cone NAT （地址限制圆锥型）:非公网主机P的 M、S均无法访问内网主机<br>Port Restricted Cone NAT （端口限制圆锥型）:在受限圆锥型对IP有限制的基础上，继续增加对端口的限制还要细化是哪一个端口<br>Symmetric NAT (对称型)：与不同的公网主机通信时，内网的IP与端口都会为这一次的通信建立一个唯一映射<br><a href="https://www.zerotier.com/" target="_blank" rel="noopener">zerotier</a>：端-端-（云面板管理）端<br>需要共享内网网段，需要再云面板添加路由指向然后再跳板机上打开路由和路由转发和放行nat策略，windows同理。最后在移动电脑上设置一条静态路由确定内网指向就可以了。如需访路由器全设备需要在路由器上设置。<br><img src="https://www.zerotier.com/wp-content/uploads/2020/08/zerotier_logo_black.png" alt=""></p>
 <p><a href="https://bugxia.com/357.html" target="_blank" rel="noopener">EasyN2N</a>：端-端-（云服务器上一键搭建）端，这是目前最简单的服务器搭建方式当时安全性很差，短暂联机可以使用非常方便<br><img src="https://files.catbox.moe/19t2gg.png" alt=""></p>
 <p><a href="https://web.parsec.app/" target="_blank" rel="noopener">parsec</a>:刷新远程互动认知的一款产品，可以解决某些游戏只能本地游玩的问题，可以远程和小伙伴通过屏幕共享发送按键的方式一起玩双人单机游戏，延迟目前用的人挺多的没有刚开始快了但是速度还是勉强能玩，有需求可以支持开发者们一波。<br><img src="https://files.catbox.moe/l82eca.png" alt=""></p>
-<h5 id="一机多开–aster"><a href="#一机多开–aster" class="headerlink" title="一机多开–aster"></a>一机多开–aster</h5><p>ASTER 是一个程序（并且只是一个软件！），它允许在单个 PC 的基础上创建几个工作场所（可游戏、视频、qq、网页互不干扰）<br>如果要创建一个额外的工作场所 - 您只需将 1 台显示器（您可以连接到同一个视频卡）、键盘和鼠标连接到您的计算机（如果需要的话 - 麦克风、扬声器、操纵杆或游戏手柄）。</p>
+<h5 id="一机多开"><a href="#一机多开" class="headerlink" title="一机多开"></a>一机多开</h5><p>ASTER 是一个程序（并且只是一个软件！），它允许在单个 PC 的基础上创建几个工作场所（可游戏、视频、qq、网页互不干扰）<br>如果要创建一个额外的工作场所 - 您只需将 1 台显示器（您可以连接到同一个视频卡）、键盘和鼠标连接到您的计算机（如果需要的话 - 麦克风、扬声器、操纵杆或游戏手柄）。</p>
 <p>显示器可以通过 VGA/DVI/HDMI/DP 电缆连接。也可以通过 USB 或 WIFI/LAN 连接使用外部显示器（最好是 DisplayLink 显示器）。安装和启动后，ASTER 将为每个用户提供自己独立的桌面。<br><img src="https://pic.rmb.bdstatic.com/bjh/1f3a1dee4dcf20240e0e1b544d5970e6.png" alt=""><br>如果遇到进程限制的软件或者游戏使用sandboxie启动就行</p>
+<h5 id="一机多访"><a href="#一机多访" class="headerlink" title="一机多访"></a>一机多访</h5><p>需要用到<a href="https://github.com/stascorp/rdpwrap" target="_blank" rel="noopener">rdpwrap</a>和<a href="https://github.com/anhkgg/SuperRDP" target="_blank" rel="noopener">SuperRDP</a>，SuperRDP 是基于rdpwrap修改的，目前最新版本支持 Windows 11 预览版。安装后即可支持多用户登录了。在本机创建两个用户，我创建 wzz 和 wxy 两个用户，然后同时远程登录(注意把用户设为允许远程登录)。即使本机正在使用，远程用另一个用户登录，当前用户也不会被挤出去。在任务管理器中可以看到登陆用户信息：</p>
+<p><img src="https://files.catbox.moe/wroyor.png" alt=""></p>
+<p>如果还有限制需要进入 gpedit.msc 查看 “计算机配置&gt;管理模版&gt;Windows 组件&gt;远程桌面服务”根据需求更改即可</p>
 <h4 id="家人定位系统"><a href="#家人定位系统" class="headerlink" title="家人定位系统"></a>家人定位系统</h4><p>Traccar 是一个开源的 GPS 跟踪系统。此存储库包含基于 Java 的后端服务。它支持 170 多种 GPS 协议和 1500 多种型号的 GPS 跟踪设备。Traccar 可以与任何主要的 SQL 数据库系统一起使用,这款开源的 GPS 追踪系统，实测后效果不错，精度在10米左右。而且它支持安卓苹果以及浏览器插件非常的方便。<br><img src="https://ftp.bmp.ovh/imgs/2021/06/07b273086a4f4432.png" alt=""></p>
 <p>开源地址：<a href="https://github.com/traccar/traccar" target="_blank" rel="noopener">https://github.com/traccar/traccar</a><br>官网地址：<a href="https://www.traccar.org/" target="_blank" rel="noopener">https://www.traccar.org/</a></p>
 <p>搭建需要先安装java jdk和mysql环境，关键端口web:8020 后台定位:5055<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/traccar/traccar/releases/download/v4.12/traccar-linux-64-4.12.zip</span><br><span class="line">unzip traccar-linux-*.zip</span><br><span class="line">./traccar.run	</span><br><span class="line">vim traccar.xml</span><br><span class="line">cp traccar.xml /opt/traccar/conf/ </span><br><span class="line">systemctl start traccar</span><br></pre></td></tr></table></figure></p>
@@ -420,7 +420,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#免流"><span class="toc-number">1.</span> <span class="toc-text">免流</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#本地"><span class="toc-number">1.1.</span> <span class="toc-text">本地</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#免流原理"><span class="toc-number">1.1.1.</span> <span class="toc-text">免流原理</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#运营商验证原理"><span class="toc-number">1.1.2.</span> <span class="toc-text">运营商验证原理</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#云免"><span class="toc-number">1.2.</span> <span class="toc-text">云免</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#免流原理-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">免流原理</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#服务端搭建"><span class="toc-number">1.2.2.</span> <span class="toc-text">服务端搭建</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#客户端使用以及伪装"><span class="toc-number">1.2.3.</span> <span class="toc-text">客户端使用以及伪装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#混淆伪装"><span class="toc-number">1.2.4.</span> <span class="toc-text">混淆伪装</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#穿透代理服务器（推荐nps，https代理推荐frp）"><span class="toc-number">2.</span> <span class="toc-text">穿透代理服务器（推荐nps，https代理推荐frp）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代理ip池"><span class="toc-number">3.</span> <span class="toc-text">代理ip池</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#socks链接监听脚本"><span class="toc-number">3.1.</span> <span class="toc-text">socks链接监听脚本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#软件验证ip可用性"><span class="toc-number">3.2.</span> <span class="toc-text">软件验证ip可用性</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#先使用Socks-Proxy-Checker"><span class="toc-number">3.2.1.</span> <span class="toc-text">先使用Socks Proxy Checker</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#在使用Unfx-Proxy-Checker测试延迟来提高ip的质量"><span class="toc-number">3.2.2.</span> <span class="toc-text">在使用Unfx Proxy Checker测试延迟来提高ip的质量</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Gather-Proxy验证ip是否可过墙（可选）"><span class="toc-number">3.3.</span> <span class="toc-text">Gather Proxy验证ip是否可过墙（可选）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#开始使用"><span class="toc-number">3.4.</span> <span class="toc-text">开始使用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#云端服务"><span class="toc-number">4.</span> <span class="toc-text">云端服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#局域网联机（pptp等自带协议也行）"><span class="toc-number">5.</span> <span class="toc-text">局域网联机（pptp等自带协议也行）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一机多开–aster"><span class="toc-number">5.1.</span> <span class="toc-text">一机多开–aster</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#家人定位系统"><span class="toc-number">6.</span> <span class="toc-text">家人定位系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#软路由的妙用"><span class="toc-number">7.</span> <span class="toc-text">软路由的妙用</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#免流"><span class="toc-number">1.</span> <span class="toc-text">免流</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#本地"><span class="toc-number">1.1.</span> <span class="toc-text">本地</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#免流原理"><span class="toc-number">1.1.1.</span> <span class="toc-text">免流原理</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#运营商验证原理"><span class="toc-number">1.1.2.</span> <span class="toc-text">运营商验证原理</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#云免"><span class="toc-number">1.2.</span> <span class="toc-text">云免</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#免流原理-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">免流原理</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#服务端搭建"><span class="toc-number">1.2.2.</span> <span class="toc-text">服务端搭建</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#客户端使用以及伪装"><span class="toc-number">1.2.3.</span> <span class="toc-text">客户端使用以及伪装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#混淆伪装"><span class="toc-number">1.2.4.</span> <span class="toc-text">混淆伪装</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#穿透代理服务器（推荐nps，https代理推荐frp）"><span class="toc-number">2.</span> <span class="toc-text">穿透代理服务器（推荐nps，https代理推荐frp）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代理ip池"><span class="toc-number">3.</span> <span class="toc-text">代理ip池</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#socks链接监听脚本"><span class="toc-number">3.1.</span> <span class="toc-text">socks链接监听脚本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#软件验证ip可用性"><span class="toc-number">3.2.</span> <span class="toc-text">软件验证ip可用性</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#先使用Socks-Proxy-Checker"><span class="toc-number">3.2.1.</span> <span class="toc-text">先使用Socks Proxy Checker</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#在使用Unfx-Proxy-Checker测试延迟来提高ip的质量"><span class="toc-number">3.2.2.</span> <span class="toc-text">在使用Unfx Proxy Checker测试延迟来提高ip的质量</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Gather-Proxy验证ip是否可过墙（可选）"><span class="toc-number">3.3.</span> <span class="toc-text">Gather Proxy验证ip是否可过墙（可选）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#开始使用"><span class="toc-number">3.4.</span> <span class="toc-text">开始使用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#云端服务"><span class="toc-number">4.</span> <span class="toc-text">云端服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#局域网联机（pptp等自带协议也行）"><span class="toc-number">5.</span> <span class="toc-text">局域网联机（pptp等自带协议也行）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一机多开"><span class="toc-number">5.1.</span> <span class="toc-text">一机多开</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#一机多访"><span class="toc-number">5.2.</span> <span class="toc-text">一机多访</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#家人定位系统"><span class="toc-number">6.</span> <span class="toc-text">家人定位系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#软路由的妙用"><span class="toc-number">7.</span> <span class="toc-text">软路由的妙用</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -545,11 +545,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,15 +557,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,11 +589,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,7 +768,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
  <!--<script src="/js/sweetalert.js"></script>-->
  <!--<link rel="stylesheet" href="/css/sweetalert.css">-->
  
-if(!window.localStorage.getItem('storge')){
+<!--if(!window.localStorage.getItem('storge')){
 function welcome(){
 
         welcome_text="小蓝盘目前出于维护状态开放时间待定~";
