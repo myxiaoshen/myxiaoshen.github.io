@@ -9,7 +9,7 @@
   <title>企业的网管笔记 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基">
-<meta name="keywords" content="web技术,笔记">
+<meta name="keywords" content="笔记,web技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="企业的网管笔记">
 <meta property="og:url" content="http://yoursite.com/2020/03/12/网管笔记/index.html">
@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/15/E7wHbD.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/15/E7w481.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/15/E7DSHS.png">
-<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557929858689&di=ea98519304ba0350e67490c155b61070&imgtype=0&src=http%3A%2F%2Fwww.u-pc.com.cn%2Fcn%2Fwp-content%2Fuploads%2F2018%2F06%2F3.2-011.png">
+<meta property="og:image" content="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/12/Splunk-features-Splunk-tutorial-Edureka-1.png">
 <meta property="og:image" content="https://github.com/dtag-dev-sec/tpotce/blob/master/doc/kibana.png">
 <meta property="og:image" content="https://github.com/dtag-dev-sec/tpotce/raw/master/doc/architecture.png">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557585001812&di=4bdf32e05da9b342c84bed277e878d16&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F94o3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2Fcb8065380cd79123e7a85945af345982b2b780b3.jpg">
@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://camo.githubusercontent.com/0c10358cd4d5b3c681fbb1b376c2ba847a627bba/68747470733a2f2f67697465652e636f6d2f75706c6f6164732f696d616765732f323031382f303532372f3131343032315f65663539316361335f313339303337382e706e67">
 <meta property="og:image" content="https://i.mji.rip/2023/07/18/321cf45a81892138a0d99dff11c56340.jpeg">
 <meta property="og:image" content="https://attach.52pojie.cn/forum/201908/29/015703q2hihauuuhaazazh.jpg">
-<meta property="og:updated_time" content="2023-07-18T03:36:23.502Z">
+<meta property="og:updated_time" content="2023-09-07T08:29:22.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="企业的网管笔记">
 <meta name="twitter:description" content="实习期间找了一份企业网管管理，业余整理了一些日常经常用到的技能方便后期回顾。虽然经验都是比较低级的但是可以应对日常的电脑与网络问题。我公司是近300人的办公区域配置如下：爱快+LEDE（ikuai主路由lede再虚拟机中做二级转发），下层是可管理千兆交换机，分支是h3c+tp二层交换机、ap与无线控制器、ikvision录像，光纤三条百兆，布线用的依然是大众化的流水布局。以下文章所用到的工具都是基">
@@ -380,7 +380,7 @@ ping 192.168.*.255 然后使用arp -a （查看活跃的ip地址）
 </ol>
 <h4 id="网络层与应用层的拓展"><a href="#网络层与应用层的拓展" class="headerlink" title="网络层与应用层的拓展"></a><font color="#00ffff" size="40">网络层与应用层的拓展</font></h4><p>空闲的电脑，加上公司的专线，上好的配置不利用起来有点浪费呢。上班业余时间当然要搞点事情玩，下面推荐几个企业中常用的web应用以及用途让你工作中有事半功倍的效果。以下推荐的下载地址请自行百度，</p>
 <p>1.ikuai路由管理（硬件x86架构，内存硬盘1G以上）<br>功能强大的管理系统功能挺多的，可以自己搭建软路由或者刷bin固件，有条件可以直接上ikuai路由器。<br>软路由：首先将外网网线连接到独立网卡（因为ikuai系统会默认将Lan1绑定在eth0网卡上，而eth0网卡通常是主板集成的网卡即板载网卡），然后用另一根网线将PC机与路由器电脑相连，然后备用。<br><img src="https://en.ikuai8.com/attached/php/upload/image/20181018/1539847351470869.png" alt=""></p>
-<p>2.ManageEngine管理系列<br>AD域环境的搭建有些企业要求要用才使用，反正我们公司没使用用了反而更难管理而且ikuai路由后台也有一定的控制，而且本司工作中员工的自由需求很大，对于ad域控完全没有必要。回过头来这个ManageEngine旗下的管理软件：拥有网络监控、流量分析、日志分析、设备管理、事件管理、问题管理、变更管理、资产管理、域管理、等功能、简化IT管理。下面是常用产品的截图<br>ADManager（域管理，）<br>让员工入域是个难题，可通过半自动，用badusb挨着插电脑执行p处理或吧脚本上传到群让他们运行<br><img src="http://seo-1255598498.file.myqcloud.com/full/b441d420d6c781a37a19b484b89c43810903aa74.jpg" alt=""><br>OpUtils8（网管日常管理）<br><img src="https://s2.ax1x.com/2019/05/15/E7wHbD.md.png" alt=""><br>OpManager(网络结构管理)<br><img src="https://s2.ax1x.com/2019/05/15/E7w481.md.png" alt=""><br>Servicedesk(企业资产与事件管理)<br><img src="https://s2.ax1x.com/2019/05/15/E7DSHS.png" alt=""><br>3.Splunk<br>Splunk 是机器数据的引擎。使用 Splunk 可收集、索引和利用所有应用程序、服务器和设备生成的日志等信息并可视化数据完美的呈现给用户。 使用 Splunking 处理计算机数据，可让您在几分钟内解决问题和调查安全事件。<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1557929858689&amp;di=ea98519304ba0350e67490c155b61070&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.u-pc.com.cn%2Fcn%2Fwp-content%2Fuploads%2F2018%2F06%2F3.2-011.png" alt=""></p>
+<p>2.ManageEngine管理系列<br>AD域环境的搭建有些企业要求要用才使用，反正我们公司没使用用了反而更难管理而且ikuai路由后台也有一定的控制，而且本司工作中员工的自由需求很大，对于ad域控完全没有必要。回过头来这个ManageEngine旗下的管理软件：拥有网络监控、流量分析、日志分析、设备管理、事件管理、问题管理、变更管理、资产管理、域管理、等功能、简化IT管理。下面是常用产品的截图<br>ADManager（域管理，）<br>让员工入域是个难题，可通过半自动，用badusb挨着插电脑执行p处理或吧脚本上传到群让他们运行<br><img src="http://seo-1255598498.file.myqcloud.com/full/b441d420d6c781a37a19b484b89c43810903aa74.jpg" alt=""><br>OpUtils8（网管日常管理）<br><img src="https://s2.ax1x.com/2019/05/15/E7wHbD.md.png" alt=""><br>OpManager(网络结构管理)<br><img src="https://s2.ax1x.com/2019/05/15/E7w481.md.png" alt=""><br>Servicedesk(企业资产与事件管理)<br><img src="https://s2.ax1x.com/2019/05/15/E7DSHS.png" alt=""><br>3.Splunk<br>Splunk 是机器数据的引擎。使用 Splunk 可收集、索引和利用所有应用程序、服务器和设备生成的日志等信息并可视化数据完美的呈现给用户。 使用 Splunking 处理计算机数据，可让您在几分钟内解决问题和调查安全事件。<br><img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/12/Splunk-features-Splunk-tutorial-Edureka-1.png" alt=""></p>
 <p>4.T-Pot蜜罐<br>该平台需要满足硬件要求： T-Pot 安装需要至少4G 内存， 64G 磁盘空间， 并且联网。<br>官网提供了两种T-Pot的安装方式，这里默认在虚拟机环境安装。在物理机上安装类似。</p>
 <pre><code>1、ISO镜像网络安装。直接丢进虚拟机即可。
 2、虚拟机安装好Ubuntu Server 18.04  后，运行官网提供的自动安装shell脚本即可。
@@ -430,11 +430,11 @@ ping 192.168.*.255 然后使用arp -a （查看活跃的ip地址）
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		
 		</ul>
@@ -667,23 +667,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -695,11 +679,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -711,11 +707,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
