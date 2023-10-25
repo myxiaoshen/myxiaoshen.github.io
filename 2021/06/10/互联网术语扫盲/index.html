@@ -36,8 +36,9 @@
 <meta property="og:image" content="https://files.catbox.moe/0yy5id.png">
 <meta property="og:image" content="https://files.catbox.moe/k6xtw2.png">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2022/01/4e413a53d66eb302.png">
+<meta property="og:image" content="https://ice.frostsky.com/2023/09/20/9e689f89c2f08971f20d0215e039a876.png">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/4d9ad183ae170835.png">
-<meta property="og:updated_time" content="2023-04-15T10:50:36.458Z">
+<meta property="og:updated_time" content="2023-10-08T07:23:37.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="互联网术语扫盲 ">
 <meta name="twitter:description" content="认证cookie 存储在客户端： cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。 session 再中间件的内存中：它是与cookie的一个桥梁，可以把它想成一个服务端控制器用来监控客户端的认证状态，默认根据中间件设置失效时间。:用户第一次请求服务器的时候，服务器根据用户提交的相关信息，创建对应的 Session，请">
@@ -295,7 +296,7 @@
 <p>（5）尝试删除缓存操作，发现删除失败；</p>
 <p>（6）将这些信息发送至消息队列；</p>
 <p>（7）重新从消息队列中获得该数据，重试操作。</p>
-<h5 id="调度中心："><a href="#调度中心：" class="headerlink" title="调度中心："></a>调度中心：</h5><p><img src="https://files.catbox.moe/k6xtw2.png" alt=""></p>
+<h5 id="调度中心-注册中心："><a href="#调度中心-注册中心：" class="headerlink" title="调度中心,注册中心："></a>调度中心,注册中心：</h5><p><img src="https://files.catbox.moe/k6xtw2.png" alt=""></p>
 <blockquote>
 <p>服务注册中心本质上是为了解耦服务提供者和服务消费者。对于任何一个微服务，原则上都应存在或者支持多个提供者，这是由微服务的分布式属性决定的</p>
 </blockquote>
@@ -409,6 +410,7 @@
 </tr>
 </tbody>
 </table>
+<h5 id="服务保护："><a href="#服务保护：" class="headerlink" title="服务保护："></a>服务保护：</h5><p>主要提供熔断保护和快速降级保证服务能够正常使用，通常使用sentinel和Hystrix</p>
 <h5 id="rpc框架："><a href="#rpc框架：" class="headerlink" title="rpc框架："></a>rpc框架：</h5><p>　　　　grpc、dubbo、brpc<br>　　　　dubbo是阿里开源的Java语言开发的高性能RPC框架，在阿里系的诸多架构中，都使用了dubbo + spring boot</p>
 <h5 id="消息队列："><a href="#消息队列：" class="headerlink" title="消息队列："></a>消息队列：</h5><p><img src="https://ftp.bmp.ovh/imgs/2022/01/4e413a53d66eb302.png" alt=""><br>　　　　kafka、rabbitMQ、rocketMQ、QSP<br>　　　　消息队列的应用场景：异步处理、应用解耦、流量削锋和消息通讯</p>
 <h5 id="大数据中台"><a href="#大数据中台" class="headerlink" title="大数据中台:"></a>大数据中台:</h5><p>通常出于数据层与后台管理系统之间分析传输数据，然后通过算法推送给用户合理的信息。</p>
@@ -419,7 +421,10 @@
 <h5 id="dbproxy："><a href="#dbproxy：" class="headerlink" title="dbproxy："></a>dbproxy：</h5><p>　　　　cobar也是阿里开源的，在阿里系中使用也非常广泛，是关系型数据库的sharding + replica 代理</p>
 <h5 id="搜索："><a href="#搜索：" class="headerlink" title="搜索："></a>搜索：</h5><p>　　　　elasticsearch、solr</p>
 <h5 id="日志："><a href="#日志：" class="headerlink" title="日志："></a>日志：</h5><p>　　　　rsyslog、elk、flume、Splunk </p>
+<p>这里通过一张图呈现服务架构常用的组件以及体系：</p>
+<p><img src="https://ice.frostsky.com/2023/09/20/9e689f89c2f08971f20d0215e039a876.png" alt=""></p>
 <h4 id="零-低代码平台"><a href="#零-低代码平台" class="headerlink" title="零/低代码平台:"></a>零/低代码平台:</h4><p><img src="https://ftp.bmp.ovh/imgs/2021/06/4d9ad183ae170835.png" alt=""><br><a href="https://github.com/taowen/awesome-lowcode" target="_blank" rel="noopener">平台收集</a>:个人推荐无远和ivx</p>
+<p><strong>Electron和uni-app</strong>：可配合达到一套代码多端适配</p>
 <h4 id="物联网平台"><a href="#物联网平台" class="headerlink" title="物联网平台"></a>物联网平台</h4><p><a href="Http,WebSocket">物美平台</a>: 多端适配的一个物联网平台可用于二开和做多端适配</p>
 <p><a href="https://www.jetlinks.cn/col.jsp?id=105" target="_blank" rel="noopener">JetLinks物联网平台</a> ：经济实用,灵活的设备接入方式,多消息协议<br>支持,支持MQTT, TCP网络协议 (免费版不支持Http,WebSocket,CoAp)</p>
 <p><a href="https://gitee.com/IoTSharp" target="_blank" rel="noopener">IoTSharp</a>  支持 HTTP、MQTT 、CoAp 协议， 属性数据和遥测数据协议简单类型丰富，是一个用于数据收集、处理、可视化与设备管理的 IoT 平台</p>
@@ -524,7 +529,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#认证"><span class="toc-number">1.</span> <span class="toc-text">认证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络抓包技术"><span class="toc-number">2.</span> <span class="toc-text">网络抓包技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#LAN-TAP"><span class="toc-number">2.1.</span> <span class="toc-text">LAN TAP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#端口镜像与路由"><span class="toc-number">2.2.</span> <span class="toc-text">端口镜像与路由</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#fiddler"><span class="toc-number">2.3.</span> <span class="toc-text">fiddler</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#wireshark"><span class="toc-number">2.4.</span> <span class="toc-text">wireshark</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#架构建设技术"><span class="toc-number">3.</span> <span class="toc-text">架构建设技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#负载均衡与集群："><span class="toc-number">3.1.</span> <span class="toc-text">负载均衡与集群：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#数据库与集群设计："><span class="toc-number">3.1.1.</span> <span class="toc-text">数据库与集群设计：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#访问架构层："><span class="toc-number">3.2.</span> <span class="toc-text">访问架构层：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#容器："><span class="toc-number">3.3.</span> <span class="toc-text">容器：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缓存："><span class="toc-number">3.4.</span> <span class="toc-text">缓存：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#高并发一致性："><span class="toc-number">3.5.</span> <span class="toc-text">高并发一致性：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#调度中心："><span class="toc-number">3.6.</span> <span class="toc-text">调度中心：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rpc框架："><span class="toc-number">3.7.</span> <span class="toc-text">rpc框架：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#消息队列："><span class="toc-number">3.8.</span> <span class="toc-text">消息队列：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#大数据中台"><span class="toc-number">3.9.</span> <span class="toc-text">大数据中台:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dbproxy："><span class="toc-number">3.10.</span> <span class="toc-text">dbproxy：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#搜索："><span class="toc-number">3.11.</span> <span class="toc-text">搜索：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#日志："><span class="toc-number">3.12.</span> <span class="toc-text">日志：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#零-低代码平台"><span class="toc-number">4.</span> <span class="toc-text">零/低代码平台:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#物联网平台"><span class="toc-number">5.</span> <span class="toc-text">物联网平台</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#认证"><span class="toc-number">1.</span> <span class="toc-text">认证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络抓包技术"><span class="toc-number">2.</span> <span class="toc-text">网络抓包技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#LAN-TAP"><span class="toc-number">2.1.</span> <span class="toc-text">LAN TAP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#端口镜像与路由"><span class="toc-number">2.2.</span> <span class="toc-text">端口镜像与路由</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#fiddler"><span class="toc-number">2.3.</span> <span class="toc-text">fiddler</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#wireshark"><span class="toc-number">2.4.</span> <span class="toc-text">wireshark</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#架构建设技术"><span class="toc-number">3.</span> <span class="toc-text">架构建设技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#负载均衡与集群："><span class="toc-number">3.1.</span> <span class="toc-text">负载均衡与集群：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#数据库与集群设计："><span class="toc-number">3.1.1.</span> <span class="toc-text">数据库与集群设计：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#访问架构层："><span class="toc-number">3.2.</span> <span class="toc-text">访问架构层：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#容器："><span class="toc-number">3.3.</span> <span class="toc-text">容器：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缓存："><span class="toc-number">3.4.</span> <span class="toc-text">缓存：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#高并发一致性："><span class="toc-number">3.5.</span> <span class="toc-text">高并发一致性：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#调度中心-注册中心："><span class="toc-number">3.6.</span> <span class="toc-text">调度中心,注册中心：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#服务保护："><span class="toc-number">3.7.</span> <span class="toc-text">服务保护：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rpc框架："><span class="toc-number">3.8.</span> <span class="toc-text">rpc框架：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#消息队列："><span class="toc-number">3.9.</span> <span class="toc-text">消息队列：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#大数据中台"><span class="toc-number">3.10.</span> <span class="toc-text">大数据中台:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dbproxy："><span class="toc-number">3.11.</span> <span class="toc-text">dbproxy：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#搜索："><span class="toc-number">3.12.</span> <span class="toc-text">搜索：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#日志："><span class="toc-number">3.13.</span> <span class="toc-text">日志：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#零-低代码平台"><span class="toc-number">4.</span> <span class="toc-text">零/低代码平台:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#物联网平台"><span class="toc-number">5.</span> <span class="toc-text">物联网平台</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -649,6 +654,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
@@ -658,22 +679,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,11 +698,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
