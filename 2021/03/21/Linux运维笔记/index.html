@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://kuboard.cn/assets/img/module_03_nodes.38f0ef71.svg">
 <meta property="og:image" content="https://kuboard.cn/assets/img/module_05_scaling2.3f74dfba.svg">
 <meta property="og:image" content="https://s1.ax1x.com/2022/07/01/jQRGOs.png">
-<meta property="og:updated_time" content="2023-10-25T07:50:24.112Z">
+<meta property="og:updated_time" content="2023-10-27T09:39:03.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
 <meta name="twitter:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。 俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。 Linux环境坑介绍一下简单的配置查看：12345678910111213141516171819202122232425262728293031323334lscpu 列cpulso">
@@ -326,7 +326,9 @@
 <p><img src="https://s1.ax1x.com/2022/07/19/j7CWy6.png" alt=""></p>
 <h4 id="文本分析"><a href="#文本分析" class="headerlink" title="文本分析"></a>文本分析</h4><p>熟练使用常用文本处理命令可以非常便捷的处理很多项目中遇到的问题。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">grep -rn <span class="string">"内容"</span>  查找文本.txt  <span class="comment">#r操作目录n显示行数,通常与管道符一起使用快速检索输出内容</span></span><br><span class="line">sed -i <span class="string">'s/192.168.1.1\/index.php/1.1.1.1\/index.htm/g'</span> tcp.sh <span class="comment">#-i参数表示直接修改文件,不输出到终端。's'表示替换,'g'表示全局替换 ，\用来转义特殊符号</span></span><br><span class="line">find . -<span class="built_in">type</span> f -<span class="built_in">type</span> d -<span class="built_in">exec</span> grep -l <span class="string">"hello"</span> &#123;&#125; \;  <span class="comment"># 查询当前目录下所有包含hello字符的文件，f代表文件 d代表目录</span></span><br><span class="line">find . -<span class="built_in">type</span> f -<span class="built_in">type</span> d  | xargs grep <span class="string">"hello"</span> <span class="comment">#同上执行更高效 通过 xargs 的处理，换行和空白将被空格取代</span></span><br><span class="line">wc <span class="comment">#查看行数，字节，字数</span></span><br></pre></td></tr></table></figure>
-<h4 id="备份操作"><a href="#备份操作" class="headerlink" title="备份操作"></a>备份操作</h4><p>syncthing或者<strong>FreeFileSync</strong>（通过ftp协议也可以跨平台备份很方便）：带web界面跨平台，有历史版本</p>
+<h4 id="备份操作"><a href="#备份操作" class="headerlink" title="备份操作"></a>备份操作</h4><p>syncthing或者<strong>FreeFileSync</strong>（通过ftp协议也可以跨平台备份很方便）：带web界面跨平台，有历史版本。</p>
+<p>rsync传输命令如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -av --delete /源文件/  /目标文件/</span><br><span class="line">rsync -av --delete /源文件/  /目标目录/ root@192.168.4.207:/目标目录/  <span class="comment">#反向同步调换方向</span></span><br></pre></td></tr></table></figure>
 <h4 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h4><p>首先ln命令是必须要会用的</p>
 <pre><code>ln –s  /var/www/test  test \\当前路径创建test 引向/var/www/test 文件夹 
 ln –s  /var/www/test   /var/test  \\创建/var/test 引向/var/www/test 文件夹 
@@ -679,11 +681,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -691,11 +689,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -715,15 +717,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -731,11 +729,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -744,6 +742,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
             
             <div class="clearfix"></div>
