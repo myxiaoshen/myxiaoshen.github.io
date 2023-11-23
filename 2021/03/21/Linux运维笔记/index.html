@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://kuboard.cn/assets/img/module_03_nodes.38f0ef71.svg">
 <meta property="og:image" content="https://kuboard.cn/assets/img/module_05_scaling2.3f74dfba.svg">
 <meta property="og:image" content="https://s1.ax1x.com/2022/07/01/jQRGOs.png">
-<meta property="og:updated_time" content="2023-10-27T09:39:03.548Z">
+<meta property="og:updated_time" content="2023-11-13T09:12:56.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
 <meta name="twitter:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。 俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。 Linux环境坑介绍一下简单的配置查看：12345678910111213141516171819202122232425262728293031323334lscpu 列cpulso">
@@ -373,6 +373,16 @@ ForwardToSyslog=no
 <p>5.nginx日志</p>
 <p>日志文件可能存在的位置：/usr/local/nginx/logs/  /var/log/nginx 或者再/www位置下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat access.log | awk &apos;&#123;print $1&#125;&apos;|sort |uniq -c |sort -n -k 1 -r|more #ip访问量统计</span><br><span class="line">cat access.log|grep &apos;103.213.96.234&apos;|awk &apos;&#123;print $7&#125;&apos;|sort | uniq -c |sort -n -k 1 -r |more ##ip访问的路径</span><br><span class="line">cat access.log|awk &apos;&#123;print $9&#125;&apos; |sort|uniq -c |more ##打印响应</span><br></pre></td></tr></table></figure>
+<h4 id="出站流量控制"><a href="#出站流量控制" class="headerlink" title="出站流量控制"></a>出站流量控制</h4><p>定时监控服务器上的出站流量，超过1TB就自动重置计算流量并关机。这个场景主要是对于一些个人的服务器按避免按流量计费与恶意ddos攻击导致额外支出所应急的脚本。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">yum install vnstat -y</span><br><span class="line"><span class="comment"># 你的流量限制（单位：GB）</span></span><br><span class="line">LIMIT=1024000  <span class="comment"># 将GB转换成MB，再乘以1000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取当前的出站流量（去掉单位，并转换成整数）</span></span><br><span class="line">OUTGOING=$(vnstat -i eth0 --oneline | awk -F <span class="string">";"</span> <span class="string">'&#123;gsub(/[a-zA-Z]/,"",$10); printf "%.0f", $10 * 1000&#125;'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化网络接口根据实际情况修改我是eth0</span></span><br><span class="line">vnstat -u -i eth0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果流量超过限制</span></span><br><span class="line"><span class="keyword">if</span> (( OUTGOING &gt; LIMIT )); <span class="keyword">then</span></span><br><span class="line">  <span class="comment"># 重置vnstat数据</span></span><br><span class="line">  vnstat -i eth0 --delete --force</span><br><span class="line">  vnstat -i eth0 --create</span><br><span class="line">  <span class="comment"># 重启vnstat服务</span></span><br><span class="line">  systemctl restart vnstat</span><br><span class="line">  <span class="comment"># 关闭机器</span></span><br><span class="line">  shutdown -h now</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p>然后添加每隔30分钟定时任务执行，并在每月1日自动重置计算流量。crontab -e编辑定时让你无，前面加@reboot参数是开机立即执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*/30 * * * * /home/jp1/script.sh</span><br><span class="line">0 0 1 * * vnstat --delete --force &amp;&amp; vnstat --create</span><br></pre></td></tr></table></figure>
+<p> 开机自启动服务如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/systemd/system/start_script.service   <span class="comment">##创建一个定时服务start_script</span></span><br></pre></td></tr></table></figure>
+<p>输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Start Script Service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/path/to/your/start_script.sh  <span class="comment">##自己的脚本目录</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=default.target</span><br></pre></td></tr></table></figure>
+<p>自、启动、查看服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> start_script.service</span><br><span class="line">sudo systemctl start start_script.service</span><br><span class="line">sudo systemctl status start_script.service</span><br></pre></td></tr></table></figure>
 <h3 id="三、运维实用脚本（可根据公司需求重构）"><a href="#三、运维实用脚本（可根据公司需求重构）" class="headerlink" title="三、运维实用脚本（可根据公司需求重构）"></a>三、运维实用脚本（可根据公司需求重构）</h3><h4 id="日常脚本"><a href="#日常脚本" class="headerlink" title="日常脚本"></a>日常脚本</h4><p>快捷运维，代号<a href="https://github.com/aqzt/kjyw" target="_blank" rel="noopener">kjyw</a>，项目基于shell、python，运维脚本工具库，收集各类运维常用工具脚本，实现快速安装nginx、mysql、php、redis、nagios、运维经常使用的脚本等等…</p>
 <p><a href="https://github.com/Ljohn001/ljohn_ops" target="_blank" rel="noopener">https://github.com/Ljohn001/ljohn_ops</a></p>
 <p><a href="https://linuxeye.com/category/script/" target="_blank" rel="noopener">https://linuxeye.com/category/script/</a></p>
@@ -556,7 +566,7 @@ ForwardToSyslog=no
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux环境坑"><span class="toc-number">1.</span> <span class="toc-text">Linux环境坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器坑"><span class="toc-number">1.1.</span> <span class="toc-text">服务器坑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Raid基础"><span class="toc-number">1.1.1.</span> <span class="toc-text">Raid基础</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux系统"><span class="toc-number">1.1.2.</span> <span class="toc-text">Linux系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#0-1-git基础环境"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">0*1 git基础环境</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#0-2-java与python安装"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">0*2 java与python安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#0-3-docker安装"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">0*3 docker安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#0-4-开发环境技巧"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">0*4 开发环境技巧</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"><span class="toc-number">2.</span> <span class="toc-text">一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、必备命令"><span class="toc-number">3.</span> <span class="toc-text">二、必备命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#综合分析"><span class="toc-number">3.1.</span> <span class="toc-text">综合分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存分析"><span class="toc-number">3.2.</span> <span class="toc-text">内存分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#性能分析"><span class="toc-number">3.3.</span> <span class="toc-text">性能分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文本分析"><span class="toc-number">3.4.</span> <span class="toc-text">文本分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#备份操作"><span class="toc-number">3.5.</span> <span class="toc-text">备份操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#磁盘管理"><span class="toc-number">3.6.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux安全分析（配合日志分析）"><span class="toc-number">3.7.</span> <span class="toc-text">Linux安全分析（配合日志分析）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#日志清理与管理"><span class="toc-number">3.7.1.</span> <span class="toc-text">日志清理与管理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、运维实用脚本（可根据公司需求重构）"><span class="toc-number">4.</span> <span class="toc-text">三、运维实用脚本（可根据公司需求重构）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#日常脚本"><span class="toc-number">4.1.</span> <span class="toc-text">日常脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应急工具"><span class="toc-number">4.2.</span> <span class="toc-text">应急工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、云计算扫盲"><span class="toc-number">5.</span> <span class="toc-text">四、云计算扫盲</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes基础"><span class="toc-number">5.1.</span> <span class="toc-text">Kubernetes基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简单命令"><span class="toc-number">5.2.</span> <span class="toc-text">简单命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#容器启动步骤"><span class="toc-number">5.3.</span> <span class="toc-text">容器启动步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#devops"><span class="toc-number">5.4.</span> <span class="toc-text">devops</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原生总结"><span class="toc-number">5.5.</span> <span class="toc-text">原生总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux环境坑"><span class="toc-number">1.</span> <span class="toc-text">Linux环境坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器坑"><span class="toc-number">1.1.</span> <span class="toc-text">服务器坑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Raid基础"><span class="toc-number">1.1.1.</span> <span class="toc-text">Raid基础</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux系统"><span class="toc-number">1.1.2.</span> <span class="toc-text">Linux系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#0-1-git基础环境"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">0*1 git基础环境</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#0-2-java与python安装"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">0*2 java与python安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#0-3-docker安装"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">0*3 docker安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#0-4-开发环境技巧"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">0*4 开发环境技巧</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）"><span class="toc-number">2.</span> <span class="toc-text">一、正所谓工欲善其事，必先利其器（在服务器条件允许的条件下使用平台管理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、必备命令"><span class="toc-number">3.</span> <span class="toc-text">二、必备命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#综合分析"><span class="toc-number">3.1.</span> <span class="toc-text">综合分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存分析"><span class="toc-number">3.2.</span> <span class="toc-text">内存分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#性能分析"><span class="toc-number">3.3.</span> <span class="toc-text">性能分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文本分析"><span class="toc-number">3.4.</span> <span class="toc-text">文本分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#备份操作"><span class="toc-number">3.5.</span> <span class="toc-text">备份操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#磁盘管理"><span class="toc-number">3.6.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux安全分析（配合日志分析）"><span class="toc-number">3.7.</span> <span class="toc-text">Linux安全分析（配合日志分析）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#日志清理与管理"><span class="toc-number">3.7.1.</span> <span class="toc-text">日志清理与管理</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#出站流量控制"><span class="toc-number">3.8.</span> <span class="toc-text">出站流量控制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、运维实用脚本（可根据公司需求重构）"><span class="toc-number">4.</span> <span class="toc-text">三、运维实用脚本（可根据公司需求重构）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#日常脚本"><span class="toc-number">4.1.</span> <span class="toc-text">日常脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应急工具"><span class="toc-number">4.2.</span> <span class="toc-text">应急工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、云计算扫盲"><span class="toc-number">5.</span> <span class="toc-text">四、云计算扫盲</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes基础"><span class="toc-number">5.1.</span> <span class="toc-text">Kubernetes基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简单命令"><span class="toc-number">5.2.</span> <span class="toc-text">简单命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#容器启动步骤"><span class="toc-number">5.3.</span> <span class="toc-text">容器启动步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#devops"><span class="toc-number">5.4.</span> <span class="toc-text">devops</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原生总结"><span class="toc-number">5.5.</span> <span class="toc-text">原生总结</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -689,15 +699,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,15 +719,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,7 +727,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,15 +743,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ide</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
             
             <div class="clearfix"></div>
