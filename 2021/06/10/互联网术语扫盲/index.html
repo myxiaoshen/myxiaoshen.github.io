@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2022/01/4e413a53d66eb302.png">
 <meta property="og:image" content="https://ice.frostsky.com/2023/09/20/9e689f89c2f08971f20d0215e039a876.png">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2021/06/4d9ad183ae170835.png">
-<meta property="og:updated_time" content="2023-11-27T07:29:30.290Z">
+<meta property="og:updated_time" content="2024-01-31T02:41:57.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="互联网术语扫盲 ">
 <meta name="twitter:description" content="认证cookie 存储在客户端： cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。 session 再中间件的内存中：它是与cookie的一个桥梁，可以把它想成一个服务端控制器用来监控客户端的认证状态，默认根据中间件设置失效时间。:用户第一次请求服务器的时候，服务器根据用户提交的相关信息，创建对应的 Session，请">
@@ -271,7 +271,8 @@
 </blockquote>
 <p><img src="https://cdn.nlark.com/yuque/0/2021/png/1613913/1632189649799-e486abb0-5195-4282-aef0-c8a3692c0054.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_34%2Ctext_YXRndWlndS5jb20gIOWwmuehheiwtw%3D%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10" alt="page_1 - 副本.png"></p>
 <h5 id="负载均衡与集群："><a href="#负载均衡与集群：" class="headerlink" title="负载均衡与集群："></a>负载均衡与集群：</h5><p><b>负载均衡</b>: 全局负载均衡主要解决全球用户只需一个域名或IP地址就能,访问到离自己距离最近的服务器获得最快的访问速度,或者是空闲的服务器。<br><img src="https://pic.rmb.bdstatic.com/bjh/e1423afad1907e98b90d40f049a84302.png" alt=""><br><b>集群</b>: 服务器集群就是指将很多服务器集中起来一起进行同一种服务,在客户端看来就像是只有一个服务器。集群可以利用多个计算机进行并行计算从而获得很高的计算速度,也可以用多个计算机做备份,从而使得任何一个机器坏了整个系统还是能正常运行。</p>
-<h6 id="数据库与集群设计："><a href="#数据库与集群设计：" class="headerlink" title="数据库与集群设计："></a>数据库与集群设计：</h6><p>数据库主从一致性</p>
+<h6 id="数据库与集群设计："><a href="#数据库与集群设计：" class="headerlink" title="数据库与集群设计："></a>数据库与集群设计：</h6><p>异构数据ETL同步，一般基于两种方式：查询和日志，基于查询做全量同步，基于日志做增量同步，日志方式延迟会比较小，查询来做增量，延迟会比较大，查询频率越高，对数据库性能也会有影响。通常可以直接使用开源工具或者用数据库自带的程序实现常见的有OGG、SeaTunnel 前面2个是大厂的上手有点难度，比较推荐的开源可用chunjun、Airbyte，方便上手可以用<strong><a href="https://github.com/86dbs/dbsyncer" target="_blank" rel="noopener">dbsyncer</a></strong>与非常出名的DataX-Web</p>
+<p>数据库主从一致性</p>
 <p>（1）MySQL半同步复</p>
 <p><img src="https://static.mikechen.cc/wp-content/uploads/2021/03/2038.png" alt=""></p>
 <p>（2）数据库中间件</p>
@@ -654,18 +655,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -678,7 +667,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -690,11 +691,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
