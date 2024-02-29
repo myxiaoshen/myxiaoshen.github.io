@@ -334,7 +334,7 @@
 <p>企业带宽接入选择：</p>
  <table class="ke-zeroborder" style="width: 100%;" border="0" cellspacing="0" cellpadding="2"><tbody><tr><td>接入方式</td><td>优点</td><td>缺点</td><td>使用范围</td></tr><tr><td>ADSL接入</td><td>带宽较大、连高速数据传输、接法简单、投资较小、覆盖面广</td><td>对线路质量要求较高，当线路质量不高时影响使用</td><td>家庭用户、中小企业用户、集中的用户接、分散的用户接入使用</td></tr><tr><td>VDSL接入</td><td>更快的互联网接入、具有LAN速率的安全LAN接入、低成本的办公应用、IP电话传递</td><td>传输速度与传输距离成反比，配线质量需相当好。且VDSL目前还没有一套统一标准，各家所制造的设备互不兼容</td><td>适用于酒店等服务行业或中小型企业使用</td></tr><tr><td>Home PNA接入</td><td>Home PNA传输速度快、收费低、共享上网、施工简单</td><td>虽然成本较低，但传输距离太短，长距离的传输仍然需要ADSL技术、VDSL技术等来实现</td><td>家庭电话线网络组建</td></tr><tr><td>MMDS接入</td><td>成本低廉、MMDS技术比较成熟，使用广泛</td><td>带宽有限，尤其在人口密集的地区，很多用户有可能共用同一无线信道，数据流量会低于其他宽带无线服务</td><td>适用于中小企业用户和集团用户及大、中城市个人用户使用</td></tr></tbody></table>
 
-<h4 id="常用dos命令"><a href="#常用dos命令" class="headerlink" title="常用dos命令"></a>常用dos命令</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">nslookup -qt=txt ip dns（查询服务器的dns响应,-qt或者-<span class="built_in">type</span>查看解析值）</span><br><span class="line">tracert  （检查路由情况一般<span class="number">10</span>个以内为正常，<span class="number">10</span>-<span class="number">15</span>为较慢，<span class="number">30</span>以上算作无法访问）</span><br><span class="line">netstat -anoq | <span class="built_in">findstr</span> pid（配合任务管理器分析本地软件流量动向带管道符可以筛选）-r是查看路由表</span><br><span class="line">route -p add <span class="number">192</span>.<span class="number">168</span>.<span class="number">1</span>.<span class="number">0</span> mask <span class="number">255</span>.<span class="number">255</span>.<span class="number">255</span>.<span class="number">0</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">192</span>.<span class="number">10</span>（add添加一条静态路由指向 delete 是删除）</span><br><span class="line">takeown /f 文件夹名称 /r （打开权限）</span><br><span class="line">msconfig（查看系统配置）</span><br><span class="line">systeminfo （查看系统信息）</span><br><span class="line">netsh winsock reset （重置网卡）</span><br><span class="line">sfc/scannow （修复系统）</span><br><span class="line">arp (-a查看路由表，-d删除路由表缓存)</span><br><span class="line">tracert server(查看ip跃点，到改ip经过了那些路由ip)</span><br><span class="line"><span class="built_in">taskkill</span> /F /IM PID /T (强制关闭进程树)</span><br><span class="line">telnet server port （测试服务端口连通性）</span><br><span class="line">netsh interface portproxy add v4tov4 listenport=<span class="number">80</span> listen address=<span class="number">192</span>.<span class="number">168</span>.<span class="number">154</span>.<span class="number">129</span> connectport=<span class="number">9999</span> connectaddress=<span class="number">192</span>.<span class="number">168</span>.<span class="number">154</span>.<span class="number">129</span> （把<span class="number">192</span>的<span class="number">80</span>端口转发到<span class="number">129</span>的<span class="number">9999</span>端口）</span><br><span class="line">netsh interface portproxy show all  （显示系统中的转发规则列表）</span><br><span class="line">netsh interface portproxy reset （清除所有当前的端口转发规则）</span><br><span class="line"><span class="built_in">ping</span> <span class="number">192</span>.<span class="number">168</span>.*.<span class="number">255</span> 然后使用arp -a （查看活跃的ip地址）</span><br></pre></td></tr></table></figure>
+<h4 id="常用dos命令"><a href="#常用dos命令" class="headerlink" title="常用dos命令"></a>常用dos命令</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">nslookup -qt=txt ip dns（查询服务器的dns响应,-qt或者-<span class="built_in">type</span>查看解析值）</span><br><span class="line">tracert  （检查路由情况一般<span class="number">10</span>个以内为正常，<span class="number">10</span>-<span class="number">15</span>为较慢，<span class="number">30</span>以上算作无法访问）</span><br><span class="line">netstat -anoq | <span class="built_in">findstr</span> pid（配合任务管理器分析本地软件流量动向带管道符可以筛选）-r是查看路由表</span><br><span class="line">route -p add <span class="number">192</span>.<span class="number">168</span>.<span class="number">1</span>.<span class="number">0</span> mask <span class="number">255</span>.<span class="number">255</span>.<span class="number">255</span>.<span class="number">0</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">192</span>.<span class="number">10</span>（add添加一条静态路由指向 delete 是删除）</span><br><span class="line">takeown /f 文件夹名称 /r （打开权限）</span><br><span class="line">msconfig（查看系统配置）</span><br><span class="line">systeminfo （查看系统信息）</span><br><span class="line">netsh winsock reset （重置网卡）</span><br><span class="line">sfc/scannow （修复系统）</span><br><span class="line">arp (-a查看路由表，-d删除路由表缓存)</span><br><span class="line">tracert server(查看ip跃点，到改ip经过了那些路由ip)</span><br><span class="line"><span class="built_in">taskkill</span> /F /IM PID /T (强制关闭进程树)</span><br><span class="line">telnet server port （测试服务端口连通性）</span><br><span class="line">netsh interface portproxy add v4tov4 listenport=<span class="number">80</span> listen address=<span class="number">192</span>.<span class="number">168</span>.<span class="number">154</span>.<span class="number">129</span> connectport=<span class="number">9999</span> connectaddress=<span class="number">192</span>.<span class="number">168</span>.<span class="number">154</span>.<span class="number">129</span> （把<span class="number">192</span>的<span class="number">80</span>端口转发到<span class="number">129</span>的<span class="number">9999</span>端口）</span><br><span class="line">netsh interface portproxy show all  （显示系统中的转发规则列表）</span><br><span class="line">netsh interface portproxy reset （清除所有当前的端口转发规则）</span><br><span class="line"><span class="built_in">ping</span> <span class="number">192</span>.<span class="number">168</span>.*.<span class="number">255</span> 然后使用arp -a （查看活跃的ip地址）</span><br><span class="line">netdom query fsmo ##查询当前连的ad域</span><br><span class="line">repadmin /replsum  #查看ad域整体状态</span><br><span class="line">repadmin /syncall /APed ##同步到域</span><br><span class="line"><span class="built_in">Move</span>-ADDirectoryServerOperationMasterRole -Identity "DC-W2K16" -OperationMasterRole <span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>  ##域控转移 -force是强制</span><br></pre></td></tr></table></figure>
 <p>​    </p>
         
           <a class="article-more-a" href="/2020/03/12/网管笔记/#more">阅读全文 >></a>
@@ -1130,15 +1130,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1154,11 +1150,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1166,11 +1162,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
