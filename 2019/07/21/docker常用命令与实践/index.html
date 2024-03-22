@@ -17,7 +17,7 @@
 <meta property="og:description" content="前言Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。有了docker很多环境就不需要你配了，比如mys">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://i.niupic.com/images/2020/10/06/8LNA.png">
-<meta property="og:updated_time" content="2023-12-18T04:25:15.644Z">
+<meta property="og:updated_time" content="2024-03-22T06:00:18.837Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker常用命令与实践">
 <meta name="twitter:description" content="前言Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。有了docker很多环境就不需要你配了，比如mys">
@@ -272,7 +272,18 @@ host //容器网络和宿主机一样，类似桥接
 node docker //不设置网络
 </code></pre><p>在docker run创建并运行容器的时候，可以通过-p指定端口映射规则。但是，我们经常会遇到刚开始忘记设置端口映射或者设置错了需要修改。解决方式一般都是重新创建一个容器，但是有业务的情况不建议这样。<br>先查看容器的CONTAINER ID与对应的网络<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps //看id</span><br><span class="line">docker inspect name //看对应配置文件</span><br></pre></td></tr></table></figure></p>
 <p>编辑/var/lib/docker/containers/[CONTAINER ID]/hostconfig.json 文件,修改PortBindings，最后重启docke服务<br><img src="https://i.niupic.com/images/2020/10/06/8LNA.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+<p>容器使用宿主机的代理的几种方法总结<br>和 build 时类似，只需要在 生成容器时（run -e http_proxy=…） 或者 容器中 设置环境变量http_proxy和https_proxy变量即可，同样需要注意容易使用的网络类型是bridge还是host，根据类别设置正确的代理 ip 地址</p>
+<p>方法一： 直接在容器内使用（推荐)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export ALL_PROXY=&apos;socks5://172.17.0.1:1080&apos;</span><br></pre></td></tr></table></figure>
+<p>方法二： 与宿主机共享网络时直接在容器内使用<br>创建容器时使用–network=host参数</p>
+<p>然后在docker内设置代理，比如全局代理</p>
+<p>export ALL_PROXY=’socks5://127.0.0.1:1080’<br>这样就可以使用宿主机的代理了</p>
+<p>但是要注意， 如果是用–network=host，这样的话使用 -p 参数映射端口就没用了， 即所有端口都是开放和宿主机共享的</p>
+<p>方法三： 映射代理端口后直接在容器内使用<br>docker run时带参数-p映射代理的端口到容器， 在容器里面使用即可，比如：</p>
+<p>docker run  -p 1080:1080 …..<br>export ALL_PROXY=’socks5://127.0.0.1:1080’<br>方法四： docker配置全局代理，以在生成容器时自动设置代理变量<br>设置 docker 全局代理，比如设置了<a href="http://172.17.0.1:8123，" target="_blank" rel="noopener">http://172.17.0.1:8123，</a> 容器内全都会走这个代理，除了配置文件中的白名单里面的地址以外</p>
+<p>linux使用全局代理编辑/etc/environment</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">"http://192.168.0.32:1080/"</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">"http://192.168.0.32:1080/"</span></span><br></pre></td></tr></table></figure>
 <p>13.更新容器：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower -cR</span><br></pre></td></tr></table></figure>
 
@@ -521,6 +532,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -533,10 +548,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -545,11 +556,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
