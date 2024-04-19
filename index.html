@@ -287,7 +287,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>大家都知道在生活中往往会在需要对目标进行信息收集的时候，在攻防演练时我们更多的称之为外围打点，即需要发现能够获取权限的漏洞，利用从而进入目标内网。大多数情况下，利用漏洞其实大家已经不成问题了，更多的场景是找不到这个入口点，下面整理一些常用的信息收集方法。</p>
+        <p>大家都知道在生活中往往会在需要对目标进行信息收集的时候，或者在攻防演练时我们更多的称之为外围打点，即需要发现能够获取权限的漏洞，利用从而进入目标内网。大多数情况下，利用漏洞其实大家已经不成问题了，更多的场景是找不到这个入口点，下面整理一些常用的信息收集方法。</p>
 <p><b>搜索小技巧：通过搜索引擎多使用关键字：1.xx在线工具 2.xx破解版 3.在线xx 4. xx补丁 5.xx+当前年份 6.云xx 7.最好的xx 8.xx推荐  9.xx之类的 xx替代 10.中英互转搜索(推荐DeeL翻译) 11.xx特别版。 这里还要提醒一下多利用热门平台搜索关键字：如手机的酷安、云盘加速器等白嫖服务可以进油猴和B站以及油管</b></p>
 <p>热门服务关键字搜索平台：手机-酷安 、云盘以及加速器服务-油猴和B站以及YOUTUBE 软件和信息站-克隆屋、和<a href="https://233heji.com/" target="_blank" rel="noopener">233信息</a></p>
 <h3 id="一、通用的网站信息收集"><a href="#一、通用的网站信息收集" class="headerlink" title="一、通用的网站信息收集"></a>一、通用的网站信息收集</h3><p>先这里推荐几个工具，大家可以在这些工具的基础上进行修改，当然不改也是可以的，工具本身已经非常好用了：<a href="https://github.com/shmilylty/OneForAll" target="_blank" rel="noopener">Oneforall</a>、Teemo、subDomainsBrute这三款工具基本上已经满足了搜集二级域名的所有需求，包括枚举、证书、DNS、威胁情报、搜索引擎等多个维度获取信息。当然也可以使用Google语法搜索。</p>
@@ -413,11 +413,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达。</p>
+        <p>个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达，还有就是想说一下自我认为在去解决一个任务的时候可以先寻找一下带图形化的配置方案，可能现在有些技术觉得图形化很low而且占资源，但可以极大的避免误操作与减少工作时间(当然如果是批量的实施的情况下还是静默的方式方便，但通常也是有GUI的面板统一的去管理)。</p>
 <p>俺做过一段时间的运维，服务器一般接触的是centos7，这里记录一下工作的小技巧以及一些资料收集。</p>
-<h3 id="Linux环境坑"><a href="#Linux环境坑" class="headerlink" title="Linux环境坑"></a>Linux环境坑</h3><p>介绍一下简单的配置查看：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">lscpu 列cpu</span><br><span class="line">lsof  列文件</span><br><span class="line">lsusb 列usb设备</span><br><span class="line">lspci 列总线</span><br><span class="line">cat /proc/cpuinfo | grep <span class="string">"cpu"</span>  //查看cpu核心</span><br><span class="line">free -h //查内存</span><br><span class="line">df -Th //查存储</span><br><span class="line">tar czvf xxx.tar //压缩目录</span><br><span class="line">tar zxvf xxx.tar //解压缩</span><br><span class="line">zip -r xxx.zip //压缩目录</span><br><span class="line">unzip -o xxx.zip -d /tmp/ //解压缩d路径</span><br><span class="line">dmidecode -s system-product-name //查看是否是虚拟机</span><br><span class="line">uname -a //处理器位数</span><br><span class="line">cat /etc/os-release  //获取系统信息</span><br><span class="line">cat /etc/redhat-release  //查看系统内核版本</span><br><span class="line">w //查看登录用户</span><br><span class="line"><span class="comment">######mysql外部访问##########</span></span><br><span class="line">mysql -h 127.0.0.1 -u root -p    //登录mysql</span><br><span class="line">use mysql;</span><br><span class="line">update user <span class="built_in">set</span> host = <span class="string">'%'</span> <span class="built_in">where</span> user = <span class="string">'root'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">###时区设置</span></span><br><span class="line">yum install chrony </span><br><span class="line">timedatectl status</span><br><span class="line"></span><br><span class="line"><span class="comment">###x11远程桌面</span></span><br><span class="line">sudo yum install xorg-x11-apps xorg-x11-xauth xorg-x11-fonts-* xorg-x11-font-utils xorg-x11-fonts-Type1 xclock <span class="comment">##依赖</span></span><br><span class="line">sudo vim /etc/ssh/sshd_config </span><br><span class="line"><span class="comment">##AllowTcpForwarding=yes </span></span><br><span class="line"><span class="comment">##X11Forwarding=yes</span></span><br><span class="line"><span class="comment">##X11UseLocalhost=yes</span></span><br><span class="line"><span class="comment">##X11DisplayOffset=10</span></span><br><span class="line"><span class="comment">#改配置文件启用X11，最后重启ssh，xclock测试</span></span><br><span class="line">service sshd restart | systeamcal sshd restart</span><br><span class="line">xclock</span><br><span class="line"><span class="comment">##root下连不上</span></span><br><span class="line">sudo cp ~/.Xauthority /root</span><br><span class="line"><span class="comment">##定时任务运行crontab -e命令编辑cron文件，添加每10分钟执行一次并写入log文件</span></span><br><span class="line">*/10 * * * * /root/network.sh &gt;&gt; /home/wwwlogs/oult.log </span><br><span class="line"><span class="comment">##java程序后台</span></span><br><span class="line">nohup java -jar jar包名  &gt;output 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Linux环境坑"><a href="#Linux环境坑" class="headerlink" title="Linux环境坑"></a>Linux环境坑</h3><p>介绍一下简单的配置查看：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">lscpu 列cpu</span><br><span class="line">lsof  列文件</span><br><span class="line">lsusb 列usb设备</span><br><span class="line">lspci 列总线</span><br><span class="line">cat /proc/cpuinfo | grep <span class="string">"cpu"</span>  //查看cpu核心</span><br><span class="line">free -h //查内存</span><br><span class="line">df -Th //查存储</span><br><span class="line">tar czvf xxx.tar //压缩目录</span><br><span class="line">tar zxvf xxx.tar //解压缩</span><br><span class="line">zip -r xxx.zip //压缩目录</span><br><span class="line">unzip -o xxx.zip -d /tmp/ //解压缩d路径</span><br><span class="line">dmidecode -s system-product-name //查看是否是虚拟机</span><br><span class="line">uname -a //处理器位数</span><br><span class="line">cat /etc/os-release  //获取系统信息</span><br><span class="line">cat /etc/redhat-release  //查看系统内核版本</span><br><span class="line">w //查看登录用户</span><br><span class="line"><span class="comment">######mysql外部访问##########</span></span><br><span class="line">mysql -h 127.0.0.1 -u root -p    //登录mysql</span><br><span class="line">use mysql;</span><br><span class="line">update user <span class="built_in">set</span> host = <span class="string">'%'</span> <span class="built_in">where</span> user = <span class="string">'root'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">###时区设置与同步</span></span><br><span class="line"><span class="comment">#时区配置: /etc/chrony.conf</span></span><br><span class="line"><span class="comment">#增加国内的 ntp 服务器，或是指定其他常用的时间服务器pool cn.pool.ntp.org iburst</span></span><br><span class="line">timedatectl <span class="built_in">set</span>-timezone Asia/Shanghai</span><br><span class="line">yum install chrony </span><br><span class="line">timedatectl status</span><br><span class="line">systemctl <span class="built_in">enable</span> chronyd --now</span><br><span class="line"><span class="comment">###x11远程桌面</span></span><br><span class="line">sudo yum install xorg-x11-apps xorg-x11-xauth xorg-x11-fonts-* xorg-x11-font-utils xorg-x11-fonts-Type1 xclock <span class="comment">##依赖</span></span><br><span class="line">sudo vim /etc/ssh/sshd_config </span><br><span class="line"><span class="comment">##AllowTcpForwarding=yes </span></span><br><span class="line"><span class="comment">##X11Forwarding=yes</span></span><br><span class="line"><span class="comment">##X11UseLocalhost=yes</span></span><br><span class="line"><span class="comment">##X11DisplayOffset=10</span></span><br><span class="line"><span class="comment">#改配置文件启用X11，最后重启ssh，xclock测试</span></span><br><span class="line">service sshd restart | systeamcal sshd restart</span><br><span class="line">xclock</span><br><span class="line"><span class="comment">##root下连不上</span></span><br><span class="line">sudo cp ~/.Xauthority /root</span><br><span class="line"><span class="comment">##定时任务运行crontab -e命令编辑cron文件，添加每10分钟执行一次并写入log文件</span></span><br><span class="line">*/10 * * * * /root/network.sh &gt;&gt; /home/wwwlogs/oult.log </span><br><span class="line"><span class="comment">##java程序后台</span></span><br><span class="line">nohup java -jar jar包名  &gt;output 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></p>
 <p>网络策略相关：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:3128 //查看3128端口</span><br><span class="line">sysctl -w net.ipv4.ip_forward=1  //开启ip转发</span><br><span class="line">sed -i <span class="string">"s/SELINUX=enforcing/SELINUX=disabled/g"</span> /etc/selinux/config  //关闭selinux</span><br><span class="line">systemctl stop firewalld.service  //防火墙关闭</span><br><span class="line">systemctl <span class="built_in">disable</span>  firewalld.service //防火墙自启关闭</span><br><span class="line">service iptables save //防火墙永久生效</span><br><span class="line"><span class="comment"># 修改/etc/sysctl.conf禁用某一个指定接口的IPv6(例如：eth0, lo)</span></span><br><span class="line">net.ipv6.conf.lo.disable_ipv6 = 1</span><br><span class="line">net.ipv6.conf.eth0.disable_ipv6 = 1</span><br><span class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</span><br><span class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/net/ipv6/conf/default/disable_ipv6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">firewall-cmd --zone=public --add-port=3306/tcp --add-port=6379/tcp --permanent   <span class="comment"># 添加放行指定单个端口</span></span><br><span class="line">firewall-cmd --reload       <span class="comment"># 生效添加的要放行的端口</span></span><br><span class="line">firewall-cmd --list-ports   <span class="comment"># 查看所有被放行的端口</span></span><br><span class="line">firewall-cmd --zone=public --remove-port=8081/tcp --permanent   <span class="comment"># 取消指定一开放端口</span></span><br></pre></td></tr></table></figure></p>
-<p>网络配置方面：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/network  <span class="comment">#主机名配置文件</span></span><br><span class="line">ifconfig eth0  down   <span class="comment">#down关闭 up启动</span></span><br><span class="line">service network restart <span class="comment">#重启网络</span></span><br><span class="line">/etc/resolv.conf  <span class="comment">#dns目录</span></span><br><span class="line">/etc/hosts <span class="comment">#hosts目录</span></span><br><span class="line">service networking restart <span class="comment">#重启网络服务</span></span><br><span class="line">route add –net 192.168.0.0/24 gw 172.16.7.3  <span class="comment">#添加一条路由delete删除</span></span><br></pre></td></tr></table></figure></p>
+<p>网络配置方面：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/network  <span class="comment">#主机名配置文件或hostnamectl set-hostname “主机名”</span></span><br><span class="line">ifconfig eth0  down   <span class="comment">#down关闭 up启动</span></span><br><span class="line">service network restart <span class="comment">#重启网络</span></span><br><span class="line">/etc/resolv.conf  <span class="comment">#dns目录</span></span><br><span class="line">/etc/hosts <span class="comment">#hosts目录</span></span><br><span class="line">service networking restart <span class="comment">#重启网络服务</span></span><br><span class="line">route add –net 192.168.0.0/24 gw 172.16.7.3  <span class="comment">#添加一条路由delete删除</span></span><br></pre></td></tr></table></figure></p>
 <p>代理设置：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile   <span class="comment">#设置代理</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">'http://ip:port'</span>    </span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">'http://ip:port'</span>    </span><br><span class="line"><span class="built_in">export</span> http_proxy</span><br><span class="line"><span class="built_in">export</span> https_proxy </span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
 <p>linux使用全局代理编辑/etc/environment</p>
@@ -599,11 +599,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">极客</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">极客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		
 		</ul>
@@ -755,11 +755,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1059,15 +1059,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1079,15 +1087,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1095,11 +1095,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">

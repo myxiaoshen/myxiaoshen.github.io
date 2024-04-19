@@ -9,7 +9,7 @@
   <title>个人渗透技巧汇总笔记 | 戏如烟云b16</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="部分工具转到云盘自取pwd:MThjMGVmYWQ2ZjE0MTdiZjg0ODM3OTQ1MThiZmY4YzE= 前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转网络靶场联系可以使用Vulstudy一键搭建12个靶场 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站">
-<meta name="keywords" content="web技术,笔记,渗透测试">
+<meta name="keywords" content="笔记,web技术,渗透测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="个人渗透技巧汇总笔记">
 <meta property="og:url" content="http://yoursite.com/2020/08/06/个人渗透技巧汇总笔记/index.html">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/cCaOxI.png">
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/cCaLRA.png">
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/cCaqGd.png">
-<meta property="og:updated_time" content="2024-03-21T04:00:47.058Z">
+<meta property="og:updated_time" content="2024-04-12T02:05:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人渗透技巧汇总笔记">
 <meta name="twitter:description" content="部分工具转到云盘自取pwd:MThjMGVmYWQ2ZjE0MTdiZjg0ODM3OTQ1MThiZmY4YzE= 前言首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： 点此跳转网络靶场联系可以使用Vulstudy一键搭建12个靶场 当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站">
@@ -297,7 +297,7 @@
 
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v &quot;test&quot; /t REG_SZ /d &quot;C:\Users\KingXL\1.exe&quot; /f
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sc create &quot;server power&quot; binpath= &quot;C:\Windows\System32\config.exe&quot;</span><br><span class="line">//设置服务的描述字符串</span><br><span class="line">sc description &quot;server power&quot; &quot;description&quot; </span><br><span class="line">//设置这个服务为自动启动</span><br><span class="line">sc config &quot;server power&quot; start= auto </span><br><span class="line">net start &quot;server power&quot; 启动服务</span><br></pre></td></tr></table></figure>
-<h4 id="八、-一个便捷的hack浏览器（上火狐开发者版本也不错）"><a href="#八、-一个便捷的hack浏览器（上火狐开发者版本也不错）" class="headerlink" title="八、 一个便捷的hack浏览器（上火狐开发者版本也不错）"></a>八、 一个便捷的hack浏览器（上火狐开发者版本也不错）</h4><p>这里个人做一个备份有需求的自行google，解释一下英文的插件功能。<br><img src="https://z3.ax1x.com/2021/03/29/cCaOxI.png" alt=""><br><img src="https://z3.ax1x.com/2021/03/29/cCaLRA.png" alt=""><br><img src="https://z3.ax1x.com/2021/03/29/cCaqGd.png" alt=""><br>Ajax Interceptor：可以自定义ajax的json返回值，前端测试用。<br>Anti-HoneyPot： 红队用，可以检查网页中的蜜罐链接并提示。<br>ApiRequest.io Ajax Capture Debugging Tool：这个是神器！！强推，可以测试网页中任何的ajax请求包括跨站ajax请求重放，官网提供了只30天的请求历史记录记得保存重要请求。<br>Decentraleyes： 可以拦截一些cdn和本地的文件跟踪器<br>APK Downloader for Google Play Store ：免google框架在线下载应用商店的app。<br>Buster Captcha Solver for Humans： 过goole验证码，有时候识别会比较慢。<br>Easy WebRTC Block： 干掉webrtc的ip回显，避免泄露真实ip<br>IP Whois &amp; Flags Chrome &amp; Websites Rating： 自动在后台测试当前网站ip的归属地然后以小图标的形式返回给前台非常便捷，点击进去还可以看到cdn以及whois信息。<br>NoScript: 慎用，此插件可以强力的拦截网页上的追踪器来保护用户的隐私与真实信息，但是会造成许多网站打开异常。<br>Identify web technologies ：可以帮你分析当前网站所使用的网络技术与框架。<br>Shodan： 网络搜索引擎同fofa与钟馗之眼，互联网设备大杀器<br>Picture-in-Picture Extension：画中画悬浮窗口看视频<br>SourceDetector： 可以再后台默默的扫描是否有源代码泄露<br>HackTools：方便懒人使用点击扩展可快速复制sql，xss，反弹shell。<br>FindSomething :基于浏览器插件的被动式信息提取工具</p>
+<h4 id="八、-一个便捷的hack浏览器（上火狐开发者版本也不错）"><a href="#八、-一个便捷的hack浏览器（上火狐开发者版本也不错）" class="headerlink" title="八、 一个便捷的hack浏览器（上火狐开发者版本也不错）"></a>八、 一个便捷的hack浏览器（上火狐开发者版本也不错）</h4><p>这里个人做一个备份有需求的自行google，解释一下英文的插件功能。<br><img src="https://z3.ax1x.com/2021/03/29/cCaOxI.png" alt=""><br><img src="https://z3.ax1x.com/2021/03/29/cCaLRA.png" alt=""><br><img src="https://z3.ax1x.com/2021/03/29/cCaqGd.png" alt=""><br>Ajax Interceptor：可以自定义ajax的json返回值，前端测试用。<br>Anti-HoneyPot： 红队用，可以检查网页中的蜜罐链接并提示。<br>ApiRequest.io Ajax Capture Debugging Tool：这个是神器！！强推，可以测试网页中任何的ajax请求包括跨站ajax请求重放，官网提供了只30天的请求历史记录记得保存重要请求。<br>Decentraleyes： 可以拦截一些cdn和本地的文件跟踪器<br>APK Downloader for Google Play Store ：免google框架在线下载应用商店的app。<br>Buster Captcha Solver for Humans： 过goole验证码，有时候识别会比较慢。<br>Easy WebRTC Block： 干掉webrtc的ip回显，避免泄露真实ip，可以配合dnscrypt把dns泄露也保护了。<br>IP Whois &amp; Flags Chrome &amp; Websites Rating： 自动在后台测试当前网站ip的归属地然后以小图标的形式返回给前台非常便捷，点击进去还可以看到cdn以及whois信息。<br>NoScript: 慎用，此插件可以强力的拦截网页上的追踪器来保护用户的隐私与真实信息，但是会造成许多网站打开异常。<br>Identify web technologies ：可以帮你分析当前网站所使用的网络技术与框架。<br>Shodan： 网络搜索引擎同fofa与钟馗之眼，互联网设备大杀器<br>Picture-in-Picture Extension：画中画悬浮窗口看视频<br>SourceDetector： 可以再后台默默的扫描是否有源代码泄露<br>HackTools：方便懒人使用点击扩展可快速复制sql，xss，反弹shell。<br>FindSomething :基于浏览器插件的被动式信息提取工具</p>
 
       
 
@@ -311,11 +311,11 @@ reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v &quo
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -552,15 +552,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,15 +580,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,11 +588,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
