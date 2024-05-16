@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://kuboard.cn/assets/img/module_03_nodes.38f0ef71.svg">
 <meta property="og:image" content="https://kuboard.cn/assets/img/module_05_scaling2.3f74dfba.svg">
 <meta property="og:image" content="https://s1.ax1x.com/2022/07/01/jQRGOs.png">
-<meta property="og:updated_time" content="2024-04-28T07:41:42.579Z">
+<meta property="og:updated_time" content="2024-05-09T07:04:49.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
 <meta name="twitter:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达，还有就是想说一下自我认为在去解决一个任务的时候可以先寻找一下带图形化的配置方案，可能现在有些技术觉得图形化很low而且占资源，但可以极大的避免误操作与减少工作时间(当然如果是批量的实施的情况下还是静默的方式方便，但通常也是有GUI的面板统一的去管理)。 俺做过一段时间的运维，服务器一般">
@@ -387,7 +387,9 @@ ForwardToSyslog=no
 <p>输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Start Script Service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/path/to/your/start_script.sh  <span class="comment">##自己的脚本目录</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=default.target</span><br></pre></td></tr></table></figure>
 <p>自、启动、查看服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> start_script.service</span><br><span class="line">sudo systemctl start start_script.service</span><br><span class="line">sudo systemctl status start_script.service</span><br><span class="line">ntsysv</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> start_script.service</span><br><span class="line">sudo systemctl start start_script.service</span><br><span class="line">sudo systemctl status start_script.service</span><br></pre></td></tr></table></figure>
+<p>笔者通常Azure服务器用的较多如果费用问题还可以配合自带的自动化账户完成自动关机与重启达到节省的目的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 使用系统分配的托管标识连接到Azure,需要先创建一个系统托管标识给自动化资源</span></span><br><span class="line">Connect-AzAccount -Identity</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 定义虚拟机的资源组和名称</span></span><br><span class="line"><span class="meta">$</span><span class="bash">ResourceGroupName = <span class="string">"dom"</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash">VmName = <span class="string">"t1"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动虚拟机</span></span><br><span class="line">Start-AzVM -Name $VmName -ResourceGroupName $ResourceGroupName</span><br></pre></td></tr></table></figure>
 <h3 id="三、运维实用脚本（可根据公司需求重构）"><a href="#三、运维实用脚本（可根据公司需求重构）" class="headerlink" title="三、运维实用脚本（可根据公司需求重构）"></a>三、运维实用脚本（可根据公司需求重构）</h3><h4 id="日常脚本"><a href="#日常脚本" class="headerlink" title="日常脚本"></a>日常脚本</h4><p>快捷运维，代号<a href="https://github.com/aqzt/kjyw" target="_blank" rel="noopener">kjyw</a>，项目基于shell、python，运维脚本工具库，收集各类运维常用工具脚本，实现快速安装nginx、mysql、php、redis、nagios、运维经常使用的脚本等等…</p>
 <p><a href="https://github.com/Ljohn001/ljohn_ops" target="_blank" rel="noopener">https://github.com/Ljohn001/ljohn_ops</a></p>
 <p><a href="https://linuxeye.com/category/script/" target="_blank" rel="noopener">https://linuxeye.com/category/script/</a></p>
@@ -712,7 +714,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color4">云平台</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -724,11 +726,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,6 +739,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">

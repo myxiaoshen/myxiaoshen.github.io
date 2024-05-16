@@ -17,7 +17,7 @@
 <meta property="og:description" content="前言Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。有了docker很多环境就不需要你配了，比如mys">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://i.niupic.com/images/2020/10/06/8LNA.png">
-<meta property="og:updated_time" content="2024-03-22T10:53:07.634Z">
+<meta property="og:updated_time" content="2024-05-16T05:54:46.490Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker常用命令与实践">
 <meta name="twitter:description" content="前言Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。有了docker很多环境就不需要你配了，比如mys">
@@ -227,7 +227,8 @@
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。有了docker很多环境就不需要你配了，比如mysql，tomcat,redis等等。活用dockers可以让你再环境搭建中省下很多的事情<br>—————————————————————————————————————————<br>docker仓库&gt;镜像&gt;容器&gt;数据<br>docker命令速查：<a href="https://www.jianshu.com/p/2f97f61933b9" target="_blank" rel="noopener">https://www.jianshu.com/p/2f97f61933b9</a><br>docker入门到实践：<a href="https://yeasy.gitbooks.io/docker_practice/image/dockerfile/references.html" target="_blank" rel="noopener">https://yeasy.gitbooks.io/docker_practice/image/dockerfile/references.html</a><br>docker入门到实践：<a href="https://docs.docker.com/engine/reference/builder" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder</a><br>加速地址命令：</p>
 <pre><code>curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://4e70ba5d.m.daocloud.io
-</code></pre><p>docker手动修改配置加速：<br>编辑文件重启docker服务<br>/etc/docker/daemon.json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    &quot;registry-mirrors&quot;:[&quot;https://almtd3fa.mirror.aliyuncs.com&quot;]      </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</code></pre><p>docker手动修改配置加速：<br>编辑文件重启docker服务<br>/etc/docker/daemon.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    &quot;registry-mirrors&quot;:[&quot;https://almtd3fa.mirror.aliyuncs.com&quot;]      </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><p>1.启动一个容器并开启实时交互功能,并命名,进入shell终端（rename命名）</p>
 <pre><code>docker run －i－t --name &lt;name&gt;     /bin/bash //-d守护进程，-p指定端口映射，-P映射所有容器端口； -v 将目录挂载到本地 注：冒号&quot;:&quot;前面的目录是宿主机目录，后面的目录是容器内目录。-e传参配置环境参数； --link 链接容器
 </code></pre><p>2.查看容器进程与查看所有容器的ip地址</p>
@@ -256,16 +257,8 @@ docker inspect --format=&apos;{{.Name}} - {{range.NetworkSettings.Networks}}{{.I
 <p>10.常用指令如下，docker-compose 同理配置文件需要仔细编写。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">search <span class="comment">#搜索</span></span><br><span class="line">pull<span class="comment">#拉取</span></span><br><span class="line">push<span class="comment">#推送</span></span><br><span class="line">build<span class="comment">#构建</span></span><br><span class="line">down<span class="comment">#</span></span><br><span class="line">up <span class="comment">#启动</span></span><br><span class="line">restart<span class="comment">#重启</span></span><br><span class="line">stop<span class="comment">#停止</span></span><br><span class="line">rm<span class="comment">#删除</span></span><br><span class="line"><span class="built_in">exec</span> <span class="comment">#进入</span></span><br><span class="line">config<span class="comment">#配置文件</span></span><br><span class="line">ps<span class="comment">#进程</span></span><br><span class="line">run <span class="comment">#启动</span></span><br><span class="line">logs<span class="comment">#日志</span></span><br></pre></td></tr></table></figure>
 <p>11.dockerfile创建镜像</p>
-<pre><code>docker build -t=&quot;dockerfile&quot; .    
-FORM  &lt;image&gt;:&lt;tag&gt;//指定镜像名
-MAINTAINER &lt;name&gt;&lt;emali&gt;//镜像信息
-RUN &lt;shell&gt; //运行指令
-EXPOSE &lt;port&gt; //指定容器使用的端口
-ENTRYPINT[&quot;&quot;] CMD[&quot;&quot;] //前者优先级大于后者，可组合使用
-ADD [&quot;&lt;src&gt;&quot; &quot;&lt;dest&gt;&quot;] //适用于文件    空格的情况
-COPY [&quot;&lt;src&gt;&quot; &quot;&lt;dest&gt;&quot;] //适用于文件路径有空格的情况
-ONBUILD []//镜像触发器
-</code></pre><p>12.网络处理<br>先用apt-get更新镜像里的环境，并安装net-tools  inetutils-ping</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker build -t=<span class="string">"nginx:v3"</span> .	 <span class="comment">##命令用于构建一个Docker镜像，并为其指定标签为nginx:v3，镜像的构建内容来自当前目录下的Dockerfile。</span></span><br><span class="line">FORM  &lt;image&gt;:&lt;tag&gt;<span class="comment">##指定容器基础依赖镜像名如 ubuntu:latest </span></span><br><span class="line">MAINTAINER &lt;name&gt;&lt;emali&gt;<span class="comment">##镜像信息</span></span><br><span class="line">RUN &lt;shell&gt; <span class="comment">##运行指令</span></span><br><span class="line">EXPOSE &lt;port&gt; //指定容器使用的端口</span><br><span class="line">ENTRYPINT[<span class="string">""</span>] CMD[<span class="string">""</span>] <span class="comment">##前者优先级大于后者，可组合使用</span></span><br><span class="line">ADD [<span class="string">"&lt;src&gt;"</span> <span class="string">"&lt;dest&gt;"</span>] <span class="comment">##适用于文件	空格的情况</span></span><br><span class="line">COPY [<span class="string">"&lt;src&gt;"</span> <span class="string">"&lt;dest&gt;"</span>] <span class="comment">##适用于文件路径有空格的情况</span></span><br><span class="line">ONBUILD [] <span class="comment">##镜像触发器</span></span><br></pre></td></tr></table></figure>
+<p>12.网络处理<br>先用apt-get更新镜像里的环境，并安装net-tools  inetutils-ping</p>
 <pre><code>docker run --net=xxx//来指定容器使用的网络类型一下是参数类型
 bridge//默认的虚拟网桥，类似nat
 host //容器网络和宿主机一样，类似桥接
@@ -548,7 +541,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color4">云平台</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,11 +553,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,6 +566,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
