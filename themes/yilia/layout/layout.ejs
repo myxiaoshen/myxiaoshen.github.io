@@ -1,0 +1,92 @@
+<%- partial('_partial/head') %>
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+<!--     侧边栏css调用 -->
+      <div class="mymenucontainer" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
+    <div class="left-col" q-class="show:isShow">
+      <%- partial('_partial/left-col', null, {cache: !config.relative_link}) %>
+    </div>
+
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <%- body %>
+          </div>
+        </div>
+      </div>
+      <%- partial('_partial/footer') %>
+    </div>
+    <%- partial('_partial/after-footer') %>
+    <%- partial('_partial/tools') %>
+    <%- partial('_partial/viewer') %>
+  </div>
+
+ <!-- 页面点击小红心 -->
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/love.js"></script>
+<script type="text/javascript" >
+    var hide = false;
+
+    function myFunction(x) {
+        x.classList.toggle("change");
+        if(hide == false){
+            $(".left-col").css('display', 'none');
+            $(".mid-col").css("left", 6);
+            $(".tools-col").css('display', 'none');
+            $(".tools-col.hide").css('display', 'none');
+            hide = true;
+        }else{
+            $(".left-col").css('display', '');
+            $(".mid-col").css("left", 300);
+            $(".tools-col").css('display', '');
+            $(".tools-col.hide").css('display', '');
+            hide = false;
+        }
+    }
+</script>
+
+
+
+ <!-- 公告系统localStorag检查用户之前有没有打开过这个页面，判断是否要打开弹窗。 -->
+<!--<script>
+
+<!-- swee弹窗文件 -->
+ <!--<script src="/js/sweetalert.js"></script>-->
+ <!--<link rel="stylesheet" href="/css/sweetalert.css">-->
+ 
+<!--if(!window.localStorage.getItem('storge')){
+function welcome(){
+
+        welcome_text="小蓝盘目前出于维护状态开放时间待定~";
+    swal({
+        title: "欢迎光临！",
+        imageUrl: "/img/hi.png",
+        text: welcome_text="互联小蓝盘目前处于资源整改阶段，开放时间待定QAQ~", 
+        timer: 4500,//弹出时间
+        showConfirmButton: false
+    });
+}
+$(document).ready(()=>{//若未引用JQuery，请引用
+    welcome()
+})
+window.localStorage.setItem('storge','true')
+}
+</script>-->
+
+
+<script type="text/javascript" src="//js.users.51.la/21187799.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+![](个人觉得还不错的后台模板/3.png)  // 图片
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86   
+    src="http://music.163.com/outchain/player?type=2&id=25706282&auto=0&height=66">  
+</iframe>  //直接插入外链音乐
+
+
+
+Idina Menze和Caleb Hyles激情对唱Let It Go：  
+<iframe   
+    height=498 width=510   
+    src="http://player.youku.com/embed/XNjcyMDU4Njg0"   
+    frameborder=0 allowfullscreen>  
+</iframe>    //直接插入外链视频
+
+
+###  底部运行时间计算after_footer.ejs文件
+
+<%- partial('script') %>
+
+<% if (theme.mathjax){ %>
+<%- partial('mathjax') %>
+<% } %>
+
+
+###百度统计head.ejs 文件
+themes/yilia/layout/_partial/head.ejs 在 </head> 前添加<%- partial("baidu_tongji") %>
+
+
+
+######更新#######
+hexo -c
+
+hexo -g
+
+hexo -s
+
+hexo -d
