@@ -29,7 +29,7 @@ date: 2025-08-26 18:24:00
 nvm ls available  #查可装版本
 nvm ls #查以安装版本
 nvm use #切换版本
-#下载失败的话切换到国内镜像如下
+#下载失败的话切换到国内镜像如下手动安装直接复制到nvm目录下改名就行
 nvm node_mirror https://npmmirror.com/mirrors/node/ 
 nvm npm_mirror https://npmmirror.com/mirrors/npm/ 
 ```
@@ -60,7 +60,7 @@ nvm npm_mirror https://npmmirror.com/mirrors/npm/
 
 pycharm从文件夹打开项目，GitHub桌面客户端也打开当前这个项目目录，mysql与redis测试直接用小皮面板快速起一个。
 
-> **git的作用**：方便跟踪文件的每一次修改，支持回退到任意历史版本，后期多人也可以在不同的分支上开发，互不干扰主要用于修改bug开发新功能，最终可以将各自的工作合并到主分支。帮助是非常的大，初学者一定要熟练掌握。刚开始只需要知道它可以让本地和远程仓库都有完整的代码历史，防止误操作与数据丢失。
+> **git的作用**：方便跟踪文件的每一次修改，支持回退到任意历史版本，后期多人也可以在不同的分支上开发，互不干扰主要用于修改bug开发新功能，最终可以将各自的工作合并到主分支。帮助是非常的大，初学者一定要熟练掌握。刚开始只需要知道它可以让本地和远程仓库都有完整的代码历史，防止误操作与数据丢失。-b选项可以指定分支
 
 ![](https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250821183849887.png)
 
