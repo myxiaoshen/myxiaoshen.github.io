@@ -1,0 +1,18 @@
+#环境
+nodejs < 12
+npm install hexo -g
+npm install 
+
+#预览->清理静态->生成静态->发布
+hexo s clean g d
+
+#ssh初始化
+git config --global user.name "name"
+git config --global user.email "xxxx@qq.com"
+ssh-keygen -t rsa -C "xxxxx@qq.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+##github web -> add id_rsa ssh-agent sshkeys
+ssh -T git@github.com
+
+##_config.yml 选择发布分支
