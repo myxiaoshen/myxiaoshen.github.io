@@ -1,0 +1,6 @@
+node_modules/
+public/
+.deploy_git/
+.idea/
+db.json
+debug.log
