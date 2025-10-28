@@ -69,6 +69,12 @@ pycharm从文件夹打开项目，GitHub桌面客户端也打开当前这个项�
 
 ### 依赖安装
 
+> win终端的小技巧：用PowerShell 7最新的版本去代替日常cmd终端可以自定义记录常用的命令与智能tab检索提示非常的便捷。需要先安装加载文件中的依赖如PSReadLine、PSCompletions、Terminal-Icons、posh-git等喜欢的依赖
+>
+> 终端历史预测文件：notepad "$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt"
+>
+> 终端启动加载文件：notepad $profile
+
 这里我直接吧官方的文档搬过来！
 
 前端

@@ -32,7 +32,7 @@ Microsoft 365 (M365) 是一个全面的生产力云平台，提供了一系列�
 
 - **集成**：与其他M365应用（如OneDrive、Teams、To Do、Planner）无缝集成，提升生产力。
 
-  ![](https://techcommunity.microsoft.com/t5/image/serverpage/image-id/399952i03BF2B2F5B044B0A/image-size/large?v=v2&px=999)
+  ![image-20251027150946678](https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027150946678.png)
 
 3.**Microsoft Planner** 是一个团队任务管理工具，帮助团队协作和项目管理，界面体验和TODO差不多非常简洁。主要功能包括：
 
@@ -78,7 +78,7 @@ Microsoft 365 (M365) 是一个全面的生产力云平台，提供了一系列�
 
 云计算技能在当前和未来的技术市场上非常抢手，掌握云平台的知识和技能可以提高就业机会和职业发展空间，大家这里不用纠结选择哪一种其实学习好任意一个平台了解了架构原理上手其他的云平台也非常的容易。Azure是微软的云计算平台，提供了广泛的服务来支持各种业务需求，包括自己用于建站学习也完全可以，但请记住Azure的计费方式有点复杂创建一个资源可能会创建许多依赖的资源并且流量都是按照每G来计费的。要记得关注每一个服务的计费与功能。
 
-![](https://dlink.host/sharepoint/aHR0cHM6Ly9jZHRjbG91ZC1teS5zaGFyZXBvaW50LmNvbS86aTovZy9wZXJzb25hbC90ZXN0YV9jZHRjbG91ZF9vbm1pY3Jvc29mdF9jb20vRWFIY21Ccm1aWTVCa0JGOUppalRtbXdCX2ZIUGszd2x0bmJ0UFQ3aEQteGNIQT9lPWQ4NVU2TQ.jpg)
+![image-20251027150426715](https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027150426715.png)
 
 以下是一些笔者生活与工作中常使用的Azure服务（具体的可以查看Azure文档）：
 

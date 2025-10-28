@@ -1258,7 +1258,7 @@ Start-AzVM -Name $VmName -ResourceGroupName $ResourceGroupName
 
 ![](https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/c4ef6f73-2c1e-4002-938e-1f57cf93f0d2.png)
 
-[yum本地换源脚本用于离线环境](https://pan.xlmy.net/d/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/yum%E6%9C%AC%E5%9C%B0%E6%8D%A2%E6%BA%90%E8%84%9A%E6%9C%AC.sh?sign=pxKgNkzjg8yN1cw9zYb_-0pl-u34FPsof__pNmgbsUY=:0)
+[笔者常用脚本总结](https://pan.xlmy.net/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0)
 
 #### 日常脚本
 

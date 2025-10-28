@@ -4,3 +4,6 @@ public/
 .idea/
 db.json
 debug.log
+yarn.lock
+themes/.gitkeep
+_config.landscape.yml
