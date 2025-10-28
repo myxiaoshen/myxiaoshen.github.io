@@ -43,7 +43,7 @@
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2024/05/15/5910f8ca70c6e6d4.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027153652966.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-156857018d33b9a936bf2dcc8da6fe49_720w.jpg?source=1940ef5c">
-<meta property="og:updated_time" content="2025-10-27T07:37:22.153Z">
+<meta property="og:updated_time" content="2025-10-28T06:58:00.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="合理利用网络上的骚操作👍">
 <meta name="twitter:description" content="免流目前只有中国电信、中国联通还能免流，移动只有很少一部分地区还可以免还需要有定向原wap已限速（20kb）。 本地tinyproxy系列。个人喜欢用核心因为它省电基于底层转发快，推荐LLTables它完美支持最新版本的安卓系统，JJ、终极防跳、zjl等经过个人测试会断流。本地免流又分为 2种伪装方式。我打包了互联网上常见的模式以及LLTables防跳（因tiny已经停更可以用最新的CLNC完美支">
@@ -299,11 +299,11 @@
 <p>搭建需要先安装java jdk和mysql环境，关键端口web:8020 后台定位:5055<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/traccar/traccar/releases/download/v4.12/traccar-linux-64-4.12.zip</span><br><span class="line">unzip traccar-linux-*.zip</span><br><span class="line">./traccar.run	</span><br><span class="line">vim traccar.xml</span><br><span class="line">cp traccar.xml /opt/traccar/conf/ </span><br><span class="line">systemctl start traccar</span><br></pre></td></tr></table></figure></p>
 <p>traccar.xml配置文件如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE properties SYSTEM &apos;http://java.sun.com/dtd/properties.dtd&apos;&gt;</span><br><span class="line"></span><br><span class="line">&lt;properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;entry key=&quot;config.default&quot;&gt;./conf/default.xml&lt;/entry&gt;</span><br><span class="line"></span><br><span class="line">    &lt;entry key=&apos;web.port&apos;&gt;8082&lt;/entry&gt;</span><br><span class="line"></span><br><span class="line">    &lt;entry key=&apos;geocoder.enable&apos;&gt;false&lt;/entry&gt;</span><br><span class="line"></span><br><span class="line">    &lt;entry key=&apos;database.driver&apos;&gt;com.mysql.jdbc.Driver&lt;/entry&gt;</span><br><span class="line">    &lt;entry key=&apos;database.url&apos;&gt;jdbc:mysql://localhost/traccar?allowMultiQueries=true&amp;amp;autoReconnect=true&amp;amp;useUnicode=yes&amp;amp;characterEncoding=UTF-8&amp;amp;sessionVariables=sql_mode=&apos;&apos;&lt;/entry&gt;</span><br><span class="line">    &lt;entry key=&apos;database.user&apos;&gt;root&lt;/entry&gt;</span><br><span class="line">    &lt;entry key=&apos;database.password&apos;&gt;你的MySQL密码&lt;/entry&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;entry key=&apos;server.timeout&apos;&gt;120&lt;/entry&gt;</span><br><span class="line"></span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://files.catbox.moe/pbg9ks.png" alt=""></p>
-<h4 id="搭建个人图床"><a href="#搭建个人图床" class="headerlink" title="搭建个人图床"></a>搭建个人图床</h4><p>24年开始本博客的图片大部分都炸了当时没在乎这个问题随手做个记录，回过头来才发现人麻了，感觉公开的都不是很靠谱还得数据源自己管理。 搭建一个图床来保证图片不流失和图裂还是很有必要的不仅能提升图片管理的安全性和服务质量。我这里推荐存放源用GitHub（慢的话可能要套cdn）或者七牛云(绑定域名每月10G还不错够了)然后配合图床工具PicGo方便的进行图片上传与管理。</p>
-<p>cdn格式：<a href="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/</a>  gh/后面替换为自己的仓库地址</p>
+<h4 id="搭建个人图床"><a href="#搭建个人图床" class="headerlink" title="搭建个人图床"></a>搭建个人图床</h4><p>24年开始本博客的图片大部分都炸了当时没在乎这个问题随手做个记录，回过头来才发现人麻了，感觉公开的都不是很靠谱还得数据源自己管理。 搭建一个图床来保证图片不流失和图裂还是很有必要的不仅能提升图片管理的安全性和服务质量。我这里推荐存放源用GitHub（慢的话可能要套cdn）或者七牛云(绑定域名每月10G还不错够了)然后配合图床工具PicGo方便的进行图片上传与管理。插件推荐githubPlus</p>
+<p>cdn格式：<a href="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/gh/后面替换为自己的仓库地址" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/gh/后面替换为自己的仓库地址</a></p>
 <p><img src="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/1715840511643.jpg" alt=""></p>
 <h4 id="青龙面板-FTP-博客等等"><a href="#青龙面板-FTP-博客等等" class="headerlink" title="青龙面板,FTP,博客等等"></a>青龙面板,FTP,博客等等</h4><p>跑跑签到，话费流量机器人……自己研究，但感觉用处不大,羊毛党用的。 FTP用来备份或者中转文件。博客挂挂静态资源做个备忘。</p>
-<h4 id="赛博菩萨cloudflare"><a href="#赛博菩萨cloudflare" class="headerlink" title="赛博菩萨cloudflare"></a>赛博菩萨cloudflare</h4><p><strong>cloudflare</strong>对于一些技术爱好者是一个非常好玩的服务可以防止DDOS，人机校验，静态资源托管，dns转发与管理还可以跑一些无服务的函数用好了可以省下一笔不小的费用。还可以参考这个项目引导大家进入cloudflare的世界<a href="https://github.com/zhuima/awesome-cloudflare" target="_blank" rel="noopener">awesome-cloudflare</a>,至于域名可以去namesilo或者CloudNS淘一个。</p>
+<h4 id="赛博菩萨cloudflare"><a href="#赛博菩萨cloudflare" class="headerlink" title="赛博菩萨cloudflare"></a>赛博菩萨cloudflare</h4><p><strong>cloudflare</strong>对于一些技术爱好者是一个非常好玩的服务可以防止DDOS，waf(人机校验过滤等)，静态资源托管，还有通过协议达到端口转发的作用，dns转发与管理还可以跑一些无服务的函数等等…用好了可以省下一笔不小的费用。还可以参考这个项目引导大家进入cloudflare的世界<a href="https://github.com/zhuima/awesome-cloudflare" target="_blank" rel="noopener">awesome-cloudflare</a>,至于域名可以去namesilo或者CloudNS淘一个。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20240614163917366.png" alt="image-20240614163917366"></p>
 <h4 id="AI密钥管理平台"><a href="#AI密钥管理平台" class="headerlink" title="AI密钥管理平台"></a>AI密钥管理平台</h4><p> OpenaiAI 大模型接口管理 &amp; 分发系统，支持很多种常见的大模型统一转换成openai的api格式用于处理，也可以当一个token网关管理费用也是不错的选择。 </p>
 <p><img src="https://s3.bmp.ovh/imgs/2024/05/15/5910f8ca70c6e6d4.jpg" alt=""></p>
@@ -565,11 +565,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,10 +578,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,6 +594,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,11 +621,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">经验</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">经验</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
