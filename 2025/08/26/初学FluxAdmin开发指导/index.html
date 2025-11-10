@@ -3,6 +3,85 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
+  <!-- 密码验证保护 -->
+  <script>
+    (function() {
+      // 如果当前在验证页面，不执行检查
+      if (window.location.pathname === '/auth.html') {
+        console.log('[Auth] 当前在验证页面，跳过检查');
+        return;
+      }
+      
+      console.log('[Auth] 开始验证...');
+      
+      // 获取token
+      var _0xauth = localStorage.getItem('_auth_tk') || 
+                   sessionStorage.getItem('_auth_tk');
+      
+      // 如果前两个都没有，再从cookie获取
+      if (!_0xauth) {
+        var cookieMatch = document.cookie.split('; ').find(function(row) { 
+          return row.startsWith('_auth_tk='); 
+        });
+        if (cookieMatch) {
+          _0xauth = cookieMatch.split('=')[1];
+        }
+      }
+      
+      console.log('[Auth] Token:', _0xauth ? '已找到' : '未找到');
+      
+      if (!_0xauth) {
+        console.log('[Auth] Token不存在，跳转到验证页面');
+        window.location.href = '/auth.html';
+        return;
+      }
+      
+      try {
+        var decoded = atob(_0xauth);
+
+        if (decoded.indexOf('::verified::') === -1) {
+          console.log('[Auth] Token无效（未包含verified标记），跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+
+        var parts = decoded.split('::');
+        if (parts.length < 3 || parts[1] !== 'verified') {
+          console.log('[Auth] Token结构异常，跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+        var timestamp = parseInt(parts[0]);
+        var now = new Date().getTime();
+        var age = now - timestamp;
+
+        if (isNaN(timestamp)) {
+          console.log('[Auth] Token时间戳无效，跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+        
+        console.log('[Auth] Token时间戳:', timestamp);
+        console.log('[Auth] 当前时间:', now);
+        console.log('[Auth] Token年龄(小时):', (age / 3600000).toFixed(2));
+        
+        if (age >= 86400000) {
+          console.log('[Auth] Token已过期，清除并跳转到验证页面');
+          localStorage.removeItem('_auth_tk');
+          sessionStorage.removeItem('_auth_tk');
+          document.cookie = '_auth_tk=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+          window.location.href = '/auth.html';
+        } else {
+          console.log('[Auth] 验证通过，允许访问');
+        }
+      } catch(e) {
+        console.log('[Auth] Token解析失败:', e.message);
+        window.location.href = '/auth.html';
+      }
+    })();
+  </script>
+  
+  
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
@@ -31,7 +110,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250825185039097.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250825184947076.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250826180108439.png">
-<meta property="og:updated_time" content="2025-10-25T09:34:49.439Z">
+<meta property="og:updated_time" content="2025-11-04T11:43:02.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初学FluxAdmin开发指导">
 <meta name="twitter:description" content="前言💡最近闲着无聊逛github发现一个基于FastApi的开发框架FluxPanel虽然这玩意儿是基于ruoyi-vue-python开发的但轮子上面造轮子应该会更牛逼吧，下面我就已一个初学者的身份带大家入门FluxPanel。带你一步步从零开始，安装环境、了解架构让你能够让这个框架用于学习。  ps:其他的开源项目同理的思路大家多变通,入门了还是要有自己检索资料与学习的能力。也要多用ai之">
@@ -273,7 +352,12 @@
 <p>比如说有个项目你想参与开发可以先fork一份到自己的仓库，然后clone到本地进行开发，后续编码过程中避免与main分支冲突可以创建一个a分支，以后开发都在a分支开发（如果依赖main分支开发前尽量先sync或者pull一下main分支保持与上游代码不冲突）,a分支开发完成过后可mergs到自己仓库的main分支，确定无误过后就可以通过push吧本地的代码推送到远程仓库与其他成员协作，后续还可以吧代码合并过后的分支main或者a都行只要没有冲突 请求上游项目所有者Pull你的分支，对方可以在Pull requests中看到提交的请求审核通过过后即可合并分支，代码贡献就结束了。</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250821183849887.png" alt=""></p>
-<h3 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h3><p>这里我直接吧官方的文档搬过来！</p>
+<h3 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h3><blockquote>
+<p>win终端的小技巧：用PowerShell 7最新的版本去代替日常cmd终端可以自定义记录常用的命令与智能tab检索提示非常的便捷。需要先安装加载文件中的依赖如PSReadLine、PSCompletions、Terminal-Icons、posh-git等喜欢的依赖</p>
+<p>终端历史预测文件：notepad “$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt”</p>
+<p>终端启动加载文件：notepad $profile</p>
+</blockquote>
+<p>这里我直接吧官方的文档搬过来！</p>
 <p>前端</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入前端目录</span></span><br><span class="line"><span class="built_in">cd</span> flux-frontend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">npm install 或 yarn --registry=https://registry.npmmirror.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建议不要直接使用 cnpm 安装依赖，会有各种诡异的 bug。可以通过如下操作解决 npm 下载速度慢的问题</span></span><br><span class="line">npm install --registry=https://registry.npmmirror.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line">npm run dev 或 yarn dev</span><br></pre></td></tr></table></figure>
 <p>后端</p>
@@ -676,6 +760,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">云平台</a>
               </li>
              
@@ -692,10 +784,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -704,19 +792,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">

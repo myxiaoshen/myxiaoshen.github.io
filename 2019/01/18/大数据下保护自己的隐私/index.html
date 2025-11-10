@@ -3,6 +3,85 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
+  <!-- 密码验证保护 -->
+  <script>
+    (function() {
+      // 如果当前在验证页面，不执行检查
+      if (window.location.pathname === '/auth.html') {
+        console.log('[Auth] 当前在验证页面，跳过检查');
+        return;
+      }
+      
+      console.log('[Auth] 开始验证...');
+      
+      // 获取token
+      var _0xauth = localStorage.getItem('_auth_tk') || 
+                   sessionStorage.getItem('_auth_tk');
+      
+      // 如果前两个都没有，再从cookie获取
+      if (!_0xauth) {
+        var cookieMatch = document.cookie.split('; ').find(function(row) { 
+          return row.startsWith('_auth_tk='); 
+        });
+        if (cookieMatch) {
+          _0xauth = cookieMatch.split('=')[1];
+        }
+      }
+      
+      console.log('[Auth] Token:', _0xauth ? '已找到' : '未找到');
+      
+      if (!_0xauth) {
+        console.log('[Auth] Token不存在，跳转到验证页面');
+        window.location.href = '/auth.html';
+        return;
+      }
+      
+      try {
+        var decoded = atob(_0xauth);
+
+        if (decoded.indexOf('::verified::') === -1) {
+          console.log('[Auth] Token无效（未包含verified标记），跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+
+        var parts = decoded.split('::');
+        if (parts.length < 3 || parts[1] !== 'verified') {
+          console.log('[Auth] Token结构异常，跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+        var timestamp = parseInt(parts[0]);
+        var now = new Date().getTime();
+        var age = now - timestamp;
+
+        if (isNaN(timestamp)) {
+          console.log('[Auth] Token时间戳无效，跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+        
+        console.log('[Auth] Token时间戳:', timestamp);
+        console.log('[Auth] 当前时间:', now);
+        console.log('[Auth] Token年龄(小时):', (age / 3600000).toFixed(2));
+        
+        if (age >= 86400000) {
+          console.log('[Auth] Token已过期，清除并跳转到验证页面');
+          localStorage.removeItem('_auth_tk');
+          sessionStorage.removeItem('_auth_tk');
+          document.cookie = '_auth_tk=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+          window.location.href = '/auth.html';
+        } else {
+          console.log('[Auth] 验证通过，允许访问');
+        }
+      } catch(e) {
+        console.log('[Auth] Token解析失败:', e.message);
+        window.location.href = '/auth.html';
+      }
+    })();
+  </script>
+  
+  
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
@@ -16,13 +95,12 @@
 <meta property="og:site_name" content="戏如烟云b16">
 <meta property="og:description" content="这是我的毕业论文整理了下吧认为实用的东西记录下来，并排了一下版方便查看。 （一）从身边的开放数据做起上章讲解了大数据是什么，本章就带领大家怎么去管理，去删除网上所留下的信息，对我们每个人来说在互联网已经是家喻户晓了，每个人都可以从互联网上获得自己想要的信息。但大家有没有想过自己的个人信息其实也能够搜索到呢，其实每个接触到网络论坛的人都有注册过论坛，QQ，社区各种各样的互联网应用平台。有些网站因为s">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://i.niupic.com/images/2019/12/13/_161.png">
-<meta property="og:image" content="https://i.niupic.com/images/2020/01/20/6ljb.png">
-<meta property="og:updated_time" content="2025-10-25T09:34:49.443Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027120319121.png">
+<meta property="og:updated_time" content="2025-11-04T11:43:02.169Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据下保护自己的隐私">
 <meta name="twitter:description" content="这是我的毕业论文整理了下吧认为实用的东西记录下来，并排了一下版方便查看。 （一）从身边的开放数据做起上章讲解了大数据是什么，本章就带领大家怎么去管理，去删除网上所留下的信息，对我们每个人来说在互联网已经是家喻户晓了，每个人都可以从互联网上获得自己想要的信息。但大家有没有想过自己的个人信息其实也能够搜索到呢，其实每个接触到网络论坛的人都有注册过论坛，QQ，社区各种各样的互联网应用平台。有些网站因为s">
-<meta name="twitter:image" content="https://i.niupic.com/images/2019/12/13/_161.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027120319121.png">
   
     <link rel="alternative" href="/atom.xml" title="戏如烟云b16" type="application/atom+xml">
   
@@ -234,8 +312,8 @@
 <h4 id="（三）生活中那些泄露的隐私"><a href="#（三）生活中那些泄露的隐私" class="headerlink" title="（三）生活中那些泄露的隐私"></a>（三）生活中那些泄露的隐私</h4><p>相每个人都有不得不泄露的数据，当时其中    也一定包含着自己的隐私如：酒店登记，快递单号，航空公司，甚至丢入垃圾桶里面的纸条这些都是再不经意中犯下的数据泄露。往往这个时候我们就应该引起重视，因为往往这些日常中的小细节也可以让非法分子掌握你的信息。其实公民的个人信息在中国还是受到了重视，如自己的个人信息被泄露后，可以依法申请诉讼的。诉讼平台如下：www.netcourt.gov.cn或者zxgk.sccourt.gov.cn<br>既然泄露自己的信息，我们就应该去回过头想想自己这些天再什么地方登记过个人信息，并通过笔记本记录下自己的足迹然后逐一的去对比，如酒店的登记上会泄露自己在什么地方足迹以及身份证号码以及手机号，快递就更不用说了自己住的真实位置都会暴露，垃圾桶里面的东西通过分析可以找到各种各样的信息如：个人爱好，人脉，以及将要发生的事情。站到一个社会攻击者的角度来说可能这已经可以做任何事情了，打个比方：我可以通过你的爱好和人脉建立与你的共识，再通过某个将要发生的事情来与你产生巧合并通过电话来和离目标者家附近与你联系采取进一步的方针。这个时候作为防护者我们需要做的无遗就是提高自己的个人疑似，结合自己前面总结泄露的信息进行分析，毕竟天下可没有白掉的馅饼当然也不会那么奇怪刚好遇到与你志同道合的人！<br>这些信息对于个人来说可能是微不足道的但可以想象被不法分子利用的风险，我在这里分享一下自己通过业余时间整理的一些社会攻击技巧让大家从攻击者的角度去看待问题的严重性，从而防范已经泄露的信息带给你的后果。回过头来这只是我在攻击者的角度为大家设计的思路，虽然在生活中可能大家很难判断但是通过我的观点慢慢的改变自己的习惯我相信你可以在你的生活中获得很大的帮助。<br>通过我上面的描述以及我说过的案例相信大家已经体会到了信息的重要性，但现在任然有许多人对自己的隐私不重视认为这些微不住道的东西不足挂齿。我认为这点需要各位去想想自己这些数据的重要。在生活中不仅要擦亮眼睛去分析自己的数据信息，也可以通过匿名的方式来隐藏自己的信息，当然适可而止的匿名希望大家不要触及到法律。我已分享了自己的经验，生活中的点点滴滴当然还是要靠每个人自己去思考。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">姓名</span><br><span class="line"></span><br><span class="line">性别</span><br><span class="line"></span><br><span class="line">职位</span><br><span class="line"></span><br><span class="line">照片</span><br><span class="line"></span><br><span class="line">兴趣爱好</span><br><span class="line"></span><br><span class="line">实际出生日期</span><br><span class="line"></span><br><span class="line">身份证出生日期</span><br><span class="line"></span><br><span class="line">身份证号码</span><br><span class="line"></span><br><span class="line">身份证家庭住址</span><br><span class="line"></span><br><span class="line">家庭成员</span><br><span class="line"></span><br><span class="line">社会关系</span><br><span class="line"></span><br><span class="line">快递收货地址</span><br><span class="line"></span><br><span class="line">教育经历</span><br><span class="line"></span><br><span class="line">QQ</span><br><span class="line"></span><br><span class="line">微信</span><br><span class="line"></span><br><span class="line">邮箱</span><br><span class="line"></span><br><span class="line">手机号（曾用与现用）</span><br><span class="line"></span><br><span class="line">银行卡</span><br><span class="line"></span><br><span class="line">电子邮箱</span><br><span class="line"></span><br><span class="line">支付宝</span><br><span class="line"></span><br><span class="line">各社交平台主页(QQ空间,微博,人人网,百度贴吧,校友网,facebook,twitter等)</span><br><span class="line"></span><br><span class="line">常用ID</span><br><span class="line"></span><br><span class="line">常用密码</span><br><span class="line"></span><br><span class="line">常用密码组合</span><br><span class="line"></span><br><span class="line">性格素描</span><br></pre></td></tr></table></figure>
 <h4 id="Digital-Privacy-网络数据保护"><a href="#Digital-Privacy-网络数据保护" class="headerlink" title="Digital-Privacy(网络数据保护)"></a>Digital-Privacy(网络数据保护)</h4><p><a href="https://github.com/ffffffff0x/Digital-Privacy" target="_blank" rel="noopener">https://github.com/ffffffff0x/Digital-Privacy</a></p>
-<h4 id="以下是笔者在网络世界中整理的一些匿名方案供大家参考（软件以及思路已经打包-）"><a href="#以下是笔者在网络世界中整理的一些匿名方案供大家参考（软件以及思路已经打包-）" class="headerlink" title="以下是笔者在网络世界中整理的一些匿名方案供大家参考（软件以及思路已经打包 ）"></a>以下是笔者在网络世界中整理的一些匿名方案供大家参考（软件以及思路已经打包 ）</h4><p>有需要的小伙伴自行下载，使用的过程中还是需要谨慎不要做违法的事情喔<br><img src="https://i.niupic.com/images/2019/12/13/_161.png" alt=""><br>服务端交互的匿名转发过程以及工具</p>
-<p><img src="https://i.niupic.com/images/2020/01/20/6ljb.png" alt=""><br><a href="http://pan.xlmy.net/%E4%BA%91%E6%9C%8D%E5%8A%A1/%E5%8C%BF%E5%90%8D%E7%BB%8F%E9%AA%8C.txt?preview" target="_blank" rel="noopener">链接</a></p>
+<h4 id="以下是笔者在网络世界中整理的一些匿名方案供大家参考（软件以及思路已经打包-）"><a href="#以下是笔者在网络世界中整理的一些匿名方案供大家参考（软件以及思路已经打包-）" class="headerlink" title="以下是笔者在网络世界中整理的一些匿名方案供大家参考（软件以及思路已经打包 ）"></a>以下是笔者在网络世界中整理的一些匿名方案供大家参考（软件以及思路已经打包 ）</h4><p>有需要的小伙伴自行下载，使用的过程中还是需要谨慎不要做违法的事情喔</p>
+<p><img src="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027120319121.png" alt="image-20251027120319121"><br><a href="http://pan.xlmy.net/%E4%BA%91%E6%9C%8D%E5%8A%A1/%E5%8C%BF%E5%90%8D%E7%BB%8F%E9%AA%8C.txt?preview" target="_blank" rel="noopener">txt链接</a></p>
 
       
 
@@ -482,6 +560,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">云平台</a>
               </li>
              
@@ -498,10 +584,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -510,19 +592,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">

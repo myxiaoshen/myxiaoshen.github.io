@@ -3,6 +3,85 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
+  <!-- 密码验证保护 -->
+  <script>
+    (function() {
+      // 如果当前在验证页面，不执行检查
+      if (window.location.pathname === '/auth.html') {
+        console.log('[Auth] 当前在验证页面，跳过检查');
+        return;
+      }
+      
+      console.log('[Auth] 开始验证...');
+      
+      // 获取token
+      var _0xauth = localStorage.getItem('_auth_tk') || 
+                   sessionStorage.getItem('_auth_tk');
+      
+      // 如果前两个都没有，再从cookie获取
+      if (!_0xauth) {
+        var cookieMatch = document.cookie.split('; ').find(function(row) { 
+          return row.startsWith('_auth_tk='); 
+        });
+        if (cookieMatch) {
+          _0xauth = cookieMatch.split('=')[1];
+        }
+      }
+      
+      console.log('[Auth] Token:', _0xauth ? '已找到' : '未找到');
+      
+      if (!_0xauth) {
+        console.log('[Auth] Token不存在，跳转到验证页面');
+        window.location.href = '/auth.html';
+        return;
+      }
+      
+      try {
+        var decoded = atob(_0xauth);
+
+        if (decoded.indexOf('::verified::') === -1) {
+          console.log('[Auth] Token无效（未包含verified标记），跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+
+        var parts = decoded.split('::');
+        if (parts.length < 3 || parts[1] !== 'verified') {
+          console.log('[Auth] Token结构异常，跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+        var timestamp = parseInt(parts[0]);
+        var now = new Date().getTime();
+        var age = now - timestamp;
+
+        if (isNaN(timestamp)) {
+          console.log('[Auth] Token时间戳无效，跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+        
+        console.log('[Auth] Token时间戳:', timestamp);
+        console.log('[Auth] 当前时间:', now);
+        console.log('[Auth] Token年龄(小时):', (age / 3600000).toFixed(2));
+        
+        if (age >= 86400000) {
+          console.log('[Auth] Token已过期，清除并跳转到验证页面');
+          localStorage.removeItem('_auth_tk');
+          sessionStorage.removeItem('_auth_tk');
+          document.cookie = '_auth_tk=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+          window.location.href = '/auth.html';
+        } else {
+          console.log('[Auth] 验证通过，允许访问');
+        }
+      } catch(e) {
+        console.log('[Auth] Token解析失败:', e.message);
+        window.location.href = '/auth.html';
+      }
+    })();
+  </script>
+  
+  
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
@@ -16,15 +95,15 @@
 <meta property="og:site_name" content="戏如烟云b16">
 <meta property="og:description" content="日常工作中当社畜让我深刻体会到微软的各种服务如Office 365和Azure给我的工作带来的巨大便捷性。每一天，这些工具都在提高我的工作效率，简化复杂的流程，并促进团队的无缝协作。闲着没事做为了以后当复盘，就用文字分享微软服务在我工作中的重要角色，希望能为其他职场人士提供一些有用的见解和灵感。  M365介绍Microsoft 365 (M365) 是一个全面的生产力云平台，提供了一系列应用">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://techcommunity.microsoft.com/t5/image/serverpage/image-id/399952i03BF2B2F5B044B0A/image-size/large?v=v2&px=999">
+<meta property="og:image" content="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027150946678.png">
 <meta property="og:image" content="https://gateway.ipfsscan.io/ipfs/QmdDi3k733sTZNx9eYJqqRB8FBKJqeanfwhF6GZTphEXfV?filename=1715751364269.jpg">
 <meta property="og:image" content="https://gateway.ipfsscan.io/ipfs/QmaccBSJmCpXYGjkfFLDfzA32g56zVRHYP1A5Zd3aTk846?filename=1715751378783.jpg">
-<meta property="og:image" content="https://dlink.host/sharepoint/aHR0cHM6Ly9jZHRjbG91ZC1teS5zaGFyZXBvaW50LmNvbS86aTovZy9wZXJzb25hbC90ZXN0YV9jZHRjbG91ZF9vbm1pY3Jvc29mdF9jb20vRWFIY21Ccm1aWTVCa0JGOUppalRtbXdCX2ZIUGszd2x0bmJ0UFQ3aEQteGNIQT9lPWQ4NVU2TQ.jpg">
-<meta property="og:updated_time" content="2025-10-25T09:34:49.330Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027150426715.png">
+<meta property="og:updated_time" content="2025-11-04T11:43:02.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微软常用服务探索">
 <meta name="twitter:description" content="日常工作中当社畜让我深刻体会到微软的各种服务如Office 365和Azure给我的工作带来的巨大便捷性。每一天，这些工具都在提高我的工作效率，简化复杂的流程，并促进团队的无缝协作。闲着没事做为了以后当复盘，就用文字分享微软服务在我工作中的重要角色，希望能为其他职场人士提供一些有用的见解和灵感。  M365介绍Microsoft 365 (M365) 是一个全面的生产力云平台，提供了一系列应用">
-<meta name="twitter:image" content="https://techcommunity.microsoft.com/t5/image/serverpage/image-id/399952i03BF2B2F5B044B0A/image-size/large?v=v2&px=999">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027150946678.png">
   
     <link rel="alternative" href="/atom.xml" title="戏如烟云b16" type="application/atom+xml">
   
@@ -251,7 +330,7 @@
 <li><p><strong>任务</strong>：内置任务管理功能，可与Microsoft To Do同步。</p>
 </li>
 <li><p><strong>集成</strong>：与其他M365应用（如OneDrive、Teams、To Do、Planner）无缝集成，提升生产力。</p>
-<p><img src="https://techcommunity.microsoft.com/t5/image/serverpage/image-id/399952i03BF2B2F5B044B0A/image-size/large?v=v2&amp;px=999" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027150946678.png" alt="image-20251027150946678"></p>
 </li>
 </ul>
 <p>3.<strong>Microsoft Planner</strong> 是一个团队任务管理工具，帮助团队协作和项目管理，界面体验和TODO差不多非常简洁。主要功能包括：</p>
@@ -294,7 +373,7 @@
 </ul>
 <p>这些M365组件通过无缝集成和协同工作，帮助用户和团队提高生产力，简化工作流程，实现更高效的项目和任务管理。</p>
 <h2 id="Azure云平台介绍"><a href="#Azure云平台介绍" class="headerlink" title="Azure云平台介绍"></a><strong>Azure云平台介绍</strong></h2><p>云计算技能在当前和未来的技术市场上非常抢手，掌握云平台的知识和技能可以提高就业机会和职业发展空间，大家这里不用纠结选择哪一种其实学习好任意一个平台了解了架构原理上手其他的云平台也非常的容易。Azure是微软的云计算平台，提供了广泛的服务来支持各种业务需求，包括自己用于建站学习也完全可以，但请记住Azure的计费方式有点复杂创建一个资源可能会创建许多依赖的资源并且流量都是按照每G来计费的。要记得关注每一个服务的计费与功能。</p>
-<p><img src="https://dlink.host/sharepoint/aHR0cHM6Ly9jZHRjbG91ZC1teS5zaGFyZXBvaW50LmNvbS86aTovZy9wZXJzb25hbC90ZXN0YV9jZHRjbG91ZF9vbm1pY3Jvc29mdF9jb20vRWFIY21Ccm1aWTVCa0JGOUppalRtbXdCX2ZIUGszd2x0bmJ0UFQ3aEQteGNIQT9lPWQ4NVU2TQ.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027150426715.png" alt="image-20251027150426715"></p>
 <p>以下是一些笔者生活与工作中常使用的Azure服务（具体的可以查看Azure文档）：</p>
 <ol>
 <li><strong>计算服务 (Compute Services)</strong><ul>
@@ -609,6 +688,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">云平台</a>
               </li>
              
@@ -625,10 +712,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -637,19 +720,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">

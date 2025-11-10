@@ -3,6 +3,85 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
+  <!-- 密码验证保护 -->
+  <script>
+    (function() {
+      // 如果当前在验证页面，不执行检查
+      if (window.location.pathname === '/auth.html') {
+        console.log('[Auth] 当前在验证页面，跳过检查');
+        return;
+      }
+      
+      console.log('[Auth] 开始验证...');
+      
+      // 获取token
+      var _0xauth = localStorage.getItem('_auth_tk') || 
+                   sessionStorage.getItem('_auth_tk');
+      
+      // 如果前两个都没有，再从cookie获取
+      if (!_0xauth) {
+        var cookieMatch = document.cookie.split('; ').find(function(row) { 
+          return row.startsWith('_auth_tk='); 
+        });
+        if (cookieMatch) {
+          _0xauth = cookieMatch.split('=')[1];
+        }
+      }
+      
+      console.log('[Auth] Token:', _0xauth ? '已找到' : '未找到');
+      
+      if (!_0xauth) {
+        console.log('[Auth] Token不存在，跳转到验证页面');
+        window.location.href = '/auth.html';
+        return;
+      }
+      
+      try {
+        var decoded = atob(_0xauth);
+
+        if (decoded.indexOf('::verified::') === -1) {
+          console.log('[Auth] Token无效（未包含verified标记），跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+
+        var parts = decoded.split('::');
+        if (parts.length < 3 || parts[1] !== 'verified') {
+          console.log('[Auth] Token结构异常，跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+        var timestamp = parseInt(parts[0]);
+        var now = new Date().getTime();
+        var age = now - timestamp;
+
+        if (isNaN(timestamp)) {
+          console.log('[Auth] Token时间戳无效，跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+        
+        console.log('[Auth] Token时间戳:', timestamp);
+        console.log('[Auth] 当前时间:', now);
+        console.log('[Auth] Token年龄(小时):', (age / 3600000).toFixed(2));
+        
+        if (age >= 86400000) {
+          console.log('[Auth] Token已过期，清除并跳转到验证页面');
+          localStorage.removeItem('_auth_tk');
+          sessionStorage.removeItem('_auth_tk');
+          document.cookie = '_auth_tk=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+          window.location.href = '/auth.html';
+        } else {
+          console.log('[Auth] 验证通过，允许访问');
+        }
+      } catch(e) {
+        console.log('[Auth] Token解析失败:', e.message);
+        window.location.href = '/auth.html';
+      }
+    })();
+  </script>
+  
+  
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
@@ -28,7 +107,7 @@
 <meta property="og:image" content="https://kuboard.cn/assets/img/module_03_nodes.38f0ef71.svg">
 <meta property="og:image" content="https://kuboard.cn/assets/img/module_05_scaling2.3f74dfba.svg">
 <meta property="og:image" content="https://s1.ax1x.com/2022/07/01/jQRGOs.png">
-<meta property="og:updated_time" content="2025-10-25T09:34:49.338Z">
+<meta property="og:updated_time" content="2025-11-04T11:43:02.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
 <meta name="twitter:description" content="个人认为学习最快的方式是看文字版，而不是看视频， 看视频一是非常慢，二是很低效，所以我也喜欢经量用文字的方式表达，还有就是想说一下自我认为在去解决一个任务的时候可以先寻找一下带图形化的配置方案，可能现在有些技术觉得图形化很low而且占资源，但可以极大的避免误操作与减少工作时间(当然如果是批量的实施的情况下还是静默的方式方便，但通常也是有GUI的面板统一的去管理)。 俺做过一段时间的运维，服务器一般">
@@ -422,7 +501,7 @@ ForwardToSyslog=no
 <p><img src="https://kejilion.sh/kejilionsh.webp" alt=""></p>
 <p>轻量级的系统初始化脚本<a href="https://github.com/raymond999999/shell" target="_blank" rel="noopener">shell_raymond9</a></p>
 <p><img src="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/c4ef6f73-2c1e-4002-938e-1f57cf93f0d2.png" alt=""></p>
-<p><a href="https://pan.xlmy.net/d/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/yum%E6%9C%AC%E5%9C%B0%E6%8D%A2%E6%BA%90%E8%84%9A%E6%9C%AC.sh?sign=pxKgNkzjg8yN1cw9zYb_-0pl-u34FPsof__pNmgbsUY=:0" target="_blank" rel="noopener">yum本地换源脚本用于离线环境</a></p>
+<p><a href="https://pan.xlmy.net/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0" target="_blank" rel="noopener">笔者常用脚本总结</a></p>
 <h4 id="日常脚本"><a href="#日常脚本" class="headerlink" title="日常脚本"></a>日常脚本</h4><p>快捷运维，代号<a href="https://github.com/aqzt/kjyw" target="_blank" rel="noopener">kjyw</a>，项目基于shell、python，运维脚本工具库，收集各类运维常用工具脚本，实现快速安装nginx、mysql、php、redis、nagios、运维经常使用的脚本等等…</p>
 <p><a href="https://github.com/Ljohn001/ljohn_ops" target="_blank" rel="noopener">https://github.com/Ljohn001/ljohn_ops</a></p>
 <p><a href="https://linuxeye.com/category/script/" target="_blank" rel="noopener">https://linuxeye.com/category/script/</a></p>
@@ -731,6 +810,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">云平台</a>
               </li>
              
@@ -747,10 +834,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -759,19 +842,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">

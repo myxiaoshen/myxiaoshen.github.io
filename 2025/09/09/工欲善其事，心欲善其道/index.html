@@ -3,6 +3,85 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
+  <!-- 密码验证保护 -->
+  <script>
+    (function() {
+      // 如果当前在验证页面，不执行检查
+      if (window.location.pathname === '/auth.html') {
+        console.log('[Auth] 当前在验证页面，跳过检查');
+        return;
+      }
+      
+      console.log('[Auth] 开始验证...');
+      
+      // 获取token
+      var _0xauth = localStorage.getItem('_auth_tk') || 
+                   sessionStorage.getItem('_auth_tk');
+      
+      // 如果前两个都没有，再从cookie获取
+      if (!_0xauth) {
+        var cookieMatch = document.cookie.split('; ').find(function(row) { 
+          return row.startsWith('_auth_tk='); 
+        });
+        if (cookieMatch) {
+          _0xauth = cookieMatch.split('=')[1];
+        }
+      }
+      
+      console.log('[Auth] Token:', _0xauth ? '已找到' : '未找到');
+      
+      if (!_0xauth) {
+        console.log('[Auth] Token不存在，跳转到验证页面');
+        window.location.href = '/auth.html';
+        return;
+      }
+      
+      try {
+        var decoded = atob(_0xauth);
+
+        if (decoded.indexOf('::verified::') === -1) {
+          console.log('[Auth] Token无效（未包含verified标记），跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+
+        var parts = decoded.split('::');
+        if (parts.length < 3 || parts[1] !== 'verified') {
+          console.log('[Auth] Token结构异常，跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+        var timestamp = parseInt(parts[0]);
+        var now = new Date().getTime();
+        var age = now - timestamp;
+
+        if (isNaN(timestamp)) {
+          console.log('[Auth] Token时间戳无效，跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+        
+        console.log('[Auth] Token时间戳:', timestamp);
+        console.log('[Auth] 当前时间:', now);
+        console.log('[Auth] Token年龄(小时):', (age / 3600000).toFixed(2));
+        
+        if (age >= 86400000) {
+          console.log('[Auth] Token已过期，清除并跳转到验证页面');
+          localStorage.removeItem('_auth_tk');
+          sessionStorage.removeItem('_auth_tk');
+          document.cookie = '_auth_tk=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+          window.location.href = '/auth.html';
+        } else {
+          console.log('[Auth] 验证通过，允许访问');
+        }
+      } catch(e) {
+        console.log('[Auth] Token解析失败:', e.message);
+        window.location.href = '/auth.html';
+      }
+    })();
+  </script>
+  
+  
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
@@ -18,17 +97,18 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250908140822428.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250908140447761.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251107114130341.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/MS-Planner.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/da8660edfdf3ed0c3b2dd8adb2fc3486.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/Displaying-Task-Path-In-Microsoft-Project-Fig-1.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250908144646554.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250910155145789.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027160818561.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20250911143752814.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250911211435280.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250911210401398.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250911212655680.png">
 <meta property="og:image" content="https://www.usememos.com/demo.png">
-<meta property="og:updated_time" content="2025-10-25T09:34:49.446Z">
+<meta property="og:updated_time" content="2025-11-10T11:04:49.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工欲善其事，心欲善其道">
 <meta name="twitter:description" content="工具介绍在任何技术项目中，“工欲善其事，必先利其器”都是不变的真理。高效的工具不仅能节约我们的时间，更能规范我们的思维，让复杂的思想和流程变得清晰可见。在这一部分，我将聚焦于两大核心工具，分享如何通过它们将模糊的想法转化为清晰的蓝图，并将分散的任务凝聚为有序的行动。 1.AI与流程图在传统的认知里，画流程图、架构图是一项“手艺活”，需要拖拽、对齐、连接，繁琐且耗时。然而，随着AI和“代码即图表”理">
@@ -255,6 +335,8 @@
 <p>可以看到效果还是很不多的</p>
 <p><img src="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250908140447761.png" alt="image-20250908140447761"></p>
 <p>打开 <strong>Draw.io</strong>，找到Mermaid插入功能，将代码粘贴进去，一张清晰、规范的流程图就完成了。你可以随意拖动、修改样式，或者继续通过编辑代码来调整流程。（xml可以加样式ai生成的直接cv到程序主页里面也可以显示香的批爆)，后期变动大可以存储在Git等版本控制系统中，追踪每一次变更。</p>
+<p>ps:觉得上面麻烦的对细节要求不高的可以直接用<a href="https://www.123pan.com/s/A6cA-VRAJh?notoken=1" target="_blank" rel="noopener">亿图</a>来构图里面有许多模板可以直接套用，快速出一个大纲再进行调整。</p>
+<p><img src="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251107114130341.png" alt="image-20251107114130341"></p>
 <h3 id="2-Microsoft-Planner-协作"><a href="#2-Microsoft-Planner-协作" class="headerlink" title="2.Microsoft Planner 协作"></a>2.Microsoft Planner 协作</h3><p>如果说“代码即图表”解决了思路“可视化”的问题，那么 <strong>Microsoft Planner</strong> 则解决了行动“条理化”的问题。在任何项目中，任务的分配、跟踪和同步都是保证进度的关键。Planner作为一个轻量级的团队协作工具，完美地融入了Microsoft 365生态，让任务管理变得直观而高效。</p>
 <h4 id="Planner的核心使用场景"><a href="#Planner的核心使用场景" class="headerlink" title="Planner的核心使用场景"></a>Planner的核心使用场景</h4><p>对于技术团队而言，Planner并非要取代Jira这类重型项目管理工具，快速方便小巧就是它的特色,大型项目后期可以加个project。Planner在<strong>特定场景</strong>下可以发挥奇效(用过时间管理软件的朋友们很好上手大型项目建议使用project有甘特图、升降任务、分配资源等都要方便点)：</p>
 <ol>
@@ -271,9 +353,10 @@
 <p><img src="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250908144646554.png" alt="image-20250908144646554"></p>
 </blockquote>
 <p><strong>下图是笔者的win10菜单应用做个备份也欢迎大家参考，具体应用作用请自行百度哈这里就不过多介绍了。</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250910155145789.png" alt="image-20250910155145789"></p>
+<p><img src="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027160818561.png" alt="image-20251027160818561"></p>
 <hr>
 <h3 id="3-充分利用云服务资源"><a href="#3-充分利用云服务资源" class="headerlink" title="3.充分利用云服务资源"></a>3.充分利用云服务资源</h3><h4 id="文件存储与检索"><a href="#文件存储与检索" class="headerlink" title="文件存储与检索"></a>文件存储与检索</h4><p>免费的E5开发者已经是白嫖党的首选,onedrive自带的5T并且不限速也是美滋滋,没有E5的合租一个家庭版也是不错的选择。然后通过openlist挂载到服务器开启检索就可以随时随地寻找到自己需要的问题。配合大善人免费的cf或者edgeone的cdn基本上传输对服务器〇压力。</p>
+<h4 id="大厂官方的AI"><a href="#大厂官方的AI" class="headerlink" title="大厂官方的AI"></a>大厂官方的AI</h4><p>大厂的ai在线服务一般都是免费的，模型训练场场可以参考<a href="https://lmarena.ai/" target="_blank" rel="noopener">lmarena</a>，目前笔者已经习惯了如下ai：简单的文案与办公用的微软copilot，编程已经用习惯github copilot了，逻辑性、参考图、网络检索用的gemini，文件总结与归纳用的ima因为感觉腾讯的库还是很大的上面有许多分享者分享自己的知识库检索私有信息非常的便捷。找到自己熟练的ai工具并加以运用可以节约很多时间，包括做方案可以拿一个方案模板吧标题与大纲更改了，后续通过对话让ai补全标题与大纲内容可以很快的出一个初版方案。</p>
 <h4 id="多端同步文件"><a href="#多端同步文件" class="headerlink" title="多端同步文件"></a>多端同步文件</h4><p>虽然说onedrive可以同步文件夹但遇到碎片文件非常多，大量文本的时候就费力了会消耗大量的时间，并且不可查看到差异对于经常和文本与code打交道的不是非常友好(当然办公是完全满足的哈)。github仓库完美的解决这个问题，并且可以创建分支、历史记录、协作、远程办公文件不丢失……懂得都懂，博客与图床也是github托管的，而且现在git上手难度很低了直接客户端一条龙点点点就完了非专业人士也能玩啦。</p>
 <p>本博客使用远古hexo搭建的懒得更新与维护能用就行，这里我在家与公司需要同步写文章就可以利用分支来管理， master分支用于存放Hexo生成的静态资源文件，hexo分支用于存放网站的原始文件。创建分支-&gt;克隆分支-&gt;删除.git以外的内容-&gt;提交-&gt;分支仓库中的.git文件夹移动到原hexo博客文件夹-&gt;提交|另一台电脑直接克隆下来按着正常hexo创建上传走就行。用typora配置好过后的博客图片用picgo完美的上传到github仓库，通过github-plus插件可以更好的管理配置如下：</p>
 <p><img src="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20250911143752814.png" alt="image-20250911143752814"></p>
@@ -452,7 +535,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工具介绍"><span class="toc-number">1.</span> <span class="toc-text">工具介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-AI与流程图"><span class="toc-number">1.1.</span> <span class="toc-text">1.AI与流程图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#从自然语言到专业图表"><span class="toc-number">1.1.1.</span> <span class="toc-text">从自然语言到专业图表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Microsoft-Planner-协作"><span class="toc-number">1.2.</span> <span class="toc-text">2.Microsoft Planner 协作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Planner的核心使用场景"><span class="toc-number">1.2.1.</span> <span class="toc-text">Planner的核心使用场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-充分利用云服务资源"><span class="toc-number">1.3.</span> <span class="toc-text">3.充分利用云服务资源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件存储与检索"><span class="toc-number">1.3.1.</span> <span class="toc-text">文件存储与检索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多端同步文件"><span class="toc-number">1.3.2.</span> <span class="toc-text">多端同步文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#大文件与业务传输"><span class="toc-number">1.3.3.</span> <span class="toc-text">大文件与业务传输</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运筹帷幄，让职场游刃有余"><span class="toc-number">2.</span> <span class="toc-text">运筹帷幄，让职场游刃有余</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#🧭-一、职责边界管理类-一分钱一分事"><span class="toc-number">2.0.1.</span> <span class="toc-text">🧭 一、职责边界管理类(一分钱一分事)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#🗣️-二、沟通与协作类（清晰高效）"><span class="toc-number">2.0.2.</span> <span class="toc-text">🗣️ 二、沟通与协作类（清晰高效）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#📊-三、汇报与影响力类-凸显价值"><span class="toc-number">2.0.3.</span> <span class="toc-text">📊 三、汇报与影响力类(凸显价值)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#🛡️-四、自我保护与节奏控制类-稳健输出"><span class="toc-number">2.0.4.</span> <span class="toc-text">🛡️ 四、自我保护与节奏控制类(稳健输出)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#💡-五、策略与心态类-职场智慧"><span class="toc-number">2.0.5.</span> <span class="toc-text">💡 五、策略与心态类(职场智慧)</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#自我沉思"><span class="toc-number">3.</span> <span class="toc-text">自我沉思</span></a></li>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工具介绍"><span class="toc-number">1.</span> <span class="toc-text">工具介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-AI与流程图"><span class="toc-number">1.1.</span> <span class="toc-text">1.AI与流程图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#从自然语言到专业图表"><span class="toc-number">1.1.1.</span> <span class="toc-text">从自然语言到专业图表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Microsoft-Planner-协作"><span class="toc-number">1.2.</span> <span class="toc-text">2.Microsoft Planner 协作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Planner的核心使用场景"><span class="toc-number">1.2.1.</span> <span class="toc-text">Planner的核心使用场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-充分利用云服务资源"><span class="toc-number">1.3.</span> <span class="toc-text">3.充分利用云服务资源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件存储与检索"><span class="toc-number">1.3.1.</span> <span class="toc-text">文件存储与检索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#大厂官方的AI"><span class="toc-number">1.3.2.</span> <span class="toc-text">大厂官方的AI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多端同步文件"><span class="toc-number">1.3.3.</span> <span class="toc-text">多端同步文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#大文件与业务传输"><span class="toc-number">1.3.4.</span> <span class="toc-text">大文件与业务传输</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运筹帷幄，让职场游刃有余"><span class="toc-number">2.</span> <span class="toc-text">运筹帷幄，让职场游刃有余</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#🧭-一、职责边界管理类-一分钱一分事"><span class="toc-number">2.0.1.</span> <span class="toc-text">🧭 一、职责边界管理类(一分钱一分事)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#🗣️-二、沟通与协作类（清晰高效）"><span class="toc-number">2.0.2.</span> <span class="toc-text">🗣️ 二、沟通与协作类（清晰高效）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#📊-三、汇报与影响力类-凸显价值"><span class="toc-number">2.0.3.</span> <span class="toc-text">📊 三、汇报与影响力类(凸显价值)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#🛡️-四、自我保护与节奏控制类-稳健输出"><span class="toc-number">2.0.4.</span> <span class="toc-text">🛡️ 四、自我保护与节奏控制类(稳健输出)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#💡-五、策略与心态类-职场智慧"><span class="toc-number">2.0.5.</span> <span class="toc-text">💡 五、策略与心态类(职场智慧)</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#自我沉思"><span class="toc-number">3.</span> <span class="toc-text">自我沉思</span></a></li>
                     </div>
                 </span>
             </div>
@@ -577,6 +660,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">云平台</a>
               </li>
              
@@ -593,10 +684,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -605,19 +692,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">

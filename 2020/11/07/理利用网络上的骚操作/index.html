@@ -3,6 +3,85 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
+  <!-- 密码验证保护 -->
+  <script>
+    (function() {
+      // 如果当前在验证页面，不执行检查
+      if (window.location.pathname === '/auth.html') {
+        console.log('[Auth] 当前在验证页面，跳过检查');
+        return;
+      }
+      
+      console.log('[Auth] 开始验证...');
+      
+      // 获取token
+      var _0xauth = localStorage.getItem('_auth_tk') || 
+                   sessionStorage.getItem('_auth_tk');
+      
+      // 如果前两个都没有，再从cookie获取
+      if (!_0xauth) {
+        var cookieMatch = document.cookie.split('; ').find(function(row) { 
+          return row.startsWith('_auth_tk='); 
+        });
+        if (cookieMatch) {
+          _0xauth = cookieMatch.split('=')[1];
+        }
+      }
+      
+      console.log('[Auth] Token:', _0xauth ? '已找到' : '未找到');
+      
+      if (!_0xauth) {
+        console.log('[Auth] Token不存在，跳转到验证页面');
+        window.location.href = '/auth.html';
+        return;
+      }
+      
+      try {
+        var decoded = atob(_0xauth);
+
+        if (decoded.indexOf('::verified::') === -1) {
+          console.log('[Auth] Token无效（未包含verified标记），跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+
+        var parts = decoded.split('::');
+        if (parts.length < 3 || parts[1] !== 'verified') {
+          console.log('[Auth] Token结构异常，跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+        var timestamp = parseInt(parts[0]);
+        var now = new Date().getTime();
+        var age = now - timestamp;
+
+        if (isNaN(timestamp)) {
+          console.log('[Auth] Token时间戳无效，跳转到验证页面');
+          window.location.href = '/auth.html';
+          return;
+        }
+        
+        console.log('[Auth] Token时间戳:', timestamp);
+        console.log('[Auth] 当前时间:', now);
+        console.log('[Auth] Token年龄(小时):', (age / 3600000).toFixed(2));
+        
+        if (age >= 86400000) {
+          console.log('[Auth] Token已过期，清除并跳转到验证页面');
+          localStorage.removeItem('_auth_tk');
+          sessionStorage.removeItem('_auth_tk');
+          document.cookie = '_auth_tk=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+          window.location.href = '/auth.html';
+        } else {
+          console.log('[Auth] 验证通过，允许访问');
+        }
+      } catch(e) {
+        console.log('[Auth] Token解析失败:', e.message);
+        window.location.href = '/auth.html';
+      }
+    })();
+  </script>
+  
+  
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
@@ -26,10 +105,11 @@
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/09/60e65c83181e672d.png">
 <meta property="og:image" content="https://s31.aconvert.com/convert/p3r68-cdx67/91snv-h0bln.gif">
 <meta property="og:image" content="https://s1.ax1x.com/2020/09/22/wqvHzR.png">
-<meta property="og:image" content="https://camo.githubusercontent.com/4acd26be36d4a5ed14bb69567cf5ea483df51aa6/68747470733a2f2f692e6962622e636f2f6a3562354373522f332e706e67">
-<meta property="og:image" content="https://lh3.googleusercontent.com/proxy/3t6yDyIIVlIqop5MsRAg7PFk0MFHff4is-lVBBwlm4ubtzHDONYafPWEWCw8weLw9xUm1i-rqBCzj7iSJIItlbsypIcYJ6GtYv8PS86EOgxOGhgs1dWjgxDg2L_X0IUJRgNt">
-<meta property="og:image" content="http://nginxwebui.oss-cn-beijing.aliyuncs.com/img/conf.jpeg">
-<meta property="og:image" content="https://jupyter.org/assets/labpreview.png">
+<meta property="og:image" content="https://camo.githubusercontent.com/48dff742edcb193c0637c0f6a48f40120fd99c1f1151105bcadb7ba0338aee38/68747470733a2f2f692e6962622e636f2f6a3562354373522f332e706e67">
+<meta property="og:image" content="https://raw.githubusercontent.com/myxiaoshen/mypic/main/gather-proxy-3.jpg">
+<meta property="og:image" content="http://www.nginxwebui.cn/img/server.jpeg">
+<meta property="og:image" content="https://jupyter.org/assets/homepage/labpreview.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20251104194738854.png">
 <meta property="og:image" content="https://github.com/HMBSbige/NatTypeTester/blob/master/pic/1.png">
 <meta property="og:image" content="https://www.zerotier.com/wp-content/uploads/2020/08/zerotier_logo_black.png">
 <meta property="og:image" content="https://files.catbox.moe/19t2gg.png">
@@ -41,9 +121,9 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/1715840511643.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20240614163917366.png">
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2024/05/15/5910f8ca70c6e6d4.jpg">
-<meta property="og:image" content="https://camo.githubusercontent.com/5d721213478039a9dfad7207978bd54523bf9069558f4b0ed754d4e933818275/68747470733a2f2f63646e2e6e6c61726b2e636f6d2f79757175652f302f323032312f706e672f3135393235392f313633313638373537393138342d61323630333232302d393030392d343234302d393730392d3736623530336665383137342e706e673f782d6f73732d70726f636573733d696d616765253246726573697a65253243775f313530342532436c696d69745f30">
+<meta property="og:image" content="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027153652966.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-156857018d33b9a936bf2dcc8da6fe49_720w.jpg?source=1940ef5c">
-<meta property="og:updated_time" content="2025-10-25T09:44:28.255Z">
+<meta property="og:updated_time" content="2025-11-10T11:04:49.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="合理利用网络上的骚操作👍">
 <meta name="twitter:description" content="免流目前只有中国电信、中国联通还能免流，移动只有很少一部分地区还可以免还需要有定向原wap已限速（20kb）。 本地tinyproxy系列。个人喜欢用核心因为它省电基于底层转发快，推荐LLTables它完美支持最新版本的安卓系统，JJ、终极防跳、zjl等经过个人测试会断流。本地免流又分为 2种伪装方式。我打包了互联网上常见的模式以及LLTables防跳（因tiny已经停更可以用最新的CLNC完美支">
@@ -263,7 +343,7 @@
 <p>圣子免流原理解释(现在流行用cns):<br>假设原请求为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONNECT 123.com:443 HTTP/1.1</span><br><span class="line">Host: 123.com</span><br></pre></td></tr></table></figure></p>
 <p>修改后的请求为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONNECT 免流网址:443 HTTP/1.1</span><br><span class="line">host: 123.com:443</span><br></pre></td></tr></table></figure></p>
 <p>   如果这个请求不用圣子IP而是用联通移动电信的正常网关（10.0.0.17210.0.0.200）的话<br>网关就会直接访问免流网址而不是正常的123.com这就导致上不了网。<br>   然而用圣子网关的话，由于圣子网关在有host的情况下无视CONNECT行的免流网址，然后直接去访问Host行的网址，这样一来既可以上网，又把CONNECT行给伪装了，于是就免了,其实原理和http部分差不多，不过免HTTP比https容易多了。</p>
-<h6 id="服务端搭建"><a href="#服务端搭建" class="headerlink" title="服务端搭建"></a>服务端搭建</h6><p>V2ray:<br>1.先在服务器下载<a href="https://share.weiyun.com/QPki9o6z" target="_blank" rel="noopener">服务端</a>和<a href="https://share.weiyun.com/HioAgP0v" target="_blank" rel="noopener">服务器客户端-64</a>并解压。<br>2.打开v2ray客户端新建一个vmess服务器，然后右键导出config.json配置文件。<br><img src="https://s1.ax1x.com/2020/09/22/wL357V.png" alt=""><br>3.覆盖服务端里面的json文件。并启动wv2ray,搞定<br><img src="https://s1.ax1x.com/2020/09/22/wL3400.png" alt=""></p>
+<h6 id="服务端搭建"><a href="#服务端搭建" class="headerlink" title="服务端搭建"></a>服务端搭建</h6><p>V2:<br>1.先在服务器下载<a href="https://share.weiyun.com/QPki9o6z" target="_blank" rel="noopener">服务端</a>和<a href="https://share.weiyun.com/HioAgP0v" target="_blank" rel="noopener">服务器客户端-64</a>并解压。<br>2.打开v2ray客户端新建一个vmess服务器，然后右键导出config.json配置文件。<br><img src="https://s1.ax1x.com/2020/09/22/wL357V.png" alt=""><br>3.覆盖服务端里面的json文件。并启动wv2ray,搞定<br><img src="https://s1.ax1x.com/2020/09/22/wL3400.png" alt=""></p>
 <p>圣子ip（http用tinyproxy，https用squid–或者用最简单的mproxy与CNS）：<br>http——对应的首头如下</p>
 <pre><code>http_first=&quot;[M] k.youku.com http://[H][U] [V]\r\nConnection: Keep-Alive\r\nHost: k.youku.com\r\n&quot;;
 </code></pre><p>https——对应的首头如下</p>
@@ -280,12 +360,16 @@
 <h5 id="socks链接监听脚本"><a href="#socks链接监听脚本" class="headerlink" title="socks链接监听脚本"></a>socks链接监听脚本</h5><p>做实验会遇到一些被waf等安全软件封锁ip的场景可以使用该小工具绕过ip检测，此脚本每次请求一个链接会随机获取ip-proxy.txt文件里的一个ip作为socks代理（推荐用socks5）。避免控制太输出太多无用信息已诠释日志，有需要二次开发的小伙伴可以自行输出日志记录功能。<br><img src="https://s31.aconvert.com/convert/p3r68-cdx67/91snv-h0bln.gif" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># from hutaow</span><br><span class="line">import sys</span><br><span class="line">import socket</span><br><span class="line">import logging</span><br><span class="line">import threading</span><br><span class="line">import random</span><br><span class="line">local_ip = &apos;0.0.0.0&apos;</span><br><span class="line">local_port = 520</span><br><span class="line">PKT_BUFF_SIZE = 2048</span><br><span class="line">logger = logging.getLogger(&quot;代理日志&quot;)</span><br><span class="line">formatter = logging.Formatter(&apos;%(name)-12s %(asctime)s %(levelname)-8s %(lineno)-4d %(message)s&apos;, &apos;%Y %b %d %a %H:%M:%S&apos;,)</span><br><span class="line">stream_handler = logging.StreamHandler(sys.stderr)</span><br><span class="line">stream_handler.setFormatter(formatter)</span><br><span class="line"># logger.addHandler(stream_handler)</span><br><span class="line"># logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line">def tcp_mapping_worker(conn_receiver, conn_sender):</span><br><span class="line">    while True:</span><br><span class="line">        try:</span><br><span class="line">            data = conn_receiver.recv(PKT_BUFF_SIZE)</span><br><span class="line">        except Exception:</span><br><span class="line">            logger.debug(&apos;连接已关闭.&apos;)</span><br><span class="line">            break</span><br><span class="line">        if not data:</span><br><span class="line">            logger.info(&apos;没有收到更多数据.&apos;)</span><br><span class="line">            break</span><br><span class="line">        try:</span><br><span class="line">            conn_sender.sendall(data)</span><br><span class="line">        except Exception:</span><br><span class="line">            logger.error(&apos;发送数据失败。&apos;)</span><br><span class="line">            break</span><br><span class="line">        logger.info(&apos;Mapping &gt; %s -&gt; %s &gt; %d bytes.&apos; % (conn_receiver.getpeername(), conn_sender.getpeername(), len(data)))</span><br><span class="line"></span><br><span class="line">   ##关闭tcp线程和封装包线程,</span><br><span class="line">    conn_receiver.close()</span><br><span class="line">    conn_sender.close()</span><br><span class="line">    return</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def tcp_mapping_request(local_conn, remote_ip, remote_port):</span><br><span class="line"></span><br><span class="line">    while True:</span><br><span class="line">        remote_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">        try:</span><br><span class="line">            #重连时间</span><br><span class="line">            remote_conn.settimeout(3)</span><br><span class="line">            remote_conn.connect((remote_ip, remote_port))</span><br><span class="line">        except Exception:</span><br><span class="line">            logger.error(&apos;关闭链接&apos;)</span><br><span class="line">            continue</span><br><span class="line">        threading.Thread(target=tcp_mapping_worker, args=(local_conn, remote_conn)).start()</span><br><span class="line">        threading.Thread(target=tcp_mapping_worker, args=(remote_conn, local_conn)).start()</span><br><span class="line">        return</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">##从ips文本里面取代理</span><br><span class="line">def Loadips():</span><br><span class="line">    ip_list = []</span><br><span class="line">    ip = [&apos;ip&apos;,&apos;port&apos;]</span><br><span class="line">    with open(&apos;ip-proxy.txt&apos;) as ips:</span><br><span class="line">        lines = ips.readlines()</span><br><span class="line">    for line in lines:</span><br><span class="line">        ip[0],ip[1] = line.strip().split(&quot;:&quot;)</span><br><span class="line">        ip[1] = eval(ip[1])</span><br><span class="line">        nip = tuple(ip)</span><br><span class="line">        ip_list.append(nip)</span><br><span class="line">    return ip_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###获取ip并打开socks监听接口吧一个随机ip值传入socke，封装好参数返回给tcp_mapping_request</span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    a =  Loadips()</span><br><span class="line">    local_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">    local_server.bind((local_ip, local_port))</span><br><span class="line">    local_server.listen(5)</span><br><span class="line">    logger.debug(&apos;启动了监听端口服务&gt;&apos; + local_ip + &apos;:&apos; + str(local_port) + &apos; ...&apos;)</span><br><span class="line">    while True:</span><br><span class="line">        try:</span><br><span class="line">            (local_conn, local_addr) = local_server.accept()</span><br><span class="line">            proxyip = random.choice(a)</span><br><span class="line">            prip = proxyip[0]</span><br><span class="line">            prpo= proxyip[1]</span><br><span class="line">        except KeyboardInterrupt:</span><br><span class="line">            local_server.close()</span><br><span class="line">            logger.debug(&apos;监听端口以停止.&apos;)</span><br><span class="line">            break</span><br><span class="line">        threading.Thread(target=tcp_mapping_request, args=(local_conn, prip, prpo)).start()</span><br><span class="line">        # logger.debug(&apos;收到来自客户端的请求  %s:%d.&apos; % local_addr)</span><br></pre></td></tr></table></figure></p>
 <h5 id="软件验证ip可用性"><a href="#软件验证ip可用性" class="headerlink" title="软件验证ip可用性"></a>软件验证ip可用性</h5><p><article class="markdown-body entry-content container-lg" itemprop="text"><ul><li><p><a href="https://checkerproxy.net/" rel="noopener" target="_blank">https://checkerproxy.net/</a></p><ul><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> 是否要开科学上网</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> 在线验证代理是否可用</li></ul></li><li><p>特色</p><ul><li><p>提供 http/https/socks5</p></li><li><p>支持筛选条件：多种</p></li><li><p>可直接复制全部代理ip:port</p></li></ul></li></ul></li></ul><br><ul><li><p><a href="http://spys.one/en/" rel="noopener" target="_blank">http://spys.one/en/</a></p><ul><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> 是否要开科学上网</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> 在线验证代理是否可用</li></ul></li><li><p>特色</p><ul><li><p>提供 http/https/socks5</p></li><li><p><strong>有谷歌云节点</strong></p></li><li><p>支持筛选条件：多种</p></li><li><p><a href="https://github.com/cyubuchen/Free_Proxy_Website/blob/master/GetProxyFromSPYSONE.py" target="_blank" rel="noopener"><strong>戳这里抓取500个代理(ip:port)</strong></a></p></li></ul></li></ul></li></ul><br><ul><li><p><a href="http://www.gatherproxy.com/zh" rel="noopener" target="_blank">http://www.gatherproxy.com/zh</a></p><ul><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> 是否要开科学上网</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> 在线验证代理是否可用</li></ul></li><li><p>特色</p><ul><li><p>提供 http/https/socks4/socks5</p></li><li><p><a href="http://www.gatherproxy.com/zh/proxychecker" rel="noopener" target="_blank"><strong>提供代理抓取和验证软件下载</strong></a>(windows)</p></li></ul></li></ul></li></ul><br><ul><li><p><a href="https://www.proxy-list.download/SOCKS5" rel="noopener" target="_blank">https://www.proxy-list.download/SOCKS5</a></p><ul><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> 是否要开科学上网</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> 在线验证代理是否可用</li></ul></li><li><p>特色</p><ul><li><p>提供 http/https/socks4/socks5</p></li><li><p>支持筛选条件：国家/地区</p></li><li><p><strong>提供 Proxy List API</strong></p></li><li><p>可直接下载代理txt文件，无需注册</p></li><li><p>可直接复制全部代理ip:port，无需注册</p></li></ul></li></ul></li></ul><br><ul><li><p><a href="https://premproxy.com/socks-list/" rel="noopener" target="_blank">https://premproxy.com/socks-list/</a></p><ul><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> 是否要开科学上网</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> 在线验证代理是否可用（单次最多验证50个）</li></ul></li><li><p>特色</p><ul><li><p>提供 http/socks4/socks5</p></li><li><p>支持筛选条件：多种</p></li><li><p>可直接复制当页代理ip:port，无需注册</p></li></ul></li></ul></li></ul><br><ul><li><p><a href="https://hidemyna.me/en/proxy-list/" rel="noopener" target="_blank">https://hidemyna.me/en/proxy-list/</a></p><ul><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> 是否要开科学上网</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> 在线验证代理是否可用（非会员单次最多验证100个）</li></ul></li><li><p>特色</p><ul><li><p>提供 http/https/socks4/socks5</p></li><li><p>支持筛选条件：多种</p></li><li><p>代理txt文件下载，需注册</p></li></ul></li></ul></li></ul><br><ul><li><p><a href="http://www.freeproxylists.net/zh/" rel="noopener" target="_blank">http://www.freeproxylists.net/zh/</a></p><ul><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> 是否要开科学上网</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> 在线验证代理是否可用</li></ul></li><li><p>特色</p><ul><li><p>提供 http/https</p></li><li><p>支持筛选条件：多种</p></li></ul></li></ul></li></ul><br><ul><li><p><a href="https://www.proxynova.com/proxy-server-list/" rel="noopener" target="_blank">https://www.proxynova.com/proxy-server-list/</a></p><ul><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> 是否要开科学上网</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> 在线验证代理是否可用</li></ul></li><li><p>特色</p><ul><li><p>提供 http</p></li><li><p>支持筛选条件：国家/地区  是否匿名</p></li><li><p><a href="https://www.proxynova.com/proxy-software/" rel="noopener" target="_blank"><strong>提供代理软件+代理抓取+代理验证软件下载</strong></a>(windows)</p></li></ul></li></ul></li></ul><br><ul><li><p><a href="https://www.socks-proxy.net" rel="noopener" target="_blank">https://www.socks-proxy.net</a></p><ul><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> 是否要开科学上网</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> 在线验证代理是否可用</li></ul></li><li><p>特色</p><ul><li><p>提供 http/https/socks4</p></li><li><p>支持筛选条件：多种</p></li><li><p><a href="https://github.com/cyubuchen/Free_Proxy_Website/blob/master/GetProxyFromSocks-proxy.py" target="_blank" rel="noopener"><strong>戳这获取代理(ip:port)</strong></a></p></li></ul></li></ul></li></ul><br><ul><li>…</li></ul><br></article></p>
 <h6 id="先使用Socks-Proxy-Checker"><a href="#先使用Socks-Proxy-Checker" class="headerlink" title="先使用Socks Proxy Checker"></a>先使用Socks Proxy Checker</h6><p>可以通过右键导入剪贴板批量提取出ip端口号格式如–127.0.0.1:9999,然后批量验证ip有效性。<br>大大节约了提取的时间非常好用的网页提取ip的软件。<br><img src="https://s1.ax1x.com/2020/09/22/wqvHzR.png" alt=""></p>
-<h6 id="在使用Unfx-Proxy-Checker测试延迟来提高ip的质量"><a href="#在使用Unfx-Proxy-Checker测试延迟来提高ip的质量" class="headerlink" title="在使用Unfx Proxy Checker测试延迟来提高ip的质量"></a>在使用Unfx Proxy Checker测试延迟来提高ip的质量</h6><p>UI很漂亮，操作也很简单不需要看太多英文也可以正常使用在github也是开源项目。<a href="https://github.com/assnctr/unfx-proxy-checker" target="_blank" rel="noopener">github地址</a><br><img src="https://camo.githubusercontent.com/4acd26be36d4a5ed14bb69567cf5ea483df51aa6/68747470733a2f2f692e6962622e636f2f6a3562354373522f332e706e67" alt=""></p>
-<h5 id="Gather-Proxy验证ip是否可过墙（可选）"><a href="#Gather-Proxy验证ip是否可过墙（可选）" class="headerlink" title="Gather Proxy验证ip是否可过墙（可选）"></a>Gather Proxy验证ip是否可过墙（可选）</h5><p>主要功能是对采集到的代理进行有效性验证，验证结果会滚屏显示出来。包括代理的存活情况、延迟值、国家、类型等等信息。<a href="https://www.lanzous.com/i44xxmb" target="_blank" rel="noopener">下载地址</a><br><img src="https://lh3.googleusercontent.com/proxy/3t6yDyIIVlIqop5MsRAg7PFk0MFHff4is-lVBBwlm4ubtzHDONYafPWEWCw8weLw9xUm1i-rqBCzj7iSJIItlbsypIcYJ6GtYv8PS86EOgxOGhgs1dWjgxDg2L_X0IUJRgNt" alt=""></p>
+<h6 id="在使用Unfx-Proxy-Checker测试延迟来提高ip的质量"><a href="#在使用Unfx-Proxy-Checker测试延迟来提高ip的质量" class="headerlink" title="在使用Unfx Proxy Checker测试延迟来提高ip的质量"></a>在使用Unfx Proxy Checker测试延迟来提高ip的质量</h6><p>UI很漂亮，操作也很简单不需要看太多英文也可以正常使用在github也是开源项目。<a href="https://github.com/assnctr/unfx-proxy-checker" target="_blank" rel="noopener">github地址</a><br><img src="https://camo.githubusercontent.com/48dff742edcb193c0637c0f6a48f40120fd99c1f1151105bcadb7ba0338aee38/68747470733a2f2f692e6962622e636f2f6a3562354373522f332e706e67" alt=""></p>
+<h5 id="Gather-Proxy验证ip是否可过墙（可选）"><a href="#Gather-Proxy验证ip是否可过墙（可选）" class="headerlink" title="Gather Proxy验证ip是否可过墙（可选）"></a>Gather Proxy验证ip是否可过墙（可选）</h5><p>主要功能是对采集到的代理进行有效性验证，验证结果会滚屏显示出来。包括代理的存活情况、延迟值、国家、类型等等信息。</p>
+<p><img src="https://raw.githubusercontent.com/myxiaoshen/mypic/main/gather-proxy-3.jpg" alt="img"></p>
 <h5 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h5><p>最后吧测试过后还存活并且延迟低的ip放入与py脚本同级目录的ip-proxy.txt中就可以自动切换ip了。ps:同样可以挂云上喔👍</p>
 <h4 id="云端服务"><a href="#云端服务" class="headerlink" title="云端服务"></a>云端服务</h4><p>网站这些广泛的互联网服务这里就不再叙述了，对于做安全的小伙伴可以搭如x-ray、awvs联动。AdGuard 搭dns、信息收集器、小爬虫，再用ftp（可用serv-u搭建）做一个文件服务器，通过web随时随地都可以进行管理。当然编程的小伙伴还可以用来搭建即时通讯服务mqtt和OTA升级服务器以及图床都是非常方便的选择。</p>
-<p>大名鼎鼎的nginxWebUI负载均衡和反向代理<br><img src="http://nginxwebui.oss-cn-beijing.aliyuncs.com/img/conf.jpeg" alt=""><br>用来学习编程还可以整一个在线版的ide：jupyterlab<br><img src="https://jupyter.org/assets/labpreview.png" alt=""><br>还有一些出国旅游的机场搭建，这方面中专玩法参考<a href="https://bulianglin.com/archives/ws.html" target="_blank" rel="noopener">不良林教程</a>：下面提供一些一键搭建的脚本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">bbr（tcp加速）:</span><br><span class="line">wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br><span class="line"></span><br><span class="line">v2ray（tcp） :</span><br><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br><span class="line"></span><br><span class="line">ssr（kcptun或tcp）:</span><br><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">kcptun（udp）:</span><br><span class="line">wget --no-check-certificate https://github.com/kuoruan/shell-scripts/raw/master/kcptun/kcptun.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bt:</span><br><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br><span class="line">bt磁盘分区：</span><br><span class="line">yum install wget -y &amp;&amp; wget -O auto_disk.sh http://download.bt.cn/tools/auto_disk.sh &amp;&amp; bash auto_disk.sh</span><br><span class="line"></span><br><span class="line">OneManager-php：https://github.com/qkqpttgf/OneManager-php</span><br><span class="line"></span><br><span class="line">aria2下载器：</span><br><span class="line">wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh</span><br></pre></td></tr></table></figure>
+<p>大名鼎鼎的nginxWebUI负载均衡和反向代理<br><img src="http://www.nginxwebui.cn/img/server.jpeg" alt=""><br>用来学习编程还可以整一个在线版的ide：jupyterlab<br><img src="https://jupyter.org/assets/homepage/labpreview.webp" alt=""></p>
+<p>轻量级beszel监控</p>
+<p><img src="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20251104194738854.png" alt="image-20251104194738854"></p>
+<p>还有一些出国旅游的机场搭建，这方面中专玩法参考<a href="https://bulianglin.com/archives/ws.html" target="_blank" rel="noopener">不良林教程</a>：下面提供一些一键搭建的脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">bbr（tcp加速）:</span><br><span class="line">wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br><span class="line"></span><br><span class="line">v2ray（tcp） :</span><br><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br><span class="line"></span><br><span class="line">ssr（kcptun或tcp）:</span><br><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span><br><span class="line"></span><br><span class="line">kcptun（udp）:</span><br><span class="line">wget --no-check-certificate https://github.com/kuoruan/shell-scripts/raw/master/kcptun/kcptun.sh</span><br><span class="line"></span><br><span class="line">bt:</span><br><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br><span class="line">bt磁盘分区：</span><br><span class="line">yum install wget -y &amp;&amp; wget -O auto_disk.sh http://download.bt.cn/tools/auto_disk.sh &amp;&amp; bash auto_disk.sh</span><br><span class="line"></span><br><span class="line">OneManager-php：https://github.com/qkqpttgf/OneManager-php</span><br><span class="line"></span><br><span class="line">aria2下载器：</span><br><span class="line">wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh</span><br></pre></td></tr></table></figure>
 <h4 id="局域网联机（pptp等自带协议也行）"><a href="#局域网联机（pptp等自带协议也行）" class="headerlink" title="局域网联机（pptp等自带协议也行）"></a>局域网联机（pptp等自带协议也行）</h4><p>测试当前网络的 NAT 工具<a href="https://github.com/HMBSbige/NatTypeTester/releases/" target="_blank" rel="noopener">NatTypeTester</a><br><img src="https://github.com/HMBSbige/NatTypeTester/blob/master/pic/1.png" alt=""><br>Full Cone NAT （完全圆锥型）:都允许与内网主机建立通信<br>Restricted Cone NAT （地址限制圆锥型）:非公网主机P的 M、S均无法访问内网主机<br>Port Restricted Cone NAT （端口限制圆锥型）:在受限圆锥型对IP有限制的基础上，继续增加对端口的限制还要细化是哪一个端口<br>Symmetric NAT (对称型)：与不同的公网主机通信时，内网的IP与端口都会为这一次的通信建立一个唯一映射<br><a href="https://www.zerotier.com/" target="_blank" rel="noopener">zerotier</a>：端-端-（云面板管理）端<br>需要共享内网网段，需要再云面板添加路由指向然后再跳板机上打开路由和路由转发和放行nat策略，windows同理。最后在移动电脑上设置一条静态路由确定内网指向就可以了。如需访路由器全设备需要在路由器上设置。<br><img src="https://www.zerotier.com/wp-content/uploads/2020/08/zerotier_logo_black.png" alt=""></p>
 <p><a href="https://bugxia.com/357.html" target="_blank" rel="noopener">EasyN2N</a>：端-端-（云服务器上一键搭建）端，这是目前最简单的服务器搭建方式当时安全性很差，短暂联机可以使用非常方便<br><img src="https://files.catbox.moe/19t2gg.png" alt=""></p>
 <p><a href="https://web.parsec.app/" target="_blank" rel="noopener">parsec</a>:刷新远程互动认知的一款产品，可以解决某些游戏只能本地游玩的问题，可以远程和小伙伴通过屏幕共享发送按键的方式一起玩双人单机游戏，延迟目前用的人挺多的没有刚开始快了但是速度还是勉强能玩，有需求可以支持开发者们一波。<br><img src="https://files.catbox.moe/l82eca.png" alt=""></p>
@@ -308,7 +392,7 @@
 <h4 id="AI密钥管理平台"><a href="#AI密钥管理平台" class="headerlink" title="AI密钥管理平台"></a>AI密钥管理平台</h4><p> OpenaiAI 大模型接口管理 &amp; 分发系统，支持很多种常见的大模型统一转换成openai的api格式用于处理，也可以当一个token网关管理费用也是不错的选择。 </p>
 <p><img src="https://s3.bmp.ovh/imgs/2024/05/15/5910f8ca70c6e6d4.jpg" alt=""></p>
 <h4 id="在线msf测试平台"><a href="#在线msf测试平台" class="headerlink" title="在线msf测试平台"></a>在线msf测试平台</h4><p>支持在浏览器中运行原生msfconsole,且支持多人协作，渗透测试工程师可以搭建着玩。</p>
-<p><img src="https://camo.githubusercontent.com/5d721213478039a9dfad7207978bd54523bf9069558f4b0ed754d4e933818275/68747470733a2f2f63646e2e6e6c61726b2e636f6d2f79757175652f302f323032312f706e672f3135393235392f313633313638373537393138342d61323630333232302d393030392d343234302d393730392d3736623530336665383137342e706e673f782d6f73732d70726f636573733d696d616765253246726573697a65253243775f313530342532436c696d69745f30" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20251027153652966.png" alt="image-20251027153652966"></p>
 <h4 id="软路由的妙用"><a href="#软路由的妙用" class="headerlink" title="软路由的妙用"></a>软路由的妙用</h4><p>软路由说白了就是一个服务器玩法自然多种多种多样，主要的是让他接管你的上网流量达到互联网上的的各种黑科技功能。搭建以及配置方面真没什么门槛，只要你认得汉字，都可以按照教程来，没人让你自己研究，网上的奶妈级教程多的很。教程方面直接看<a href="https://www.vediotalk.com/" target="_blank" rel="noopener">Vedio Talk</a>的博客。这类有云存储方面需求的可以上微软的开发者E5，通过某些开源项目可以搭建基于OneDrive的个人网盘一直续费到达一直免费用的效果具体教程访问<a href="https://qyi.io/archives/687.html" target="_blank" rel="noopener">E5续订</a><br>动态ip更新（家庭宽带路由）可以用网上的ddns或者<a href="https://github.com/zhangtory/WayHome" target="_blank" rel="noopener">WayHome</a>，ipv4公网打电话申请，v6需要通过域名转发，v4端口被禁用用端口转发解决或者再套一层dns转发(技术的本质是套娃)</p>
 <p>系统相关：插件用iede，路由管控用ikuai,有需要搭建家庭服务器的可以直接上kvm或者不想折腾养老的话exis也行，插件相关直接上图：<br><img src="https://pic4.zhimg.com/80/v2-156857018d33b9a936bf2dcc8da6fe49_720w.jpg?source=1940ef5c" alt=""></p>
 
@@ -561,6 +645,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">云平台</a>
               </li>
              
@@ -577,10 +669,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -589,19 +677,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
