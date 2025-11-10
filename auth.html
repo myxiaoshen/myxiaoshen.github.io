@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>访问验证 - 戏如烟云b16</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            /* 默认渐变背景 - 可以替换为图片 */
+            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+            background-image: url('https://tu.ltyuanfang.cn/api/fengjing.php');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        .auth-container {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            color: #667eea;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .logo p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #999;
+            user-select: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+
+        @keyframes slideOut {
+            to {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="auth-container">
+        <div class="logo">
+            <h1>🔐 访问验证</h1>
+            <p>请输入密码以继续访问</p>
+        </div>
+        
+        <form id="authForm" onsubmit="return false;">
+            <div class="input-group">
+                <label for="password">密码</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        placeholder="请输入访问密码"
+                        autocomplete="off"
+                        required
+                    />
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn" onclick="checkPassword()">
+                验证并进入
+            </button>
+            
+            <div class="error-message" id="errorMsg"></div>
+        </form>
+        
+        <div class="footer">
+            © 2025 戏如烟云b16 · 不写了开摆了！自行绕前端gift=H4sIAAAAAAAAAzXLsQqAMAxF0V+y2g4OHbRV8c0J4igIFXS2/Xxj0CHk5kDA3IARQKcBswElBzoGqI9BZpJ2snvxKG3VKBV1SvnrCjxbvf9+f5hr0BXF7Vq3eVvKvXfeP5plW6V4AAAA
+        </div>
+    </div>
+
+    <script>
+  
+
+     
+        function togglePassword() {
+            const input = document.getElementById('password');
+            const btn = document.querySelector('.toggle-password');
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                btn.textContent = '👁️';
+            }
+        }
+
+   
+        function _0x4e2a(_0x3f1b8c, _0x2d9e7a) {
+            const _0x1a2b3c = [];
+            for (let i = 0; i < _0x3f1b8c.length; i++) {
+                _0x1a2b3c.push(String.fromCharCode(_0x3f1b8c.charCodeAt(i) ^ _0x2d9e7a));
+            }
+            return _0x1a2b3c.join('');
+        }
+
+        function _0x7d3c(_0x5e8f) {
+            let _0x9a1c = '';
+            for (let i = 0; i < _0x5e8f.length; i++) {
+                _0x9a1c += ('0' + _0x5e8f.charCodeAt(i).toString(16)).slice(-2);
+            }
+            return _0x9a1c;
+        }
+
+        function _0x2f9b(_0x6c4d) {
+            let _0x8e2a = 0;
+            for (let i = 0; i < _0x6c4d.length; i++) {
+                _0x8e2a = ((_0x8e2a << 5) - _0x8e2a) + _0x6c4d.charCodeAt(i);
+                _0x8e2a = _0x8e2a & _0x8e2a;
+            }
+            return Math.abs(_0x8e2a).toString(36);
+        }
+
+        function _0x3d8f(_0x1e5c) {
+            const _0x7a9b = _0x7d3c(_0x1e5c);
+            const _0x4c2e = _0x2f9b(_0x7a9b);
+            return btoa(_0x4c2e + '::' + _0x7a9b);
+        }
+
+    
+        const _0x5f8d = 'cDJzYWVlOjo2ZTY5NjQ2NTczNjg2NTZlNjc3MjY5';
+        
+        function checkPassword() {
+            const input = document.getElementById('password');
+            const errorMsg = document.getElementById('errorMsg');
+            const password = input.value.trim();
+
+            if (!password) {
+                showError('请输入密码');
+                return false;
+            }
+
+           
+            const encrypted = _0x3d8f(password);
+      
+            if (encrypted === _0x5f8d) {
+           
+                const timestamp = new Date().getTime();
+                const token = btoa(timestamp + '::verified::' + _0x2f9b(password));
+                
+                console.log('token:', token);
+          
+                localStorage.setItem('_auth_tk', token);
+                sessionStorage.setItem('_auth_tk', token);
+                document.cookie = '_auth_tk=' + token + '; path=/; max-age=86400; SameSite=Strict';
+                
+                console.log('Token:');
+                console.log('  - localStorage:', localStorage.getItem('_auth_tk'));
+                console.log('  - sessionStorage:', sessionStorage.getItem('_auth_tk'));
+                console.log('  - cookie:', document.cookie);
+                
+                
+                document.querySelector('.auth-container').style.animation = 'slideOut 0.5s ease-in';
+                
+              
+                setTimeout(function() {
+                    console.log('going...');
+                
+                    window.location.replace('/');
+                }, 1000);
+            } else {
+                showError('密码错误，请重试');
+                input.value = '';
+                input.focus();
+            }
+            return false;
+        }
+
+        function showError(message) {
+            const errorMsg = document.getElementById('errorMsg');
+            errorMsg.textContent = message;
+            errorMsg.style.display = 'block';
+            setTimeout(() => {
+                errorMsg.style.display = 'none';
+            }, 3000);
+        }
+
+  
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // 防止表单默认提交
+        document.getElementById('authForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            checkPassword();
+        });
+
+  
+        (function checkAuth() {
+            const token = localStorage.getItem('_auth_tk') || 
+                         sessionStorage.getItem('_auth_tk') ||
+                         (document.cookie.split('; ').find(function(row) { 
+                           return row.startsWith('_auth_tk='); 
+                         }) || '').split('=')[1];
+            
+            if (token && token.indexOf('verified') > -1) {
+                try {
+                    const decoded = atob(token);
+                    const parts = decoded.split('::');
+                    const timestamp = parseInt(parts[0]);
+            
+                    if (new Date().getTime() - timestamp < 86400000) {
+                        window.location.href = '/';
+                    }
+                } catch(e) {
+                    // Token无效,继续显示验证页面
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
