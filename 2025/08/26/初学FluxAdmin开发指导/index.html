@@ -110,7 +110,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250825185039097.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250825184947076.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250826180108439.png">
-<meta property="og:updated_time" content="2025-10-27T08:35:43.117Z">
+<meta property="og:updated_time" content="2025-11-11T04:07:26.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初学FluxAdmin开发指导">
 <meta name="twitter:description" content="前言💡最近闲着无聊逛github发现一个基于FastApi的开发框架FluxPanel虽然这玩意儿是基于ruoyi-vue-python开发的但轮子上面造轮子应该会更牛逼吧，下面我就已一个初学者的身份带大家入门FluxPanel。带你一步步从零开始，安装环境、了解架构让你能够让这个框架用于学习。  ps:其他的开源项目同理的思路大家多变通,入门了还是要有自己检索资料与学习的能力。也要多用ai之">
@@ -508,7 +508,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 等待页面完全加载后再执行</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 验证码加载函数</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">loadCaptcha</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        axios.get(<span class="string">'http://127.0.0.1:9099/captchaImage'</span>)</span><br><span class="line">            .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">const</span> captchaImg = <span class="built_in">document</span>.getElementById(<span class="string">'captchaImg'</span>);</span><br><span class="line">                captchaImg.src = <span class="string">'data:image/png;base64,'</span> + response.data.img;</span><br><span class="line">                captchaImg.setAttribute(<span class="string">'data-uuid'</span>, response.data.uuid);</span><br><span class="line">            &#125;)</span><br><span class="line">            .catch(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">document</span>.getElementById(<span class="string">'captchaImg'</span>).src = <span class="string">''</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 页面加载时获取验证码</span></span><br><span class="line">    loadCaptcha();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 验证码图片点击刷新</span></span><br><span class="line">    <span class="keyword">const</span> captchaImg = <span class="built_in">document</span>.getElementById(<span class="string">'captchaImg'</span>);</span><br><span class="line">    <span class="keyword">if</span> (captchaImg) &#123;</span><br><span class="line">        captchaImg.onclick = loadCaptcha;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 表单提交事件</span></span><br><span class="line">    <span class="keyword">const</span> form = <span class="built_in">document</span>.querySelector(<span class="string">'.account-form'</span>);</span><br><span class="line">    <span class="keyword">if</span> (form) &#123;</span><br><span class="line">        form.addEventListener(<span class="string">'submit'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">            e.preventDefault();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">const</span> username = <span class="built_in">document</span>.getElementById(<span class="string">'floatingInput'</span>).value;</span><br><span class="line">            <span class="keyword">const</span> password = <span class="built_in">document</span>.getElementById(<span class="string">'floatingPassword'</span>).value;</span><br><span class="line">            <span class="keyword">const</span> code = <span class="built_in">document</span>.getElementById(<span class="string">'captchaInput'</span>).value;</span><br><span class="line">            <span class="keyword">const</span> uuid = <span class="built_in">document</span>.getElementById(<span class="string">'captchaImg'</span>).getAttribute(<span class="string">'data-uuid'</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 验证必填项</span></span><br><span class="line">            <span class="keyword">if</span> (!username || !password || !code) &#123;</span><br><span class="line">                alert(<span class="string">'请填写完整的登录信息'</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">const</span> params = <span class="keyword">new</span> URLSearchParams();</span><br><span class="line">            params.append(<span class="string">'grant_type'</span>, <span class="string">'password'</span>);</span><br><span class="line">            params.append(<span class="string">'username'</span>, username);</span><br><span class="line">            params.append(<span class="string">'password'</span>, password); <span class="comment">// 直接使用明文密码，不加密</span></span><br><span class="line">            params.append(<span class="string">'code'</span>, code);</span><br><span class="line">            params.append(<span class="string">'uuid'</span>, uuid);</span><br><span class="line"></span><br><span class="line">            axios.post(<span class="string">'http://127.0.0.1:9099/login'</span>, params, &#123;</span><br><span class="line">                headers: &#123;</span><br><span class="line">                    <span class="string">'Content-Type'</span>: <span class="string">'application/x-www-form-urlencoded'</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">const</span> data = response.data;</span><br><span class="line">                <span class="keyword">if</span> (data.token) &#123;</span><br><span class="line">                    <span class="comment">// 保存token和其他用户信息</span></span><br><span class="line">                    localStorage.setItem(<span class="string">'access_token'</span>, data.access_token);</span><br><span class="line">                    <span class="keyword">if</span> (data.user_info) &#123;</span><br><span class="line">                        localStorage.setItem(<span class="string">'user_info'</span>, <span class="built_in">JSON</span>.stringify(data.user_info));</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (data.username) &#123;</span><br><span class="line">                        localStorage.setItem(<span class="string">'username'</span>, data.username);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    alert(<span class="string">'登录成功'</span>);</span><br><span class="line">                    <span class="comment">// 跳转到author页面</span></span><br><span class="line">                    <span class="built_in">window</span>.location.href = <span class="string">'author.html'</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    alert(<span class="string">'登录失败：未获取到访问令牌'</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.error(<span class="string">'登录错误:'</span>, error);</span><br><span class="line">                alert(<span class="string">'登录失败: '</span> + (error.response?.data?.msg || error.response?.data?.detail || error.message));</span><br><span class="line">                loadCaptcha(); <span class="comment">// 刷新验证码</span></span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>运行F12测试可以看到已经成功完成了鉴权</p>
 <p><img src="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250826180108439.png" alt="image-20250826180108439"></p>
-<p>上述代码理解含义就行，大家有这个思路就行。后期多通过与ai对话也能够很快的写出上述逻辑。GET、PUT等那些也是同样的道理通过ajax，没有什么是一把俊不能解决的！ai工具日常笔者用的github copilot（agnet模式必要时使用mcp介入）+cli（结构梳理与排错）+openspec（规范驱动开发）</p>
+<p>上述代码理解含义就行，大家有这个思路就行。后期多通过与ai对话也能够很快的写出上述逻辑。GET、PUT等那些也是同样的道理通过ajax，没有什么是一把俊不能解决的！ai工具日常笔者用的github copilot（agnet模式必要时使用mcp介入）+cli（结构梳理与排错）+openspec（规范驱动开发）。</p>
 <p>⭐总之一个简单的流程就是这样，以后有需求就可以通过网上找寻开源项目通过ai分析再自己理解项目的运行方式与编码的位置就可以二开了，觉得前端麻烦的也可以用市面上的低代码框架如：PagePlug、<strong><a href="https://refine.dev/" target="_blank" rel="noopener">Refine</a></strong>。现在这个时代都是站到ai与前辈们的肩膀上写代码了已经大大降低了开发门槛只要思维到位就可以发挥自己的创作，一起code起来叭。</p>
 
       
@@ -760,6 +760,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -768,19 +772,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云平台</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+                <a href="javascript:void(0)" class="js-tag color4">云平台</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -792,11 +788,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">极客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">无线电</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -808,15 +812,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
