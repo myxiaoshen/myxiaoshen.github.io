@@ -417,7 +417,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ![image-20250826180108439](https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250826180108439.png)
 
-上述代码理解含义就行，大家有这个思路就行。后期多通过与ai对话也能够很快的写出上述逻辑。GET、PUT等那些也是同样的道理通过ajax，没有什么是一把俊不能解决的！ai工具日常笔者用的github copilot（agnet模式必要时使用mcp介入）+cli（结构梳理与排错）+openspec（规范驱动开发）
+上述代码理解含义就行，大家有这个思路就行。后期多通过与ai对话也能够很快的写出上述逻辑。GET、PUT等那些也是同样的道理通过ajax，没有什么是一把俊不能解决的！ai工具日常笔者用的github copilot（agnet模式必要时使用mcp介入）+cli（结构梳理与排错）+openspec（规范驱动开发）。
 
 ⭐总之一个简单的流程就是这样，以后有需求就可以通过网上找寻开源项目通过ai分析再自己理解项目的运行方式与编码的位置就可以二开了，觉得前端麻烦的也可以用市面上的低代码框架如：PagePlug、**[Refine](https://refine.dev/)**。现在这个时代都是站到ai与前辈们的肩膀上写代码了已经大大降低了开发门槛只要思维到位就可以发挥自己的创作，一起code起来叭。
 
