@@ -196,7 +196,7 @@
             <p>请输入密码以继续访问</p>
         </div>
         
-        <form id="authForm" onsubmit="return false;">
+        <form id="authForm">
             <div class="input-group">
                 <label for="password">密码</label>
                 <div class="input-wrapper">
@@ -207,11 +207,11 @@
                         autocomplete="off"
                         required
                     />
-                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                    <span class="toggle-password" id="togglePassword">👁️</span>
                 </div>
             </div>
             
-            <button type="submit" class="submit-btn" onclick="checkPassword()">
+            <button type="submit" class="submit-btn" id="authSubmit">
                 验证并进入
             </button>
             
@@ -225,147 +225,8 @@
         </div>
     </div>
 
-    <script>
-  
+    <script src="/js/auth-locker.js"></script>
+    <script src="/js/auth.js"></script>
 
-     
-        function togglePassword() {
-            const input = document.getElementById('password');
-            const btn = document.querySelector('.toggle-password');
-            if (input.type === 'password') {
-                input.type = 'text';
-                btn.textContent = '🙈';
-            } else {
-                input.type = 'password';
-                btn.textContent = '👁️';
-            }
-        }
-
-   
-        function _0x4e2a(_0x3f1b8c, _0x2d9e7a) {
-            const _0x1a2b3c = [];
-            for (let i = 0; i < _0x3f1b8c.length; i++) {
-                _0x1a2b3c.push(String.fromCharCode(_0x3f1b8c.charCodeAt(i) ^ _0x2d9e7a));
-            }
-            return _0x1a2b3c.join('');
-        }
-
-        function _0x7d3c(_0x5e8f) {
-            let _0x9a1c = '';
-            for (let i = 0; i < _0x5e8f.length; i++) {
-                _0x9a1c += ('0' + _0x5e8f.charCodeAt(i).toString(16)).slice(-2);
-            }
-            return _0x9a1c;
-        }
-
-        function _0x2f9b(_0x6c4d) {
-            let _0x8e2a = 0;
-            for (let i = 0; i < _0x6c4d.length; i++) {
-                _0x8e2a = ((_0x8e2a << 5) - _0x8e2a) + _0x6c4d.charCodeAt(i);
-                _0x8e2a = _0x8e2a & _0x8e2a;
-            }
-            return Math.abs(_0x8e2a).toString(36);
-        }
-
-        function _0x3d8f(_0x1e5c) {
-            const _0x7a9b = _0x7d3c(_0x1e5c);
-            const _0x4c2e = _0x2f9b(_0x7a9b);
-            return btoa(_0x4c2e + '::' + _0x7a9b);
-        }
-
-    
-        const _0x5f8d = 'cDJzYWVlOjo2ZTY5NjQ2NTczNjg2NTZlNjc3MjY5';
-        
-        function checkPassword() {
-            const input = document.getElementById('password');
-            const errorMsg = document.getElementById('errorMsg');
-            const password = input.value.trim();
-
-            if (!password) {
-                showError('请输入密码');
-                return false;
-            }
-
-           
-            const encrypted = _0x3d8f(password);
-      
-            if (encrypted === _0x5f8d) {
-           
-                const timestamp = new Date().getTime();
-                const token = btoa(timestamp + '::verified::' + _0x2f9b(password));
-                
-                console.log('token:', token);
-          
-                localStorage.setItem('_auth_tk', token);
-                sessionStorage.setItem('_auth_tk', token);
-                document.cookie = '_auth_tk=' + token + '; path=/; max-age=86400; SameSite=Strict';
-                
-                console.log('Token:');
-                console.log('  - localStorage:', localStorage.getItem('_auth_tk'));
-                console.log('  - sessionStorage:', sessionStorage.getItem('_auth_tk'));
-                console.log('  - cookie:', document.cookie);
-                
-                
-                document.querySelector('.auth-container').style.animation = 'slideOut 0.5s ease-in';
-                
-              
-                setTimeout(function() {
-                    console.log('going...');
-                
-                    window.location.replace('/');
-                }, 1000);
-            } else {
-                showError('密码错误，请重试');
-                input.value = '';
-                input.focus();
-            }
-            return false;
-        }
-
-        function showError(message) {
-            const errorMsg = document.getElementById('errorMsg');
-            errorMsg.textContent = message;
-            errorMsg.style.display = 'block';
-            setTimeout(() => {
-                errorMsg.style.display = 'none';
-            }, 3000);
-        }
-
-  
-        document.getElementById('password').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkPassword();
-            }
-        });
-
-        // 防止表单默认提交
-        document.getElementById('authForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            checkPassword();
-        });
-
-  
-        (function checkAuth() {
-            const token = localStorage.getItem('_auth_tk') || 
-                         sessionStorage.getItem('_auth_tk') ||
-                         (document.cookie.split('; ').find(function(row) { 
-                           return row.startsWith('_auth_tk='); 
-                         }) || '').split('=')[1];
-            
-            if (token && token.indexOf('verified') > -1) {
-                try {
-                    const decoded = atob(token);
-                    const parts = decoded.split('::');
-                    const timestamp = parseInt(parts[0]);
-            
-                    if (new Date().getTime() - timestamp < 86400000) {
-                        window.location.href = '/';
-                    }
-                } catch(e) {
-                    // Token无效,继续显示验证页面
-                }
-            }
-        })();
-    </script>
 </body>
 </html>
