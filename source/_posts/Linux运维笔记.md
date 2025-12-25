@@ -995,6 +995,8 @@ ls /sys/class/scsi_device
 
 ```
 
+##### 磁盘扩容
+
 1.直接挂载磁盘扩容目录，使用查看新磁盘路径
 
 ```
@@ -1029,18 +1031,27 @@ d
 d  
 ```
 
-2.云容器与虚拟机xfs磁盘扩容
+2.云容器与虚拟机xfs&LVM磁盘扩容
+
+方法1
 
 ```sh
-fdisk /dev/sda #确认需要操作的磁盘，通常是带有空闲容量的磁盘
-d #先删除为成功挂载的分区
-2 #选择分区
-n #重新新建分区
-p #添加主分区
-2 #重新创建分区2然后一路回车
-w
-reboot
-xfs_growfs /dev/sda2  #同步到系统
+lsblk#查分区
+partprobe #识别新磁盘大小
+pvresize /dev/sda2 #扩展物理卷 (PV)
+lvextend -l +100%FREE /dev/mapper/rl-root  #扩容LV逻辑卷
+xfs_growfs /  #扩展到XFS更目录系统
+resize2fs /dev/mapper/rl-root #扩展到EXT4更目录系统
+```
+
+方法2*(推荐)
+
+```bash
+lsblk #查分区
+sgdisk -e /dev/sda #刷新主分区表
+parted /dev/sda resizepart 5 100% #将5号分区（LVM 分区）扩展这一步很关键扩展后需确保sda5的 SIZE 已经变成了 60G+
+pvresize /dev/sda5# 扩容 LVM 物理卷
+lvextend -l +100%FREE /dev/mapper/rl-root -r #扩容LV逻辑卷 扩展xfs和ext4和上面一致
 ```
 
 3.添加磁盘拓展LVM扩容
@@ -1055,7 +1066,7 @@ lvextend -l +100%FREE /dev/mapper/centos-root #卷组为使用的卷添加到lv�
 xfs_growfs /dev/mapper/centos-root #同步到系统
 ```
 
-6.也可使用GParted可视化扩容
+6.也可使用GParted或者安装webmin可视化扩容
 
 ```
 先删除swap分区->拖动Resize->创建swap->复制uuid->改/etc/fstab 

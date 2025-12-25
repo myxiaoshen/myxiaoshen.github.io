@@ -421,6 +421,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 上述demo理解含义就可以了，大家主要是要有这个思路。后期多通过与ai对话也能够很快的写出上述逻辑。GET、PUT等那些也是同样的道理通过ajax，没有什么是一把俊不能解决的！ai工具日常笔者用的github copilot（agnet模式必要时使用mcp介入）+cli（结构梳理与排错）+openspec（规范驱动开发）。
 
+#### Flutter入门笔记
+
+笔者电脑渣用的vscode开发环境:[蓝叠模拟器](https://www.bluestacks.com/?&lang=zh-hant)+[android SDK Tools](https://developer.android.com/studio?hl=zh-cn)配置变量全局调用
+
+```dart
+# --- HTTP Proxy Settings ---
+systemProp.http.proxyHost=127.0.0.1  
+systemProp.http.proxyPort=7890
+$env:HTTP_PROXY="http://127.0.0.1:7890"
+```
+
 全栈开发的路线流程可以使用当下比较流行的flutter进行多平台应用开发前端，后端使用fastapi起逻辑与REST的同时文档也一并解决了，这样可以达到快速开发的目的实现一套代码多端上线，对于个人小项目来说已经是比较全能的了。
 
 ![Designer](https://raw.githubusercontent.com/myxiaoshen/mypic/main/Designer.png)
@@ -441,6 +452,8 @@ document.addEventListener('DOMContentLoaded', function() {
 4. Token 返回给 Flutter，后续请求携带 Token。
 5. FastAPI 验证 Token → 授权访问 MySQL。
 6. 返回数据给 Flutter。
+
+
 
 ⭐总之一个简单的流程就是这样，以后有需求就可以通过网上找寻开源项目通过ai分析再自己理解项目的运行方式与编码的位置就可以二开了，现在这个时代都是站到ai与前辈们的肩膀上写代码了已经大大降低了开发门槛只要思维到位就可以发挥自己的创作，一起code起来叭。
 
