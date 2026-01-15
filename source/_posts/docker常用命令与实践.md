@@ -175,9 +175,14 @@ docker run -e http_proxy=http://myproxy:8080 -e https_proxy=http://myproxy:8080 
 
 13.更新容器：
 
-```shell
+- 这个命令会启动一个 Watchtower 容器，它每隔 24 小时检查所有运行中的容器是否有新镜像，如果有就拉取并更新，然后删除旧镜像，保持系统干净。
+
+```bash
+docker run -d --name watchtower --restart=always -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --interval 86400  
+```
+- 这个命令会临时运行 Watchtower，检查并更新所有运行中的容器，更新后清理旧镜像，并只重启那些被更新的容器。
+
+```bash
 docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower -cR 
 ```
-
-
 
