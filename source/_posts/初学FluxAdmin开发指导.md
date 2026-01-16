@@ -419,7 +419,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ## 经验总结
 
-上述demo理解含义就可以了，大家主要是要有这个思路。后期多通过与ai对话也能够很快的写出上述逻辑。GET、PUT等那些也是同样的道理通过ajax，没有什么是一把俊不能解决的！ai工具日常笔者用的github copilot（agnet模式必要时使用mcp介入）+cli（结构梳理与排错）+openspec（规范驱动开发）。
+上述demo理解含义就可以了，大家主要是要有这个思路。后期多通过与ai对话也能够很快的写出上述逻辑。GET、PUT等那些也是同样的道理通过ajax，没有什么是一把俊不能解决的！ai工具日常笔者用的vscode如下其他IDE类似方法。
+
+github copilot（和vscode完美契合有很多细节方面的ai引导帮助）+opencode（提供cli的全局ai助手配合omo与[cliproxyapipuls](https://github.com/router-for-me/CLIProxyAPIPlus)）+openspec-cn（规范驱动开发）。opencode[配置文件](https://pan.xlmy.net/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E5%BF%85%E5%A4%87/VibeCoding)可以参考。
+
+> cliproxyapipuls额外的OAuth参数如图![image-20260116135335697](https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20260116135335697.png)
+
+![cf3d9619461e7caf1f8d5974dd8ab0fc](https://raw.githubusercontent.com/myxiaoshen/mypic/main/cf3d9619461e7caf1f8d5974dd8ab0fc.png)
 
 #### Flutter入门笔记
 
