@@ -421,11 +421,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
 上述demo理解含义就可以了，大家主要是要有这个思路。后期多通过与ai对话也能够很快的写出上述逻辑。GET、PUT等那些也是同样的道理通过ajax，没有什么是一把俊不能解决的！ai工具日常笔者用的vscode如下其他IDE类似方法。
 
-github copilot（和vscode完美契合有很多细节方面的ai引导帮助）+opencode（提供cli的全局ai助手配合omo与[cliproxyapipuls](https://github.com/router-for-me/CLIProxyAPIPlus)）+openspec-cn（规范驱动开发）。opencode[配置文件](https://pan.xlmy.net/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E5%BF%85%E5%A4%87/VibeCoding)可以参考。
+github copilot（和vscode完美契合有很多细节方面的ai引导帮助）+opencode（提供cli的全局ai助手配合omo与[cliproxyapipuls](https://github.com/router-for-me/CLIProxyAPIPlus)）+openspec（规范驱动开发）。opencode[配置文件](https://pan.xlmy.net/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E5%BF%85%E5%A4%87/VibeCoding)可以参考也可以使用开源的[OCCM](https://github.com/icysaintdx/OpenCode-Config-Manager)管理器方便的配置。
 
 > cliproxyapipuls额外的OAuth参数如图![image-20260116135335697](https://raw.githubusercontent.com/myxiaoshen/mypic/main/image-20260116135335697.png)
 
 ![cf3d9619461e7caf1f8d5974dd8ab0fc](https://raw.githubusercontent.com/myxiaoshen/mypic/main/cf3d9619461e7caf1f8d5974dd8ab0fc.png)
+
+项目级规则文件通常都在项目文件夹下`*.md`如openspecd，skills在项目目录下的新建`.\opencode\skills`文件夹放入文件即可
+
+opencode常用配置路径
+
+```shell
+%UserProfile%\.config\opencode\opencode.json  #主配置文件 (opencode.json)
+%UserProfile%\.local\share\opencode\auth.json   #auth凭证位置
+%USERPROFILE%\.config\opencode\oh-my-opencode.jsonc  #OMO 插件配置文件 (oh-my-opencode.jsonc)
+%USERPROFILE%\.cache\opencode	#缓存目录
+```
+
+opencode常用命令
+
+```shell
+/model # 切换当前使用的 AI 模型或查看模型列表
+/seesion # 查看后台任务
+/new  #新建任务
+/timeline # 时间检查点与回退
+/init # 分析项目结构生成md文件配合openspec
+/share # 将当前对话导出为 Markdown 或生成分享链接
+opencode update # 在终端检查并更新工具到最新版本
+```
+
+
 
 #### Flutter入门笔记
 

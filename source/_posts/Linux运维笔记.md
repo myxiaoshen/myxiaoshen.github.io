@@ -740,10 +740,11 @@ server {
         proxy_pass http://B主机IP:830; 
         
         # 传递域名和真实IP给后端 (必须)
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+    	proxy_set_header X-Real-IP $remote_addr;
+    	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    	proxy_set_header REMOTE-HOST $remote_addr;
+   		proxy_set_header Upgrade $http_upgrade;
+    	proxy_set_header Connection $connection_upgrade;
 
         # --- 你要求的超时配置 ---
         proxy_connect_timeout 300s;
