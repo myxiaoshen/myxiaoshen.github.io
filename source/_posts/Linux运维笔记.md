@@ -105,11 +105,6 @@ iw wlan0 link #
 iw wlan0 scan | grep SSID #扫描
 iwconfig wlan0 essid  key  ##连接wifi或wpa_supplicant -B -i wlan0 -c <(wpa_passphrase "ssid""psk") 
 dhclient wlan0 #开启网卡dhcp服务
-##防火墙配置
-firewall-cmd --zone=public --add-port=3306/tcp --add-port=6379/tcp --permanent   # 添加放行指定单个端口
-firewall-cmd --reload       # 生效添加的要放行的端口
-firewall-cmd --list-ports   # 查看所有被放行的端口
-firewall-cmd --zone=public --remove-port=8081/tcp --permanent   # 取消指定一开放端口
 ```
 
 网络配置方面：
@@ -707,46 +702,61 @@ mount <nfs服务器>:/opt/ky01 /mnt/cdrom#客户端挂载nfs最后和上面一�
 
 #### nginx配置模板
 
-```yaml
+```nginx
+# =========================================================
+# Server 1: HTTP (80) -> 强制跳转 HTTPS
+# =========================================================
 server {
-    server_name pan.xlmy.net;
-    location / {
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $http_host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header Range $http_range;
-        proxy_set_header If-Range $http_if_range;
-        proxy_redirect off;
-        proxy_pass http://127.0.0.1:5246;   #映射
-        # 上传的最大文件尺寸
-        client_max_body_size 20000m;
-        proxy_read_timeout 300s;  # 接口返回需要较长的超时时间，自行调整
-    }
     listen 80;
+    server_name api.xlmy.net;
+
+
+    # 其他所有流量跳转到 HTTPS
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+# =========================================================
+# Server 2: HTTPS (443) -> 反向代理核心业务
+# =========================================================
+server {
     listen 443 ssl http2;
+    server_name api.xlmy.net;
+
+    # --- SSL 极简配置  ---
+    ssl_certificate     /www/server/panel/vhost/cert/api.xlmy.net/fullchain.pem;
+    ssl_certificate_key /www/server/panel/vhost/cert/api.xlmy.net/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
     
-     #SSL-START SSL相关配置，请勿删除或修改下一行带注释的404规则
-    #error_page 404/404.html;
-    ssl_certificate    /www/server/panel/vhost/cert/xlmy.net/fullchain.pem;
-    ssl_certificate_key    /www/server/panel/vhost/cert/xlmy.net/privkey.pem;
-    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
-    ssl_ciphers EECDH+CHACHA20:EECDH+CHACHA20-draft:2ECDH+AES128:RSA+AES128:EE2DH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
-    ssl_prefer_server_ciphers on;
-    ssl_session_cache shared:SSL:10m;
-    ssl_session_timeout 10m;
-    add_header Strict-Transport-Security "max-age=31536000";
-    # error_page 497  https://$host$request_uri;
-   error_page 497   http://127.0.0.1:5244;
-		#SSL-END
-    
-    #ERROR-PAGE-START  错误页配置，可以注释、删除或修改
-    #error_page 404 /404.html;
-    #error_page 502 /502.html;
-    #ERROR-PAGE-END
-        # 防止爬虫抓取
-    if ($http_user_agent ~* "360Spider|JikeSpider|Spider|spider|bot|Bot|2345Explorer|curl|wget|webZIP|qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot|NSPlayer|bingbot")
-    {
-      return 403;
+    # --- 日志配置 ---
+    access_log  /www/wwwlogs/api.xlmy.net.log;
+    error_log   /www/wwwlogs/api.xlmy.net.error.log;
+
+    # --- 反向代理配置 ---
+    location / {
+        # 修改这里：填写 B 主机的 IP 和端口
+        proxy_pass http://B主机IP:830; 
+        
+        # 传递域名和真实IP给后端 (必须)
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # --- 你要求的超时配置 ---
+        proxy_connect_timeout 300s;
+        proxy_send_timeout 300s;
+        proxy_read_timeout 300s;
+        
+        # 防止由后端错误导致的 Nginx 报错中断
+        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+    }
+
+    # --- 安全配置：禁止访问敏感文件 ---
+    location ~ ^/(\.user.ini|\.htaccess|\.git|\.env|\.svn|\.project|LICENSE|README.md) {
+        return 404;
     }
 }
 ```
@@ -792,7 +802,9 @@ top ##-p pid 筛选进程 M 内存占比排序、C显示路径、P cup占比排�
 
 iptables -I INPUT -s ***.***.***.*** -j DROP #封停一个ip
 
-iptables -I INPUT -p tcp --dport 6666 -j ACCEPT #开启某端口
+iptables -I INPUT -p tcp --dport 6666 -j ACCEPT #开启某端口 DROP禁用某个口
+
+iptables -I INPUT -p tcp --dport 6666 -s 40.83.76.6 -j ACCEPT #指定某个ip能访问6666端口
 
 traceroute -p 8080 192.168.10.11 #路由端口追踪
 
