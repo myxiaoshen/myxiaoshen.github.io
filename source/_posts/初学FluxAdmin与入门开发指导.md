@@ -1,4 +1,4 @@
-title: 初学FluxAdmin开发指导
+title: 初学FluxAdmin与入门开发指导
 tags:
 
   - 开发
@@ -450,7 +450,9 @@ opencode常用命令
 opencode update # 在终端检查并更新工具到最新版本
 ```
 
+后期编写文档和方案的时候可以多利用[notebook](https://notebooklm.google.com/)让AI总结并生成出方案，然后通过[PasteMD](https://github.com/RICHQAQ/PasteMD)粘贴到word里面整理细节非常的方便省区了makedown粘贴的格式问题。
 
+![](https://github.com/RICHQAQ/PasteMD/blob/main/docs/gif/demo.gif)
 
 #### Flutter入门笔记
 
