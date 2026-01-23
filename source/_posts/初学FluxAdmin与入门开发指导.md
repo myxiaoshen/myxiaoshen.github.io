@@ -24,7 +24,9 @@ date: 2025-08-26 18:24:00
 
 ## 安装与环境设置
 
-⚠️这里开发工具的安装[python](https://www.python.org/downloads/windows/)、[git](https://git-scm.com/downloads)、navicat premium、phpstudy、[pycharm](https://linux.do/t/topic/653353),pip的包可以通过[wingetui](https://wingetui.com/)去图形化管理，git版本控制命令不好记建议用[github desktop](https://github.com/robotze/GithubDesktopZhTool)这些就不再累述了，都是找到安装包下一步就行。这里重点说一下 [nvm](https://github.com/nvm-sh/nvm) 全程下一步就行（它是一个 nodejs 的版本管理工具。通过它可以安装和切换不同版本的 nodejs，解决 node 各种版本存在不兼容现象。），然后去添加环境变量![image-20250821144937045](https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250821144937045.png)
+⚠️这里开发工具的安装[python](https://www.python.org/downloads/windows/)、[git](https://git-scm.com/downloads)、navicat premium、phpstudy、[pycharm](https://linux.do/t/topic/653353),pip的包可以通过[wingetui](https://wingetui.com/)去图形化管理，git版本控制命令不好记建议用[github desktop](https://github.com/robotze/GithubDesktopZhTool)这些就不再累述了，都是找到安装包下一步就行。这里重点说一下 [nvm](https://github.com/nvm-sh/nvm) 全程下一步就行（它是一个 nodejs 的版本管理工具。通过它可以安装和切换不同版本的 nodejs，解决 node 各种版本存在不兼容现象。），然后去添加环境变量
+
+![image-20250821144937045](https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250821144937045.png)
 
 ```bash
 nvm ls available  #查可装版本
