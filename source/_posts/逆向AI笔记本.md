@@ -1,4 +1,17 @@
+title: 逆向AI笔记本
+author: Believe firmly
+tags:
+  - 逆向
+  - 经验
+categories: []
+date: 2026-01-23 11:41:00
+---
+> x64dbg的认识与基础参考前辈们的文章如下：[熟悉x64dbg调试器](https://www.cnblogs.com/LyShark/p/17531170.html)与看雪一谷米粒————[x64dbg入门系列](https://bbs.kanxue.com/thread-260226.htm)
+>
+> 插件仓库参考：[A-NEW](https://github.com/A-new/x64dbg_plugin)& [俺的整理](https://pan.xlmy.net/%E9%80%86%E5%90%91%E8%B5%84%E6%BA%90)
+
 ## 一、⚠️ 常用 API 断点速查
+
 ---
 
 ### 🛠️ 1. 弹窗与提示类 (寻找破解爆破点)
@@ -24,7 +37,7 @@
 | `lstrcmpA` / `W`        | **比较字符串**。真假注册码在这里“面对面”对比。     |
 | `lstrcmpiA` / `W`       | 同上，但不区分大小写。                             |
 | `strcmp` / `wcscmp`     | C语言标准库的字符串比较（不属于API，但很常用）。   |
-
+<!--more-->
 ### 📂 3. 文件操作 (补丁、Key文件、限制次数)
 **用途：** 软件启动时读取 License 文件，或者把试用次数写在文件里。
 
