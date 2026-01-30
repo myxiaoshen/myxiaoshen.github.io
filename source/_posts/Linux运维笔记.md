@@ -90,9 +90,19 @@ lsof -i:3128 ##查看3128端口
 ethtool <-S闪烁> <-s eth0 speed 1000 降级千兆>##查看网卡状态最后yes为启用用于判断服务器插入的网线接口与控制
 sysctl -w net.ipv4.ip_forward=1  #开启ip转发
 sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config  #关闭selinux
+##防火墙常用
 systemctl stop firewalld.service  #防火墙关闭
 systemctl disable  firewalld.service #防火墙自启关闭
-service iptables save #防火墙永久生效
+sudo iptables-save > /etc/iptables/rules.v4  #防火墙永久生效，查询iptables -L 清空iptables -F
+sudo iptables -P INPUT ACCEPT && sudo iptables -P FORWARD ACCEPT && sudo iptables -P OUTPUT ACCEPT #放行所有端口
+iptables -I INPUT -s ***.***.***.*** -j DROP #封停一个ip
+
+iptables -I INPUT -p tcp --dport 6666 -j ACCEPT #开启某端口 DROP禁用某个口
+
+iptables -I INPUT -p tcp --dport 6666 -s 40.83.76.6 -j ACCEPT #指定某个ip能访问6666端口
+
+traceroute -p 8080 192.168.10.11 #路由端口追踪
+
 # 修改/etc/sysctl.conf禁用某一个指定接口的IPv6(例如：eth0, lo)
 net.ipv6.conf.lo.disable_ipv6 = 1
 net.ipv6.conf.eth0.disable_ipv6 = 1
@@ -101,7 +111,7 @@ echo 1 > /proc/sys/net/ipv6/conf/default/disable_ipv6
 ##连接无线网卡
 iw dev  #查网卡
 ifconfig wlan0 up #激活或者用ip link set wlan0 up 
-iw wlan0 link #
+iw wlan0 link 
 iw wlan0 scan | grep SSID #扫描
 iwconfig wlan0 essid  key  ##连接wifi或wpa_supplicant -B -i wlan0 -c <(wpa_passphrase "ssid""psk") 
 dhclient wlan0 #开启网卡dhcp服务
@@ -360,6 +370,9 @@ mv daemon.json daemon.conf#重启报错去到/etc/docker下改名
 { "storage-driver": "devicemapper" }
 2. 修改 /etc/sysconfig/docker-storage
 DOCKER_STORAGE_OPTIONS="--selinux-enabled --log-driver=journald --signature-verification=false"
+#更新docker
+docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup
+docker-compose pull && docker-compose up -d
 ```
 ###### 0*4 开发环境技巧
 
@@ -787,6 +800,7 @@ iftop -i etho -P -F
 
 1.ps、top命令分析进程配合netstat与ss以及一些常用的网络调试
 详细用法[参考链接](https://www.cnblogs.com/hunttown/p/5452253.html)
+
 ```bash
 ps -ef 查找主进程 
 ps -aux --sort -pcpu,-pmem | grep name | head -n 10
@@ -800,14 +814,6 @@ netstat -tunlpa |grep 端口号 ##查看端口对应的程序
 ss -lspa##查看socks套字节信息后面+t查看tcp +u查看udp
 
 top ##-p pid 筛选进程 M 内存占比排序、C显示路径、P cup占比排序（默认）、N 以PID排序、q 退出
-
-iptables -I INPUT -s ***.***.***.*** -j DROP #封停一个ip
-
-iptables -I INPUT -p tcp --dport 6666 -j ACCEPT #开启某端口 DROP禁用某个口
-
-iptables -I INPUT -p tcp --dport 6666 -s 40.83.76.6 -j ACCEPT #指定某个ip能访问6666端口
-
-traceroute -p 8080 192.168.10.11 #路由端口追踪
 
 ```
 
