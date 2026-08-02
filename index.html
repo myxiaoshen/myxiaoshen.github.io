@@ -282,6 +282,235 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-个人AI轻量级编程方案" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/08/02/个人AI轻量级编程方案/">个人 AI 轻量级编程方案</a>
+    </h1>
+  
+
+        
+        <a href="/2026/08/02/个人AI轻量级编程方案/" class="archive-article-date">
+  	<time datetime="2026-08-02T01:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="个人-AI-轻量级编程方案"><a href="#个人-AI-轻量级编程方案" class="headerlink" title="个人 AI 轻量级编程方案"></a>个人 AI 轻量级编程方案</h1><blockquote>
+<p>ps：太久没更新了未来估计也不会写博客了这个时代网上和ai找信息就行确实不想折腾了摆烂时代开始了，人人都是天才程序员。希望大家token够用用不陨落！掰掰</p>
+</blockquote>
+<p>最近用了这套ai工作流做了一个<a href="https://github.com/myxiaoshen/payload-RDL" target="_blank" rel="noopener">Payload-RDL</a>学习项目，感觉还是很爽写着没啥压力（应该是太简单了对ai没啥压力吧QAQ）可以给大家参考。成品如图随便截几张。</p>
+        
+          <a class="article-more-a" href="/2026/08/02/个人AI轻量级编程方案/#more">阅读全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-逆向AI笔记本" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/01/23/逆向AI笔记本/">逆向AI笔记本</a>
+    </h1>
+  
+
+        
+        <a href="/2026/01/23/逆向AI笔记本/" class="archive-article-date">
+  	<time datetime="2026-01-23T03:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>x64dbg的认识与基础参考前辈们的文章如下：<a href="https://www.cnblogs.com/LyShark/p/17531170.html" target="_blank" rel="noopener">熟悉x64dbg调试器</a>与看雪一谷米粒————<a href="https://bbs.kanxue.com/thread-260226.htm" target="_blank" rel="noopener">x64dbg入门系列</a></p>
+<p>插件仓库参考：<a href="https://github.com/A-new/x64dbg_plugin" target="_blank" rel="noopener">A-NEW</a>&amp; <a href="https://pan.xlmy.net/%E9%80%86%E5%90%91%E8%B5%84%E6%BA%90" target="_blank" rel="noopener">俺的整理</a></p>
+</blockquote>
+<h2 id="一、⚠️-常用-API-断点速查"><a href="#一、⚠️-常用-API-断点速查" class="headerlink" title="一、⚠️ 常用 API 断点速查"></a>一、⚠️ 常用 API 断点速查</h2><hr>
+<h3 id="🛠️-1-弹窗与提示类-寻找破解爆破点"><a href="#🛠️-1-弹窗与提示类-寻找破解爆破点" class="headerlink" title="🛠️ 1. 弹窗与提示类 (寻找破解爆破点)"></a>🛠️ 1. 弹窗与提示类 (寻找破解爆破点)</h3><p><strong>用途：</strong> 当软件提示“注册失败”、“密码错误”时，拦截弹窗，向上回溯找判断逻辑。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">断点函数名</th>
+<th style="text-align:left">用途描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>MessageBoxA</code> / <code>W</code></td>
+<td style="text-align:left"><strong>最常用</strong>。拦截标准的“确定/取消”提示框。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MessageBoxExA</code> / <code>W</code></td>
+<td style="text-align:left">同上，带扩展功能的弹窗。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MessageBeep</code></td>
+<td style="text-align:left">拦截系统提示音（有时候软件报错只响一声不弹窗）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>DialogBoxParamA</code> / <code>W</code></td>
+<td style="text-align:left">拦截自定义的对话框窗口（如关于界面、登录窗口）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ShowWindow</code></td>
+<td style="text-align:left">拦截窗口的显示或隐藏（常用于去启动广告、显示隐藏功能）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>CreateWindowExA</code> / <code>W</code></td>
+<td style="text-align:left">拦截窗口创建瞬间（用于分析程序启动流程、去广告窗）。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🔑-2-输入框与字符串-抓取注册码-密码"><a href="#🔑-2-输入框与字符串-抓取注册码-密码" class="headerlink" title="🔑 2. 输入框与字符串 (抓取注册码/密码)"></a>🔑 2. 输入框与字符串 (抓取注册码/密码)</h3><p><strong>用途：</strong> 当你点击“登录”或“注册”时，程序会读取你输入的内容。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">断点函数名</th>
+<th style="text-align:left">用途描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>GetWindowTextA</code> / <code>W</code></td>
+<td style="text-align:left"><strong>最常用</strong>。获取一般窗口或输入框里的文字。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GetDlgItemTextA</code> / <code>W</code></td>
+<td style="text-align:left"><strong>常用</strong>。专门获取对话框（Dialog）中输入框的文字。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GetDlgItemInt</code></td>
+<td style="text-align:left">获取输入框里的<strong>数字</strong>（如输入数字验证码）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>lstrcmpA</code> / <code>W</code></td>
+<td style="text-align:left"><strong>比较字符串</strong>。真假注册码在这里“面对面”对比。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>lstrcmpiA</code> / <code>W</code></td>
+<td style="text-align:left">同上，但不区分大小写。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>strcmp</code> / <code>wcscmp</code></td>
+<td style="text-align:left">C语言标准库的字符串比较（不属于API，但很常用）。</td>
+</tr>
+</tbody>
+</table>
+        
+          <a class="article-more-a" href="/2026/01/23/逆向AI笔记本/#more">阅读全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">逆向</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-工欲善其事，心欲善其道" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -364,19 +593,19 @@
 
 
   
-    <article id="post-初学FluxAdmin开发指导" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-初学FluxAdmin与入门开发指导" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/08/26/初学FluxAdmin开发指导/">初学FluxAdmin开发指导</a>
+      <a class="article-title" href="/2025/08/26/初学FluxAdmin与入门开发指导/">初学FluxAdmin与入门开发指导</a>
     </h1>
   
 
         
-        <a href="/2025/08/26/初学FluxAdmin开发指导/" class="archive-article-date">
+        <a href="/2025/08/26/初学FluxAdmin与入门开发指导/" class="archive-article-date">
   	<time datetime="2025-08-26T10:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-26</time>
 </a>
         
@@ -392,10 +621,11 @@
 <p>👤FluxPanel是一个构建在强大的<a href="https://www.google.com/url?sa=E&amp;q=https%3A%2F%2Ffastapi.tiangolo.com%2F" target="_blank" rel="noopener">FastAPI</a>之上的现代化Web开发框架。FastAPI以快速的开发速度和易用性而闻名，它利用了现代Python的诸多特性，如类型提示和异步编程，接口也可以一并生成，使得开发过程既快速又愉快。可以把FastAPI想象成一辆性能炸裂的跑车引擎，而FluxPanel呢，就是我们为这台引擎量身打造的、装好了酷炫外壳、舒适座椅和智能导航的完整跑车！我们把那些新手一见就头疼的、重复性的“造轮子”工作都帮你干了。你只需要踩下油门，专注于你的创意和业务逻辑，剩下的交给FluxPanel就好。</p>
 <h2 id="FluxPanel简介"><a href="#FluxPanel简介" class="headerlink" title="FluxPanel简介"></a>FluxPanel简介</h2><p>懒得copy了放个图意思一下，大家可以直接去项目地址查看：<a href="https://github.com/Richard0403/FluxPanel" target="_blank" rel="noopener">https://github.com/Richard0403/FluxPanel</a></p>
 <p><img src="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250821141154847.png" alt="image-20250821141154847"></p>
-<h2 id="安装与环境设置"><a href="#安装与环境设置" class="headerlink" title="安装与环境设置"></a>安装与环境设置</h2><p>⚠️这里开发工具的安装<a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener">python</a>、<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git</a>、navicat premium、phpstudy、<a href="https://linux.do/t/topic/653353" target="_blank" rel="noopener">pycharm</a>,pip的包可以通过<a href="https://wingetui.com/" target="_blank" rel="noopener">wingetui</a>去图形化管理，git版本控制命令不好记建议用<a href="https://github.com/robotze/GithubDesktopZhTool" target="_blank" rel="noopener">github desktop</a>这些就不再累述了，都是找到安装包下一步就行。这里重点说一下 <a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">nvm</a> 全程下一步就行（它是一个 nodejs 的版本管理工具。通过它可以安装和切换不同版本的 nodejs，解决 node 各种版本存在不兼容现象。），然后去添加环境变量<img src="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250821144937045.png" alt="image-20250821144937045"></p>
+<h2 id="安装与环境设置"><a href="#安装与环境设置" class="headerlink" title="安装与环境设置"></a>安装与环境设置</h2><p>⚠️这里开发工具的安装<a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener">python</a>、<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git</a>、navicat premium、phpstudy、<a href="https://linux.do/t/topic/653353" target="_blank" rel="noopener">pycharm</a>,pip的包可以通过<a href="https://wingetui.com/" target="_blank" rel="noopener">wingetui</a>去图形化管理，git版本控制命令不好记建议用<a href="https://github.com/robotze/GithubDesktopZhTool" target="_blank" rel="noopener">github desktop</a>这些就不再累述了，都是找到安装包下一步就行。这里重点说一下 <a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">nvm</a> 全程下一步就行（它是一个 nodejs 的版本管理工具。通过它可以安装和切换不同版本的 nodejs，解决 node 各种版本存在不兼容现象。），然后去添加环境变量</p>
+<p><img src="https://cdn.jsdelivr.net/gh/myxiaoshen/mypic/img/image-20250821144937045.png" alt="image-20250821144937045"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nvm ls available  <span class="comment">#查可装版本</span></span><br><span class="line">nvm ls <span class="comment">#查以安装版本</span></span><br><span class="line">nvm use <span class="comment">#切换版本</span></span><br><span class="line"><span class="comment">#下载失败的话切换到国内镜像如下手动安装直接复制到nvm目录下改名就行</span></span><br><span class="line">nvm node_mirror https://npmmirror.com/mirrors/node/ </span><br><span class="line">nvm npm_mirror https://npmmirror.com/mirrors/npm/</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2025/08/26/初学FluxAdmin开发指导/#more">阅读全文 >></a>
+          <a class="article-more-a" href="/2025/08/26/初学FluxAdmin与入门开发指导/#more">阅读全文 >></a>
         
       
 
@@ -667,7 +897,7 @@
 <p>vnc图形化</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##先安装图形化桌面环境</span></span><br><span class="line">yum -y groupinstall <span class="string">"X Window System"</span></span><br><span class="line">yum groupinstall <span class="string">"Xfce"</span> <span class="comment">#apt install xfce4 xfce4-goodies</span></span><br><span class="line">yum install tigervnc-server <span class="comment">#apt:tigervnc-standalone-server</span></span><br><span class="line"><span class="comment">#vnc中文显示~/.vnc/xstartup</span></span><br><span class="line"><span class="built_in">export</span> LANG=zh_CN.UTF-8</span><br><span class="line"><span class="built_in">export</span> LANGUAGE=zh_CN:zh</span><br><span class="line"><span class="built_in">export</span> LC_ALL=zh_CN.UTF-8</span><br><span class="line">chmod +x ~/.vnc/xstartup</span><br></pre></td></tr></table></figure>
 <p>网络策略相关：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:3128 <span class="comment">##查看3128端口</span></span><br><span class="line">ethtool &lt;-S闪烁&gt; &lt;-s eth0 speed 1000 降级千兆&gt;<span class="comment">##查看网卡状态最后yes为启用用于判断服务器插入的网线接口与控制</span></span><br><span class="line">sysctl -w net.ipv4.ip_forward=1  <span class="comment">#开启ip转发</span></span><br><span class="line">sed -i <span class="string">"s/SELINUX=enforcing/SELINUX=disabled/g"</span> /etc/selinux/config  <span class="comment">#关闭selinux</span></span><br><span class="line">systemctl stop firewalld.service  <span class="comment">#防火墙关闭</span></span><br><span class="line">systemctl <span class="built_in">disable</span>  firewalld.service <span class="comment">#防火墙自启关闭</span></span><br><span class="line">service iptables save <span class="comment">#防火墙永久生效</span></span><br><span class="line"><span class="comment"># 修改/etc/sysctl.conf禁用某一个指定接口的IPv6(例如：eth0, lo)</span></span><br><span class="line">net.ipv6.conf.lo.disable_ipv6 = 1</span><br><span class="line">net.ipv6.conf.eth0.disable_ipv6 = 1</span><br><span class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</span><br><span class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/net/ipv6/conf/default/disable_ipv6</span><br><span class="line"><span class="comment">##连接无线网卡</span></span><br><span class="line">iw dev  <span class="comment">#查网卡</span></span><br><span class="line">ifconfig wlan0 up <span class="comment">#激活或者用ip link set wlan0 up </span></span><br><span class="line">iw wlan0 link <span class="comment">#</span></span><br><span class="line">iw wlan0 scan | grep SSID <span class="comment">#扫描</span></span><br><span class="line">iwconfig wlan0 essid  key  <span class="comment">##连接wifi或wpa_supplicant -B -i wlan0 -c &lt;(wpa_passphrase "ssid""psk") </span></span><br><span class="line">dhclient wlan0 <span class="comment">#开启网卡dhcp服务</span></span><br><span class="line"><span class="comment">##防火墙配置</span></span><br><span class="line">firewall-cmd --zone=public --add-port=3306/tcp --add-port=6379/tcp --permanent   <span class="comment"># 添加放行指定单个端口</span></span><br><span class="line">firewall-cmd --reload       <span class="comment"># 生效添加的要放行的端口</span></span><br><span class="line">firewall-cmd --list-ports   <span class="comment"># 查看所有被放行的端口</span></span><br><span class="line">firewall-cmd --zone=public --remove-port=8081/tcp --permanent   <span class="comment"># 取消指定一开放端口</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:3128 <span class="comment">##查看3128端口</span></span><br><span class="line">ethtool &lt;-S闪烁&gt; &lt;-s eth0 speed 1000 降级千兆&gt;<span class="comment">##查看网卡状态最后yes为启用用于判断服务器插入的网线接口与控制</span></span><br><span class="line">sysctl -w net.ipv4.ip_forward=1  <span class="comment">#开启ip转发</span></span><br><span class="line">sed -i <span class="string">"s/SELINUX=enforcing/SELINUX=disabled/g"</span> /etc/selinux/config  <span class="comment">#关闭selinux</span></span><br><span class="line"><span class="comment">##防火墙常用</span></span><br><span class="line">systemctl stop firewalld.service  <span class="comment">#防火墙关闭</span></span><br><span class="line">systemctl <span class="built_in">disable</span>  firewalld.service <span class="comment">#防火墙自启关闭</span></span><br><span class="line">sudo iptables-save &gt; /etc/iptables/rules.v4  <span class="comment">#防火墙永久生效，查询iptables -L 清空iptables -F</span></span><br><span class="line">sudo iptables -P INPUT ACCEPT &amp;&amp; sudo iptables -P FORWARD ACCEPT &amp;&amp; sudo iptables -P OUTPUT ACCEPT <span class="comment">#放行所有端口</span></span><br><span class="line">iptables -I INPUT -s ***.***.***.*** -j DROP <span class="comment">#封停一个ip</span></span><br><span class="line"></span><br><span class="line">iptables -I INPUT -p tcp --dport 6666 -j ACCEPT <span class="comment">#开启某端口 DROP禁用某个口</span></span><br><span class="line"></span><br><span class="line">iptables -I INPUT -p tcp --dport 6666 -s 40.83.76.6 -j ACCEPT <span class="comment">#指定某个ip能访问6666端口</span></span><br><span class="line"></span><br><span class="line">traceroute -p 8080 192.168.10.11 <span class="comment">#路由端口追踪</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改/etc/sysctl.conf禁用某一个指定接口的IPv6(例如：eth0, lo)</span></span><br><span class="line">net.ipv6.conf.lo.disable_ipv6 = 1</span><br><span class="line">net.ipv6.conf.eth0.disable_ipv6 = 1</span><br><span class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</span><br><span class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/net/ipv6/conf/default/disable_ipv6</span><br><span class="line"><span class="comment">##连接无线网卡</span></span><br><span class="line">iw dev  <span class="comment">#查网卡</span></span><br><span class="line">ifconfig wlan0 up <span class="comment">#激活或者用ip link set wlan0 up </span></span><br><span class="line">iw wlan0 link </span><br><span class="line">iw wlan0 scan | grep SSID <span class="comment">#扫描</span></span><br><span class="line">iwconfig wlan0 essid  key  <span class="comment">##连接wifi或wpa_supplicant -B -i wlan0 -c &lt;(wpa_passphrase "ssid""psk") </span></span><br><span class="line">dhclient wlan0 <span class="comment">#开启网卡dhcp服务</span></span><br></pre></td></tr></table></figure>
 <p>网络配置方面：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/network  <span class="comment">#主机名配置文件或hostnamectl set-hostname “主机名”</span></span><br><span class="line">ifconfig eth0  down   <span class="comment">#down关闭 up启动 ip route与route -n查网关</span></span><br><span class="line">service network restart<span class="comment">#重启网络ifconfig xx down-up开停网卡</span></span><br><span class="line">/etc/resolv.conf  <span class="comment">#dns目录</span></span><br><span class="line">/etc/hosts <span class="comment">#hosts目录</span></span><br><span class="line">hostnamectl <span class="built_in">set</span>-hostname 新主机名<span class="comment">#改主机名称</span></span><br><span class="line"><span class="comment">#操作网络服务</span></span><br><span class="line">systemctl stop NetworkManager</span><br><span class="line">service networking restart</span><br><span class="line">systemctl restart network</span><br><span class="line">route add –net 192.168.0.0/24 gw 172.16.7.3  <span class="comment">#添加一条路由delete删除</span></span><br></pre></td></tr></table></figure></p>
 <p>代理设置：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile   <span class="comment">#设置代理</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">'http://192.168.18.11:7891'</span>    </span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">'http://192.168.18.11:7891'</span>    </span><br><span class="line"><span class="built_in">export</span> http_proxy</span><br><span class="line"><span class="built_in">export</span> https_proxy </span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
@@ -897,166 +1127,6 @@
 
 
   
-    <article id="post-理利用网络上的骚操作" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/07/理利用网络上的骚操作/">合理利用网络上的骚操作👍</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/07/理利用网络上的骚操作/" class="archive-article-date">
-  	<time datetime="2020-11-07T02:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="免流"><a href="#免流" class="headerlink" title="免流"></a>免流</h4><p>目前只有中国电信、中国联通还能免流，移动只有很少一部分地区还可以免还需要有定向原wap已限速（20kb）。</p>
-<h5 id="本地"><a href="#本地" class="headerlink" title="本地"></a>本地</h5><p>tinyproxy系列。个人喜欢用核心因为它省电基于底层转发快，推荐LLTables它完美支持最新版本的安卓系统，JJ、终极防跳、zjl等经过个人测试会断流。本地免流又分为 2种伪装方式。我打包了互联网上常见的模式以及<a href="https://share.weiyun.com/zmnyRrU6" target="_blank" rel="noopener">LLTables</a>防跳（因tiny已经停更可以用最新的CLNC完美支持安卓11,防跳用龙哥的）。code文件夹下是个人修改和整理的模式。代理的传输问题部分udp流量可能会不稳定（如打游戏，通话，会用到udp协议的任何应用），会导致转发的时候会出现协议断开等问题，解决方法1是直接再防跳里面通过uid放行或放行协议，2是通过tinyproxy转发吧流量转发到socker5，可以使用gost转发流量，安装代码如下：<br></p>
-        
-          <a class="article-more-a" href="/2020/11/07/理利用网络上的骚操作/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-个人渗透技巧汇总笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/06/个人渗透技巧汇总笔记/">个人渗透技巧汇总笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/06/个人渗透技巧汇总笔记/" class="archive-article-date">
-  	<time datetime="2020-08-06T05:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>部分工具转到<a href="https://pan.xlmy.net/%E5%AE%89%E5%85%A8%E7%B1%BB/" target="_blank" rel="noopener">云盘</a>自取pwd:MThjMGVmYWQ2ZjE0MTdiZjg0ODM3OTQ1MThiZmY4YzE=</p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： <a href="https://myxiaoshen.github.io/2019/01/18/%E5%A4%A7%E6%95%B0%E6%8D%AE%E4%B8%8B%E4%BF%9D%E6%8A%A4%E8%87%AA%E5%B7%B1%E7%9A%84%E9%9A%90%E7%A7%81/" target="_blank" rel="noopener">点此跳转</a>网络靶场联系可以使用<a href="https://github.com/c0ny1/vulstudy" target="_blank" rel="noopener">Vulstudy</a>一键搭建12个靶场<br><img src="https://github.com/c0ny1/vulstudy/blob/master/doc/vulstudy.png" alt=""></p>
-<p>当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，心里一定要有点b数！小提示：在使用proxychains的时候，程序或者终端选项尽量不要设置任何协议的代理,否则可能会打乱这个代理回路出现网络错误。</p>
-<p><img src="https://files.catbox.moe/8nqspp.png" alt=""><br></p>
-        
-          <a class="article-more-a" href="/2020/08/06/个人渗透技巧汇总笔记/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">渗透测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1169,10 +1239,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云平台</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -1181,15 +1247,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">云平台</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1209,11 +1279,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1221,11 +1291,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">

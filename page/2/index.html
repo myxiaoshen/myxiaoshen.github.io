@@ -282,6 +282,166 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-理利用网络上的骚操作" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/07/理利用网络上的骚操作/">合理利用网络上的骚操作👍</a>
+    </h1>
+  
+
+        
+        <a href="/2020/11/07/理利用网络上的骚操作/" class="archive-article-date">
+  	<time datetime="2020-11-07T02:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="免流"><a href="#免流" class="headerlink" title="免流"></a>免流</h4><p>目前只有中国电信、中国联通还能免流，移动只有很少一部分地区还可以免还需要有定向原wap已限速（20kb）。</p>
+<h5 id="本地"><a href="#本地" class="headerlink" title="本地"></a>本地</h5><p>tinyproxy系列。个人喜欢用核心因为它省电基于底层转发快，推荐LLTables它完美支持最新版本的安卓系统，JJ、终极防跳、zjl等经过个人测试会断流。本地免流又分为 2种伪装方式。我打包了互联网上常见的模式以及<a href="https://share.weiyun.com/zmnyRrU6" target="_blank" rel="noopener">LLTables</a>防跳（因tiny已经停更可以用最新的CLNC完美支持安卓11,防跳用龙哥的）。code文件夹下是个人修改和整理的模式。代理的传输问题部分udp流量可能会不稳定（如打游戏，通话，会用到udp协议的任何应用），会导致转发的时候会出现协议断开等问题，解决方法1是直接再防跳里面通过uid放行或放行协议，2是通过tinyproxy转发吧流量转发到socker5，可以使用gost转发流量，安装代码如下：<br></p>
+        
+          <a class="article-more-a" href="/2020/11/07/理利用网络上的骚操作/#more">阅读全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-个人渗透技巧汇总笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/06/个人渗透技巧汇总笔记/">个人渗透技巧汇总笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/06/个人渗透技巧汇总笔记/" class="archive-article-date">
+  	<time datetime="2020-08-06T05:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>部分工具转到<a href="https://pan.xlmy.net/%E5%AE%89%E5%85%A8%E7%B1%BB/" target="_blank" rel="noopener">云盘</a>自取pwd:MThjMGVmYWQ2ZjE0MTdiZjg0ODM3OTQ1MThiZmY4YzE=</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>首先我们拿到一个站不能心急，凡事三思而行 跑得太快是会滑倒的。网络安全方面可以看看我的另一篇防范技巧： <a href="https://myxiaoshen.github.io/2019/01/18/%E5%A4%A7%E6%95%B0%E6%8D%AE%E4%B8%8B%E4%BF%9D%E6%8A%A4%E8%87%AA%E5%B7%B1%E7%9A%84%E9%9A%90%E7%A7%81/" target="_blank" rel="noopener">点此跳转</a>网络靶场联系可以使用<a href="https://github.com/c0ny1/vulstudy" target="_blank" rel="noopener">Vulstudy</a>一键搭建12个靶场<br><img src="https://github.com/c0ny1/vulstudy/blob/master/doc/vulstudy.png" alt=""></p>
+<p>当我们获得目标的时候不要急着用扫描器，这样会不仅会影响服务器的速度还会在对方的服务器日志生成大量的记录，什么站能扫什么站不能扫，心里一定要有点b数，不然可能等待的就是不一样的结果了。如果手工测试无果后再用代理手法扫描网站，必要的时候设置二级代理。当然！！！！什么站能扫什么站不能扫，心里一定要有点b数！小提示：在使用proxychains的时候，程序或者终端选项尽量不要设置任何协议的代理,否则可能会打乱这个代理回路出现网络错误。</p>
+<p><img src="https://files.catbox.moe/8nqspp.png" alt=""><br></p>
+        
+          <a class="article-more-a" href="/2020/08/06/个人渗透技巧汇总笔记/#more">阅读全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">渗透测试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-作战方案" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1041,166 +1201,6 @@
 
 
   
-    <article id="post-docker常用命令与实践" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/21/docker常用命令与实践/">docker常用命令与实践</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/21/docker常用命令与实践/" class="archive-article-date">
-  	<time datetime="2019-07-21T07:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。有了docker很多环境就不需要你配了，比如mysql，tomcat,redis等等。活用dockers可以让你再环境搭建中省下很多的事情<br>—————————————————————————————————————————<br>docker仓库&gt;镜像&gt;容器&gt;数据<br>docker命令速查：<a href="https://www.jianshu.com/p/2f97f61933b9" target="_blank" rel="noopener">https://www.jianshu.com/p/2f97f61933b9</a><br>docker入门到实践：<a href="https://yeasy.gitbooks.io/docker_practice/image/dockerfile/references.html" target="_blank" rel="noopener">https://yeasy.gitbooks.io/docker_practice/image/dockerfile/references.html</a><br>docker入门到实践：<a href="https://docs.docker.com/engine/reference/builder" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder</a><br>加速地址命令：</p>
-<pre><code>curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://4e70ba5d.m.daocloud.io
-</code></pre><p>docker手动修改配置加速：<br>编辑文件重启docker服务<br>/etc/docker/daemon.json</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    &quot;registry-mirrors&quot;:[&quot;https://almtd3fa.mirror.aliyuncs.com&quot;]      </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><p>1.启动一个容器并开启实时交互功能,并命名,进入shell终端（rename命名）</p>
-<pre><code>docker run －i－t --name &lt;name&gt;     /bin/bash //-d守护进程，-p指定端口映射，-P映射所有容器端口； -v 将目录挂载到本地 注：冒号&quot;:&quot;前面的目录是宿主机目录，后面的目录是容器内目录。-e传参配置环境参数； --link 链接容器
-</code></pre><p>2.查看容器进程与查看所有容器的ip地址</p>
-<pre><code> docker  ps －a -l  &lt;name&gt;
-
-docker inspect --format=&apos;{{.Name}} - {{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}&apos; $(docker ps -aq)
-</code></pre><p>3.重新启动已经stop的容器（-kall直接关闭容器）</p>
-<pre><code>docker start -i  &lt;name&gt;   
-</code></pre><p>4.删除容器</p>
-<pre><code>docker rm &lt;name&gt;
-</code></pre><p>5.ctrl+p carl+q 交互式容器转后台   </p>
-<pre><code>docker attach  &lt;iname&gt; //与该容器交互
-</code></pre>
-        
-          <a class="article-more-a" href="/2019/07/21/docker常用命令与实践/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-（转）ikuai配合华为三层实战" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/11/（转）ikuai配合华为三层实战/">（转）ikuai配合华为三层实战</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/11/（转）ikuai配合华为三层实战/" class="archive-article-date">
-  	<time datetime="2019-07-11T02:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div class="span10"><div class="tit"><h5 style="font-size:20px;">跨三层对接：爱快路由对接华为三层设备</h5><p>2019-01-22</p></div><div class="com" id="article_content">                            <p>        </p> <p></p><p style="text-align: left;"><strong><span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; font-size: 24px;">一、介绍</span></strong><br style="text-align: left;"></p><p style="text-align: left;"><span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; color: rgb(0, 0, 0);">在跨三层设备的环境下，路由获取三层设备下的MAC地址一般为三层设备wan口的MAC地址，针对这种情况，爱快推出了跨三层应用功能，主要解决获取三层下的MAC地址及web认证问题</span></p><p style="text-align: left;"><span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; color: rgb(0, 0, 0);">本文简单介绍下爱快与华为三层交换机之间连接后，具体需要怎么设置</span></p><p></p></div></div>
-        
-          <a class="article-more-a" href="/2019/07/11/（转）ikuai配合华为三层实战/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1313,10 +1313,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云平台</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -1325,15 +1321,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">云平台</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1353,11 +1353,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1365,11 +1365,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">

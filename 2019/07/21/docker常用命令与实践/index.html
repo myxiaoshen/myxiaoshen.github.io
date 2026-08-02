@@ -96,7 +96,7 @@
 <meta property="og:description" content="前言Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。有了docker很多环境就不需要你配了，比如mys">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://i.niupic.com/images/2020/10/06/8LNA.png">
-<meta property="og:updated_time" content="2025-10-25T09:34:49.390Z">
+<meta property="og:updated_time" content="2026-01-18T02:34:50.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker常用命令与实践">
 <meta name="twitter:description" content="前言Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。有了docker很多环境就不需要你配了，比如mys">
@@ -357,7 +357,14 @@ node docker //不设置网络
 <p>docker容器使用代理</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">###docker-compose</span></span><br><span class="line">args:</span><br><span class="line">  - http_proxy=http://proxy.com</span><br><span class="line">  - https_proxy=http://proxy.com</span><br><span class="line"><span class="comment">### Dockerfile </span></span><br><span class="line">ENV http_proxy http://myproxy:8080</span><br><span class="line">ENV https_proxy http://myproxy:8080</span><br><span class="line"><span class="comment">##docker</span></span><br><span class="line">docker run -e http_proxy=http://myproxy:8080 -e https_proxy=http://myproxy:8080 myimage</span><br></pre></td></tr></table></figure>
 <p>13.更新容器：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower -cR</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这个命令会启动一个 Watchtower 容器，它每隔 24 小时检查所有运行中的容器是否有新镜像，如果有就拉取并更新，然后删除旧镜像，保持系统干净。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name watchtower --restart=always -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --interval 86400</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这个命令会临时运行 Watchtower，检查并更新所有运行中的容器，更新后清理旧镜像，并只重启那些被更新的容器。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower -cR</span><br></pre></td></tr></table></figure>
 
       
 
@@ -604,10 +611,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云平台</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技术</a>
               </li>
              
@@ -616,15 +619,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">云平台</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">极客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,11 +651,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,11 +663,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color3">娱乐</a>
               </li>
              
               <li class="article-tag-list-item">
